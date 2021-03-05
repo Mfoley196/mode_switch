@@ -9,6 +9,7 @@ const InfoForm = (props) => {
       goToStage({type: 'instruction'});
       console.log(pNo);
   }
+  
   return (
     <form onSubmit={handleSubmit}>
       <label>
