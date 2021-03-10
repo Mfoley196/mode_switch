@@ -7,18 +7,18 @@ const InstructionsPage = (props) => {
     function handleClick(e) {
         e.preventDefault();
         setTlIndex(tlIndex + 1)
-        console.log(tlIndex)
-        console.log(tl[tlIndex+1][0])
-        goToStage({type: 'task'});
+        //console.log(tlIndex)
+        //console.log(tl[tlIndex+1][0])
+        //goToStage({type: 'task'});
     }
 
     //console.log(tlIndex)
     //console.log(tl[tlIndex])
 
-    // useEffect(() => {
-    //     goToStage({type: tl[tlIndex][0]});
+    useEffect(() => {
+        goToStage({type: tl[tlIndex][0]});
 
-    // }, [tlIndex, tl, goToStage]);
+    }, [tlIndex, tl, goToStage]);
 
     return (
         <div>
