@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react'
 
 const InstructionsPage = (props) => {
-    const {goToStage, tl, tlIndex, setTlIndex} = props
+    const {goToStage, goToNext} = props
     const testText = "blah blah text here"
 
     function handleClick(e) {
         e.preventDefault();
-        setTlIndex(tlIndex + 1)
+        //setTlIndex(tlIndex + 1).then()
+        goToNext()
         //console.log(tlIndex)
         //console.log(tl[tlIndex+1][0])
         //goToStage({type: 'task'});
@@ -15,10 +16,10 @@ const InstructionsPage = (props) => {
     //console.log(tlIndex)
     //console.log(tl[tlIndex])
 
-    useEffect(() => {
-        goToStage({type: tl[tlIndex][0]});
+    // useEffect(() => {
+    //     goToStage({type: tl[tlIndex][0]});
 
-    }, [tlIndex, tl, goToStage]);
+    // }, [tlIndex, tl, goToStage]);
 
     return (
         <div>

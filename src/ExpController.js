@@ -50,11 +50,17 @@ function ExpController() {
       setTlIndex(0)
     }
   },[pNo, data])
+
+  const goToNext = () => {
+    console.log(tlIndex)
+    setTlIndex(tlIndex => tlIndex + 1)
+    console.log(tlIndex)
+  }
   
 
-  return (((expStage === 'info') && <InfoForm goToStage={goToStage} pNo={pNo} setPNo ={setPNo} tl={tl} tlIndex={tlIndex} setTlIndex={setTlIndex}/>)
+  return (((expStage === 'info') && <InfoForm goToStage={goToStage} pNo={pNo} setPNo ={setPNo} goToNext={goToNext}/>)
     || ((expStage === 'task') && <TaskController goToStage={goToStage} tl={tl} tlIndex={tlIndex} setTlIndex={setTlIndex}/>)
-    || ((expStage === 'instruction') && <InstructionsPage goToStage={goToStage} tl={tl} tlIndex={tlIndex} setTlIndex={setTlIndex}/>)
+    || ((expStage === 'instruction') && <InstructionsPage goToStage={goToStage} goToNext={goToNext}/>)
     || ((expStage === 'error') && <ErrorPage goToStage={goToStage}/>)
     );
 }
