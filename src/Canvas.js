@@ -3,8 +3,8 @@ import useCanvas from './useCanvas'
 
 function drawCircle(ctx, x, y, radius, fill, targetOn) {
   // console.log(fill);
-  let rad = targetOn ? radius * 1.1 : radius
-  ctx.strokeStyle = targetOn ? "#FF0000" : fill;
+  let rad = targetOn ? radius * 1.2 : radius
+  ctx.strokeStyle = targetOn ? "#00EE00" : fill;
   ctx.lineWidth = 5;
 
   if (!targetOn) {
@@ -30,7 +30,7 @@ const Canvas = props => {
 
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-    ctx.fillStyle = '#00CC00';
+    ctx.fillStyle = '#000000';
     ctx.fillRect(0,0,window.innerWidth,window.innerHeight);
     //drawCircle(ctx, mouseX, mouseY, 15, "#FFFFFF");
 
@@ -40,9 +40,15 @@ const Canvas = props => {
       if (circles[i].dragOn) {
         circles[i].x = mouseX;
         circles[i].y = mouseY;
-        circles[i].fill = "#FF0000";
+        if (circleHitTest(circles[targetId].x, circles[targetId].y, circles[i].x, circles[i].y, circles[i].r)) {
+          circles[i].fill = "#00AA00";
+        } else {
+          circles[i].fill = "#FF0000";
+        }
       } else if (circles[i].isTarget) {
-        circles[i].fill = "#00CC00";
+        circles[i].fill = "#001100";
+      } else if (circles[i].isToken) {
+        circles[i].fill = "#CCCC00";
       } else {
         if (circles[i].mode === 'pen') {
           circles[i].fill = "#FFFF00";
@@ -55,10 +61,8 @@ const Canvas = props => {
       // console.log(i)
       // console.log(circles[i])
 
-      if (circles[i].isVisible) {
-        drawCircle(ctx, circles[i].x, circles[i].y, circles[i].r, circles[i].fill, circles[i].isTarget);
-      }
       
+      drawCircle(ctx, circles[i].x, circles[i].y, circles[i].r, circles[i].fill, circles[i].isTarget); 
     }
 
   }
@@ -75,10 +79,12 @@ const Canvas = props => {
   const pointerDownHandler = (e) => {
     e.preventDefault()
     console.log(e.pointerType + " down")
+    console.log(targetId)
     for (let i = 0; i < circles.length; i++){
         if (circleHitTest(e.clientX, e.clientY, circles[i].x, circles[i].y, circles[i].r)
             && e.pointerType === circles[i].mode
-            && !circles[i].isTarget) {
+            && !circles[i].isTarget
+            && circles[i].isToken) {
             setCircles(
               circles.map((circle) => {
                 return {
