@@ -38,10 +38,10 @@ timelines = {}
 
 for p in range(len(cond_matrix)):
     tl = []
-    #tl.append('info')
+    tl.append('info')
     for i in range(len(cond_matrix[p])):
         tl.append("instruction," + cond_matrix[p][i])
-        tl.append("training," + cond_matrix[p][i])
+        #tl.append("training," + cond_matrix[p][i])
         tl.append("task," + cond_matrix[p][i])
     timelines[p+1] = tl
 

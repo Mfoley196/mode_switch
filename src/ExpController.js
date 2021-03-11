@@ -1,18 +1,23 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useReducer} from 'react'
 import InfoForm from './InfoForm'
 import InstructionsPage from './InstructionsPage'
-import ErrorPage from './InstructionsPage'
+import ErrorPage from './ErrorPage'
 import TaskController from './TaskController'
+
 // let penColor = "#00FF00";
 // let mouseColor = "#00FFFF";
 
 function ExpController() {
-  const [expStage, goToStage] = React.useReducer(reducer, 'info');
+  //const [expStage, goToStage] = React.useReducer(reducer, 'info');
   const [data,setData]=useState([]);
-  const [tl, setTimeline] = useState([]);
-  const [tlIndex, setTlIndex] = useState(0);
+  //const [timeline, setTimeline] = useState([]);
+  //const [tlIndex, setTlIndex] = useState(0);
   //const [formSubmitted, setSubmit] = React.useState(false)
   const [pNo, setPNo] = useState(0);
+  const [{ timeline, timelineIndex, stage }, dispatch] = useReducer(
+    reducer,
+    { timeline: null, timelineIndex: -1, stage: ["info"] }
+  );
 
   const getData=()=>{
     fetch('timelines.json'
@@ -34,8 +39,8 @@ function ExpController() {
   }
 
   useEffect(()=>{
-    getData()
-  },[])
+    getData();
+  }, []);
 
   useEffect(()=>{
     console.log(pNo);
@@ -46,22 +51,23 @@ function ExpController() {
         l.push(data[pNo][i].split(","))
       }
       //console.log(l)
-      setTimeline(l)
-      setTlIndex(0)
+      //setTimeline(l)
+      dispatch({type: 'start', timeline: l})
+      //setTlIndex(0)
     }
-  },[pNo, data])
+  },[pNo, data]);
 
-  const goToNext = () => {
-    console.log(tlIndex)
-    setTlIndex(tlIndex => tlIndex + 1)
-    console.log(tlIndex)
-  }
+  // const goToNext = () => {
+  //   console.log(tlIndex)
+  //   setTlIndex(tlIndex => tlIndex + 1)
+  //   console.log(tlIndex)
+  // }
   
 
-  return (((expStage === 'info') && <InfoForm goToStage={goToStage} pNo={pNo} setPNo ={setPNo} goToNext={goToNext}/>)
-    || ((expStage === 'task') && <TaskController goToStage={goToStage} tl={tl} tlIndex={tlIndex} setTlIndex={setTlIndex}/>)
-    || ((expStage === 'instruction') && <InstructionsPage goToStage={goToStage} goToNext={goToNext}/>)
-    || ((expStage === 'error') && <ErrorPage goToStage={goToStage}/>)
+  return (((stage[0] === 'info') && <InfoForm setPNo ={setPNo} dispatch={dispatch} timeline={timeline}/>)
+    || ((stage[0] === 'task') && <TaskController  dispatch={dispatch} timeline={timeline} stage={stage}/>)
+    || ((stage[0] === 'instruction') && <InstructionsPage dispatch={dispatch} timeline={timeline} stage={stage}/>)
+    || ((stage[0] === 'error') && <ErrorPage />)
     );
 }
 
@@ -75,19 +81,40 @@ function ExpController() {
 // log init position of token, position of target in each trial
 
 
+// function reducer(state, action) {
+//   switch(action.type) {
+//     case 'info':
+//       return 'info';
+//     case 'instruction':
+//       return 'instruction';
+//     case 'task':
+//       return 'task';
+//     case 'training':
+//       return 'error';
+//     default:
+//       return 'error';
+//   }
+// }
+
 function reducer(state, action) {
   switch(action.type) {
-    case 'info':
-      return 'info';
-    case 'instruction':
-      return 'instruction';
-    case 'task':
-      return 'task';
-    case 'training':
-      return 'error';
+    case 'start':
+      return {
+        ...state,
+        timelineIndex: 0,
+        timeline: action.timeline,
+        stage: action.timeline[0]
+      };
+    case 'next':
+      if(state.timeline == null) throw new Error(`Timeline has not started yet.`)
+      console.log(action.timeline[state.timelineIndex + 1])
+      return {
+        ...state,
+        timelineIndex: state.timelineIndex + 1,
+        stage: action.timeline[state.timelineIndex + 1]
+      };
     default:
-      return 'error';
+      throw new Error(`Unknown action type: ${action.type}`);
   }
 }
-
 export default ExpController

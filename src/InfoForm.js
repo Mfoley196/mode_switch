@@ -1,16 +1,12 @@
 import React from 'react'
 
 const InfoForm = (props) => {
-  const {goToStage, pNo, setPNo, goToNext} = props
+  const {setPNo, dispatch, timeline} = props
   
   
   const handleSubmit = (evt) => {
       evt.preventDefault();
-      // console.log(tl)
-      // console.log(tlIndex)
-      //goToStage({type: tl[tlIndex][0]});
-      goToNext();
-      //advanceTl();
+      dispatch({type:"next", timeline:timeline})
   }
   
   return (

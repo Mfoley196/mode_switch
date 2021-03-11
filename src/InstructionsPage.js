@@ -1,16 +1,13 @@
 import React, {useEffect} from 'react'
 
 const InstructionsPage = (props) => {
-    const {goToStage, goToNext} = props
-    const testText = "blah blah text here"
+    const {goToStage, dispatch, stage, timeline} = props
+    const instructionText = `You will be switching between the ${stage[1]} and the ${stage[2]}.`
 
     function handleClick(e) {
+        console.log(stage)
         e.preventDefault();
-        //setTlIndex(tlIndex + 1).then()
-        goToNext()
-        //console.log(tlIndex)
-        //console.log(tl[tlIndex+1][0])
-        //goToStage({type: 'task'});
+        dispatch({type:"next", timeline:timeline})
     }
 
     //console.log(tlIndex)
@@ -23,8 +20,9 @@ const InstructionsPage = (props) => {
 
     return (
         <div>
-        <div>{testText}</div>
-        <input type="submit" value="Continue" onClick={handleClick}/>
+        <div>{instructionText}</div>
+        <div>{"Press \"Begin\" when you are ready to continue."}</div>
+        <input type="submit" value="Begin" onClick={handleClick}/>
         </div>
     );
     
