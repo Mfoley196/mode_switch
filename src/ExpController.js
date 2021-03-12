@@ -3,22 +3,17 @@ import InfoForm from './InfoForm';
 import InstructionsPage from './InstructionsPage';
 import ErrorPage from './ErrorPage';
 import TaskController from './TaskController';
-
-// let penColor = "#00FF00";
-// let mouseColor = "#00FFFF";
+import DataLogger from './DataLogger';
 
 function ExpController() {
-  //const [expStage, goToStage] = React.useReducer(reducer, 'info');
   const [data, setData] = useState([]);
-  //const [timeline, setTimeline] = useState([]);
-  //const [tlIndex, setTlIndex] = useState(0);
-  //const [formSubmitted, setSubmit] = React.useState(false)
   const [pNo, setPNo] = useState(0);
   const [{ timeline, timelineIndex, stage }, dispatch] = useReducer(reducer, {
     timeline: null,
     timelineIndex: -1,
     stage: ['info'],
   });
+  const [trialLog, setLog] = useState([]);
 
   const getData = () => {
     fetch('timelines.json', {
@@ -45,7 +40,7 @@ function ExpController() {
     console.log(pNo);
     console.log(data[pNo]);
     let l = [];
-    if (data !== undefined && pNo !== 0) {
+    if (data !== undefined && pNo !== 0 && data[pNo] !== undefined) {
       for (let i = 0; i < data[pNo].length; i++) {
         l.push(data[pNo][i].split(','));
       }
@@ -56,23 +51,28 @@ function ExpController() {
     }
   }, [pNo, data]);
 
-  // const goToNext = () => {
-  //   console.log(tlIndex)
-  //   setTlIndex(tlIndex => tlIndex + 1)
-  //   console.log(tlIndex)
-  // }
-
   return (
     (stage[0] === 'info' && (
-      <InfoForm setPNo={setPNo} dispatch={dispatch} timeline={timeline} />
+      <InfoForm
+        pNo={pNo}
+        setPNo={setPNo}
+        dispatch={dispatch}
+        timeline={timeline}
+      />
     )) ||
     (stage[0] === 'task' && (
-      <TaskController dispatch={dispatch} timeline={timeline} stage={stage} />
+      <TaskController
+        dispatch={dispatch}
+        timeline={timeline}
+        stage={stage}
+        setLog={setLog}
+      />
     )) ||
     (stage[0] === 'instruction' && (
       <InstructionsPage dispatch={dispatch} timeline={timeline} stage={stage} />
     )) ||
-    (stage[0] === 'error' && <ErrorPage />)
+    (stage[0] === 'error' && <ErrorPage pNo={pNo} trialLog={trialLog} />)
+    //<DataLogger />
   );
 }
 
@@ -84,21 +84,6 @@ function ExpController() {
 // log experiment events
 // log all input events (cursor, touch) - get xy position, pointer up pointer down
 // log init position of token, position of target in each trial
-
-// function reducer(state, action) {
-//   switch(action.type) {
-//     case 'info':
-//       return 'info';
-//     case 'instruction':
-//       return 'instruction';
-//     case 'task':
-//       return 'task';
-//     case 'training':
-//       return 'error';
-//     default:
-//       return 'error';
-//   }
-// }
 
 function reducer(state, action) {
   switch (action.type) {

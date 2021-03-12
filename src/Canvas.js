@@ -29,11 +29,19 @@ const Canvas = (props) => {
     currPathIndex,
     targetId,
     advanceTrial,
+    stage,
+    eventList,
+    setEventList,
     ...rest
   } = props;
 
   const [mouseX, setMouseX] = React.useState(0);
   const [mouseY, setMouseY] = React.useState(0);
+
+  const appendToEventList = (event) => {
+    //let eListCopy = eventList.slice();
+    setEventList((prevList) => [...prevList, event]);
+  };
 
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -41,9 +49,13 @@ const Canvas = (props) => {
     ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
     //drawCircle(ctx, mouseX, mouseY, 15, "#FFFFFF");
 
+    ctx.font = '40px Arial';
+    ctx.fillStyle = 'white';
+    ctx.fillText(capitalize(stage[1]) + ', ' + capitalize(stage[2]), 10, 40);
+    ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 80);
+
     //draw targets
     for (let i = 0; i < circles.length; i++) {
-      //console.log(circles[i])
       if (circles[i].dragOn) {
         circles[i].x = mouseX;
         circles[i].y = mouseY;
@@ -63,15 +75,17 @@ const Canvas = (props) => {
       } else if (circles[i].isTarget) {
         circles[i].fill = '#001100';
       } else if (circles[i].isToken) {
-        circles[i].fill = '#CCCC00';
-      } else {
         if (circles[i].mode === 'pen') {
           circles[i].fill = '#FFFF00';
         } else if (circles[i].mode === 'mouse') {
           circles[i].fill = '#00FFFF';
+        } else if (circles[i].mode === 'trackpad') {
+          circles[i].fill = '#FF00FF';
         } else {
-          circles[i].fill = '#FFFFFF';
+          circles[i].fill = '#CCCC00';
         }
+      } else {
+        circles[i].fill = '#FFFFFF';
       }
       // console.log(i)
       // console.log(circles[i])
@@ -94,12 +108,14 @@ const Canvas = (props) => {
     //console.log(e.pointerType + " " + e.clientX + " " + e.clientY)
     setMouseX(e.clientX);
     setMouseY(e.clientY);
+    //appendToEventList([Date.now(), "x:" + e.clientX +",y:" + e.clientY])
   };
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
     console.log(e.pointerType + ' down');
     console.log(targetId);
+    appendToEventList([Date.now(), e.pointerType + ' down']);
     for (let i = 0; i < circles.length; i++) {
       if (
         circleHitTest(
@@ -109,7 +125,8 @@ const Canvas = (props) => {
           circles[i].y,
           circles[i].r,
         ) &&
-        e.pointerType === circles[i].mode &&
+        (e.pointerType === circles[i].mode ||
+          (e.pointerType === 'mouse' && circles[i].mode === 'trackpad')) &&
         !circles[i].isTarget &&
         circles[i].isToken
       ) {
@@ -123,6 +140,7 @@ const Canvas = (props) => {
         );
         //circles[i].dragOn = true
         console.log('Hit ' + i);
+        appendToEventList([Date.now(), 'Hit Token ' + i]);
       }
     }
   };
@@ -130,11 +148,43 @@ const Canvas = (props) => {
   const mouseDownHandler = (e) => {
     e.preventDefault();
     console.log('MOUSE down from mouse handler');
+    console.log(targetId);
+
+    appendToEventList([Date.now(), 'mouse down']);
+    for (let i = 0; i < circles.length; i++) {
+      console.log(circles[i].id);
+      if (
+        circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+        ) &&
+        (circles[i].mode === 'mouse' || circles[i].mode === 'trackpad') &&
+        !circles[i].isTarget &&
+        circles[i].isToken
+      ) {
+        setCircles(
+          circles.map((circle) => {
+            return {
+              ...circle,
+              dragOn: circle.id === i,
+            };
+          }),
+        );
+        //circles[i].dragOn = true
+        console.log('Hit ' + i);
+        appendToEventList([Date.now(), 'Hit circle ' + i]);
+      }
+    }
   };
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
     console.log(e.pointerType + ' up');
+    appendToEventList([Date.now(), e.pointerType + ' up']);
+    console.log(eventList);
 
     for (let i = 0; i < circles.length; i++) {
       //console.log(i + " " + circles[i].dragOn)
@@ -147,7 +197,7 @@ const Canvas = (props) => {
             };
           }),
         );
-        console.log('Release ' + i);
+        appendToEventList([Date.now(), 'Release ' + i]);
       }
 
       if (
@@ -160,8 +210,9 @@ const Canvas = (props) => {
           circles[i].r,
         )
       ) {
+        appendToEventList([Date.now(), 'Hit Target ' + targetId]);
         console.log('hit target!');
-        advanceTrial(currPathIndex);
+        advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
     }
   };
@@ -175,8 +226,8 @@ const Canvas = (props) => {
       onMouseDown={mouseDownHandler}
       onMouseUp={pointerUpHandler}
       onPointerUp={pointerUpHandler}
-      width="1000px"
-      height="500px"
+      width="1024px"
+      height="800px"
       {...rest}
     />
   );
@@ -199,6 +250,10 @@ function myDist(pX, pY, qX, qY) {
   let b = pX - qX; // x difference
   let c = Math.sqrt(a * a + b * b);
   return c;
+}
+
+function capitalize(s) {
+  return s[0].toUpperCase() + s.slice(1);
 }
 
 export default Canvas;

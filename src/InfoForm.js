@@ -1,7 +1,7 @@
 import React from 'react';
 
 const InfoForm = (props) => {
-  const { setPNo, dispatch, timeline } = props;
+  const { pNo, setPNo, dispatch, timeline } = props;
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
