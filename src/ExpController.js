@@ -71,15 +71,6 @@ function ExpController() {
   );
 }
 
-//make token a different colour
-//X don't make the others disappear
-//X make target different colour
-//if you fail once, mark it as an error and move on?
-//maybe just redo the trial
-// log experiment events
-// log all input events (cursor, touch) - get xy position, pointer up pointer down
-// log init position of token, position of target in each trial
-
 function reducer(state, action) {
   switch (action.type) {
     case 'dataReceived':
@@ -94,8 +85,8 @@ function reducer(state, action) {
       let timeline = makeTimeline(state.data, action.participantNumber);
       return {
         ...state,
-        // Starts at 1 since 0 should already be done (it is required to get
-        // the timeline itself)
+        // Start at 1 since 0 should already be done (it is required to get
+        // the timeline itself).
         timelineIndex: 1,
         timeline,
         stage: timeline[1],
