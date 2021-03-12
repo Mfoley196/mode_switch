@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 
 const InstructionsPage = (props) => {
-  const { goToStage, dispatch, stage, timeline } = props;
+  const { goToStage, dispatch, stage } = props;
   const instructionText = `You will be switching between ${stage[1]} and ${stage[2]}.`;
 
   function handleClick(e) {
     console.log(stage);
     e.preventDefault();
-    dispatch({ type: 'next', timeline: timeline });
+    dispatch({ type: 'next' });
   }
 
   //console.log(tlIndex)
