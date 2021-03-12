@@ -178,5 +178,12 @@
     "task,mouse,touch",
     "instruction,mouse,trackpad",
     "task,mouse,trackpad"
+  ],
+  "22": [
+    "info",
+    "instruction,mouse,mouse",
+    "task,mouse,mouse",
+    "instruction,mouse,mouse",
+    "task,mouse,mouse"
   ]
 }

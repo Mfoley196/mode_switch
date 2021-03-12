@@ -1,17 +1,17 @@
 import React from 'react'
 import Canvas from './Canvas'
 
-function initCircles(numCircs, radius, path){
+function initCircles(numCircs, radius, path, stage){
   let circs = [];
   let angle = 0;
-  let largeRad = 400/2
+  let largeRad = 700/2
   let step = (2*Math.PI) / numCircs;
 
   for (let i = 0; i < numCircs; i++) {
-    let x = Math.round(1000/2 + (radius + largeRad) * Math.cos(angle))
-    let y = Math.round(500/2 + (radius + largeRad) * Math.sin(angle))
+    let x = Math.round(1024/2 + (radius + largeRad) * Math.cos(angle))
+    let y = Math.round(800/2 + (radius + largeRad) * Math.sin(angle))
     let fill = "#FFFF00"
-    let mode = "mouse"
+    let mode = stage[1]
 
     // if (i === 1 || i === 2) {
     //   mode = "pen"
@@ -52,32 +52,49 @@ function generatePath(numCircs, startPos) {
         path.push([target % numCircs, (target + step) % numCircs])
         target += step
     }
-    console.log(path);
+    //console.log(path);
 
     return path;
 }
 
-const NUM_OF_CIRCS = 3;
+const NUM_OF_CIRCS = 5;
 
 const TaskController = props => {
-    const {goToStage, tl, tlIndex, advanceTl} = props
+    const {dispatch, timeline, stage, setLog} = props
     const [path, setPath] = React.useState(generatePath(NUM_OF_CIRCS, 0));
     const [currPathIndex, setCurrIndex] = React.useState(0);
     const [targetId, setTargetId] = React.useState(path[currPathIndex][1])
-    const [circles, setCircles] = React.useState(initCircles(NUM_OF_CIRCS, 20, path));
+    const [circles, setCircles] = React.useState(initCircles(NUM_OF_CIRCS, 20, path, stage));
+    const [eventList, setEventList] = React.useState([]);
+
 
     // useEffect(() => {
     //     setTargetId(path[currPathIndex][1])
     // }, [currPathIndex]);
 
-    function advanceTrial(pathIndex) {
+    function createTrialLog() {
+        let logObj = {
+            //participantNo
+            //block name (stage[1] + "," stage[2])
+            //baseline/not baseline
+            //currPathIndex
+            //path
+            //targetId (path[currPathIndex][1])
+            //tokenId (path[currPathIndex][0])
+            //circle mode
+            //eventList
+            //error/not error
+        };
+    }
+
+    function advanceTrial(pathIndex, currMode) {
         // console.log(path[currPathIndex]);
-        console.log(pathIndex + 1)
-        console.log(path.length)
+        //console.log(pathIndex + 1)
+        //console.log(path.length)
 
         if (pathIndex + 1 >= path.length) {
             setCurrIndex(0)
-            goToStage('instruction');
+            dispatch({type:"next", timeline:timeline})
         } else {
             setCurrIndex(pathIndex + 1);
             setTargetId(path[pathIndex+1][1]);
@@ -86,7 +103,8 @@ const TaskController = props => {
             for (let i = 0; i < circlesCopy.length; i++) {
                 circlesCopy[i].x = circlesCopy[i].oldx;
                 circlesCopy[i].y = circlesCopy[i].oldy;
-                circlesCopy[i].dragOn = false
+                circlesCopy[i].dragOn = false;
+                circlesCopy[i].mode = (stage[1] === currMode ? stage[2] : stage[1]);
 
                 circlesCopy[i].isTarget = (i === path[pathIndex + 1][1] ? true : false);
                 circlesCopy[i].isToken = (path[pathIndex + 1][0] === i ? true : false);
@@ -102,7 +120,10 @@ const TaskController = props => {
         path={path} 
         currPathIndex={currPathIndex} 
         targetId={targetId}
-        advanceTrial={advanceTrial}/>
+        advanceTrial={advanceTrial}
+        stage={stage}
+        eventList={eventList}
+        setEventList={setEventList}/>
     );
 }
 

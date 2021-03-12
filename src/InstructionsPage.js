@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 
 const InstructionsPage = (props) => {
     const {goToStage, dispatch, stage, timeline} = props
-    const instructionText = `You will be switching between the ${stage[1]} and the ${stage[2]}.`
+    const instructionText = `You will be switching between ${stage[1]} and ${stage[2]}.`
 
     function handleClick(e) {
         console.log(stage)

@@ -47,5 +47,6 @@ for p in range(len(cond_matrix)):
 
 print(timelines)
 
+timelines[1111] = ['info', 'instruction,mouse,mouse', 'task,mouse,mouse', 'instruction,mouse,mouse', 'task,mouse,mouse']
 with open('public/timelines.json', 'w') as f:
     json.dump(timelines, f, indent=2)
