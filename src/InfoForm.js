@@ -1,22 +1,30 @@
-import React from 'react';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 
-const InfoForm = (props) => {
-  const { pNo, setPNo, dispatch, timeline } = props;
+const InfoForm = ({ onSubmit }) => {
+  // We could let the input uncontrolled, but it is easier this way.
+  const [inputValue, setInputValue] = React.useState('');
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    dispatch({ type: 'next', timeline: timeline });
+    onSubmit(Number(inputValue));
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Participant Number:
-        <input type="text" onChange={(e) => setPNo(e.target.value)} />
+        <input
+          type="number"
+          value={inputValue}
+          onChange={(event) => setInputValue(event.target.value)}
+        />
       </label>
       <input type="submit" value="Submit" />
     </form>
   );
 };
+
+InfoForm.propTypes = { onSubmit: PropTypes.func.isRequired };
 
 export default InfoForm;
