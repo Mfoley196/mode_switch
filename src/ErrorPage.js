@@ -1,8 +1,11 @@
-import React from 'react';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 
-const ErrorPage = (props) => {
-  const { goToStage } = props;
-  const testText = 'Whoops, something fucked up, try again';
+const ErrorPage = ({ goToStage, error }) => {
+  const testText =
+    error == null || error.message == null
+      ? 'Whoops, something went wrong, try again'
+      : error.message;
 
   function handleClick(e) {
     e.preventDefault();
@@ -15,6 +18,11 @@ const ErrorPage = (props) => {
       <input type="submit" value="Continue" onClick={handleClick} />
     </div>
   );
+};
+
+ErrorPage.propTypes = {
+  error: PropTypes.instanceOf(Error),
+  goToStage: PropTypes.func.isRequired,
 };
 
 export default ErrorPage;
