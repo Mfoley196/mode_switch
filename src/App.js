@@ -1,8 +1,8 @@
-import React from 'react'
-import ExpController from './ExpController'
+import React from 'react';
+import ExpController from './ExpController';
 
 function App() {
-  return <ExpController />
+  return <ExpController />;
 }
 
-export default App
+export default App;

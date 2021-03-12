@@ -1,26 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 const InfoForm = (props) => {
-  const {pNo, setPNo, dispatch, timeline} = props
-  
-  
+  const { pNo, setPNo, dispatch, timeline } = props;
+
   const handleSubmit = (evt) => {
-      evt.preventDefault();
-      dispatch({type:"next", timeline:timeline})
-  }
-  
+    evt.preventDefault();
+    dispatch({ type: 'next', timeline: timeline });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
         Participant Number:
-        <input
-          type="text"
-          onChange={e => setPNo(e.target.value)}
-        />
+        <input type="text" onChange={(e) => setPNo(e.target.value)} />
       </label>
       <input type="submit" value="Submit" />
     </form>
   );
-}
+};
 
 export default InfoForm;

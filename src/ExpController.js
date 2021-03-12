@@ -1,64 +1,79 @@
-import React, {useState, useEffect, useReducer} from 'react'
-import InfoForm from './InfoForm'
-import InstructionsPage from './InstructionsPage'
-import ErrorPage from './ErrorPage'
-import TaskController from './TaskController'
-import DataLogger from './DataLogger'
+import React, { useState, useEffect, useReducer } from 'react';
+import InfoForm from './InfoForm';
+import InstructionsPage from './InstructionsPage';
+import ErrorPage from './ErrorPage';
+import TaskController from './TaskController';
+import DataLogger from './DataLogger';
 
 function ExpController() {
-  const [data,setData]=useState([]);
+  const [data, setData] = useState([]);
   const [pNo, setPNo] = useState(0);
-  const [{ timeline, timelineIndex, stage }, dispatch] = useReducer(
-    reducer,
-    { timeline: null, timelineIndex: -1, stage: ["info"] }
-  );
+  const [{ timeline, timelineIndex, stage }, dispatch] = useReducer(reducer, {
+    timeline: null,
+    timelineIndex: -1,
+    stage: ['info'],
+  });
   const [trialLog, setLog] = useState([]);
 
-  const getData=()=>{
-    fetch('timelines.json'
-    ,{
-      headers : { 
+  const getData = () => {
+    fetch('timelines.json', {
+      headers: {
         'Content-Type': 'application/json',
-        'Accept': 'application/json'
-       }
-    }
-    )
-      .then(function(response){
+        Accept: 'application/json',
+      },
+    })
+      .then(function (response) {
         //console.log(response)
         return response.json();
       })
-      .then(function(myJson) {
+      .then(function (myJson) {
         console.log(myJson);
         setData(myJson);
       });
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     getData();
   }, []);
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(pNo);
     console.log(data[pNo]);
-    let l = []
+    let l = [];
     if (data !== undefined && pNo !== 0 && data[pNo] !== undefined) {
       for (let i = 0; i < data[pNo].length; i++) {
-        l.push(data[pNo][i].split(","))
+        l.push(data[pNo][i].split(','));
       }
       //console.log(l)
       //setTimeline(l)
-      dispatch({type: 'start', timeline: l})
+      dispatch({ type: 'start', timeline: l });
       //setTlIndex(0)
     }
-  },[pNo, data]);
-  
+  }, [pNo, data]);
 
-  return (((stage[0] === 'info') && <InfoForm pNo={pNo} setPNo ={setPNo} dispatch={dispatch} timeline={timeline}/>)
-    || ((stage[0] === 'task') && <TaskController  dispatch={dispatch} timeline={timeline} stage={stage} setLog={setLog}/>)
-    || ((stage[0] === 'instruction') && <InstructionsPage dispatch={dispatch} timeline={timeline} stage={stage}/>)
-    || ((stage[0] === 'error') && <ErrorPage pNo={pNo} trialLog={trialLog}/>)
+  return (
+    (stage[0] === 'info' && (
+      <InfoForm
+        pNo={pNo}
+        setPNo={setPNo}
+        dispatch={dispatch}
+        timeline={timeline}
+      />
+    )) ||
+    (stage[0] === 'task' && (
+      <TaskController
+        dispatch={dispatch}
+        timeline={timeline}
+        stage={stage}
+        setLog={setLog}
+      />
+    )) ||
+    (stage[0] === 'instruction' && (
+      <InstructionsPage dispatch={dispatch} timeline={timeline} stage={stage} />
+    )) ||
+    (stage[0] === 'error' && <ErrorPage pNo={pNo} trialLog={trialLog} />)
     //<DataLogger />
-    );
+  );
 }
 
 //make token a different colour
@@ -71,24 +86,25 @@ function ExpController() {
 // log init position of token, position of target in each trial
 
 function reducer(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'start':
       return {
         ...state,
         timelineIndex: 0,
         timeline: action.timeline,
-        stage: action.timeline[0]
+        stage: action.timeline[0],
       };
     case 'next':
-      if(state.timeline == null) throw new Error(`Timeline has not started yet.`)
-      console.log(action.timeline[state.timelineIndex + 1])
+      if (state.timeline == null)
+        throw new Error(`Timeline has not started yet.`);
+      console.log(action.timeline[state.timelineIndex + 1]);
       return {
         ...state,
         timelineIndex: state.timelineIndex + 1,
-        stage: action.timeline[state.timelineIndex + 1]
+        stage: action.timeline[state.timelineIndex + 1],
       };
     default:
       throw new Error(`Unknown action type: ${action.type}`);
   }
 }
-export default ExpController
+export default ExpController;
