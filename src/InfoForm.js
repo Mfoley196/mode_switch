@@ -16,6 +16,7 @@ const InfoForm = ({ onSubmit }) => {
         Participant Number:
         <input
           name="participantNumber"
+          type="text"
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
         />
