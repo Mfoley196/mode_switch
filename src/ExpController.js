@@ -81,9 +81,9 @@ function reducer(state, action) {
         let timeline = makeTimeline(state.data, action.participantId);
         return {
           ...state,
+          participantId: action.participantId,
           // Start at 1 since 0 should already be done (it is required to get
           // the timeline itself).
-          participantId: action.participantId,
           timelineIndex: 1,
           timeline,
           stage: timeline[1],
