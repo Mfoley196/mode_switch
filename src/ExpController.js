@@ -6,18 +6,8 @@ import TaskController from './TaskController';
 import DataLogger from './DataLogger';
 import Loading from './Loading';
 
-const DEFAULT_STATE = {
-  timeline: null,
-  timelineIndex: -1,
-  stage: ['loading'],
-  error: null,
-};
-
 function ExpController() {
-  const [{ stage, participantNumber, error }, dispatch] = useReducer(
-    reducer,
-    DEFAULT_STATE,
-  );
+  const [{ stage, error }, dispatch] = useReducer(reducer, DEFAULT_STATE);
   const [trialLog, setLog] = useState([]);
 
   useEffect(() => {
@@ -65,17 +55,24 @@ function ExpController() {
     (stage[0] === 'instruction' && (
       <InstructionsPage dispatch={dispatch} stage={stage} />
     )) ||
-    (stage[0] === 'error' && (
-      <ErrorPage pNo={participantNumber} trialLog={trialLog} error={error} />
-    ))
+    (stage[0] === 'error' && <ErrorPage trialLog={trialLog} error={error} />)
     //<DataLogger />
   );
 }
+
+const DEFAULT_STATE = {
+  timelineIndex: -1,
+  stage: ['loading'],
+  timeline: null,
+  error: null,
+  participantId: null,
+};
 
 function reducer(state, action) {
   switch (action.type) {
     case 'dataReceived':
       return { ...state, data: action.data, stage: ['info'] };
+
     case 'start':
       try {
         if (state.data == null) {
@@ -86,6 +83,7 @@ function reducer(state, action) {
           ...state,
           // Start at 1 since 0 should already be done (it is required to get
           // the timeline itself).
+          participantId: action.participantId,
           timelineIndex: 1,
           timeline,
           stage: timeline[1],
@@ -106,8 +104,10 @@ function reducer(state, action) {
         timelineIndex: state.timelineIndex + 1,
         stage: state.timeline[state.timelineIndex + 1],
       };
+
     case 'error':
       return { ...state, stage: ['error'], error: action.error };
+
     default:
       return reducer(state, {
         type: 'error',
