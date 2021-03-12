@@ -1,13 +1,13 @@
-import React from 'react'
+import React from 'react';
 
 const InfoForm = (props) => {
-  const { goToStage, pNo, setPNo } = props
+  const { setPNo, dispatch, timeline } = props;
 
   const handleSubmit = (evt) => {
-    evt.preventDefault()
-    goToStage({ type: 'instruction' })
-    console.log(pNo)
-  }
+    evt.preventDefault();
+    dispatch({ type: 'next', timeline: timeline });
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -16,7 +16,7 @@ const InfoForm = (props) => {
       </label>
       <input type="submit" value="Submit" />
     </form>
-  )
-}
+  );
+};
 
-export default InfoForm
+export default InfoForm;
