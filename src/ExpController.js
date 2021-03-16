@@ -10,10 +10,11 @@ const DEFAULT_STATE = {
   timeline: null,
   timelineIndex: -1,
   stage: ['loading'],
+  error: null,
 };
 
 function ExpController() {
-  const [{ stage, participantNumber }, dispatch] = useReducer(
+  const [{ stage, participantNumber, error }, dispatch] = useReducer(
     reducer,
     DEFAULT_STATE,
   );
@@ -53,8 +54,8 @@ function ExpController() {
       // I don't like to share dispatch. No one needs to know how this component
       // deals with its reducer. I am using a callback instead.
       <InfoForm
-        onSubmit={(participantNumber) => {
-          dispatch({ type: 'start', participantNumber });
+        onSubmit={(participantId) => {
+          dispatch({ type: 'start', participantId });
         }}
       />
     )) ||
@@ -65,7 +66,7 @@ function ExpController() {
       <InstructionsPage dispatch={dispatch} stage={stage} />
     )) ||
     (stage[0] === 'error' && (
-      <ErrorPage pNo={participantNumber} trialLog={trialLog} />
+      <ErrorPage pNo={participantNumber} trialLog={trialLog} error={error} />
     ))
     //<DataLogger />
   );
@@ -75,23 +76,24 @@ function reducer(state, action) {
   switch (action.type) {
     case 'dataReceived':
       return { ...state, data: action.data, stage: ['info'] };
-    case 'start': {
-      if (state.data == null) {
-        return reducer(state, {
-          type: 'error',
-          error: new Error(`Data has not been received yet`),
-        });
+    case 'start':
+      try {
+        if (state.data == null) {
+          throw new Error(`Data has not been received yet`);
+        }
+        let timeline = makeTimeline(state.data, action.participantId);
+        return {
+          ...state,
+          // Start at 1 since 0 should already be done (it is required to get
+          // the timeline itself).
+          timelineIndex: 1,
+          timeline,
+          stage: timeline[1],
+        };
+      } catch (error) {
+        return reducer(state, { type: 'error', error });
       }
-      let timeline = makeTimeline(state.data, action.participantNumber);
-      return {
-        ...state,
-        // Start at 1 since 0 should already be done (it is required to get
-        // the timeline itself).
-        timelineIndex: 1,
-        timeline,
-        stage: timeline[1],
-      };
-    }
+
     case 'next':
       if (state.timeline == null) {
         return reducer(state, {
@@ -114,14 +116,17 @@ function reducer(state, action) {
   }
 }
 
-function makeTimeline(data, pNo) {
-  let l = [];
-  if (data !== undefined && pNo !== 0 && data[pNo] !== undefined) {
-    for (let i = 0; i < data[pNo].length; i++) {
-      l.push(data[pNo][i].split(','));
+function makeTimeline(data, participantId) {
+  if (participantId !== 0 && data[participantId] != null) {
+    let l = [];
+    for (let i = 0; i < data[participantId].length; i++) {
+      l.push(data[participantId][i].split(','));
     }
+    return l;
   }
-  return l;
+  throw new Error(
+    `Cannot create timeline, participant id not found: ${participantId}`,
+  );
 }
 
 export default ExpController;
