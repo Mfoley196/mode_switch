@@ -5,6 +5,7 @@ import ErrorPage from './ErrorPage';
 import TaskController from './TaskController';
 import DataLogger from './DataLogger';
 import Loading from './Loading';
+import ExpDone from './ExpDone';
 
 const DEFAULT_STATE = {
   timeline: null,
@@ -67,6 +68,9 @@ function ExpController() {
     )) ||
     (stage[0] === 'error' && (
       <ErrorPage pNo={participantNumber} trialLog={trialLog} error={error} />
+    )) ||
+    (stage[0] === 'done' && (
+      <ExpDone />
     ))
     //<DataLogger />
   );

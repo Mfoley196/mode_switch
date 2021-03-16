@@ -60,7 +60,7 @@ function generatePath(numCircs, startPos) {
 const NUM_OF_CIRCS = 7;
 
 const TaskController = (props) => {
-  const { dispatch, timeline, stage, setLog } = props;
+  const { dispatch, timeline, stage } = props;
   const [path, setPath] = React.useState(generatePath(NUM_OF_CIRCS, 0));
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);

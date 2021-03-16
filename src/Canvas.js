@@ -38,10 +38,33 @@ const Canvas = (props) => {
   const [mouseX, setMouseX] = React.useState(0);
   const [mouseY, setMouseY] = React.useState(0);
 
+  const PEN_COLOR = '#FFFF00';
+  const MOUSE_COLOR = '#00FFFF';
+  const TOUCH_COLOR = '#CCCC00';
+  const TRACK_COLOR = '#FF00FF';
+  const TOKEN_COLOR = '#FF0000';
+  const TARGET_COLOR = '#00AA00';
+  const HOVER_COLOR = '#00BB00';
+
   const appendToEventList = (event) => {
     //let eListCopy = eventList.slice();
     setEventList((prevList) => [...prevList, event]);
   };
+
+  function getFillColor(input) {
+    switch(input) {
+      case 'pen':
+        return PEN_COLOR;
+      case 'touch':
+        return TOUCH_COLOR;
+      case 'mouse':
+        return MOUSE_COLOR;
+      case 'trackpad':
+        return TRACK_COLOR;
+      default:
+        return 'white';
+    }
+  }
 
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -50,13 +73,58 @@ const Canvas = (props) => {
     //drawCircle(ctx, mouseX, mouseY, 15, "#FFFFFF");
 
     ctx.font = '40px Arial';
-    ctx.fillStyle = 'white';
+
+    let textColor1 = getFillColor(stage[1]);
+    let textColor2 = getFillColor(stage[2]);
+
+    // switch(stage[1]) {
+    //   case 'pen':
+    //     textColor1 = PEN_COLOR;
+    //     break;
+    //   case 'touch':
+    //     textColor1 = TOUCH_COLOR;
+    //     break;
+    //   case 'mouse':
+    //     textColor1 = MOUSE_COLOR;
+    //     break;
+    //   case 'trackpad':
+    //     textColor1 = TRACK_COLOR;
+    //     break;
+    //   default:
+    //     textColor1 = 'white';
+    // }
+
+    // switch(stage[2]) {
+    //   case 'pen':
+    //     textColor2 = PEN_COLOR;
+    //     break;
+    //   case 'touch':
+    //     textColor2 = TOUCH_COLOR;
+    //     break;
+    //   case 'mouse':
+    //     textColor2 = MOUSE_COLOR;
+    //     break;
+    //   case 'trackpad':
+    //     textColor2 = TRACK_COLOR;
+    //     break;
+    //   default:
+    //     textColor2 = 'white';
+    // }
+
+    ctx.fillStyle = textColor1;
     if (stage[0] === 'baseline') {
-      ctx.fillText(capitalize(stage[1]), 10, 40)
+      ctx.fillText(capitalize(stage[1]), 10, 40);
     } else {
-      ctx.fillText(capitalize(stage[1]) + ', ' + capitalize(stage[2]), 10, 40);
+      ctx.fillText(capitalize(stage[1]), 10, 40);
+
+      ctx.fillStyle = 'white';
+      ctx.fillText(', ', 175, 40);
+
+      ctx.fillStyle = textColor2;
+      ctx.fillText(capitalize(stage[2]), 195, 40);
     }
     
+    ctx.fillStyle = 'white';
     ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 80);
 
     //draw targets
@@ -73,27 +141,25 @@ const Canvas = (props) => {
             circles[i].r,
           )
         ) {
-          circles[i].fill = '#00AA00';
+          circles[i].fill = HOVER_COLOR;
         } else {
-          circles[i].fill = '#FF0000';
+          circles[i].fill = TOKEN_COLOR;
         }
       } else if (circles[i].isTarget) {
-        circles[i].fill = '#001100';
+        circles[i].fill = TARGET_COLOR;
       } else if (circles[i].isToken) {
         if (circles[i].mode === 'pen') {
-          circles[i].fill = '#FFFF00';
+          circles[i].fill = PEN_COLOR;
         } else if (circles[i].mode === 'mouse') {
-          circles[i].fill = '#00FFFF';
+          circles[i].fill = MOUSE_COLOR;
         } else if (circles[i].mode === 'trackpad') {
-          circles[i].fill = '#FF00FF';
+          circles[i].fill = TRACK_COLOR;
         } else {
-          circles[i].fill = '#CCCC00';
+          circles[i].fill = TOUCH_COLOR;
         }
       } else {
         circles[i].fill = '#FFFFFF';
       }
-      // console.log(i)
-      // console.log(circles[i])
 
       drawCircle(
         ctx,

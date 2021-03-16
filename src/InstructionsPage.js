@@ -32,8 +32,7 @@ const InstructionsPage = (props) => {
   );
 
   const baselineTextTouch = (
-    <p>You will be using <b>touch</b>.</p>
-  );
+    <p>You will be using <b>touch</b>.</p>);
 
   const connectionInst = (
     <p>You can check if a device is connected to the iPad by clicking on &quot;Settings&quot;, then &quot;Bluetooth&quot;.</p>
