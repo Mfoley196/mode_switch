@@ -11,17 +11,21 @@ const InfoForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Participant Number:
-        <input
-          type="number"
-          value={inputValue}
-          onChange={(event) => setInputValue(event.target.value)}
-        />
-      </label>
-      <input type="submit" value="Submit" />
-    </form>
+    <div>
+      <div>{'Please enter your participant number, and hit \"Submit\" to begin the experiment: '}</div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Participant Number:
+          <input
+            type="number"
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+          />
+        </label>
+        <p></p>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
   );
 };
 

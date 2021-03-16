@@ -1,5 +1,5 @@
 import json
-from random import randint
+from random import shuffle
 
 conditions = {0: "pen,mouse", 1: "pen,touch", 
 2: "pen,trackpad", 3: "mouse,touch",
@@ -35,18 +35,32 @@ for i in range(len(square)):
 #instructions6, training6, cond6
 
 timelines = {}
+NUM_OF_BLOCKS = 2
 
 for p in range(len(cond_matrix)):
     tl = []
     tl.append('info')
     for i in range(len(cond_matrix[p])):
+        #tl.append("instruction," + cond_matrix[p][i])
+        conds = cond_matrix[p][i].split(',')
+        shuffle(conds)
+        tl.append("instruction," + conds[0] + "," + conds[0])
+        tl.append("baseline," + conds[0] + "," + conds[0])
+        tl.append("instruction," + conds[1] + "," + conds[1])
+        tl.append("baseline," + conds[1] + "," + conds[1])
+
         tl.append("instruction," + cond_matrix[p][i])
-        #tl.append("training," + cond_matrix[p][i])
-        tl.append("task," + cond_matrix[p][i])
+        for j in range(NUM_OF_BLOCKS):
+            tl.append("task," + cond_matrix[p][i])
+            
+        tl.append("instruction," + conds[1] + "," + conds[1])
+        tl.append("baseline," + conds[1] + "," + conds[1])
+        tl.append("instruction," + conds[0] + "," + conds[0])
+        tl.append("baseline," + conds[0] + "," + conds[0])
     timelines[p+1] = tl
 
 print(timelines)
 
-timelines[1111] = ['info', 'instruction,mouse,mouse', 'task,mouse,mouse', 'instruction,mouse,mouse', 'task,mouse,mouse']
+timelines[1111] = ['info', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'instruction,mouse,trackpad', 'task,mouse,trackpad']
 with open('public/timelines.json', 'w') as f:
     json.dump(timelines, f, indent=2)

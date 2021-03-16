@@ -58,7 +58,7 @@ function ExpController() {
         }}
       />
     )) ||
-    (stage[0] === 'task' && (
+    ((stage[0] === 'task' || stage[0] === 'baseline') && (
       <TaskController dispatch={dispatch} stage={stage} setLog={setLog} />
     )) ||
     (stage[0] === 'instruction' && (
