@@ -51,7 +51,12 @@ const Canvas = (props) => {
 
     ctx.font = '40px Arial';
     ctx.fillStyle = 'white';
-    ctx.fillText(capitalize(stage[1]) + ', ' + capitalize(stage[2]), 10, 40);
+    if (stage[0] === 'baseline') {
+      ctx.fillText(capitalize(stage[1]), 10, 40)
+    } else {
+      ctx.fillText(capitalize(stage[1]) + ', ' + capitalize(stage[2]), 10, 40);
+    }
+    
     ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 80);
 
     //draw targets

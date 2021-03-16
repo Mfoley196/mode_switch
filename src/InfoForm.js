@@ -12,6 +12,7 @@ const InfoForm = ({ onSubmit }) => {
 
   return (
     <div>
+      <p>Description of experiment</p>
       <div>{'Please enter your participant number, and hit \"Submit\" to begin the experiment: '}</div>
       <form onSubmit={handleSubmit}>
         <label>

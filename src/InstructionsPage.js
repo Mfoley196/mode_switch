@@ -3,12 +3,6 @@ import React from 'react';
 const InstructionsPage = (props) => {
   const { dispatch, stage } = props
 
-  function handleClick(e) {
-    //console.log(stage);
-    e.preventDefault();
-    dispatch({ type: 'next' });
-  }
-
   const modeSwitchText = (
     <div>
       <p>You will be switching between the <b>{stage[1]}</b> and the <b>{stage[2]}</b>.</p>
@@ -32,7 +26,7 @@ const InstructionsPage = (props) => {
 
   const baselineText = (
     <div>
-      <p>You will be using the <b>{stage[1]}</b></p>
+      <p>You will be using the <b>{stage[1]}</b>.</p>
       <p>Please make sure the <b>{stage[1]}</b> is connected to the iPad before pressing &quot;Begin&quot;.</p>
     </div>
   );
@@ -44,6 +38,13 @@ const InstructionsPage = (props) => {
   const connectionInst = (
     <p>You can check if a device is connected to the iPad by clicking on &quot;Settings&quot;, then &quot;Bluetooth&quot;.</p>
   );
+
+
+  function handleClick(e) {
+    //console.log(stage);
+    e.preventDefault();
+    dispatch({ type: 'next' });
+  }
 
   function InstructionText() {
     if (stage[1] === stage[2]) {

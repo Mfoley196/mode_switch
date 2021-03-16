@@ -57,7 +57,7 @@ function generatePath(numCircs, startPos) {
   return path;
 }
 
-const NUM_OF_CIRCS = 5;
+const NUM_OF_CIRCS = 7;
 
 const TaskController = (props) => {
   const { dispatch, timeline, stage, setLog } = props;
