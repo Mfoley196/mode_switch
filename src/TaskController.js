@@ -13,14 +13,6 @@ function initCircles(numCircs, radius, path, stage) {
     let fill = '#FFFF00';
     let mode = stage[1];
 
-    // if (i === 1 || i === 2) {
-    //   mode = "pen"
-    // }
-
-    // if (i === 10 || i === 9) {
-    //   mode = "mouse"
-    // }
-
     let circle = {
       id: i,
       x: x,
@@ -32,7 +24,6 @@ function initCircles(numCircs, radius, path, stage) {
       dragOn: false,
       isTarget: path[0][1] === i ? true : false,
       isToken: path[0][0] === i ? true : false,
-      //isVisible: (path[0][1] === i || path[0][0] === i ? true: false),
       mode: mode,
     };
     circs.push(circle);
@@ -60,7 +51,7 @@ function generatePath(numCircs, startPos) {
 const NUM_OF_CIRCS = 7;
 
 const TaskController = (props) => {
-  const { dispatch, timeline, stage } = props;
+  const { dispatch, stage, pNo } = props;
   const [path, setPath] = React.useState(generatePath(NUM_OF_CIRCS, 0));
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
@@ -73,29 +64,40 @@ const TaskController = (props) => {
   //     setTargetId(path[currPathIndex][1])
   // }, [currPathIndex]);
 
-  function createTrialLog() {
+  function createTrialLog(currMode, eventList) {
     let logObj = {
-      //participantNo
-      //block name (stage[1] + "," stage[2])
-      //baseline/not baseline
-      //currPathIndex
-      //path
-      //targetId (path[currPathIndex][1])
-      //tokenId (path[currPathIndex][0])
-      //circle mode
-      //eventList
+      pNo: pNo,
+      condition: stage[1] + ',' + stage[2],
+      currMode: currMode,
+      taskType: stage[0],
+      currPathIndex: currPathIndex,
+      path: path,
+      targetId: path[currPathIndex][1],
+      tokenId: path[currPathIndex[0]],
+      rawLog: eventList,
+      //X participantNo
+      //X block name (stage[1] + "," stage[2])
+      //X baseline/not baseline
+      //X currPathIndex
+      //X path
+      //X targetId (path[currPathIndex][1])
+      //X tokenId (path[currPathIndex][0])
+      //X circle mode
+      //X eventList
       //error/not error
     };
+
+    return logObj;
   }
 
-  function advanceTrial(pathIndex, currMode) {
+  function advanceTrial(pathIndex, currMode, eventList) {
     // console.log(path[currPathIndex]);
     //console.log(pathIndex + 1)
     //console.log(path.length)
 
     if (pathIndex + 1 >= path.length) {
       setCurrIndex(0);
-      dispatch({ type: 'next', timeline: timeline });
+      dispatch({ type: 'next' });
     } else {
       setCurrIndex(pathIndex + 1);
       setTargetId(path[pathIndex + 1][1]);

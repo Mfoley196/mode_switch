@@ -77,40 +77,6 @@ const Canvas = (props) => {
     let textColor1 = getFillColor(stage[1]);
     let textColor2 = getFillColor(stage[2]);
 
-    // switch(stage[1]) {
-    //   case 'pen':
-    //     textColor1 = PEN_COLOR;
-    //     break;
-    //   case 'touch':
-    //     textColor1 = TOUCH_COLOR;
-    //     break;
-    //   case 'mouse':
-    //     textColor1 = MOUSE_COLOR;
-    //     break;
-    //   case 'trackpad':
-    //     textColor1 = TRACK_COLOR;
-    //     break;
-    //   default:
-    //     textColor1 = 'white';
-    // }
-
-    // switch(stage[2]) {
-    //   case 'pen':
-    //     textColor2 = PEN_COLOR;
-    //     break;
-    //   case 'touch':
-    //     textColor2 = TOUCH_COLOR;
-    //     break;
-    //   case 'mouse':
-    //     textColor2 = MOUSE_COLOR;
-    //     break;
-    //   case 'trackpad':
-    //     textColor2 = TRACK_COLOR;
-    //     break;
-    //   default:
-    //     textColor2 = 'white';
-    // }
-
     ctx.fillStyle = textColor1;
     if (stage[0] === 'baseline') {
       ctx.fillText(capitalize(stage[1]), 10, 40);

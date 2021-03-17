@@ -61,7 +61,15 @@ function ExpController() {
       />
     )) ||
     ((stage[0] === 'task' || stage[0] === 'baseline') && (
-      <TaskController dispatch={dispatch} stage={stage} setLog={setLog} />
+      <div>
+        <TaskController
+          dispatch={dispatch}
+          stage={stage}
+          setLog={setLog}
+          pNo={participantNumber}
+        />
+        <DataLogger />
+      </div>
     )) ||
     (stage[0] === 'instruction' && (
       <InstructionsPage dispatch={dispatch} stage={stage} />
@@ -69,9 +77,7 @@ function ExpController() {
     (stage[0] === 'error' && (
       <ErrorPage pNo={participantNumber} trialLog={trialLog} error={error} />
     )) ||
-    (stage[0] === 'done' && (
-      <ExpDone />
-    ))
+    (stage[0] === 'done' && <ExpDone />)
     //<DataLogger />
   );
 }
