@@ -1,7 +1,7 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 
-const ErrorPage = ({ goToStage, error }) => {
+const ErrorPage = ({ error }) => {
   const testText =
     error == null || error.message == null
       ? 'Whoops, something went wrong, try again'
@@ -9,7 +9,7 @@ const ErrorPage = ({ goToStage, error }) => {
 
   function handleClick(e) {
     e.preventDefault();
-    goToStage({ type: 'info' });
+    //goToStage({ type: 'info' });
   }
 
   return (

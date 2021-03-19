@@ -11,7 +11,7 @@ function initCircles(numCircs, radius, path, stage) {
     let x = Math.round(1024 / 2 + (radius + largeRad) * Math.cos(angle));
     let y = Math.round(800 / 2 + (radius + largeRad) * Math.sin(angle));
     let fill = '#FFFF00';
-    let mode = stage[1];
+    let mode = stage['conds'][1];
 
     let circle = {
       id: i,
@@ -52,7 +52,7 @@ const NUM_OF_CIRCS = 5;
 
 const TaskController = (props) => {
   const { dispatch, stage, pNo } = props;
-  const [path, setPath] = React.useState(generatePath(NUM_OF_CIRCS, 0));
+  const [path, setPath] = React.useState(generatePath(NUM_OF_CIRCS, stage['startPos']));
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
   const [circles, setCircles] = React.useState(
@@ -67,9 +67,9 @@ const TaskController = (props) => {
   function createTrialLog(currMode, eventList) {
     let logObj = {
       pNo: pNo,
-      condition: stage[1] + ',' + stage[2],
+      condition: stage['conds'][0]  + ',' + stage['conds'][1] ,
       currMode: currMode,
-      taskType: stage[0],
+      taskType: stage['stage'],
       currPathIndex: currPathIndex,
       path: path,
       targetId: path[currPathIndex][1],
@@ -107,7 +107,10 @@ const TaskController = (props) => {
         circlesCopy[i].x = circlesCopy[i].oldx;
         circlesCopy[i].y = circlesCopy[i].oldy;
         circlesCopy[i].dragOn = false;
-        circlesCopy[i].mode = stage[1] === currMode ? stage[2] : stage[1];
+        circlesCopy[i].mode =
+          stage['conds'][0] === currMode
+            ? stage['conds'][1]
+            : stage['conds'][0];
 
         circlesCopy[i].isTarget = i === path[pathIndex + 1][1] ? true : false;
         circlesCopy[i].isToken = path[pathIndex + 1][0] === i ? true : false;

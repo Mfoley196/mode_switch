@@ -1,5 +1,5 @@
 import json
-from random import shuffle
+from random import shuffle, randint
 
 conditions = {0: "pen,mouse", 1: "pen,touch", 
 2: "pen,trackpad", 3: "mouse,touch",
@@ -39,30 +39,83 @@ NUM_OF_BLOCKS = 2
 
 for p in range(len(cond_matrix)):
     tl = []
-    tl.append('info')
+    tl.append({"stage": 'info'})
     for i in range(len(cond_matrix[p])):
         #tl.append("instruction," + cond_matrix[p][i])
         conds = cond_matrix[p][i].split(',')
         shuffle(conds)
-        tl.append("instruction," + conds[0] + "," + conds[0])
-        tl.append("baseline," + conds[0] + "," + conds[0])
-        tl.append("instruction," + conds[1] + "," + conds[1])
-        tl.append("baseline," + conds[1] + "," + conds[1])
 
-        tl.append("instruction," + cond_matrix[p][i])
+        tl.append({"stage" : "instruction", "conds": [conds[0], conds[0]]})
+        tl.append({"stage" : "baseline", 
+            "conds": [conds[0], conds[0]],
+            "block": "1",
+            "startPos": randint(0, 5)})
+        tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
+        tl.append({"stage" : "baseline", 
+            "conds": [conds[1], conds[1]],
+            "block": "1",
+            "startPos": randint(0, 5)})
+
+        tl.append({"stage": "instruction", "conds": [conds[0], conds[1]]})
+
         for j in range(NUM_OF_BLOCKS):
-            tl.append("task," + cond_matrix[p][i] + "," + str(j))
+            tl.append({"stage": "task,", 
+                "conds": [conds[0], conds[1]], 
+                "block": str(j),
+                "startPos": randint(0, 5)})
 
-        tl.append("instruction," + conds[1] + "," + conds[1])
-        tl.append("baseline," + conds[1] + "," + conds[1])
-        tl.append("instruction," + conds[0] + "," + conds[0])
-        tl.append("baseline," + conds[0] + "," + conds[0])
-        tl.append("done")
+        tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
+        tl.append({"stage" : "baseline", 
+            "conds": [conds[1], conds[1]],
+            "block": "1",
+            "startPos": randint(0, 5)})
+        tl.append({"stage" : "instruction", "conds": [conds[0], conds[0]]})
+        tl.append({"stage" : "baseline", 
+            "conds": [conds[0], conds[0]],
+            "block": "1",
+            "startPos": randint(0, 5)})
+        
+        tl.append({"stage" :"done"})
     timelines[p+1] = tl
 
 print(timelines)
 
-timelines['desktop'] = ['info','instruction,mouse,trackpad', 'task,trackpad,mouse', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'done']
-timelines['allconds'] = ['info', 'instruction,mouse,trackpad', 'task,mouse,trackpad', 'instruction,pen,touch', 'task,pen,touch', 'done']
+timelines['desktop'] = [
+    {"stage" : "info"},
+    {"stage" : "instruction",
+    "conds": ["mouse", "trackpad"]},
+    {"stage": "task",
+    "conds": ["mouse", "trackpad"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "instruction",
+    "conds": ["mouse", "mouse"]},
+    {"stage": "baseline",
+    "conds": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "done"}
+]
+
+timelines['allconds'] = [
+    {"stage" : "info"},
+    {"stage" : "instruction",
+    "conds": ["mouse", "trackpad"]},
+    {"stage": "task",
+    "conds": ["mouse", "trackpad"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "instruction",
+    "conds": ["pen", "touch"]},
+    {"stage": "task",
+    "conds": ["pen", "touch"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "done"}
+]
+
+#['info','instruction,mouse,trackpad', 'task,trackpad,mouse', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'done']
+#timelines['allconds'] = ['info', 'instruction,mouse,trackpad', 'task,mouse,trackpad', 'instruction,pen,touch', 'task,pen,touch', 'done']
+
 with open('public/timelines.json', 'w') as f:
     json.dump(timelines, f, indent=2)

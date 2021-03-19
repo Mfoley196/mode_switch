@@ -86,20 +86,20 @@ const Canvas = (props) => {
 
     ctx.font = '40px Arial';
 
-    let textColor1 = getFillColor(stage[1]);
-    let textColor2 = getFillColor(stage[2]);
+    let textColor1 = getFillColor(stage['conds'][0]);
+    let textColor2 = getFillColor(stage['conds'][1]);
 
     ctx.fillStyle = textColor1;
-    if (stage[0] === 'baseline') {
-      ctx.fillText(capitalize(stage[1]), 10, 40);
+    if (stage['stage'] === 'baseline') {
+      ctx.fillText(capitalize(stage['conds'][0] ), 10, 40);
     } else {
-      ctx.fillText(capitalize(stage[1]), 10, 40);
+      ctx.fillText(capitalize(stage['conds'][0] ), 10, 40);
 
       ctx.fillStyle = 'white';
       ctx.fillText(', ', 175, 40);
 
       ctx.fillStyle = textColor2;
-      ctx.fillText(capitalize(stage[2]), 195, 40);
+      ctx.fillText(capitalize(stage['conds'][1] ), 195, 40);
     }
 
     ctx.fillStyle = 'white';

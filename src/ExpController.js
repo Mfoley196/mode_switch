@@ -35,6 +35,7 @@ function ExpController() {
       })
       .then(function (data) {
         // Dispatching if the component is gone will trigger a React warning.
+        console.log(data)
         if (!isCanceled) {
           dispatch({ type: 'dataReceived', data });
         }
@@ -50,8 +51,8 @@ function ExpController() {
   }, []);
 
   return (
-    (stage[0] === 'loading' && <Loading />) ||
-    (stage[0] === 'info' && (
+    (stage['stage'] === 'loading' && <Loading />) ||
+    (stage['stage'] === 'info' && (
       // I don't like to share dispatch. No one needs to know how this component
       // deals with its reducer. I am using a callback instead.
       <InfoForm
@@ -60,7 +61,7 @@ function ExpController() {
         }}
       />
     )) ||
-    ((stage[0] === 'task' || stage[0] === 'baseline') && (
+    ((stage['stage'] === 'task' || stage['stage'] === 'baseline') && (
       <div>
         <TaskController
           dispatch={dispatch}
@@ -71,13 +72,13 @@ function ExpController() {
         <DataLogger />
       </div>
     )) ||
-    (stage[0] === 'instruction' && (
+    (stage['stage'] === 'instruction' && (
       <InstructionsPage dispatch={dispatch} stage={stage} />
     )) ||
-    (stage[0] === 'error' && (
+    (stage['stage'] === 'error' && (
       <ErrorPage pNo={participantNumber} trialLog={trialLog} error={error} />
     )) ||
-    (stage[0] === 'done' && <ExpDone />)
+    (stage['stage'] === 'done' && <ExpDone />)
     //<DataLogger />
   );
 }
@@ -85,7 +86,7 @@ function ExpController() {
 function reducer(state, action) {
   switch (action.type) {
     case 'dataReceived':
-      return { ...state, data: action.data, stage: ['info'] };
+      return { ...state, data: action.data, stage: { stage: 'info' } };
     case 'start':
       try {
         if (state.data == null) {
@@ -111,6 +112,7 @@ function reducer(state, action) {
           error: new Error(`Timeline has not started yet`),
         });
       }
+      console.log(state.timeline[state.timelineIndex + 1]);
       return {
         ...state,
         timelineIndex: state.timelineIndex + 1,
@@ -127,13 +129,16 @@ function reducer(state, action) {
 }
 
 function makeTimeline(data, participantId) {
-  if (participantId !== 0 && data[participantId] != null) {
-    let l = [];
-    for (let i = 0; i < data[participantId].length; i++) {
-      l.push(data[participantId][i].split(','));
-    }
-    return l;
-  }
+  // console.log(data)
+  // console.log(data[participantId])
+  return data[participantId];
+  // if (participantId !== 0 && data[participantId] != null) {
+  //   let l = [];
+  //   for (let i = 0; i < data[participantId].length; i++) {
+  //     l.push(data[participantId][i].split(','));
+  //   }
+  //   return l;
+  // }
   throw new Error(
     `Cannot create timeline, participant id not found: ${participantId}`,
   );

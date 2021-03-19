@@ -6,12 +6,13 @@ const InstructionsPage = (props) => {
   const modeSwitchText = (
     <div>
       <p>
-        You will be switching between the <b>{stage[1]}</b> and the{' '}
-        <b>{stage[2]}</b>.
+        You will be switching between the <b>{stage['conds'][0]}</b> and the{' '}
+        <b>{stage['conds'][1]}</b>.
       </p>
       <p>
-        Please make sure the <b>{stage[1]}</b> and the <b>{stage[2]}</b> are
-        connected to the iPad before pressing &quot;Begin&quot;.
+        Please make sure the <b>{stage['conds'][0]}</b> and the{' '}
+        <b>{stage['conds'][1]}</b> are connected to the iPad before pressing
+        &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -19,11 +20,12 @@ const InstructionsPage = (props) => {
   const modeSwitchTextTouch1 = (
     <div>
       <p>
-        You will be switching between <b>touch</b> and the <b>{stage[2]}</b>.
+        You will be switching between <b>touch</b> and the{' '}
+        <b>{stage['conds'][1]}</b>.
       </p>
       <p>
-        Please make sure the <b>{stage[2]}</b> is connected to the iPad before
-        pressing &quot;Begin&quot;.
+        Please make sure the <b>{stage['conds'][1]}</b> is connected to the iPad
+        before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -31,11 +33,12 @@ const InstructionsPage = (props) => {
   const modeSwitchTextTouch2 = (
     <div>
       <p>
-        You will be switching between the <b>{stage[1]}</b> and <b>touch</b>.
+        You will be switching between the <b>{stage['conds'][0]}</b> and{' '}
+        <b>touch</b>.
       </p>
       <p>
-        Please make sure the <b>{stage[1]}</b> is connected to the iPad before
-        pressing &quot;Begin&quot;.
+        Please make sure the <b>{stage['conds'][0]}</b> is connected to the iPad
+        before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -43,11 +46,11 @@ const InstructionsPage = (props) => {
   const baselineText = (
     <div>
       <p>
-        You will be using the <b>{stage[1]}</b>.
+        You will be using the <b>{stage['conds'][0]}</b>.
       </p>
       <p>
-        Please make sure the <b>{stage[1]}</b> is connected to the iPad before
-        pressing &quot;Begin&quot;.
+        Please make sure the <b>{stage['conds'][0]}</b> is connected to the iPad
+        before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -72,16 +75,16 @@ const InstructionsPage = (props) => {
   }
 
   function InstructionText() {
-    if (stage[1] === stage[2]) {
-      if (stage[1] === 'touch') {
+    if (stage['conds'][0] === stage['conds'][1]) {
+      if (stage['conds'][0] === 'touch') {
         return { baselineTextTouch };
       } else {
         return <div>{baselineText}</div>;
       }
     } else {
-      if (stage[1] === 'touch') {
+      if (stage['conds'][0] === 'touch') {
         return <div>{modeSwitchTextTouch1}</div>;
-      } else if (stage[2] === 'touch') {
+      } else if (stage['conds'][1] === 'touch') {
         return <div>{modeSwitchTextTouch2}</div>;
       } else {
         return <div>{modeSwitchText}</div>;
