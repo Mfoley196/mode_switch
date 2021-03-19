@@ -4,7 +4,7 @@ import Canvas from './Canvas';
 function initCircles(numCircs, radius, path, stage) {
   let circs = [];
   let angle = 0;
-  let largeRad = 700 / 2;
+  let largeRad = 500 / 2;
   let step = (2 * Math.PI) / numCircs;
 
   for (let i = 0; i < numCircs; i++) {
