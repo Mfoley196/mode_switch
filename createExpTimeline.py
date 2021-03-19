@@ -51,7 +51,7 @@ for p in range(len(cond_matrix)):
 
         tl.append("instruction," + cond_matrix[p][i])
         for j in range(NUM_OF_BLOCKS):
-            tl.append("task," + cond_matrix[p][i])
+            tl.append("task," + cond_matrix[p][i] + "," + str(j))
 
         tl.append("instruction," + conds[1] + "," + conds[1])
         tl.append("baseline," + conds[1] + "," + conds[1])
@@ -62,6 +62,7 @@ for p in range(len(cond_matrix)):
 
 print(timelines)
 
-timelines[1111] = ['info', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'instruction,mouse,trackpad', 'task,trackpad,mouse', 'done']
+timelines['desktop'] = ['info','instruction,mouse,trackpad', 'task,trackpad,mouse', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'done']
+timelines['allconds'] = ['info', 'instruction,mouse,trackpad', 'task,mouse,trackpad', 'instruction,pen,touch', 'task,pen,touch', 'done']
 with open('public/timelines.json', 'w') as f:
     json.dump(timelines, f, indent=2)

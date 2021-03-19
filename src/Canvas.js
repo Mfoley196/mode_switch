@@ -39,9 +39,21 @@ const Canvas = (props) => {
   const [mouseY, setMouseY] = React.useState(0);
 
   const PEN_COLOR = '#FFFF00';
+  const PEN_DRAG_COLOR = '#999900';
+  const PEN_HIT_COLOR = '#FFFF99';
+
   const MOUSE_COLOR = '#00FFFF';
-  const TOUCH_COLOR = '#CCCC00';
+  const MOUSE_DRAG_COLOR = '#009999';
+  const MOUSE_HIT_COLOR = '#99FFFF';
+
+  const TOUCH_COLOR = '#FF4000';
+  const TOUCH_DRAG_COLOR = '#992600';
+  const TOUCH_HIT_COLOR = '#ff8c66';
+
   const TRACK_COLOR = '#FF00FF';
+  const TRACK_DRAG_COLOR = '#990099';
+  const TRACK_HIT_COLOR = '#FF99FF';
+
   const TOKEN_COLOR = '#FF0000';
   const TARGET_COLOR = '#00AA00';
   const HOVER_COLOR = '#00BB00';
@@ -52,7 +64,7 @@ const Canvas = (props) => {
   };
 
   function getFillColor(input) {
-    switch(input) {
+    switch (input) {
       case 'pen':
         return PEN_COLOR;
       case 'touch':
@@ -89,7 +101,7 @@ const Canvas = (props) => {
       ctx.fillStyle = textColor2;
       ctx.fillText(capitalize(stage[2]), 195, 40);
     }
-    
+
     ctx.fillStyle = 'white';
     ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 80);
 
@@ -107,9 +119,25 @@ const Canvas = (props) => {
             circles[i].r,
           )
         ) {
-          circles[i].fill = HOVER_COLOR;
+          if (circles[i].mode === 'pen') {
+            circles[i].fill = PEN_HIT_COLOR;
+          } else if (circles[i].mode === 'mouse') {
+            circles[i].fill = MOUSE_HIT_COLOR;
+          } else if (circles[i].mode === 'trackpad') {
+            circles[i].fill = TRACK_HIT_COLOR;
+          } else {
+            circles[i].fill = TOUCH_HIT_COLOR;
+          }
         } else {
-          circles[i].fill = TOKEN_COLOR;
+          if (circles[i].mode === 'pen') {
+            circles[i].fill = PEN_DRAG_COLOR;
+          } else if (circles[i].mode === 'mouse') {
+            circles[i].fill = MOUSE_DRAG_COLOR;
+          } else if (circles[i].mode === 'trackpad') {
+            circles[i].fill = TRACK_DRAG_COLOR;
+          } else {
+            circles[i].fill = TOUCH_DRAG_COLOR;
+          }
         }
       } else if (circles[i].isTarget) {
         circles[i].fill = TARGET_COLOR;
@@ -124,7 +152,7 @@ const Canvas = (props) => {
           circles[i].fill = TOUCH_COLOR;
         }
       } else {
-        circles[i].fill = '#FFFFFF';
+        circles[i].fill = '#808080';
       }
 
       drawCircle(
