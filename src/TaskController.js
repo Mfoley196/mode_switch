@@ -8,8 +8,8 @@ function initCircles(numCircs, radius, path, stage) {
   let step = (2 * Math.PI) / numCircs;
 
   for (let i = 0; i < numCircs; i++) {
-    let x = Math.round(1024 / 2 + (radius + largeRad) * Math.cos(angle));
-    let y = Math.round(800 / 2 + (radius + largeRad) * Math.sin(angle));
+    let x = Math.round(1024 / 2 + largeRad * Math.cos(angle));
+    let y = Math.round(800 / 2 + largeRad * Math.sin(angle));
     let fill = '#FFFF00';
     let mode = stage['conds'][1];
 
@@ -25,10 +25,30 @@ function initCircles(numCircs, radius, path, stage) {
       isTarget: path[0][1] === i ? true : false,
       isToken: path[0][0] === i ? true : false,
       mode: mode,
+      isCenter: false,
     };
     circs.push(circle);
     angle += step;
   }
+
+  let centerX = circs[0].x;
+
+  let center = {
+    id: numCircs,
+    x: 1024 / 2,
+    y: 800 / 2,
+    oldx: 1024 / 2,
+    oldy: 800 / 2,
+    r: radius,
+    fill: '#FFFF00',
+    dragOn: false,
+    isTarget: false,
+    isToken: false,
+    mode: stage['conds'][1],
+    isCenter: true,
+  };
+
+  circs.push(center);
 
   //console.log(circs);
   return circs;
@@ -48,11 +68,13 @@ function generatePath(numCircs, startPos) {
   return path;
 }
 
-const NUM_OF_CIRCS = 5;
+const NUM_OF_CIRCS = 7;
 
 const TaskController = (props) => {
-  const { dispatch, stage, pNo } = props;
-  const [path, setPath] = React.useState(generatePath(NUM_OF_CIRCS, stage['startPos']));
+  const { dispatch, stage, pNo, expLog, setExpLog } = props;
+  const [path, setPath] = React.useState(
+    generatePath(NUM_OF_CIRCS, stage['startPos']),
+  );
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
   const [circles, setCircles] = React.useState(
@@ -67,7 +89,7 @@ const TaskController = (props) => {
   function createTrialLog(currMode, eventList) {
     let logObj = {
       pNo: pNo,
-      condition: stage['conds'][0]  + ',' + stage['conds'][1] ,
+      condition: stage['conds'][0] + ',' + stage['conds'][1],
       currMode: currMode,
       taskType: stage['stage'],
       currPathIndex: currPathIndex,
@@ -88,6 +110,25 @@ const TaskController = (props) => {
     };
 
     return logObj;
+  }
+
+  function activateCenter() {
+    let circlesCopy = circles.slice();
+
+    for (let i = 0; i < circlesCopy.length; i++) {
+      circlesCopy[i].x = circlesCopy[i].oldx;
+      circlesCopy[i].y = circlesCopy[i].oldy;
+      circlesCopy[i].dragOn = false;
+      // circlesCopy[i].mode =
+      //   stage['conds'][0] === currMode ? stage['conds'][1] : stage['conds'][0];
+
+      // isTarget: circle.id === circles.length-1,
+      //         isToken: circle.id === targetId,
+      circlesCopy[i].isTarget = i === circles.length - 1 ? true : false;
+      circlesCopy[i].isToken = i === targetId ? true : false;
+    }
+
+    setCircles(circlesCopy);
   }
 
   function advanceTrial(pathIndex, currMode, eventList) {
@@ -129,6 +170,7 @@ const TaskController = (props) => {
       currPathIndex={currPathIndex}
       targetId={targetId}
       advanceTrial={advanceTrial}
+      activateCenter={activateCenter}
       stage={stage}
       eventList={eventList}
       setEventList={setEventList}

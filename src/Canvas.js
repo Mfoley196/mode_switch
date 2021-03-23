@@ -29,6 +29,7 @@ const Canvas = (props) => {
     currPathIndex,
     targetId,
     advanceTrial,
+    activateCenter,
     stage,
     eventList,
     setEventList,
@@ -91,15 +92,15 @@ const Canvas = (props) => {
 
     ctx.fillStyle = textColor1;
     if (stage['stage'] === 'baseline') {
-      ctx.fillText(capitalize(stage['conds'][0] ), 10, 40);
+      ctx.fillText(capitalize(stage['conds'][0]), 10, 40);
     } else {
-      ctx.fillText(capitalize(stage['conds'][0] ), 10, 40);
+      ctx.fillText(capitalize(stage['conds'][0]), 10, 40);
 
       ctx.fillStyle = 'white';
       ctx.fillText(', ', 175, 40);
 
       ctx.fillStyle = textColor2;
-      ctx.fillText(capitalize(stage['conds'][1] ), 195, 40);
+      ctx.fillText(capitalize(stage['conds'][1]), 195, 40);
     }
 
     ctx.fillStyle = 'white';
@@ -180,6 +181,7 @@ const Canvas = (props) => {
     e.preventDefault();
     console.log(e.pointerType + ' down');
     console.log(targetId);
+
     appendToEventList([Date.now(), e.pointerType + ' down']);
     for (let i = 0; i < circles.length; i++) {
       if (
@@ -249,24 +251,26 @@ const Canvas = (props) => {
     e.preventDefault();
     console.log(e.pointerType + ' up');
     appendToEventList([Date.now(), e.pointerType + ' up']);
-    console.log(eventList);
+    //console.log(eventList);
 
     for (let i = 0; i < circles.length; i++) {
       //console.log(i + " " + circles[i].dragOn)
       if (circles[i].dragOn) {
-        setCircles(
-          circles.map((circle) => {
-            return {
-              ...circle,
-              dragOn: false,
-            };
-          }),
-        );
+        circles[i].dragOn = false;
+        // setCircles(
+        //   circles.map((circle) => {
+        //     return {
+        //       ...circle,
+        //       dragOn: false,
+        //     };
+        //   }),
+        // );
         appendToEventList([Date.now(), 'Release ' + i]);
       }
 
       if (
         circles[i].isTarget &&
+        !circles[i].isCenter &&
         circleHitTest(
           e.clientX,
           e.clientY,
@@ -277,6 +281,30 @@ const Canvas = (props) => {
       ) {
         appendToEventList([Date.now(), 'Hit Target ' + targetId]);
         console.log('hit target!');
+
+        activateCenter();
+        console.log(circles);
+
+        //target becomes token
+        //center becomes target
+
+        //advanceTrial(currPathIndex, circles[i].mode, eventList);
+      }
+
+      if (
+        circles[i].isTarget &&
+        circles[i].isCenter &&
+        circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+        )
+      ) {
+        appendToEventList([Date.now(), 'Hit Target ' + targetId]);
+        console.log('hit center!');
+
         advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
     }

@@ -19,7 +19,8 @@ function ExpController() {
     reducer,
     DEFAULT_STATE,
   );
-  const [trialLog, setLog] = useState([]);
+  const [expLog, setExpLog] = useState([]);
+  const [blockLog, setBlockLog] = useState([]);
 
   useEffect(() => {
     let isCanceled = false;
@@ -66,17 +67,18 @@ function ExpController() {
         <TaskController
           dispatch={dispatch}
           stage={stage}
-          setLog={setLog}
           pNo={participantNumber}
+          expLog = {expLog}
+          setExpLog = {setExpLog}
         />
-        <DataLogger />
+        <DataLogger expLog={expLog} setExpLog={setExpLog}/>
       </div>
     )) ||
     (stage['stage'] === 'instruction' && (
       <InstructionsPage dispatch={dispatch} stage={stage} />
     )) ||
     (stage['stage'] === 'error' && (
-      <ErrorPage pNo={participantNumber} trialLog={trialLog} error={error} />
+      <ErrorPage pNo={participantNumber} blockLog={blockLog} error={error} />
     )) ||
     (stage['stage'] === 'done' && <ExpDone />)
     //<DataLogger />
@@ -112,7 +114,6 @@ function reducer(state, action) {
           error: new Error(`Timeline has not started yet`),
         });
       }
-      console.log(state.timeline[state.timelineIndex + 1]);
       return {
         ...state,
         timelineIndex: state.timelineIndex + 1,
@@ -129,16 +130,7 @@ function reducer(state, action) {
 }
 
 function makeTimeline(data, participantId) {
-  // console.log(data)
-  // console.log(data[participantId])
   return data[participantId];
-  // if (participantId !== 0 && data[participantId] != null) {
-  //   let l = [];
-  //   for (let i = 0; i < data[participantId].length; i++) {
-  //     l.push(data[participantId][i].split(','));
-  //   }
-  //   return l;
-  // }
   throw new Error(
     `Cannot create timeline, participant id not found: ${participantId}`,
   );
