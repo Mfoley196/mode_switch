@@ -170,8 +170,6 @@ const Canvas = (props) => {
   const canvasRef = useCanvas(draw);
 
   const pointerHandler = (e) => {
-    //console.log(e)
-    //console.log(e.pointerType + " " + e.clientX + " " + e.clientY)
     setMouseX(e.clientX);
     setMouseY(e.clientY);
     //appendToEventList([Date.now(), "x:" + e.clientX +",y:" + e.clientY])
@@ -182,7 +180,7 @@ const Canvas = (props) => {
     console.log(e.pointerType + ' down');
     console.log(targetId);
 
-    appendToEventList([Date.now(), e.pointerType + ' down']);
+    appendToEventList([Date.now(), e.pointerType + '_down']);
     for (let i = 0; i < circles.length; i++) {
       if (
         circleHitTest(
@@ -207,7 +205,7 @@ const Canvas = (props) => {
         );
         //circles[i].dragOn = true
         console.log('Hit ' + i);
-        appendToEventList([Date.now(), 'Hit Token ' + i]);
+        appendToEventList([Date.now(), 'hit_token_' + i]);
       }
     }
   };
@@ -217,7 +215,7 @@ const Canvas = (props) => {
     console.log('MOUSE down from mouse handler');
     console.log(targetId);
 
-    appendToEventList([Date.now(), 'mouse down']);
+    appendToEventList([Date.now(), 'mouse_down']);
     for (let i = 0; i < circles.length; i++) {
       console.log(circles[i].id);
       if (
@@ -242,7 +240,7 @@ const Canvas = (props) => {
         );
         //circles[i].dragOn = true
         console.log('Hit ' + i);
-        appendToEventList([Date.now(), 'Hit circle ' + i]);
+        appendToEventList([Date.now(), 'hit_token_' + i]);
       }
     }
   };
@@ -250,7 +248,7 @@ const Canvas = (props) => {
   const pointerUpHandler = (e) => {
     e.preventDefault();
     console.log(e.pointerType + ' up');
-    appendToEventList([Date.now(), e.pointerType + ' up']);
+    appendToEventList([Date.now(), e.pointerType + '_up']);
     //console.log(eventList);
 
     for (let i = 0; i < circles.length; i++) {
@@ -265,7 +263,7 @@ const Canvas = (props) => {
         //     };
         //   }),
         // );
-        appendToEventList([Date.now(), 'Release ' + i]);
+        appendToEventList([Date.now(), 'release_' + i]);
       }
 
       if (
@@ -279,16 +277,10 @@ const Canvas = (props) => {
           circles[i].r,
         )
       ) {
-        appendToEventList([Date.now(), 'Hit Target ' + targetId]);
+        appendToEventList([Date.now(), 'hit_target_' + targetId]);
         console.log('hit target!');
 
         activateCenter();
-        console.log(circles);
-
-        //target becomes token
-        //center becomes target
-
-        //advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
 
       if (
@@ -302,7 +294,7 @@ const Canvas = (props) => {
           circles[i].r,
         )
       ) {
-        appendToEventList([Date.now(), 'Hit Target ' + targetId]);
+        appendToEventList([Date.now(), 'hit_center']);
         console.log('hit center!');
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);

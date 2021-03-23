@@ -19,7 +19,7 @@ function ExpController() {
     reducer,
     DEFAULT_STATE,
   );
-  const [expLog, setExpLog] = useState([]);
+  const [expLog, setExpLog] = useState({});
   const [blockLog, setBlockLog] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function ExpController() {
       })
       .then(function (data) {
         // Dispatching if the component is gone will trigger a React warning.
-        console.log(data)
+        console.log(data);
         if (!isCanceled) {
           dispatch({ type: 'dataReceived', data });
         }
@@ -68,10 +68,17 @@ function ExpController() {
           dispatch={dispatch}
           stage={stage}
           pNo={participantNumber}
-          expLog = {expLog}
-          setExpLog = {setExpLog}
+          expLog={expLog}
+          setExpLog={setExpLog}
+          blockLog={blockLog}
+          setBlockLog={setBlockLog}
         />
-        <DataLogger expLog={expLog} setExpLog={setExpLog}/>
+        <DataLogger
+          expLog={expLog}
+          setExpLog={setExpLog}
+          blockLog={blockLog}
+          setBlockLog={setBlockLog}
+        />
       </div>
     )) ||
     (stage['stage'] === 'instruction' && (
@@ -99,6 +106,7 @@ function reducer(state, action) {
           ...state,
           // Start at 1 since 0 should already be done (it is required to get
           // the timeline itself).
+          participantNumber: action.participantId,
           timelineIndex: 1,
           timeline,
           stage: timeline[1],
