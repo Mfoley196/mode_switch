@@ -2,7 +2,14 @@ import React, { useEffect } from 'react';
 import createS3Uploader from './createS3Uploader';
 
 const DataLogger = (props) => {
-  const { expLog, setExpLog, blockLog, setBlockLog, ...rest } = props;
+  const {
+    expLog,
+    setExpLog,
+    blockLog,
+    setBlockLog,
+    timelineIndex,
+    ...rest
+  } = props;
 
   let upload = createS3Uploader(
     'ca-central-1',
@@ -11,7 +18,7 @@ const DataLogger = (props) => {
   );
 
   useEffect(() => {
-    console.log(blockLog);
+    //console.log(blockLog);
     let keyName = 'default';
     if (blockLog.length > 0) {
       keyName =

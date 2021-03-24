@@ -1,7 +1,7 @@
 import React from 'react';
 import Canvas from './Canvas';
 
-const NUM_OF_CIRCS = 7;
+const NUM_OF_CIRCS = 5;
 
 const TaskController = (props) => {
   const {
@@ -91,7 +91,6 @@ const TaskController = (props) => {
       setCircles(circlesCopy);
 
       let newLog = createTrialLog(currMode, eventList);
-      console.log(newLog);
       setBlockLog((prevLog) => [...prevLog, newLog]);
     }
   }

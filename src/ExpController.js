@@ -15,12 +15,14 @@ const DEFAULT_STATE = {
 };
 
 function ExpController() {
-  const [{ stage, participantNumber, error }, dispatch] = useReducer(
-    reducer,
-    DEFAULT_STATE,
-  );
+  const [
+    { stage, participantNumber, timelineIndex, timeline, error },
+    dispatch,
+  ] = useReducer(reducer, DEFAULT_STATE);
   const [expLog, setExpLog] = useState({});
   const [blockLog, setBlockLog] = useState([]);
+  const [resumeFlag, setResumeFlag] = useState(false);
+  const [resumeState, setResumeState] = useState({});
 
   useEffect(() => {
     let isCanceled = false;
@@ -51,6 +53,37 @@ function ExpController() {
     };
   }, []);
 
+  useEffect(() => {
+    if ('currentStage' in localStorage) {
+      //console.log(localStorage.getItem('currentStage'));
+      setResumeState(JSON.parse(localStorage.getItem('currentStage')));
+      setResumeFlag(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (resumeFlag && participantNumber !== undefined) {
+      console.log(resumeState.timelineIndex);
+      let tl = resumeState.timelineIndex;
+      let pID = resumeState.participantId;
+      let st = resumeState.stage;
+      dispatch({ type: 'goToIndex', tl, pID, st });
+    }
+  }, [participantNumber]);
+
+  useEffect(() => {
+    if (timelineIndex >= 0) {
+      localStorage.setItem(
+        'currentStage',
+        JSON.stringify({
+          participantId: participantNumber,
+          stage: timeline[timelineIndex],
+          timelineIndex: timelineIndex,
+        }),
+      );
+    }
+  }, [timelineIndex]);
+
   return (
     (stage['stage'] === 'loading' && <Loading />) ||
     (stage['stage'] === 'info' && (
@@ -60,6 +93,8 @@ function ExpController() {
         onSubmit={(participantId) => {
           dispatch({ type: 'start', participantId });
         }}
+        resumeFlag={resumeFlag}
+        setResumeFlag={setResumeFlag}
       />
     )) ||
     ((stage['stage'] === 'task' || stage['stage'] === 'baseline') && (
@@ -78,6 +113,7 @@ function ExpController() {
           setExpLog={setExpLog}
           blockLog={blockLog}
           setBlockLog={setBlockLog}
+          timelineIndex={timelineIndex}
         />
       </div>
     )) ||
@@ -114,7 +150,13 @@ function reducer(state, action) {
       } catch (error) {
         return reducer(state, { type: 'error', error });
       }
-
+    case 'goToIndex':
+      return {
+        ...state,
+        participantNumber: action.pID,
+        timelineIndex: action.tl,
+        stage: action.st,
+      };
     case 'next':
       if (state.timeline == null) {
         return reducer(state, {
@@ -138,10 +180,13 @@ function reducer(state, action) {
 }
 
 function makeTimeline(data, participantId) {
-  return data[participantId];
-  throw new Error(
-    `Cannot create timeline, participant id not found: ${participantId}`,
-  );
+  if (participantId in data) {
+    return data[participantId];
+  } else {
+    throw new Error(
+      `Cannot create timeline, participant id not found: ${participantId}`,
+    );
+  }
 }
 
 export default ExpController;

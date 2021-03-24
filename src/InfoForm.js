@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import createS3Uploader from './createS3Uploader';
 
-const InfoForm = ({ onSubmit }) => {
+const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
   const [inputValue, setInputValue] = React.useState('');
 
@@ -12,23 +12,7 @@ const InfoForm = ({ onSubmit }) => {
     'nextpc-modeswitch1',
   );
 
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    let blah = { foo: 'bar' };
-    upload('test.txt', blah)
-      .then(function (response) {
-        console.log('it worked?');
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log("error");
-        console.log(error);
-      });
-
-    onSubmit(inputValue);
-  };
-
-  return (
+  const defaultText = (
     <div>
       <p>Description of experiment</p>
       <p>
@@ -36,9 +20,54 @@ const InfoForm = ({ onSubmit }) => {
           'Please enter your participant number, and hit "Submit" to begin the experiment: '
         }
       </p>
+    </div>
+  );
+
+  const resumeText = (
+    <div>
+      <p>You may have accidentally refreshed the web page.</p>
+      <p>
+        To resume the experiment from where you left off, enter your participant
+        number below!{' '}
+      </p>
+    </div>
+  );
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    // let blah = { foo: 'bar' };
+    // upload('test.txt', blah)
+    //   .then(function (response) {
+    //     console.log('it worked?');
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.log("error");
+    //     console.log(error);
+    //   });
+
+    onSubmit(inputValue);
+  };
+
+  function InfoText() {
+    if (resumeFlag) {
+      return <div>{resumeText}</div>;
+    } else {
+      return <div>{defaultText}</div>;
+    }
+  }
+
+  function reset() {
+    localStorage.removeItem('currentStage');
+    setResumeFlag(false);
+  }
+
+  return (
+    <div>
+      <InfoText />
       <form onSubmit={handleSubmit}>
         <label>
-          Participant Number:
+          Participant Number:{'  '}
           <input
             name="participantNumber"
             type="text"
@@ -48,6 +77,7 @@ const InfoForm = ({ onSubmit }) => {
         </label>
         <input type="submit" value="Submit" />
       </form>
+      <button onClick={reset}>Restart</button>
     </div>
   );
 };

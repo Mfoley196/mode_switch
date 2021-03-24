@@ -177,8 +177,8 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
-    console.log(e.pointerType + ' down');
-    console.log(targetId);
+    // console.log(e.pointerType + ' down');
+    // console.log(targetId);
 
     appendToEventList([Date.now(), e.pointerType + '_down']);
     for (let i = 0; i < circles.length; i++) {
@@ -212,8 +212,8 @@ const Canvas = (props) => {
 
   const mouseDownHandler = (e) => {
     e.preventDefault();
-    console.log('MOUSE down from mouse handler');
-    console.log(targetId);
+    // console.log('MOUSE down from mouse handler');
+    // console.log(targetId);
 
     appendToEventList([Date.now(), 'mouse_down']);
     for (let i = 0; i < circles.length; i++) {
@@ -247,7 +247,7 @@ const Canvas = (props) => {
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
-    console.log(e.pointerType + ' up');
+    //console.log(e.pointerType + ' up');
     appendToEventList([Date.now(), e.pointerType + '_up']);
     //console.log(eventList);
 
@@ -295,7 +295,7 @@ const Canvas = (props) => {
         )
       ) {
         appendToEventList([Date.now(), 'hit_center']);
-        console.log('hit center!');
+        //console.log('hit center!');
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
