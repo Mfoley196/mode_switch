@@ -141,8 +141,6 @@ function initCircles(numCircs, radius, path, stage) {
     angle += step;
   }
 
-  let centerX = circs[0].x;
-
   let center = {
     id: numCircs,
     x: 1024 / 2,

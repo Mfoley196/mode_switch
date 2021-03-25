@@ -61,18 +61,21 @@ function ExpController() {
     }
   }, []);
 
-  useEffect(() => {
-    if (resumeFlag && participantNumber !== undefined) {
-      console.log(resumeState.timelineIndex);
-      let tl = resumeState.timelineIndex;
-      let pID = resumeState.participantId;
-      let st = resumeState.stage;
-      dispatch({ type: 'goToIndex', tl, pID, st });
-    }
-  }, [participantNumber]);
+  //TODO: just make this a function I pass to InfoForm
+  // useEffect(() => {
+  //   if (resumeFlag && participantNumber !== undefined) {
+  //     console.log(resumeState.timelineIndex);
+  //     let tl = resumeState.timelineIndex;
+  //     let pID = resumeState.participantId;
+  //     let st = resumeState.stage;
+  //     dispatch({ type: 'goToIndex', tl, pID, st });
+  //   }
+  // }, [participantNumber]);
 
   useEffect(() => {
     if (timelineIndex >= 0) {
+      console.log(timeline);
+      console.log(timelineIndex);
       localStorage.setItem(
         'currentStage',
         JSON.stringify({
@@ -84,15 +87,25 @@ function ExpController() {
     }
   }, [timelineIndex]);
 
+  function beginOrResume(participantId) {
+    if (resumeFlag) {
+      dispatch({ type: 'start', participantId });
+      let tl = resumeState.timelineIndex;
+      let pID = participantId;
+      let st = resumeState.stage;
+      dispatch({ type: 'goToIndex', tl, pID, st });
+    } else {
+      dispatch({ type: 'start', participantId });
+    }
+  }
+
   return (
     (stage['stage'] === 'loading' && <Loading />) ||
     (stage['stage'] === 'info' && (
       // I don't like to share dispatch. No one needs to know how this component
       // deals with its reducer. I am using a callback instead.
       <InfoForm
-        onSubmit={(participantId) => {
-          dispatch({ type: 'start', participantId });
-        }}
+        onSubmit={beginOrResume}
         resumeFlag={resumeFlag}
         setResumeFlag={setResumeFlag}
       />
