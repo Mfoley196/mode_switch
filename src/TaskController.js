@@ -1,5 +1,6 @@
 import React from 'react';
 import Canvas from './Canvas';
+import createS3Uploader from './createS3Uploader';
 
 const NUM_OF_CIRCS = 5;
 
@@ -16,6 +17,7 @@ const TaskController = (props) => {
   const [path, setPath] = React.useState(
     generatePath(NUM_OF_CIRCS, stage['startPos']),
   );
+
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
   const [circles, setCircles] = React.useState(
@@ -23,32 +25,11 @@ const TaskController = (props) => {
   );
   const [eventList, setEventList] = React.useState([]);
 
-  function createTrialLog(currMode, eventList) {
-    let logObj = {
-      pNo: pNo,
-      condition: stage['conds'][0] + ',' + stage['conds'][1],
-      currMode: currMode,
-      taskType: stage['stage'],
-      block: stage['block'],
-      currPathIndex: currPathIndex,
-      path: path,
-      targetId: path[currPathIndex][1],
-      tokenId: path[currPathIndex[0]],
-      rawLog: eventList,
-      //X participantNo
-      //X block name (stage[1] + "," stage[2])
-      //X baseline/not baseline
-      //X currPathIndex
-      //X path
-      //X targetId (path[currPathIndex][1])
-      //X tokenId (path[currPathIndex][0])
-      //X circle mode
-      //X eventList
-      //error/not error
-    };
-
-    return logObj;
-  }
+  let upload = createS3Uploader(
+    'ca-central-1',
+    'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
+    'nextpc-modeswitch1',
+  );
 
   function activateCenter() {
     let circlesCopy = circles.slice();
@@ -65,9 +46,87 @@ const TaskController = (props) => {
     setCircles(circlesCopy);
   }
 
+  function createTrialLog(currMode, eventList) {
+    let logObj = {
+      pNo: pNo,
+      condition: stage['conds'][0] + ',' + stage['conds'][1],
+      currMode: currMode,
+      taskType: stage['stage'],
+      block: stage['block'],
+      currPathIndex: currPathIndex,
+      targetId: path[currPathIndex][1],
+      tokenId: path[currPathIndex][0],
+      rawLog: eventList,
+      //X participantNo
+      //X block name (stage[1] + "," stage[2])
+      //X baseline/not baseline
+      //X currPathIndex
+      //X path
+      //X targetId (path[currPathIndex][1])
+      //X tokenId (path[currPathIndex][0])
+      //X circle mode
+      //X eventList
+      //error/not error
+    };
+
+    return logObj;
+  }
+
+  function addToBlockLog(currMode, eventList) {
+    let newLog = createTrialLog(currMode, eventList);
+    setBlockLog((prevLog) => [...prevLog, newLog]);
+
+    let keyName =
+      'P_' +
+      newLog.pNo +
+      '_T_' +
+      newLog.taskType +
+      '_C_' +
+      stage['conds'][0] +
+      '-' +
+      stage['conds'][1] +
+      '_B_' +
+      newLog.block;
+
+    setExpLog({
+      ...expLog,
+      [keyName]: blockLog,
+    });
+  }
+
+  function uploadToBucket() {
+    let fileName =
+      'P' +
+      blockLog[0].pNo +
+      '_T' +
+      blockLog[0].taskType +
+      '_C' +
+      stage['conds'][0] +
+      '-' +
+      stage['conds'][1] +
+      '_B' +
+      blockLog[0].block +
+      '.txt';
+
+    // let blah = { foo: 'bar' };
+    upload(fileName, blockLog)
+      .then(function (response) {
+        console.log('file upload worked');
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log('error');
+        console.log(error);
+      });
+  }
+
   function advanceTrial(pathIndex, currMode, eventList) {
     if (pathIndex + 1 >= path.length) {
+      addToBlockLog(currMode, eventList);
+      uploadToBucket();
+
       setCurrIndex(0);
+      setBlockLog([]);
       dispatch({ type: 'next' });
     } else {
       setCurrIndex(pathIndex + 1);
@@ -90,8 +149,7 @@ const TaskController = (props) => {
 
       setCircles(circlesCopy);
 
-      let newLog = createTrialLog(currMode, eventList);
-      setBlockLog((prevLog) => [...prevLog, newLog]);
+      addToBlockLog(currMode, eventList);
     }
   }
 

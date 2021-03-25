@@ -1,8 +1,8 @@
 export default function ExpDone() {
   return (
     <div>
-      <p>You are done with the tasks!</p>
-      <p>Please go here to fill out a survey and complete the experiment!</p> 
+      <p>You have finished the tasks!</p>
+      <p>To complete the experiment, please click the link below to complete a survey:</p>
       <p>INSERT LINK HERE?</p>
     </div>
   );

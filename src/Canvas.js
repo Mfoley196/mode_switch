@@ -55,9 +55,9 @@ const Canvas = (props) => {
   const TRACK_DRAG_COLOR = '#990099';
   const TRACK_HIT_COLOR = '#FF99FF';
 
-  const TOKEN_COLOR = '#FF0000';
+  //const TOKEN_COLOR = '#FF0000';
   const TARGET_COLOR = '#00AA00';
-  const HOVER_COLOR = '#00BB00';
+  //const HOVER_COLOR = '#00BB00';
 
   const appendToEventList = (event) => {
     //let eListCopy = eventList.slice();
@@ -104,7 +104,8 @@ const Canvas = (props) => {
     }
 
     ctx.fillStyle = 'white';
-    ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 80);
+    ctx.fillText('Block: ' + stage['block'], 10, 80);
+    ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 120);
 
     //draw targets
     for (let i = 0; i < circles.length; i++) {
@@ -172,7 +173,7 @@ const Canvas = (props) => {
   const pointerHandler = (e) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
-    //appendToEventList([Date.now(), "x:" + e.clientX +",y:" + e.clientY])
+    appendToEventList([Date.now(), "x:" + e.clientX +",y:" + e.clientY])
   };
 
   const pointerDownHandler = (e) => {

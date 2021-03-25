@@ -35,17 +35,6 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    // let blah = { foo: 'bar' };
-    // upload('test.txt', blah)
-    //   .then(function (response) {
-    //     console.log('it worked?');
-    //     console.log(response);
-    //   })
-    //   .catch((error) => {
-    //     console.log("error");
-    //     console.log(error);
-    //   });
-
     onSubmit(inputValue);
   };
 

@@ -74,8 +74,6 @@ function ExpController() {
 
   useEffect(() => {
     if (timelineIndex >= 0) {
-      console.log(timeline);
-      console.log(timelineIndex);
       localStorage.setItem(
         'currentStage',
         JSON.stringify({
@@ -120,13 +118,6 @@ function ExpController() {
           setExpLog={setExpLog}
           blockLog={blockLog}
           setBlockLog={setBlockLog}
-        />
-        <DataLogger
-          expLog={expLog}
-          setExpLog={setExpLog}
-          blockLog={blockLog}
-          setBlockLog={setBlockLog}
-          timelineIndex={timelineIndex}
         />
       </div>
     )) ||
