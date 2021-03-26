@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Collapse from 'react-bootstrap/Collapse';
+import Button from 'react-bootstrap/Button';
 
 const InstructionsPage = (props) => {
   const { dispatch, stage } = props;
+  const [open, setOpen] = useState(false);
 
   const modeSwitchText = (
     <div>
@@ -97,8 +100,32 @@ const InstructionsPage = (props) => {
       <InstructionText />
       {connectionInst}
 
+      <Button
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+        variant='outline-secondary'
+        size='sm'
+      >
+        Device Connection Guide
+      </Button>
+      <Collapse in={open}>
+        <div id="example-collapse-text">
+          Wow look at these instructions, sure are cool huh?
+          Maybe add a container or something? Idk how bootstrap works
+          <p></p>
+        </div>
+      </Collapse>
+
+      <p></p>
       <p>{'Press "Begin" when you are ready to continue.'}</p>
-      <input type="submit" value="Begin" onClick={handleClick} />
+
+      <Button
+        onClick={handleClick}
+        variant='outline-success'
+      >
+        Begin
+      </Button>
     </div>
   );
 };
