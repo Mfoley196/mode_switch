@@ -44,6 +44,7 @@ const TaskController = (props) => {
     }
 
     setCircles(circlesCopy);
+    setTargetId(circles.length - 1);
   }
 
   function createTrialLog(currMode, eventList) {

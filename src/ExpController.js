@@ -3,7 +3,6 @@ import InfoForm from './InfoForm';
 import InstructionsPage from './InstructionsPage';
 import ErrorPage from './ErrorPage';
 import TaskController from './TaskController';
-import DataLogger from './DataLogger';
 import Loading from './Loading';
 import ExpDone from './ExpDone';
 

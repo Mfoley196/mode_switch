@@ -14,7 +14,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
   const defaultText = (
     <div>
-      <p>Description of experiment</p>
+      <p>In this experiment, you will...</p>
       <p>
         {
           'Please enter your participant number, and hit "Submit" to begin the experiment: '

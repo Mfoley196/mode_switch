@@ -112,15 +112,17 @@ const Canvas = (props) => {
       if (circles[i].dragOn) {
         circles[i].x = mouseX;
         circles[i].y = mouseY;
+
         if (
           circleHitTest(
             circles[targetId].x,
             circles[targetId].y,
             circles[i].x,
             circles[i].y,
-            circles[i].r,
+            circles[i].r * 0.7,
           )
         ) {
+          console.log(circles[i]);
           if (circles[i].mode === 'pen') {
             circles[i].fill = PEN_HIT_COLOR;
           } else if (circles[i].mode === 'mouse') {
@@ -131,6 +133,7 @@ const Canvas = (props) => {
             circles[i].fill = TOUCH_HIT_COLOR;
           }
         } else {
+          console.log(circles[i]);
           if (circles[i].mode === 'pen') {
             circles[i].fill = PEN_DRAG_COLOR;
           } else if (circles[i].mode === 'mouse') {
@@ -173,7 +176,7 @@ const Canvas = (props) => {
   const pointerHandler = (e) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
-    appendToEventList([Date.now(), "x:" + e.clientX +",y:" + e.clientY])
+    appendToEventList([Date.now(), 'x:' + e.clientX + ',y:' + e.clientY]);
   };
 
   const pointerDownHandler = (e) => {
@@ -240,7 +243,7 @@ const Canvas = (props) => {
           }),
         );
         //circles[i].dragOn = true
-        console.log('Hit ' + i);
+        //console.log('Hit ' + i);
         appendToEventList([Date.now(), 'hit_token_' + i]);
       }
     }
@@ -256,14 +259,6 @@ const Canvas = (props) => {
       //console.log(i + " " + circles[i].dragOn)
       if (circles[i].dragOn) {
         circles[i].dragOn = false;
-        // setCircles(
-        //   circles.map((circle) => {
-        //     return {
-        //       ...circle,
-        //       dragOn: false,
-        //     };
-        //   }),
-        // );
         appendToEventList([Date.now(), 'release_' + i]);
       }
 
@@ -275,11 +270,11 @@ const Canvas = (props) => {
           e.clientY,
           circles[i].x,
           circles[i].y,
-          circles[i].r,
+          circles[i].r * 0.7,
         )
       ) {
         appendToEventList([Date.now(), 'hit_target_' + targetId]);
-        console.log('hit target!');
+        //console.log('hit target!');
 
         activateCenter();
       }
@@ -292,7 +287,7 @@ const Canvas = (props) => {
           e.clientY,
           circles[i].x,
           circles[i].y,
-          circles[i].r,
+          circles[i].r * 0.7,
         )
       ) {
         appendToEventList([Date.now(), 'hit_center']);
