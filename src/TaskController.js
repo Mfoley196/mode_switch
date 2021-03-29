@@ -40,7 +40,7 @@ const TaskController = (props) => {
       circlesCopy[i].dragOn = false;
 
       circlesCopy[i].isTarget = i === circles.length - 1 ? true : false;
-      circlesCopy[i].isToken = i === targetId ? true : false;
+      circlesCopy[i].isToken = false;
     }
 
     setCircles(circlesCopy);
@@ -54,10 +54,14 @@ const TaskController = (props) => {
       currMode: currMode,
       taskType: stage['stage'],
       block: stage['block'],
+      circRadius: circles[0].r,
       currPathIndex: currPathIndex,
       targetId: path[currPathIndex][1],
       tokenId: path[currPathIndex][0],
       rawLog: eventList,
+      screenWidth: window.screen.width,
+      screenHeight: window.screen.height,
+      scale: window.devicePixelRatio,
       //X participantNo
       //X block name (stage[1] + "," stage[2])
       //X baseline/not baseline
@@ -78,11 +82,10 @@ const TaskController = (props) => {
     setBlockLog((prevLog) => [...prevLog, newLog]);
 
     let keyName =
-      'P_' +
       newLog.pNo +
-      '_T_' +
+      '_' +
       newLog.taskType +
-      '_C_' +
+      '_' +
       stage['conds'][0] +
       '-' +
       stage['conds'][1] +
@@ -97,11 +100,10 @@ const TaskController = (props) => {
 
   function uploadToBucket() {
     let fileName =
-      'P' +
       blockLog[0].pNo +
-      '_T' +
+      '_' +
       blockLog[0].taskType +
-      '_C' +
+      '_' +
       stage['conds'][0] +
       '-' +
       stage['conds'][1] +

@@ -1,20 +1,20 @@
 import React from 'react';
 import useCanvas from './useCanvas';
 
-function drawCircle(ctx, x, y, radius, fill, targetOn) {
+function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   // console.log(fill);
   let rad = targetOn ? radius * 1.2 : radius;
   ctx.strokeStyle = targetOn ? '#00EE00' : fill;
   ctx.lineWidth = 5;
 
-  if (!targetOn) {
+  if (!targetOn || isCenter) {
     ctx.fillStyle = fill;
   }
 
   ctx.beginPath();
   ctx.ellipse(x, y, rad, rad, 0, 0, 2 * Math.PI);
 
-  if (!targetOn) {
+  if (!targetOn || isCenter) {
     ctx.fill();
   }
 
@@ -56,7 +56,7 @@ const Canvas = (props) => {
   const TRACK_HIT_COLOR = '#FF99FF';
 
   //const TOKEN_COLOR = '#FF0000';
-  const TARGET_COLOR = '#00AA00';
+  const TARGET_COLOR = '#00EE00';
   //const HOVER_COLOR = '#00BB00';
 
   const appendToEventList = (event) => {
@@ -119,10 +119,9 @@ const Canvas = (props) => {
             circles[targetId].y,
             circles[i].x,
             circles[i].y,
-            circles[i].r * 0.7,
+            circles[i].r * 0.6,
           )
         ) {
-          console.log(circles[i]);
           if (circles[i].mode === 'pen') {
             circles[i].fill = PEN_HIT_COLOR;
           } else if (circles[i].mode === 'mouse') {
@@ -133,7 +132,6 @@ const Canvas = (props) => {
             circles[i].fill = TOUCH_HIT_COLOR;
           }
         } else {
-          console.log(circles[i]);
           if (circles[i].mode === 'pen') {
             circles[i].fill = PEN_DRAG_COLOR;
           } else if (circles[i].mode === 'mouse') {
@@ -167,6 +165,7 @@ const Canvas = (props) => {
         circles[i].r,
         circles[i].fill,
         circles[i].isTarget,
+        circles[i].isCenter,
       );
     }
   };
@@ -270,7 +269,7 @@ const Canvas = (props) => {
           e.clientY,
           circles[i].x,
           circles[i].y,
-          circles[i].r * 0.7,
+          circles[i].r * 0.6,
         )
       ) {
         appendToEventList([Date.now(), 'hit_target_' + targetId]);
@@ -287,7 +286,7 @@ const Canvas = (props) => {
           e.clientY,
           circles[i].x,
           circles[i].y,
-          circles[i].r * 0.7,
+          circles[i].r * 0.6,
         )
       ) {
         appendToEventList([Date.now(), 'hit_center']);

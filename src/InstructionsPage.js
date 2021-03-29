@@ -104,15 +104,15 @@ const InstructionsPage = (props) => {
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
-        variant='outline-secondary'
-        size='sm'
+        variant="outline-secondary"
+        size="sm"
       >
         Device Connection Guide
       </Button>
       <Collapse in={open}>
         <div id="example-collapse-text">
-          Wow look at these instructions, sure are cool huh?
-          Maybe add a container or something? Idk how bootstrap works
+          Wow look at these instructions, sure are cool huh? Maybe add a
+          container or something? Idk how bootstrap works
           <p></p>
         </div>
       </Collapse>
@@ -120,10 +120,7 @@ const InstructionsPage = (props) => {
       <p></p>
       <p>{'Press "Begin" when you are ready to continue.'}</p>
 
-      <Button
-        onClick={handleClick}
-        variant='outline-success'
-      >
+      <Button onClick={handleClick} variant="outline-success">
         Begin
       </Button>
     </div>
