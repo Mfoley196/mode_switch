@@ -155,7 +155,7 @@ const Canvas = (props) => {
           circles[i].fill = TOUCH_COLOR;
         }
       } else {
-        circles[i].fill = '#808080';
+        circles[i].fill = '#333333';
       }
 
       drawCircle(
@@ -286,7 +286,7 @@ const Canvas = (props) => {
           e.clientY,
           circles[i].x,
           circles[i].y,
-          circles[i].r * 0.6,
+          circles[i].r,
         )
       ) {
         appendToEventList([Date.now(), 'hit_center']);
