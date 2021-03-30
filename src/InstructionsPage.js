@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Collapse from 'react-bootstrap/Collapse';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 const InstructionsPage = (props) => {
   const { dispatch, stage } = props;
@@ -67,8 +70,41 @@ const InstructionsPage = (props) => {
   const connectionInst = (
     <p>
       You can check if a device is connected to the iPad by clicking on
-      &quot;Settings&quot;, then &quot;Bluetooth&quot;.
+      &quot;Settings&quot;, then &quot;Bluetooth&quot;. Click &quot;Device
+      Connection Guide&quot; for more detailed instructions.
     </p>
+  );
+
+  const connectionGuide = (
+    <div>
+      <p>
+        To check if a device is connected, click on the &quot;Settings&quot;
+        app, then &quot;Bluetooth&quot;.
+      </p>
+      <p>
+        (insert image here) Make sure &quot;Bluetooth&quot; is turned on. In the
+        &quot;Bluetooth&quot; screen, you can view the devices&apos; connection
+        status.
+      </p>
+      <p>
+        (insert image here) In this picture, the Magic Mouse is not connected.
+      </p>
+      <p>
+        <b>To reconnect the pen</b>, plug it into the charging port on the
+        bottom of the iPad. (insert image)
+      </p>
+      <p>
+        <b>To reconnect the mouse or trackpad</b>, first make sure the devices
+        are turned on. Check that their power switches are turned on (see image
+        below)
+      </p>
+      <p>
+        Once the mouse or trackpad is on, you can reconnect them by tapping on
+        the device name in the &quot;Bluetooth&quot; screen. (one image of
+        unconnected mouse. draw circle to show where you tap) tap Magic Mouse
+        (next image, with connected mouse)
+      </p>
+    </div>
   );
 
   function handleClick(e) {
@@ -110,9 +146,8 @@ const InstructionsPage = (props) => {
         Device Connection Guide
       </Button>
       <Collapse in={open}>
-        <div id="example-collapse-text">
-          Wow look at these instructions, sure are cool huh? Maybe add a
-          container or something? Idk how bootstrap works
+        <div id="example-collapse-text" className="bg-light">
+          {connectionGuide}
           <p></p>
         </div>
       </Collapse>

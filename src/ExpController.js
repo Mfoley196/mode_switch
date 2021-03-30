@@ -60,17 +60,6 @@ function ExpController() {
     }
   }, []);
 
-  //TODO: just make this a function I pass to InfoForm
-  // useEffect(() => {
-  //   if (resumeFlag && participantNumber !== undefined) {
-  //     console.log(resumeState.timelineIndex);
-  //     let tl = resumeState.timelineIndex;
-  //     let pID = resumeState.participantId;
-  //     let st = resumeState.stage;
-  //     dispatch({ type: 'goToIndex', tl, pID, st });
-  //   }
-  // }, [participantNumber]);
-
   useEffect(() => {
     if (timelineIndex >= 0) {
       localStorage.setItem(
