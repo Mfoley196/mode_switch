@@ -105,20 +105,21 @@ const TaskController = (props) => {
       blockLog[0].block +
       '.txt';
 
-    setUploading(true);
-
     // let blah = { foo: 'bar' };
     upload(fileName, blockLog)
       .then(function (response) {
         console.log('file upload worked');
         console.log(response);
 
+
+        setUploading(true);
         setUploadStatus(true);
       })
       .catch((error) => {
         console.log('error');
         console.log(error);
-
+ 
+        setUploading(true);
         setUploadStatus(false);
       });
   }

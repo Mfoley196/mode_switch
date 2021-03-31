@@ -7,18 +7,17 @@ const DataLogger = (props) => {
 
   const successText = (
     <div>
-      <p>
-        The log was successfully uploaded. Press &quot;Continue&quot; to
-        continue the experiment.
-      </p>
+      <p>Your data was successfully uploaded! </p>
+      <p></p>
+      <p>Press &quot;Continue&quot; to continue the experiment.</p>
     </div>
   );
 
   const failureText = (
     <div>
       <p>
-        The log did not upload properly. Don&apos;t worry! Once the experiment
-        is over, you will download and email the logs to the experimenters.
+        Your data did not upload properly. Don&apos;t worry! Once the experiment
+        is over, you will download and email your data to the experimenters.
       </p>
       <p>Press &quot;Continue&quot; to continue the experiment.</p>
     </div>
@@ -30,9 +29,9 @@ const DataLogger = (props) => {
 
   function UploadStatusText() {
     if (uploadWorked) {
-      return { successText };
+      return <div>{successText}</div>;
     } else {
-      return { failureText };
+      return <div>{failureText}</div>;
     }
   }
 
