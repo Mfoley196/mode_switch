@@ -1,6 +1,7 @@
 import React from 'react';
 import Canvas from './Canvas';
 import createS3Uploader from './createS3Uploader';
+import DataLogger from './DataLogger';
 
 const NUM_OF_CIRCS = 5;
 
@@ -24,6 +25,8 @@ const TaskController = (props) => {
     initCircles(NUM_OF_CIRCS, 20, path, stage),
   );
   const [eventList, setEventList] = React.useState([]);
+  const [uploading, setUploading] = React.useState(false);
+  const [uploadWorked, setUploadStatus] = React.useState(true);
 
   let upload = createS3Uploader(
     'ca-central-1',
@@ -62,15 +65,6 @@ const TaskController = (props) => {
       screenWidth: window.screen.width,
       screenHeight: window.screen.height,
       scale: window.devicePixelRatio,
-      //X participantNo
-      //X block name (stage[1] + "," stage[2])
-      //X baseline/not baseline
-      //X currPathIndex
-      //X path
-      //X targetId (path[currPathIndex][1])
-      //X tokenId (path[currPathIndex][0])
-      //X circle mode
-      //X eventList
       //error/not error
     };
 
@@ -111,15 +105,21 @@ const TaskController = (props) => {
       blockLog[0].block +
       '.txt';
 
+    setUploading(true);
+
     // let blah = { foo: 'bar' };
     upload(fileName, blockLog)
       .then(function (response) {
         console.log('file upload worked');
         console.log(response);
+
+        setUploadStatus(true);
       })
       .catch((error) => {
         console.log('error');
         console.log(error);
+
+        setUploadStatus(false);
       });
   }
 
@@ -130,7 +130,7 @@ const TaskController = (props) => {
 
       setCurrIndex(0);
       setBlockLog([]);
-      dispatch({ type: 'next' });
+      //dispatch({ type: 'next' });
     } else {
       setCurrIndex(pathIndex + 1);
       setTargetId(path[pathIndex + 1][1]);
@@ -157,18 +157,29 @@ const TaskController = (props) => {
   }
 
   return (
-    <Canvas
-      circles={circles}
-      setCircles={setCircles}
-      path={path}
-      currPathIndex={currPathIndex}
-      targetId={targetId}
-      advanceTrial={advanceTrial}
-      activateCenter={activateCenter}
-      stage={stage}
-      eventList={eventList}
-      setEventList={setEventList}
-    />
+    (!uploading && (
+      <Canvas
+        circles={circles}
+        setCircles={setCircles}
+        path={path}
+        currPathIndex={currPathIndex}
+        targetId={targetId}
+        advanceTrial={advanceTrial}
+        activateCenter={activateCenter}
+        stage={stage}
+        eventList={eventList}
+        setEventList={setEventList}
+      />
+    )) ||
+    (uploading && (
+      <DataLogger
+        uploadWorked={uploadWorked}
+        onSubmit={() => {
+          setUploading(false);
+          dispatch({ type: 'next' });
+        }}
+      />
+    ))
   );
 };
 

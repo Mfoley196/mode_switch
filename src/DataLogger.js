@@ -1,47 +1,50 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import createS3Uploader from './createS3Uploader';
+import Button from 'react-bootstrap/Button';
 
 const DataLogger = (props) => {
-  const {
-    expLog,
-    setExpLog,
-    blockLog,
-    setBlockLog,
-    timelineIndex,
-    ...rest
-  } = props;
+  const { uploadWorked, onSubmit, ...rest } = props;
 
-  let upload = createS3Uploader(
-    'ca-central-1',
-    'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
-    'nextpc-modeswitch1',
+  const successText = (
+    <div>
+      <p>
+        The log was successfully uploaded. Press &quot;Continue&quot; to
+        continue the experiment.
+      </p>
+    </div>
   );
 
-  useEffect(() => {
-    //console.log(blockLog);
-    let keyName = 'default';
-    if (blockLog.length > 0) {
-      keyName =
-        blockLog[0].pNo +
-        '_' +
-        blockLog[0].taskType +
-        '_' +
-        blockLog[0].condition +
-        '_' +
-        blockLog[0].block;
+  const failureText = (
+    <div>
+      <p>
+        The log did not upload properly. Don&apos;t worry! Once the experiment
+        is over, you will download and email the logs to the experimenters.
+      </p>
+      <p>Press &quot;Continue&quot; to continue the experiment.</p>
+    </div>
+  );
 
-      setExpLog({
-        ...expLog,
-        [keyName]: blockLog,
-      });
+  function handleClick() {
+    onSubmit();
+  }
+
+  function UploadStatusText() {
+    if (uploadWorked) {
+      return { successText };
+    } else {
+      return { failureText };
     }
-  }, [blockLog]);
+  }
 
-  useEffect(() => {
-    console.log(expLog);
-  }, [expLog]);
+  return (
+    <div>
+      <UploadStatusText />
 
-  return <div></div>;
+      <Button onClick={handleClick} variant="outline-success">
+        Continue
+      </Button>
+    </div>
+  );
 };
 
 export default DataLogger;
