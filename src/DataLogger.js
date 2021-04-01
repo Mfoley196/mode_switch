@@ -1,6 +1,8 @@
 import React from 'react';
 import createS3Uploader from './createS3Uploader';
 import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+
 
 const DataLogger = (props) => {
   const { uploadWorked, onSubmit, ...rest } = props;

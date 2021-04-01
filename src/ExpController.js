@@ -5,6 +5,7 @@ import ErrorPage from './ErrorPage';
 import TaskController from './TaskController';
 import Loading from './Loading';
 import ExpDone from './ExpDone';
+import ConsentForm from './ConsentForm';
 
 const DEFAULT_STATE = {
   timeline: null,
@@ -87,6 +88,13 @@ function ExpController() {
 
   return (
     (stage['stage'] === 'loading' && <Loading />) ||
+    (stage['stage'] === 'consent' && (
+      <ConsentForm
+        onSubmit={() => {
+          dispatch({ type: 'next' });
+        }}
+      />
+    )) ||
     (stage['stage'] === 'info' && (
       // I don't like to share dispatch. No one needs to know how this component
       // deals with its reducer. I am using a callback instead.

@@ -40,6 +40,7 @@ NUM_OF_BLOCKS = 2
 for p in range(len(cond_matrix)):
     tl = []
     tl.append({"stage": 'info'})
+    tl.append({"stage": 'consent'})
     for i in range(len(cond_matrix[p])):
         #tl.append("instruction," + cond_matrix[p][i])
         conds = cond_matrix[p][i].split(',')
@@ -82,6 +83,7 @@ print(timelines)
 
 timelines['desktop'] = [
     {"stage" : "info"},
+    {"stage" : "consent"},
     {"stage" : "instruction",
     "conds": ["mouse", "trackpad"]},
     {"stage": "task",
@@ -99,6 +101,7 @@ timelines['desktop'] = [
 
 timelines['allconds'] = [
     {"stage" : "info"},
+    {"stage" : "consent"},
     {"stage" : "instruction",
     "conds": ["mouse", "trackpad"]},
     {"stage": "task",

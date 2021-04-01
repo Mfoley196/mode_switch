@@ -4,20 +4,7 @@
       "stage": "info"
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -33,48 +20,7 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -91,6 +37,63 @@
       ],
       "block": "1",
       "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
     },
     {
       "stage": "done"
@@ -125,7 +128,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -141,7 +144,7 @@
         "touch"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 3
     },
     {
       "stage": "task,",
@@ -150,7 +153,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -165,7 +168,7 @@
         "touch",
         "touch"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 5
     },
     {
@@ -181,8 +184,8 @@
         "pen",
         "pen"
       ],
-      "block": "1",
-      "startPos": 1
+      "block": "2",
+      "startPos": 4
     },
     {
       "stage": "done"
@@ -190,22 +193,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -217,29 +204,96 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
         "pen",
-        "trackpad"
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "trackpad"
+        "trackpad",
+        "pen"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 3
     },
     {
       "stage": "task,",
       "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
         "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 1
@@ -247,33 +301,166 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 1
     },
     {
@@ -298,40 +485,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
       "startPos": 3
@@ -339,17 +501,42 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 4
     },
     {
@@ -365,192 +552,8 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
+      "block": "2",
+      "startPos": 4
     },
     {
       "stage": "done"
@@ -561,6 +564,9 @@
       "stage": "info"
     },
     {
+      "stage": "consent"
+    },
+    {
       "stage": "instruction",
       "conds": [
         "touch",
@@ -574,7 +580,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -590,7 +596,7 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -606,7 +612,7 @@
         "pen"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 3
     },
     {
       "stage": "task,",
@@ -630,8 +636,8 @@
         "pen",
         "pen"
       ],
-      "block": "1",
-      "startPos": 4
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -646,99 +652,7 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 5
     },
     {
@@ -747,18 +661,94 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "pen",
+        "pen"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
@@ -772,6 +762,47 @@
       "conds": [
         "mouse",
         "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
       ],
       "block": "1",
       "startPos": 5
@@ -780,23 +811,141 @@
       "stage": "instruction",
       "conds": [
         "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
         "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
+        "trackpad",
         "mouse"
       ],
       "block": "0",
-      "startPos": 3
+      "startPos": 2
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
+        "trackpad",
         "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 5
@@ -804,41 +953,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -855,169 +969,61 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "mouse"
+        "touch",
+        "trackpad"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "mouse"
+        "touch",
+        "trackpad"
       ],
       "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
       "startPos": 1
     },
     {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
       "stage": "done"
     },
     {
@@ -1066,7 +1072,7 @@
         "mouse"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 2
     },
     {
       "stage": "task,",
@@ -1075,7 +1081,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -1090,24 +1096,24 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
       "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
     },
     {
       "stage": "done"
@@ -1118,6 +1124,9 @@
       "stage": "info"
     },
     {
+      "stage": "consent"
+    },
+    {
       "stage": "instruction",
       "conds": [
         "trackpad",
@@ -1129,25 +1138,25 @@
       "conds": [
         "trackpad",
         "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
       ],
       "block": "1",
       "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -1163,7 +1172,7 @@
         "pen"
       ],
       "block": "0",
-      "startPos": 1
+      "startPos": 5
     },
     {
       "stage": "task,",
@@ -1172,7 +1181,7 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -1186,6 +1195,82 @@
       "conds": [
         "pen",
         "pen"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
       ],
       "block": "1",
       "startPos": 3
@@ -1193,6 +1278,57 @@
     {
       "stage": "instruction",
       "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -1204,6 +1340,63 @@
         "trackpad"
       ],
       "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 5
     },
     {
@@ -1228,6 +1421,98 @@
     {
       "stage": "instruction",
       "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "mouse",
         "mouse"
       ]
@@ -1236,6 +1521,31 @@
       "stage": "baseline",
       "conds": [
         "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
         "mouse"
       ],
       "block": "1",
@@ -1244,31 +1554,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -1279,115 +1564,23 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "pen",
+        "pen"
       ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 1
     },
     {
@@ -1412,155 +1605,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "pen",
         "pen"
       ]
@@ -1573,41 +1617,6 @@
       ],
       "block": "1",
       "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -1632,27 +1641,27 @@
         "pen"
       ],
       "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
       "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "touch",
         "touch"
       ]
@@ -1663,8 +1672,8 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 1
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "done"
@@ -1675,6 +1684,25 @@
       "stage": "info"
     },
     {
+      "stage": "consent"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
       "stage": "instruction",
       "conds": [
         "touch",
@@ -1688,20 +1716,29 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 5
     },
     {
       "stage": "instruction",
       "conds": [
         "mouse",
-        "mouse"
+        "touch"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
         "mouse",
-        "mouse"
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
       ],
       "block": "1",
       "startPos": 4
@@ -1710,26 +1747,93 @@
       "stage": "instruction",
       "conds": [
         "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
         "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
+        "trackpad",
         "mouse"
       ],
       "block": "0",
-      "startPos": 2
+      "startPos": 3
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
+        "trackpad",
         "mouse"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -1744,8 +1848,27 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
-      "startPos": 4
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
@@ -1764,9 +1887,6 @@
       "startPos": 3
     },
     {
-      "stage": "done"
-    },
-    {
       "stage": "instruction",
       "conds": [
         "trackpad",
@@ -1780,80 +1900,64 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "mouse"
+        "touch",
+        "trackpad"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "mouse"
+        "touch",
+        "trackpad"
       ],
       "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
       "startPos": 3
     },
     {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
+      "block": "2",
+      "startPos": 3
     },
     {
       "stage": "done"
@@ -1861,110 +1965,18 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -1996,34 +2008,34 @@
         "pen"
       ],
       "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
       "startPos": 2
     },
     {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
       "stage": "instruction",
       "conds": [
         "mouse",
@@ -2036,100 +2048,8 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
     },
     {
       "stage": "done"
@@ -2153,6 +2073,82 @@
     {
       "stage": "instruction",
       "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -2164,64 +2160,80 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
         "pen",
-        "trackpad"
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "trackpad"
+        "trackpad",
+        "pen"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 2
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "trackpad"
+        "trackpad",
+        "pen"
       ],
       "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
       "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
     },
     {
       "stage": "done"
@@ -2232,112 +2244,7 @@
       "stage": "info"
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -2358,26 +2265,58 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "trackpad"
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "trackpad"
+        "trackpad",
+        "mouse"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 1
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "trackpad"
+        "trackpad",
+        "mouse"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 4
     },
     {
@@ -2393,24 +2332,8 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "done"
@@ -2418,72 +2341,31 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ],
       "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "0",
       "startPos": 1
     },
     {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
       "startPos": 5
@@ -2491,142 +2373,24 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "trackpad"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "trackpad"
       ],
-      "block": "1",
+      "block": "0",
       "startPos": 4
     },
     {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
       "stage": "task,",
       "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
         "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
       ],
       "block": "1",
       "startPos": 2
@@ -2635,58 +2399,33 @@
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "pen"
+        "trackpad"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
         "trackpad",
-        "pen"
+        "trackpad"
       ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 5
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "done"
@@ -2694,56 +2433,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "1",
       "startPos": 2
@@ -2767,6 +2465,82 @@
     {
       "stage": "instruction",
       "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "touch",
         "touch"
       ]
@@ -2778,7 +2552,248 @@
         "touch"
       ],
       "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
       "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "done"
@@ -2789,77 +2804,7 @@
       "stage": "info"
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -2873,82 +2818,6 @@
       "conds": [
         "trackpad",
         "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
       ],
       "block": "1",
       "startPos": 1
@@ -2956,21 +2825,43 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 1
     },
     {
-      "stage": "done"
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -2984,6 +2875,82 @@
       "conds": [
         "touch",
         "touch"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
       ],
       "block": "1",
       "startPos": 3
@@ -3001,64 +2968,23 @@
         "pen",
         "pen"
       ],
-      "block": "1",
-      "startPos": 0
+      "block": "2",
+      "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 3
     },
     {
@@ -3083,40 +3009,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 3
@@ -3124,142 +3025,24 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
         "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
+        "pen",
         "touch"
       ],
       "block": "0",
-      "startPos": 1
+      "startPos": 0
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
+        "pen",
         "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
       ],
       "block": "1",
       "startPos": 2
@@ -3267,6 +3050,41 @@
     {
       "stage": "instruction",
       "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -3283,24 +3101,199 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
         "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
         "mouse",
-        "trackpad"
+        "touch"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "task,",
       "conds": [
         "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
         "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 0
@@ -3309,17 +3302,26 @@
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "trackpad"
+        "mouse"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
         "trackpad",
-        "trackpad"
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -3334,7 +3336,23 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
       "startPos": 4
     },
     {
@@ -3346,6 +3364,25 @@
       "stage": "info"
     },
     {
+      "stage": "consent"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
       "stage": "instruction",
       "conds": [
         "mouse",
@@ -3359,7 +3396,175 @@
         "mouse"
       ],
       "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
       "startPos": 4
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -3380,23 +3585,23 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
+        "trackpad",
         "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
+        "trackpad",
         "pen"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 2
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
+        "trackpad",
         "pen"
       ],
       "block": "1",
@@ -3415,24 +3620,24 @@
         "pen",
         "pen"
       ],
-      "block": "1",
-      "startPos": 5
+      "block": "2",
+      "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
-      "block": "1",
-      "startPos": 3
+      "block": "2",
+      "startPos": 1
     },
     {
       "stage": "done"
@@ -3440,15 +3645,31 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 0
@@ -3456,6 +3677,31 @@
     {
       "stage": "instruction",
       "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "touch",
         "touch"
       ]
@@ -3466,21 +3712,72 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 5
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "touch"
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "touch"
+        "mouse",
+        "trackpad"
       ],
       "block": "0",
       "startPos": 2
@@ -3488,115 +3785,7 @@
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
+        "mouse",
         "trackpad"
       ],
       "block": "1",
@@ -3605,202 +3794,34 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 5
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
     },
     {
       "stage": "done"
@@ -3835,7 +3856,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -3851,7 +3872,7 @@
         "touch"
       ],
       "block": "0",
-      "startPos": 1
+      "startPos": 3
     },
     {
       "stage": "task,",
@@ -3860,7 +3881,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -3875,7 +3896,7 @@
         "touch",
         "touch"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 1
     },
     {
@@ -3891,8 +3912,8 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "1",
-      "startPos": 5
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "done"
@@ -3903,20 +3924,7 @@
       "stage": "info"
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -3938,23 +3946,14 @@
       "stage": "instruction",
       "conds": [
         "touch",
-        "pen"
+        "touch"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
         "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
+        "touch"
       ],
       "block": "1",
       "startPos": 5
@@ -3963,14 +3962,23 @@
       "stage": "instruction",
       "conds": [
         "pen",
-        "pen"
+        "touch"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
         "pen",
-        "pen"
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
       ],
       "block": "1",
       "startPos": 2
@@ -3988,8 +3996,24 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 0
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 3
     },
     {
       "stage": "done"
@@ -3997,15 +4021,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
       "startPos": 0
@@ -4013,63 +4037,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "pen",
         "pen"
       ]
@@ -4081,55 +4048,20 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "done"
+      "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
+        "trackpad",
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "touch"
+        "trackpad",
+        "pen"
       ],
       "block": "0",
       "startPos": 2
@@ -4137,8 +4069,8 @@
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "touch"
+        "trackpad",
+        "pen"
       ],
       "block": "1",
       "startPos": 5
@@ -4146,34 +4078,34 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "pen",
+        "pen"
       ],
-      "block": "1",
-      "startPos": 4
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
-      "block": "1",
-      "startPos": 4
+      "block": "2",
+      "startPos": 3
     },
     {
       "stage": "done"
@@ -4181,59 +4113,18 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -4254,21 +4145,43 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "touch",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "done"
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -4282,6 +4195,66 @@
       "conds": [
         "touch",
         "touch"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
       ],
       "block": "1",
       "startPos": 1
@@ -4299,65 +4272,24 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
+      "block": "2",
       "startPos": 5
     },
     {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "done"
@@ -4365,47 +4297,47 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "mouse"
+        "trackpad",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "mouse"
+        "trackpad",
+        "touch"
       ],
       "block": "0",
       "startPos": 4
@@ -4413,43 +4345,135 @@
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "touch"
       ],
       "block": "1",
       "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "done"
@@ -4460,6 +4484,9 @@
       "stage": "info"
     },
     {
+      "stage": "consent"
+    },
+    {
       "stage": "instruction",
       "conds": [
         "trackpad",
@@ -4471,22 +4498,6 @@
       "conds": [
         "trackpad",
         "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
       ],
       "block": "1",
       "startPos": 5
@@ -4494,23 +4505,14 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
+        "pen",
         "pen"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
+        "pen",
         "pen"
       ],
       "block": "1",
@@ -4519,82 +4521,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "mouse"
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "mouse"
+        "trackpad",
+        "pen"
       ],
       "block": "0",
       "startPos": 5
@@ -4602,11 +4537,46 @@
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "mouse"
+        "trackpad",
+        "pen"
       ],
       "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
       "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
@@ -4638,7 +4608,64 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "done"
@@ -4657,7 +4684,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -4673,44 +4700,28 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "0",
       "startPos": 2
     },
     {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ]
+    },
+    {
       "stage": "task,",
       "conds": [
         "trackpad",
         "mouse"
       ],
-      "block": "1",
-      "startPos": 0
+      "block": "0",
+      "startPos": 1
     },
     {
-      "stage": "instruction",
+      "stage": "task,",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
+        "trackpad",
         "mouse"
       ],
       "block": "1",
@@ -4719,6 +4730,22 @@
     {
       "stage": "instruction",
       "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -4729,8 +4756,8 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "1",
-      "startPos": 0
+      "block": "2",
+      "startPos": 1
     },
     {
       "stage": "done"
@@ -4738,6 +4765,22 @@
     {
       "stage": "instruction",
       "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "touch",
         "touch"
       ]
@@ -4747,63 +4790,6 @@
       "conds": [
         "touch",
         "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
       ],
       "block": "1",
       "startPos": 3
@@ -4811,6 +4797,31 @@
     {
       "stage": "instruction",
       "conds": [
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "touch",
         "touch"
       ]
@@ -4821,8 +4832,24 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 2
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "done"
@@ -4841,7 +4868,7 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -4855,6 +4882,82 @@
       "conds": [
         "mouse",
         "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 1
@@ -4863,47 +4966,6 @@
       "stage": "instruction",
       "conds": [
         "pen",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
         "pen"
       ]
     },
@@ -4912,82 +4974,6 @@
       "conds": [
         "pen",
         "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
       ],
       "block": "1",
       "startPos": 0
@@ -4995,6 +4981,31 @@
     {
       "stage": "instruction",
       "conds": [
+        "touch",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "pen",
         "pen"
       ]
@@ -5005,7 +5016,23 @@
         "pen",
         "pen"
       ],
-      "block": "1",
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
       "startPos": 2
     },
     {
@@ -5017,169 +5044,7 @@
       "stage": "info"
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -5198,25 +5063,6 @@
       "startPos": 3
     },
     {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
       "stage": "instruction",
       "conds": [
         "touch",
@@ -5235,23 +5081,23 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
+        "mouse",
         "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
+        "mouse",
         "touch"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 0
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
+        "mouse",
         "touch"
       ],
       "block": "1",
@@ -5270,8 +5116,27 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 2
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
@@ -5285,12 +5150,193 @@
       "conds": [
         "trackpad",
         "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 3
     },
     {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
       "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -5306,6 +5352,47 @@
         "pen"
       ],
       "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
       "startPos": 1
     },
     {
@@ -5321,21 +5408,56 @@
         "mouse",
         "mouse"
       ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
       "block": "1",
       "startPos": 5
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "mouse"
+        "touch",
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "mouse"
+        "touch",
+        "pen"
       ],
       "block": "0",
       "startPos": 4
@@ -5343,27 +5465,11 @@
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "mouse"
+        "touch",
+        "pen"
       ],
       "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -5378,29 +5484,10 @@
         "pen",
         "pen"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 1
     },
     {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
       "stage": "instruction",
       "conds": [
         "touch",
@@ -5413,141 +5500,11 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
+      "block": "2",
+      "startPos": 4
     },
     {
       "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -5564,6 +5521,79 @@
       ],
       "block": "1",
       "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "done"
@@ -5574,6 +5604,9 @@
       "stage": "info"
     },
     {
+      "stage": "consent"
+    },
+    {
       "stage": "instruction",
       "conds": [
         "trackpad",
@@ -5587,7 +5620,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -5628,7 +5661,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -5643,8 +5676,8 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
-      "startPos": 1
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -5659,11 +5692,27 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "1",
-      "startPos": 1
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -5685,30 +5734,14 @@
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "trackpad"
+        "trackpad",
+        "touch"
       ],
       "block": "0",
       "startPos": 0
@@ -5716,27 +5749,11 @@
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "trackpad"
+        "trackpad",
+        "touch"
       ],
       "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -5751,100 +5768,24 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "trackpad"
       ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "0",
+      "block": "2",
       "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
     },
     {
       "stage": "done"
@@ -5861,206 +5802,6 @@
       "conds": [
         "pen",
         "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
       ],
       "block": "1",
       "startPos": 2
@@ -6069,39 +5810,39 @@
       "stage": "instruction",
       "conds": [
         "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
       ],
       "block": "1",
       "startPos": 0
@@ -6119,7 +5860,299 @@
         "mouse",
         "mouse"
       ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
       "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 2
     },
     {
@@ -6131,77 +6164,7 @@
       "stage": "info"
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -6220,6 +6183,79 @@
       "startPos": 4
     },
     {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
       "stage": "done"
     },
     {
@@ -6236,7 +6272,7 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -6252,7 +6288,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -6277,7 +6313,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -6292,7 +6328,99 @@
         "mouse",
         "mouse"
       ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
       "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
       "startPos": 3
     },
     {
@@ -6308,8 +6436,8 @@
         "pen",
         "pen"
       ],
-      "block": "1",
-      "startPos": 0
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "done"
@@ -6328,264 +6456,172 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "0",
       "startPos": 1
     },
     {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
       "stage": "instruction",
       "conds": [
         "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
         "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
+        "mouse",
         "touch"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 5
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
+        "mouse",
         "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
       ],
       "block": "1",
       "startPos": 3
     },
     {
-      "stage": "done"
-    },
-    {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ],
-      "block": "1",
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
     },
     {
       "stage": "done"
@@ -6645,7 +6681,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -6660,8 +6696,8 @@
         "mouse",
         "mouse"
       ],
-      "block": "1",
-      "startPos": 2
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -6676,8 +6712,8 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "1",
-      "startPos": 2
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "done"
@@ -6686,6 +6722,9 @@
   "desktop": [
     {
       "stage": "info"
+    },
+    {
+      "stage": "consent"
     },
     {
       "stage": "instruction",
@@ -6726,6 +6765,9 @@
   "allconds": [
     {
       "stage": "info"
+    },
+    {
+      "stage": "consent"
     },
     {
       "stage": "instruction",

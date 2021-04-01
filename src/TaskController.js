@@ -112,14 +112,14 @@ const TaskController = (props) => {
         console.log(response);
 
 
-        setUploading(true);
+        
         setUploadStatus(true);
       })
       .catch((error) => {
         console.log('error');
         console.log(error);
  
-        setUploading(true);
+        //setUploading(true);
         setUploadStatus(false);
       });
   }
@@ -127,6 +127,7 @@ const TaskController = (props) => {
   function advanceTrial(pathIndex, currMode, eventList) {
     if (pathIndex + 1 >= path.length) {
       addToBlockLog(currMode, eventList);
+      setUploading(true);
       uploadToBucket();
 
       setCurrIndex(0);
