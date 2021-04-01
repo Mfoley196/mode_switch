@@ -91,15 +91,33 @@ const InstructionsPage = (props) => {
       </p>
       <p>
         <b>To reconnect the pen</b>, plug it into the charging port on the
-        bottom of the iPad. 
+        bottom of the iPad.
       </p>
-      <img src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'} width="200px"/>
+      <img
+        src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
+        width="200px"
+      />
       <p>
         <b>To reconnect the mouse or trackpad</b>, first make sure the devices
         are turned on. Check that their power switches are turned on (see imaged
         below)
       </p>
-      <img src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'} width="200px"/>
+      <Container>
+        <Row>
+          <Col>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'}
+              width="200px"
+            />
+          </Col>
+          <Col>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/trackpad_switch.jpeg'}
+              width="200px"
+            />
+          </Col>
+        </Row>
+      </Container>
       <p>
         Once the mouse or trackpad is on, you can reconnect them by tapping on
         the device name in the &quot;Bluetooth&quot; screen. (one image of
