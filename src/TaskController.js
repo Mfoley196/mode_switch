@@ -111,14 +111,12 @@ const TaskController = (props) => {
         console.log('file upload worked');
         console.log(response);
 
-
-        
         setUploadStatus(true);
       })
       .catch((error) => {
         console.log('error');
         console.log(error);
- 
+
         //setUploading(true);
         setUploadStatus(false);
       });
