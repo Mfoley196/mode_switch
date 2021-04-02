@@ -60,12 +60,12 @@ const Canvas = (props) => {
   const TARGET_COLOR = '#00EE00';
   //const HOVER_COLOR = '#00BB00';
 
-  let startTime;
   const interval = 500;
 
   useEffect(() => {
     if (errorFlag) {
-      setTimeout(clearErrorFlag, interval);
+      let timeoutId = setTimeout(clearErrorFlag, interval);
+      return () => clearTimeout(timeoutId);
     }
   }, [errorFlag]);
 
@@ -302,16 +302,30 @@ const Canvas = (props) => {
         )
       ) {
         appendToEventList([Date.now(), 'hit_target_' + targetId]);
-        //console.log('hit target!');
+        console.log('hit target!');
 
         activateCenter();
       } else {
-        console.log(circles[i]);
-        if (circles[i].isToken && circles[i].dragOn) {
-          //console.log("error?")
-          console.log(i);
+        if (
+          circles[i].isTarget &&
+          !circles[i].isCenter &&
+          !circleHitTest(
+            e.clientX,
+            e.clientY,
+            circles[i].x,
+            circles[i].y,
+            circles[i].r * 0.6,
+          )
+        ) {
           setErrorFlag(true);
         }
+
+        // console.log(circles[i]);
+        // if (circles[i].isToken && circles[i].dragOn) {
+        //   //console.log("error?")
+        //   console.log(i);
+        //   setErrorFlag(true);
+        // }
       }
 
       if (

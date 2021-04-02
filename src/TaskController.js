@@ -34,23 +34,6 @@ const TaskController = (props) => {
     'nextpc-modeswitch1',
   );
 
-  function activateCenter() {
-    let circlesCopy = circles.slice();
-
-    for (let i = 0; i < circlesCopy.length; i++) {
-      circlesCopy[i].x = circlesCopy[i].oldx;
-      circlesCopy[i].y = circlesCopy[i].oldy;
-      circlesCopy[i].dragOn = false;
-
-      circlesCopy[i].isTarget = i === circles.length - 1 ? true : false;
-      circlesCopy[i].isToken = false;
-      circlesCopy[i].isVisible = true;
-    }
-
-    setCircles(circlesCopy);
-    setTargetId(circles.length - 1);
-  }
-
   function createTrialLog(currMode, eventList) {
     let logObj = {
       pNo: pNo,
@@ -135,7 +118,7 @@ const TaskController = (props) => {
     } else {
       setCurrIndex(pathIndex + 1);
       setTargetId(path[pathIndex + 1][1]);
-      let circlesCopy = circles.slice();
+      let circlesCopy = JSON.parse(JSON.stringify(circles));
 
       for (let i = 0; i < circlesCopy.length; i++) {
         circlesCopy[i].x = circlesCopy[i].oldx;
@@ -154,10 +137,31 @@ const TaskController = (props) => {
         }
       }
 
+      console.log(circlesCopy);
+
       setCircles(circlesCopy);
 
       addToBlockLog(currMode, eventList);
     }
+  }
+
+  function activateCenter() {
+    //let circlesCopy = JSON.parse(JSON.stringify(circles));
+    let circlesCopy = circles.slice();
+
+    for (let i = 0; i < circlesCopy.length; i++) {
+      circlesCopy[i].x = circlesCopy[i].oldx;
+      circlesCopy[i].y = circlesCopy[i].oldy;
+      circlesCopy[i].dragOn = false;
+
+      circlesCopy[i].isTarget = i === circles.length - 1 ? true : false;
+      circlesCopy[i].isToken = false;
+      circlesCopy[i].isVisible = true;
+    }
+    console.log(circlesCopy);
+
+    setCircles(circlesCopy);
+    setTargetId(circles.length - 1);
   }
 
   return (
