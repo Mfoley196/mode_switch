@@ -73,18 +73,21 @@ const ConsentForm = (props) => {
 
   return (
     <div>
-      <ReactMarkdown source={markdown} />;
+      <ReactMarkdown source={markdown} />
+      
       <Form>
         {questions.map((question) => {
           return (
-            <Form.Check
-              id={question.label}
-              key={question.label}
-              type="checkbox"
-              label={question.label}
-              required={question.required}
-              onChange={handleChange}
-            />
+            <div key={question.label}>
+              <Form.Check
+                id={question.label}
+                type="checkbox"
+                label={question.label}
+                required={question.required}
+                onChange={handleChange}
+              />
+              <p></p>
+            </div>
           );
         })}
 

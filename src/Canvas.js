@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useCanvas from './useCanvas';
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
@@ -38,6 +38,7 @@ const Canvas = (props) => {
 
   const [mouseX, setMouseX] = React.useState(0);
   const [mouseY, setMouseY] = React.useState(0);
+  const [errorFlag, setErrorFlag] = React.useState(0);
 
   const PEN_COLOR = '#FFFF00';
   const PEN_DRAG_COLOR = '#999900';
@@ -58,6 +59,20 @@ const Canvas = (props) => {
   //const TOKEN_COLOR = '#FF0000';
   const TARGET_COLOR = '#00EE00';
   //const HOVER_COLOR = '#00BB00';
+
+  let startTime;
+  const interval = 500;
+
+  useEffect(() => {
+    if (errorFlag) {
+      setTimeout(clearErrorFlag, interval);
+    }
+
+  }, [errorFlag]);
+
+  function clearErrorFlag() {
+    setErrorFlag(false);
+  }
 
   const appendToEventList = (event) => {
     //let eListCopy = eventList.slice();
@@ -81,7 +96,14 @@ const Canvas = (props) => {
 
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.fillStyle = '#000000';
+
+    if (!errorFlag) {
+      ctx.fillStyle = '#000000';
+    } else {
+      ctx.fillStyle = '#EE0000';
+      //requestAnimationFrame(animate);
+    }
+
     ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
     //drawCircle(ctx, mouseX, mouseY, 15, "#FFFFFF");
 
@@ -258,11 +280,6 @@ const Canvas = (props) => {
 
     for (let i = 0; i < circles.length; i++) {
       //console.log(i + " " + circles[i].dragOn)
-      if (circles[i].dragOn) {
-        circles[i].dragOn = false;
-        appendToEventList([Date.now(), 'release_' + i]);
-      }
-
       if (
         circles[i].isTarget &&
         !circles[i].isCenter &&
@@ -278,6 +295,11 @@ const Canvas = (props) => {
         //console.log('hit target!');
 
         activateCenter();
+      } else {
+        if (circles[i].dragOn) {
+          console.log(circles[i]);
+          setErrorFlag(true);
+        }
       }
 
       if (
@@ -295,6 +317,11 @@ const Canvas = (props) => {
         //console.log('hit center!');
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
+      }
+
+      if (circles[i].dragOn) {
+        circles[i].dragOn = false;
+        appendToEventList([Date.now(), 'release_' + i]);
       }
     }
   };

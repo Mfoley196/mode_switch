@@ -84,7 +84,7 @@ const TaskController = (props) => {
       stage['conds'][0] +
       '-' +
       stage['conds'][1] +
-      '_B_' +
+      '_B' +
       newLog.block;
 
     setExpLog({

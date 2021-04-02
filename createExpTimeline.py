@@ -117,6 +117,24 @@ timelines['allconds'] = [
     {"stage" : "done"}
 ]
 
+timelines['touchpen'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["touch", "pen"]},
+    {"stage": "task",
+    "conds": ["touch", "pen"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "instruction",
+    "conds": ["pen", "touch"]},
+    {"stage": "task",
+    "conds": ["pen", "touch"],
+    "block" : "2",
+    "startPos" : 0},
+    {"stage" : "done"}
+]
+
 #['info','instruction,mouse,trackpad', 'task,trackpad,mouse', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'done']
 #timelines['allconds'] = ['info', 'instruction,mouse,trackpad', 'task,mouse,trackpad', 'instruction,pen,touch', 'task,pen,touch', 'done']
 

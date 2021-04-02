@@ -94,3 +94,14 @@ This study has been reviewed and received ethics clearance through a University 
 #### Who should I contact if I have questions regarding my participation in the study?
 
 If you have any questions regarding this study, or would like additional information to assist you in reaching a decision about participation, please contact Dr. Daniel Vogel at 516.888.4567 x33561 or by email at [dvogel@uwaterloo.ca](mailto:dvogel@uwaterloo.ca). You can also contact any member of the research team listed on the first page of the consent letter.
+
+---
+
+
+### Consent Form
+
+By providing your consent, you are not waiving your legal rights or releasing the investigator(s) or involved institution(s) from their legal and professional responsibilities.
+
+I have read the information presented in the information letter about a study led by Dr. Daniel Vogel, School of Computer Science, University of Waterloo.  I have had the opportunity to ask questions related to the study and have received satisfactory answers to my questions and any additional details. **I was informed that participation in the study is voluntary and that I can withdraw this consent by informing the researcher.**  
+
+This study has been reviewed and received ethics clearance through a University of Waterloo Research Ethics Committee ORE# 31173. If you have questions for the Committee contact the Office of Research Ethics at 1-519-888-4567 ext. 36005 or [ore-ceo@uwaterloo.ca](mailto:ore-ceo@uwaterloo.ca).  For all other questions contact Dr. Daniel Vogel, School of Computer Science, University of Waterloo at 519-888-4567 ext. 33561 or [dvogel@uwaterloo.ca](mailto:dvogel@uwaterloo.ca) 
