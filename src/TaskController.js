@@ -44,6 +44,7 @@ const TaskController = (props) => {
 
       circlesCopy[i].isTarget = i === circles.length - 1 ? true : false;
       circlesCopy[i].isToken = false;
+      circlesCopy[i].isVisible = true;
     }
 
     setCircles(circlesCopy);
@@ -147,7 +148,10 @@ const TaskController = (props) => {
 
         circlesCopy[i].isTarget = i === path[pathIndex + 1][1] ? true : false;
         circlesCopy[i].isToken = path[pathIndex + 1][0] === i ? true : false;
-        //circlesCopy[i].isVisible = (path[pathIndex + 1][1] === i || path[pathIndex + 1][0] === i ? true: false);
+
+        if (i === circlesCopy.length - 1) {
+          circlesCopy[i].isVisible = false;
+        }
       }
 
       setCircles(circlesCopy);
@@ -206,6 +210,7 @@ function initCircles(numCircs, radius, path, stage) {
       dragOn: false,
       isTarget: path[0][1] === i ? true : false,
       isToken: path[0][0] === i ? true : false,
+      isVisible: true,
       mode: mode,
       isCenter: false,
     };
@@ -224,6 +229,7 @@ function initCircles(numCircs, radius, path, stage) {
     dragOn: false,
     isTarget: false,
     isToken: false,
+    isVisible: false,
     mode: stage['conds'][1],
     isCenter: true,
   };

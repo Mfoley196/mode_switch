@@ -158,15 +158,17 @@ const Canvas = (props) => {
         circles[i].fill = '#333333';
       }
 
-      drawCircle(
-        ctx,
-        circles[i].x,
-        circles[i].y,
-        circles[i].r,
-        circles[i].fill,
-        circles[i].isTarget,
-        circles[i].isCenter,
-      );
+      if (circles[i].isVisible) {
+        drawCircle(
+          ctx,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+          circles[i].fill,
+          circles[i].isTarget,
+          circles[i].isCenter,
+        );
+      }
     }
   };
 

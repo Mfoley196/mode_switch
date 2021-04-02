@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import ConsentMarkdown from './consent_letter.md';
 
 const ConsentForm = (props) => {
   const { onSubmit, ...rest } = props;
@@ -17,7 +19,8 @@ const ConsentForm = (props) => {
       required: false,
     },
     {
-      label: 'I agree of my own free will to participate in the study. **REQUIRED**',
+      label:
+        'I agree of my own free will to participate in the study. **REQUIRED**',
       required: true,
     },
   ];
@@ -29,6 +32,20 @@ const ConsentForm = (props) => {
   };
 
   const [questionsChecked, setChecked] = useState(initialState);
+  const [markdown, setMarkdown] = useState('');
+
+  useEffect(() => {
+    fetch(ConsentMarkdown)
+      .then(function (response) {
+        return response.text();
+      })
+      .then(function (data) {
+        setMarkdown(data);
+      })
+      .catch((error) => {
+        console.log("couldn't load consent form!");
+      });
+  }, []);
 
   const handleChange = (event) => {
     setChecked({
@@ -50,14 +67,13 @@ const ConsentForm = (props) => {
     if (!requiredFieldNotFilled()) {
       onSubmit();
     } else {
-      alert("You must check the required checkboxes to proceed.")
+      alert('You must check the required checkboxes to proceed.');
     }
   }
 
   return (
     <div>
-      <p>insert placeholder text until I get ORE wording</p>
-
+      <ReactMarkdown source={markdown} />;
       <Form>
         {questions.map((question) => {
           return (
