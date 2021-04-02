@@ -67,7 +67,6 @@ const Canvas = (props) => {
     if (errorFlag) {
       setTimeout(clearErrorFlag, interval);
     }
-
   }, [errorFlag]);
 
   function clearErrorFlag() {
@@ -231,7 +230,6 @@ const Canvas = (props) => {
           }),
         );
         //circles[i].dragOn = true
-        console.log('Hit ' + i);
         appendToEventList([Date.now(), 'hit_token_' + i]);
       }
     }
@@ -280,6 +278,18 @@ const Canvas = (props) => {
 
     for (let i = 0; i < circles.length; i++) {
       //console.log(i + " " + circles[i].dragOn)
+      if (circles[i].dragOn) {
+        setCircles(
+          circles.map((circle) => {
+            return {
+              ...circle,
+              dragOn: false,
+            };
+          }),
+        );
+        appendToEventList([Date.now(), 'release_' + i]);
+      }
+
       if (
         circles[i].isTarget &&
         !circles[i].isCenter &&
@@ -296,8 +306,10 @@ const Canvas = (props) => {
 
         activateCenter();
       } else {
-        if (circles[i].dragOn) {
-          console.log(circles[i]);
+        console.log(circles[i]);
+        if (circles[i].isToken && circles[i].dragOn) {
+          //console.log("error?")
+          console.log(i);
           setErrorFlag(true);
         }
       }
@@ -317,11 +329,6 @@ const Canvas = (props) => {
         //console.log('hit center!');
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
-      }
-
-      if (circles[i].dragOn) {
-        circles[i].dragOn = false;
-        appendToEventList([Date.now(), 'release_' + i]);
       }
     }
   };
