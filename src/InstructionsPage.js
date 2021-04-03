@@ -79,29 +79,52 @@ const InstructionsPage = (props) => {
     <div>
       <p>
         To check if a device is connected, click on the &quot;Settings&quot;
-        app, then &quot;Bluetooth&quot;.
+        app, then &quot;Bluetooth&quot;. Make sure &quot;Bluetooth&quot; is
+        turned on.
       </p>
       <p>
-        (insert image here) Make sure &quot;Bluetooth&quot; is turned on. In the
-        &quot;Bluetooth&quot; screen, you can view the devices&apos; connection
-        status.
+        <Container>
+          <Row>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/bluetooth_location.png'}
+              width="500px"
+            />
+          </Row>
+        </Container>
+      </p>
+
+      <p>
+        In the &quot;Bluetooth&quot; screen, you can view the devices&apos;
+        connection status.
       </p>
       <p>
-        (insert image here) In this picture, the Magic Mouse is not connected.
+        <Container>
+          <Row>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/device_status.png'}
+              width="500px"
+            />
+          </Row>
+        </Container>
       </p>
       <p>
         <b>To reconnect the pen</b>, plug it into the charging port on the
         bottom of the iPad.
       </p>
-      <img
-        src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
-        width="200px"
-      />
+      <Container>
+        <Row>
+          <img
+            src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
+            width="200px"
+          />
+        </Row>
+      </Container>
       <p>
         <b>To reconnect the mouse or trackpad</b>, first make sure the devices
-        are turned on. Check that their power switches are turned on (see imaged
-        below)
+        are turned on. Check that their power switches are turned on (switches
+        are circled in red)
       </p>
+      <p>
       <Container>
         <Row>
           <Col>
@@ -118,11 +141,30 @@ const InstructionsPage = (props) => {
           </Col>
         </Row>
       </Container>
+      </p>
       <p>
         Once the mouse or trackpad is on, you can reconnect them by tapping on
         the device name in the &quot;Bluetooth&quot; screen. (one image of
         unconnected mouse. draw circle to show where you tap) tap Magic Mouse
         (next image, with connected mouse)
+      </p>
+      <p>
+      <Container>
+        <Row>
+          <Col>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/mouse_not_connected.png'}
+              width="500px"
+            />
+          </Col>
+          <Col>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/mouse_connected.png'}
+              width="500px"
+            />
+          </Col>
+        </Row>
+      </Container>
       </p>
     </div>
   );
