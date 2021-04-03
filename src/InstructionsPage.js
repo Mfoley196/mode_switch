@@ -83,12 +83,14 @@ const InstructionsPage = (props) => {
         turned on.
       </p>
       <p>
-        <Container>
-          <Row>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/bluetooth_location.png'}
-              width="500px"
-            />
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/bluetooth_location.png'}
+                width="400px"
+              />
+            </Col>
           </Row>
         </Container>
       </p>
@@ -98,12 +100,14 @@ const InstructionsPage = (props) => {
         connection status.
       </p>
       <p>
-        <Container>
-          <Row>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/device_status.png'}
-              width="500px"
-            />
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/device_status.png'}
+                width="400px"
+              />
+            </Col>
           </Row>
         </Container>
       </p>
@@ -111,12 +115,14 @@ const InstructionsPage = (props) => {
         <b>To reconnect the pen</b>, plug it into the charging port on the
         bottom of the iPad.
       </p>
-      <Container>
-        <Row>
-          <img
-            src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
-            width="200px"
-          />
+      <Container fluid>
+        <Row className="justify-content-md-center">
+          <Col>
+            <img
+              src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
+              width="200px"
+            />
+          </Col>
         </Row>
       </Container>
       <p>
@@ -125,22 +131,22 @@ const InstructionsPage = (props) => {
         are circled in red)
       </p>
       <p>
-      <Container>
-        <Row>
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'}
-              width="200px"
-            />
-          </Col>
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/trackpad_switch.jpeg'}
-              width="200px"
-            />
-          </Col>
-        </Row>
-      </Container>
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'}
+                width="200px"
+              />
+            </Col>
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/trackpad_switch.jpeg'}
+                width="200px"
+              />
+            </Col>
+          </Row>
+        </Container>
       </p>
       <p>
         Once the mouse or trackpad is on, you can reconnect them by tapping on
@@ -149,22 +155,24 @@ const InstructionsPage = (props) => {
         (next image, with connected mouse)
       </p>
       <p>
-      <Container>
-        <Row>
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/mouse_not_connected.png'}
-              width="500px"
-            />
-          </Col>
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/mouse_connected.png'}
-              width="500px"
-            />
-          </Col>
-        </Row>
-      </Container>
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={
+                  process.env.PUBLIC_URL + '/devices/mouse_not_connected.png'
+                }
+                width="400px"
+              />
+            </Col>
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/mouse_connected.png'}
+                width="400px"
+              />
+            </Col>
+          </Row>
+        </Container>
       </p>
     </div>
   );
