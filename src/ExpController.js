@@ -6,6 +6,7 @@ import TaskController from './TaskController';
 import Loading from './Loading';
 import ExpDone from './ExpDone';
 import ConsentForm from './ConsentForm';
+import GoogleFormSurvey from './GoogleFormSurvey';
 
 const DEFAULT_STATE = {
   timeline: null,
@@ -23,6 +24,7 @@ function ExpController() {
   const [blockLog, setBlockLog] = useState([]);
   const [resumeFlag, setResumeFlag] = useState(false);
   const [resumeState, setResumeState] = useState({});
+  const [fileUploadError, setUploadError] = useState(false);
 
   useEffect(() => {
     let isCanceled = false;
@@ -114,6 +116,8 @@ function ExpController() {
           setExpLog={setExpLog}
           blockLog={blockLog}
           setBlockLog={setBlockLog}
+          fileUploadError={fileUploadError}
+          setUploadError={setUploadError}
         />
       </div>
     )) ||
@@ -123,7 +127,10 @@ function ExpController() {
     (stage['stage'] === 'error' && (
       <ErrorPage pNo={participantNumber} blockLog={blockLog} error={error} />
     )) ||
-    (stage['stage'] === 'done' && <ExpDone />)
+    (stage['stage'] === 'survey' && (
+      <GoogleFormSurvey pNo={participantNumber} dispatch={dispatch}/>
+    )) ||
+    (stage['stage'] === 'done' && <ExpDone fileUploadError={fileUploadError}/>)
     //<DataLogger />
   );
 }

@@ -33,6 +33,8 @@ const Canvas = (props) => {
     stage,
     eventList,
     setEventList,
+    missCount, 
+    setMissCount,
     ...rest
   } = props;
 
@@ -60,7 +62,7 @@ const Canvas = (props) => {
   const TARGET_COLOR = '#00EE00';
   //const HOVER_COLOR = '#00BB00';
 
-  const interval = 500;
+  const interval = 300;
 
   useEffect(() => {
     if (errorFlag) {
@@ -302,7 +304,6 @@ const Canvas = (props) => {
         )
       ) {
         appendToEventList([Date.now(), 'hit_target_' + targetId]);
-        console.log('hit target!');
 
         activateCenter();
       } else {
@@ -318,14 +319,8 @@ const Canvas = (props) => {
           )
         ) {
           setErrorFlag(true);
+          setMissCount(missCount + 1);
         }
-
-        // console.log(circles[i]);
-        // if (circles[i].isToken && circles[i].dragOn) {
-        //   //console.log("error?")
-        //   console.log(i);
-        //   setErrorFlag(true);
-        // }
       }
 
       if (

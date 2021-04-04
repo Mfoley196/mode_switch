@@ -14,6 +14,8 @@ const TaskController = (props) => {
     setExpLog,
     blockLog,
     setBlockLog,
+    fileUploadError,
+    setUploadError,
   } = props;
   const [path, setPath] = React.useState(
     generatePath(NUM_OF_CIRCS, stage['startPos']),
@@ -27,12 +29,19 @@ const TaskController = (props) => {
   const [eventList, setEventList] = React.useState([]);
   const [uploading, setUploading] = React.useState(false);
   const [uploadWorked, setUploadStatus] = React.useState(true);
+  const [missCount, setMissCount] = React.useState(0);
 
   let upload = createS3Uploader(
     'ca-central-1',
     'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
     'nextpc-modeswitch1',
   );
+
+  // let upload = createS3Uploader(
+  //   'ca-central-1',
+  //   'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cb',
+  //   'nextpc-modeswitch1',
+  // );
 
   function createTrialLog(currMode, eventList) {
     let logObj = {
@@ -42,7 +51,7 @@ const TaskController = (props) => {
       taskType: stage['stage'],
       block: stage['block'],
       circRadius: circles[0].r,
-      currPathIndex: currPathIndex,
+      trialNo: currPathIndex,
       targetId: path[currPathIndex][1],
       tokenId: path[currPathIndex][0],
       rawLog: eventList,
@@ -76,21 +85,21 @@ const TaskController = (props) => {
     });
   }
 
-  function uploadToBucket() {
+  function uploadToBucket(uploadLog) {
     let fileName =
-      blockLog[0].pNo +
+      uploadLog[0].pNo +
       '_' +
-      blockLog[0].taskType +
+      uploadLog[0].taskType +
       '_' +
       stage['conds'][0] +
       '-' +
       stage['conds'][1] +
       '_B' +
-      blockLog[0].block +
+      uploadLog[0].block +
       '.txt';
 
     // let blah = { foo: 'bar' };
-    upload(fileName, blockLog)
+    upload(fileName, uploadLog)
       .then(function (response) {
         console.log('file upload worked');
         console.log(response);
@@ -101,6 +110,13 @@ const TaskController = (props) => {
         console.log('error');
         console.log(error);
 
+        //if error, yeet into local storage w. filename key
+        if (!fileUploadError) {
+          setUploadError(true);
+        }
+
+        localStorage.setItem(fileName, JSON.stringify(uploadLog));
+
         //setUploading(true);
         setUploadStatus(false);
       });
@@ -110,14 +126,16 @@ const TaskController = (props) => {
     if (pathIndex + 1 >= path.length) {
       addToBlockLog(currMode, eventList);
       setUploading(true);
-      uploadToBucket();
+      
+      let temp = JSON.parse(JSON.stringify(blockLog));
+      let tempLog = createTrialLog(currMode, eventList);
+      uploadToBucket([...temp, tempLog]);
 
       setCurrIndex(0);
       setBlockLog([]);
+      setMissCount(0);
       //dispatch({ type: 'next' });
     } else {
-      setCurrIndex(pathIndex + 1);
-      setTargetId(path[pathIndex + 1][1]);
       let circlesCopy = JSON.parse(JSON.stringify(circles));
 
       for (let i = 0; i < circlesCopy.length; i++) {
@@ -137,11 +155,13 @@ const TaskController = (props) => {
         }
       }
 
-      console.log(circlesCopy);
-
       setCircles(circlesCopy);
 
       addToBlockLog(currMode, eventList);
+
+      setMissCount(0);
+      setCurrIndex(pathIndex + 1);
+      setTargetId(path[pathIndex + 1][1]);
     }
   }
 
@@ -158,7 +178,6 @@ const TaskController = (props) => {
       circlesCopy[i].isToken = false;
       circlesCopy[i].isVisible = true;
     }
-    console.log(circlesCopy);
 
     setCircles(circlesCopy);
     setTargetId(circles.length - 1);
@@ -177,6 +196,8 @@ const TaskController = (props) => {
         stage={stage}
         eventList={eventList}
         setEventList={setEventList}
+        missCount={missCount}
+        setMissCount={setMissCount}
       />
     )) ||
     (uploading && (
