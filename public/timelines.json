@@ -9,6 +9,307 @@
     {
       "stage": "instruction",
       "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "mouse",
         "mouse"
       ]
@@ -25,307 +326,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "touch",
         "mouse"
       ]
@@ -346,7 +346,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -378,7 +378,7 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 0
     },
     {
       "stage": "survey"
@@ -389,22 +389,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -416,48 +400,48 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
         "mouse",
-        "trackpad"
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
+        "trackpad",
+        "mouse"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
+        "trackpad",
+        "mouse"
       ],
       "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 3
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -473,7 +457,23 @@
         "mouse"
       ],
       "block": "2",
-      "startPos": 3
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "survey"
@@ -495,7 +495,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -511,7 +511,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -527,7 +527,7 @@
         "trackpad"
       ],
       "block": "0",
-      "startPos": 1
+      "startPos": 4
     },
     {
       "stage": "task,",
@@ -552,7 +552,7 @@
         "trackpad"
       ],
       "block": "2",
-      "startPos": 2
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -568,7 +568,7 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -598,106 +598,11 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
       "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "pen",
         "pen"
       ]
@@ -709,159 +614,64 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
+        "touch",
         "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
+        "touch",
         "pen"
       ],
       "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
       "startPos": 3
     },
     {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "2",
-      "startPos": 0
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 4
     },
     {
       "stage": "survey"
@@ -883,61 +693,61 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "mouse"
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
         "trackpad",
-        "mouse"
+        "pen"
       ],
       "block": "0",
-      "startPos": 2
+      "startPos": 1
     },
     {
       "stage": "task,",
       "conds": [
         "trackpad",
-        "mouse"
+        "pen"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "2",
       "startPos": 0
@@ -967,6 +777,196 @@
     {
       "stage": "instruction",
       "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "touch",
         "touch"
       ]
@@ -994,7 +994,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -1019,7 +1019,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -1051,7 +1051,7 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -1073,7 +1073,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -1105,7 +1105,7 @@
         "pen"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "task,",
@@ -1114,27 +1114,27 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
       "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "mouse",
         "mouse"
       ]
@@ -1146,7 +1146,7 @@
         "mouse"
       ],
       "block": "2",
-      "startPos": 1
+      "startPos": 0
     },
     {
       "stage": "survey"
@@ -1192,7 +1192,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -1208,7 +1208,7 @@
         "trackpad"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "task,",
@@ -1217,7 +1217,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -1249,219 +1249,13 @@
         "pen"
       ],
       "block": "2",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "survey"
     },
     {
       "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -1482,59 +1276,75 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ],
-      "block": "2",
+      "block": "1",
       "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "touch",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
       "block": "2",
       "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -1556,7 +1366,197 @@
         "mouse"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
       "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -1569,31 +1569,6 @@
       "stage": "baseline",
       "conds": [
         "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
         "pen"
       ],
       "block": "1",
@@ -1602,53 +1577,24 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
+        "mouse",
         "pen"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
-        "pen",
+        "mouse",
         "pen"
       ],
-      "block": "2",
-      "startPos": 3
+      "block": "0",
+      "startPos": 1
     },
     {
-      "stage": "instruction",
+      "stage": "task,",
       "conds": [
         "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
+        "pen"
       ],
       "block": "1",
       "startPos": 5
@@ -1666,30 +1612,59 @@
         "pen",
         "pen"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "touch",
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
         "pen"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
-        "touch",
+        "pen",
         "pen"
       ],
-      "block": "0",
-      "startPos": 1
+      "block": "1",
+      "startPos": 0
     },
     {
-      "stage": "task,",
+      "stage": "instruction",
       "conds": [
         "touch",
-        "pen"
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 1
@@ -1698,17 +1673,26 @@
       "stage": "instruction",
       "conds": [
         "pen",
-        "pen"
+        "touch"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
         "pen",
-        "pen"
+        "touch"
       ],
-      "block": "2",
-      "startPos": 3
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -1724,7 +1708,23 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 2
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "survey"
@@ -1743,22 +1743,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -1770,48 +1754,48 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
         "touch",
-        "mouse"
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "mouse"
+        "mouse",
+        "touch"
       ],
       "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "1",
       "startPos": 0
     },
     {
-      "stage": "instruction",
+      "stage": "task,",
       "conds": [
         "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
+        "touch"
       ],
-      "block": "2",
-      "startPos": 1
+      "block": "1",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -1827,7 +1811,23 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 1
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -1838,31 +1838,31 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 0
@@ -1870,23 +1870,77 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "trackpad"
+        "trackpad",
+        "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
+        "trackpad",
+        "mouse"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 4
     },
     {
       "stage": "task,",
       "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
         "trackpad"
       ],
       "block": "1",
@@ -1895,60 +1949,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "touch",
         "touch"
       ]
@@ -1960,7 +1960,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -1976,7 +1976,7 @@
         "touch"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 1
     },
     {
       "stage": "task,",
@@ -1985,7 +1985,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -2028,15 +2028,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 5
@@ -2044,72 +2044,72 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "mouse"
+        "mouse",
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "mouse"
+        "mouse",
+        "pen"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 3
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "mouse"
+        "mouse",
+        "pen"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ],
       "block": "2",
       "startPos": 5
@@ -2166,7 +2166,7 @@
         "touch"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 1
     },
     {
       "stage": "task,",
@@ -2175,39 +2175,39 @@
         "touch"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
       "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 1
     },
     {
       "stage": "survey"
@@ -2245,7 +2245,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -2261,7 +2261,7 @@
         "trackpad"
       ],
       "block": "0",
-      "startPos": 2
+      "startPos": 0
     },
     {
       "stage": "task,",
@@ -2270,7 +2270,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -2286,7 +2286,7 @@
         "trackpad"
       ],
       "block": "2",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -2321,22 +2321,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -2348,20 +2332,36 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "mouse"
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "mouse"
+        "mouse",
+        "trackpad"
       ],
       "block": "0",
       "startPos": 2
@@ -2369,102 +2369,7 @@
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
         "trackpad"
       ],
       "block": "1",
@@ -2484,7 +2389,102 @@
         "trackpad"
       ],
       "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
       "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -2511,22 +2511,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "pen",
         "pen"
       ]
@@ -2538,31 +2522,63 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
         "mouse",
-        "pen"
+        "mouse"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
         "mouse",
-        "pen"
+        "mouse"
       ],
-      "block": "0",
+      "block": "1",
       "startPos": 5
     },
     {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "pen"
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
       ],
       "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 0
     },
     {
@@ -2582,20 +2598,194 @@
       "startPos": 4
     },
     {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "2",
       "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "survey"
@@ -2617,209 +2807,44 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
       "startPos": 3
     },
     {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
       "stage": "instruction",
       "conds": [
         "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
         "mouse"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
-        "mouse",
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
         "mouse"
       ],
       "block": "1",
@@ -2828,31 +2853,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -2864,7 +2864,7 @@
         "mouse"
       ],
       "block": "2",
-      "startPos": 1
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -2880,7 +2880,7 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 2
+      "startPos": 5
     },
     {
       "stage": "survey"
@@ -2899,6 +2899,22 @@
     {
       "stage": "instruction",
       "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -2907,6 +2923,31 @@
       "stage": "baseline",
       "conds": [
         "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
         "trackpad"
       ],
       "block": "1",
@@ -2915,6 +2956,22 @@
     {
       "stage": "instruction",
       "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "touch",
         "touch"
       ]
@@ -2925,65 +2982,8 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
+      "block": "2",
       "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 4
     },
     {
       "stage": "survey"
@@ -2994,22 +2994,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "pen",
         "pen"
       ]
@@ -3027,26 +3011,58 @@
       "stage": "instruction",
       "conds": [
         "mouse",
-        "pen"
+        "mouse"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
         "mouse",
-        "pen"
+        "mouse"
       ],
-      "block": "0",
+      "block": "1",
       "startPos": 5
     },
     {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "pen"
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
       ],
       "block": "1",
       "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -3065,212 +3081,6 @@
       "startPos": 1
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
       "stage": "survey"
     },
     {
@@ -3295,15 +3105,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "1",
       "startPos": 3
@@ -3312,42 +3122,42 @@
       "stage": "instruction",
       "conds": [
         "touch",
-        "mouse"
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
         "touch",
-        "mouse"
+        "pen"
       ],
       "block": "0",
-      "startPos": 2
+      "startPos": 1
     },
     {
       "stage": "task,",
       "conds": [
         "touch",
-        "mouse"
+        "pen"
       ],
       "block": "1",
-      "startPos": 0
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -3385,7 +3195,197 @@
         "trackpad"
       ],
       "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
       "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -3426,7 +3426,7 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -3440,25 +3440,25 @@
       "conds": [
         "mouse",
         "mouse"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
       ],
       "block": "2",
       "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -3488,47 +3488,6 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
       "startPos": 0
     },
     {
@@ -3544,87 +3503,49 @@
         "mouse",
         "mouse"
       ],
-      "block": "2",
+      "block": "1",
       "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
         "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "pen"
+        "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "pen"
+        "pen",
+        "mouse"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "task,",
       "conds": [
-        "touch",
-        "pen"
+        "pen",
+        "mouse"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -3643,22 +3564,6 @@
       "startPos": 1
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
       "stage": "survey"
     },
     {
@@ -3676,212 +3581,6 @@
       "conds": [
         "pen",
         "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
       ],
       "block": "1",
       "startPos": 1
@@ -3889,24 +3588,230 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "trackpad"
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
+        "pen",
+        "touch"
       ],
       "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
       "startPos": 5
     },
     {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
+      ]
+    },
+    {
       "stage": "task,",
       "conds": [
         "mouse",
-        "trackpad"
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "touch"
       ],
       "block": "1",
       "startPos": 4
@@ -3914,18 +3819,18 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "touch",
+        "touch"
       ],
       "block": "2",
-      "startPos": 0
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -3941,7 +3846,7 @@
         "mouse"
       ],
       "block": "2",
-      "startPos": 3
+      "startPos": 4
     },
     {
       "stage": "survey"
@@ -3952,15 +3857,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "touch",
-        "touch"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 2
@@ -3976,6 +3881,31 @@
       "stage": "baseline",
       "conds": [
         "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
         "trackpad"
       ],
       "block": "1",
@@ -3984,27 +3914,40 @@
     {
       "stage": "instruction",
       "conds": [
-        "touch",
+        "trackpad",
         "trackpad"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
-        "touch",
+        "trackpad",
         "trackpad"
       ],
-      "block": "0",
+      "block": "2",
       "startPos": 0
     },
     {
-      "stage": "task,",
+      "stage": "instruction",
       "conds": [
-        "touch",
-        "trackpad"
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
       ],
-      "block": "1",
-      "startPos": 3
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
@@ -4019,8 +3962,49 @@
         "trackpad",
         "trackpad"
       ],
-      "block": "2",
-      "startPos": 4
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -4037,6 +4021,22 @@
       ],
       "block": "2",
       "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
     },
     {
       "stage": "survey"
@@ -4066,196 +4066,6 @@
         "pen"
       ],
       "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
       "startPos": 0
     },
     {
@@ -4272,115 +4082,20 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
       "startPos": 4
     },
     {
       "stage": "instruction",
       "conds": [
-        "touch",
+        "pen",
         "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
+        "pen",
+        "touch"
       ],
       "block": "0",
       "startPos": 3
@@ -4388,62 +4103,8 @@
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
+        "pen",
+        "touch"
       ],
       "block": "1",
       "startPos": 3
@@ -4461,65 +4122,24 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 5
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "touch"
+        "pen",
+        "pen"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
-        "trackpad",
-        "touch"
+        "pen",
+        "pen"
       ],
-      "block": "0",
+      "block": "2",
       "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 3
     },
     {
       "stage": "survey"
@@ -4541,7 +4161,102 @@
         "pen"
       ],
       "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "0",
       "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -4557,32 +4272,32 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 1
+      "startPos": 3
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
+        "touch",
         "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
+        "touch",
         "mouse"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
+        "touch",
         "mouse"
       ],
       "block": "1",
-      "startPos": 2
+      "startPos": 0
     },
     {
       "stage": "instruction",
@@ -4603,6 +4318,275 @@
     {
       "stage": "instruction",
       "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "pen",
         "pen"
       ]
@@ -4614,7 +4598,23 @@
         "pen"
       ],
       "block": "2",
-      "startPos": 1
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 3
     },
     {
       "stage": "survey"
@@ -4633,6 +4633,22 @@
     {
       "stage": "instruction",
       "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "trackpad",
         "trackpad"
       ]
@@ -4644,6 +4660,47 @@
         "trackpad"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
       "startPos": 4
     },
     {
@@ -4659,21 +4716,249 @@
         "pen",
         "pen"
       ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
       "block": "1",
-      "startPos": 1
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
     },
     {
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "pen"
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 5
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
         "trackpad",
-        "pen"
+        "touch"
       ],
       "block": "0",
       "startPos": 2
@@ -4682,10 +4967,105 @@
       "stage": "task,",
       "conds": [
         "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
         "pen"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -4706,370 +5086,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -5084,42 +5100,10 @@
       "startPos": 5
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
       "stage": "survey"
     },
     {
       "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -5141,41 +5125,41 @@
       "stage": "instruction",
       "conds": [
         "touch",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ],
-      "block": "2",
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "1",
       "startPos": 0
     },
     {
@@ -5192,7 +5176,23 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 3
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "survey"
@@ -5211,22 +5211,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "touch",
         "touch"
       ]
@@ -5244,137 +5228,42 @@
       "stage": "instruction",
       "conds": [
         "mouse",
-        "touch"
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "mouse"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "touch"
+        "touch",
+        "mouse"
       ],
       "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
       "startPos": 1
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "trackpad"
-      ]
-    },
-    {
       "stage": "task,",
       "conds": [
-        "mouse",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 4
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "trackpad"
+        "touch",
+        "mouse"
       ],
       "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 5
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -5393,28 +5282,6 @@
       "startPos": 3
     },
     {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
       "stage": "instruction",
       "conds": [
         "touch",
@@ -5427,67 +5294,10 @@
         "touch",
         "touch"
       ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "touch"
-      ],
-      "block": "1",
+      "block": "2",
       "startPos": 1
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
       "stage": "survey"
     },
     {
@@ -5496,22 +5306,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -5521,101 +5315,6 @@
       "conds": [
         "mouse",
         "mouse"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
       ],
       "block": "1",
       "startPos": 0
@@ -5623,24 +5322,94 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "touch"
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "touch"
+        "mouse",
+        "trackpad"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 5
     },
     {
       "stage": "task,",
       "conds": [
-        "pen",
-        "touch"
+        "mouse",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
       ],
       "block": "1",
       "startPos": 0
@@ -5658,24 +5427,65 @@
         "touch",
         "touch"
       ],
-      "block": "2",
-      "startPos": 5
+      "block": "1",
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
+        "trackpad",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "0",
+      "startPos": 4
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "pen",
-        "pen"
+        "touch",
+        "touch"
       ],
       "block": "2",
-      "startPos": 0
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
     },
     {
       "stage": "survey"
@@ -5686,17 +5496,74 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "pen",
+        "pen"
       ],
       "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
       "startPos": 1
     },
     {
@@ -5712,32 +5579,86 @@
         "pen",
         "pen"
       ],
-      "block": "1",
+      "block": "2",
       "startPos": 4
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
+        "pen",
         "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "pen"
+        "pen",
+        "touch"
       ],
       "block": "0",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "pen"
+        "pen",
+        "touch"
       ],
       "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
       "startPos": 3
     },
     {
@@ -5757,6 +5678,69 @@
       "startPos": 2
     },
     {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "pen",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
       "stage": "instruction",
       "conds": [
         "trackpad",
@@ -5770,7 +5754,23 @@
         "trackpad"
       ],
       "block": "2",
-      "startPos": 5
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 1
     },
     {
       "stage": "survey"
@@ -5789,6 +5789,22 @@
     {
       "stage": "instruction",
       "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
         "mouse",
         "mouse"
       ]
@@ -5800,20 +5816,29 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
         "trackpad",
-        "trackpad"
+        "mouse"
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task,",
       "conds": [
         "trackpad",
-        "trackpad"
+        "mouse"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "mouse"
       ],
       "block": "1",
       "startPos": 4
@@ -5822,23 +5847,52 @@
       "stage": "instruction",
       "conds": [
         "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
         "trackpad"
       ]
     },
     {
-      "stage": "task,",
+      "stage": "baseline",
       "conds": [
-        "mouse",
+        "trackpad",
         "trackpad"
       ],
-      "block": "0",
-      "startPos": 1
+      "block": "2",
+      "startPos": 0
     },
     {
-      "stage": "task,",
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
       "conds": [
-        "mouse",
-        "trackpad"
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
       ],
       "block": "1",
       "startPos": 5
@@ -5856,8 +5910,144 @@
         "trackpad",
         "trackpad"
       ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 5
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
       "block": "2",
       "startPos": 2
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "1",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 5
     },
     {
       "stage": "instruction",
@@ -5873,7 +6063,197 @@
         "mouse"
       ],
       "block": "2",
+      "startPos": 1
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 0
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "touch",
+        "pen"
+      ],
+      "block": "1",
       "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 4
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 1
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 5
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 0
     },
     {
       "stage": "survey"
@@ -5900,40 +6280,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
+        "mouse",
+        "mouse"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 1
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
-      ],
-      "block": "0",
-      "startPos": 0
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "touch",
-        "trackpad"
+        "mouse",
+        "mouse"
       ],
       "block": "1",
       "startPos": 5
@@ -5941,180 +6296,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
         "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 1
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "mouse"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "mouse",
-        "mouse"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
         "touch",
-        "pen"
+        "mouse"
       ],
       "block": "0",
       "startPos": 4
@@ -6123,7 +6313,7 @@
       "stage": "task,",
       "conds": [
         "touch",
-        "pen"
+        "mouse"
       ],
       "block": "1",
       "startPos": 2
@@ -6131,139 +6321,6 @@
     {
       "stage": "instruction",
       "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 1
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
-      "startPos": 4
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 2
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
         "mouse",
         "mouse"
       ]
@@ -6273,63 +6330,6 @@
       "conds": [
         "mouse",
         "mouse"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "mouse",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "mouse",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
       ],
       "block": "2",
       "startPos": 0
@@ -6337,15 +6337,15 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "touch",
+        "touch"
       ],
       "block": "2",
       "startPos": 0
@@ -6378,7 +6378,7 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -6410,7 +6410,7 @@
         "trackpad"
       ],
       "block": "0",
-      "startPos": 0
+      "startPos": 1
     },
     {
       "stage": "task,",
@@ -6419,7 +6419,7 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 4
+      "startPos": 3
     },
     {
       "stage": "instruction",
@@ -6435,7 +6435,7 @@
         "trackpad"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 2
     },
     {
       "stage": "instruction",
@@ -6451,7 +6451,7 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -6530,7 +6530,7 @@
         "mouse"
       ],
       "block": "2",
-      "startPos": 5
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -6546,199 +6546,9 @@
         "pen"
       ],
       "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 0
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "touch"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "0",
-      "startPos": 5
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "pen",
-        "touch"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "touch",
-        "touch"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "touch",
-        "touch"
-      ],
-      "block": "2",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
-      "stage": "survey"
-    },
-    {
-      "stage": "done"
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "1",
       "startPos": 4
     },
     {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 5
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "pen"
-      ]
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "0",
-      "startPos": 3
-    },
-    {
-      "stage": "task,",
-      "conds": [
-        "trackpad",
-        "pen"
-      ],
-      "block": "1",
-      "startPos": 2
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "pen",
-        "pen"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "pen",
-        "pen"
-      ],
-      "block": "2",
-      "startPos": 3
-    },
-    {
-      "stage": "instruction",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ]
-    },
-    {
-      "stage": "baseline",
-      "conds": [
-        "trackpad",
-        "trackpad"
-      ],
-      "block": "2",
-      "startPos": 2
-    },
-    {
       "stage": "survey"
     },
     {
@@ -6758,20 +6568,20 @@
         "touch"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "1",
       "startPos": 1
@@ -6780,14 +6590,14 @@
       "stage": "instruction",
       "conds": [
         "touch",
-        "mouse"
+        "pen"
       ]
     },
     {
       "stage": "task,",
       "conds": [
         "touch",
-        "mouse"
+        "pen"
       ],
       "block": "0",
       "startPos": 3
@@ -6796,26 +6606,26 @@
       "stage": "task,",
       "conds": [
         "touch",
-        "mouse"
+        "pen"
       ],
       "block": "1",
-      "startPos": 3
+      "startPos": 1
     },
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "pen",
+        "pen"
       ],
       "block": "2",
-      "startPos": 2
+      "startPos": 1
     },
     {
       "stage": "instruction",
@@ -6831,7 +6641,7 @@
         "touch"
       ],
       "block": "2",
-      "startPos": 2
+      "startPos": 5
     },
     {
       "stage": "survey"
@@ -6853,7 +6663,86 @@
         "trackpad"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "pen"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "0",
+      "startPos": 3
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "trackpad",
+        "pen"
+      ],
+      "block": "1",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "pen"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "pen",
+        "pen"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "trackpad",
+        "trackpad"
+      ],
+      "block": "2",
+      "startPos": 3
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
     },
     {
       "stage": "instruction",
@@ -6869,28 +6758,98 @@
         "mouse"
       ],
       "block": "1",
-      "startPos": 5
+      "startPos": 2
     },
     {
       "stage": "instruction",
       "conds": [
-        "trackpad",
-        "mouse"
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 1
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "touch"
       ]
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
-        "mouse"
+        "mouse",
+        "touch"
       ],
       "block": "0",
-      "startPos": 4
+      "startPos": 5
     },
     {
       "stage": "task,",
       "conds": [
-        "trackpad",
+        "mouse",
+        "touch"
+      ],
+      "block": "1",
+      "startPos": 2
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
         "mouse"
       ],
       "block": "1",
@@ -6899,18 +6858,43 @@
     {
       "stage": "instruction",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ]
     },
     {
       "stage": "baseline",
       "conds": [
-        "mouse",
-        "mouse"
+        "trackpad",
+        "trackpad"
       ],
-      "block": "2",
+      "block": "1",
       "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ]
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "0",
+      "startPos": 2
+    },
+    {
+      "stage": "task,",
+      "conds": [
+        "mouse",
+        "trackpad"
+      ],
+      "block": "1",
+      "startPos": 4
     },
     {
       "stage": "instruction",
@@ -6926,7 +6910,23 @@
         "trackpad"
       ],
       "block": "2",
-      "startPos": 4
+      "startPos": 0
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "mouse",
+        "mouse"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "mouse",
+        "mouse"
+      ],
+      "block": "2",
+      "startPos": 2
     },
     {
       "stage": "survey"
@@ -7064,6 +7064,36 @@
         "touch"
       ],
       "block": "2",
+      "startPos": 0
+    },
+    {
+      "stage": "survey"
+    },
+    {
+      "stage": "done"
+    }
+  ],
+  "speed": [
+    {
+      "stage": "info"
+    },
+    {
+      "stage": "consent"
+    },
+    {
+      "stage": "instruction",
+      "conds": [
+        "touch",
+        "touch"
+      ]
+    },
+    {
+      "stage": "baseline",
+      "conds": [
+        "touch",
+        "touch"
+      ],
+      "block": "1",
       "startPos": 0
     },
     {

@@ -81,8 +81,6 @@ for p in range(len(cond_matrix)):
         tl.append({"stage" :"done"})
     timelines[p+1] = tl
 
-print(timelines)
-
 timelines['desktop'] = [
     {"stage" : "info"},
     {"stage" : "consent"},
@@ -135,6 +133,19 @@ timelines['touchpen'] = [
     {"stage": "task",
     "conds": ["pen", "touch"],
     "block" : "2",
+    "startPos" : 0},
+    {"stage" : "survey"},
+    {"stage" : "done"}
+]
+
+timelines['speed'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["touch", "touch"]},
+    {"stage": "baseline",
+    "conds": ["touch", "touch"],
+    "block" : "1",
     "startPos" : 0},
     {"stage" : "survey"},
     {"stage" : "done"}

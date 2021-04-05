@@ -128,9 +128,11 @@ function ExpController() {
       <ErrorPage pNo={participantNumber} blockLog={blockLog} error={error} />
     )) ||
     (stage['stage'] === 'survey' && (
-      <GoogleFormSurvey pNo={participantNumber} dispatch={dispatch}/>
+      <GoogleFormSurvey pNo={participantNumber} dispatch={dispatch} />
     )) ||
-    (stage['stage'] === 'done' && <ExpDone fileUploadError={fileUploadError}/>)
+    (stage['stage'] === 'done' && (
+      <ExpDone fileUploadError={fileUploadError} pNo={participantNumber} />
+    ))
     //<DataLogger />
   );
 }
