@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const ErrorPage = ({ error }) => {
   const testText =
     error == null || error.message == null
-      ? 'Whoops, something went wrong, try again'
+      ? 'Whoops, something went wrong, please refresh the page!'
       : error.message;
 
   function handleClick(e) {

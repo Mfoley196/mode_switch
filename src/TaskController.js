@@ -31,17 +31,17 @@ const TaskController = (props) => {
   const [uploadWorked, setUploadStatus] = React.useState(true);
   const [missCount, setMissCount] = React.useState(0);
 
-  let upload = createS3Uploader(
-    'ca-central-1',
-    'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
-    'nextpc-modeswitch1',
-  );
-
   // let upload = createS3Uploader(
   //   'ca-central-1',
-  //   'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cb',
+  //   'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
   //   'nextpc-modeswitch1',
   // );
+
+  let upload = createS3Uploader(
+    'ca-central-1',
+    'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cb',
+    'nextpc-modeswitch1',
+  );
 
   function createTrialLog(currMode, eventList) {
     let logObj = {

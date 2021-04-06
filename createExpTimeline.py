@@ -151,6 +151,22 @@ timelines['speed'] = [
     {"stage" : "done"}
 ]
 
+timelines['speed2'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["mouse", "mouse"]},
+    {"stage": "baseline",
+    "conds": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "survey"},
+    {"stage" : "done"}
+]
+
+timelines['test1'] = timelines[1]
+timelines['test2'] = timelines[2]
+
 #['info','instruction,mouse,trackpad', 'task,trackpad,mouse', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'done']
 #timelines['allconds'] = ['info', 'instruction,mouse,trackpad', 'task,mouse,trackpad', 'instruction,pen,touch', 'task,pen,touch', 'done']
 
