@@ -62,9 +62,11 @@ const InstructionsPage = (props) => {
   );
 
   const baselineTextTouch = (
-    <p>
-      You will be using <b>touch</b>.
-    </p>
+    <div>
+      <p>
+        You will be using <b>touch</b>.
+      </p>
+    </div>
   );
 
   const connectionInst = (
@@ -186,7 +188,7 @@ const InstructionsPage = (props) => {
   function InstructionText() {
     if (stage['conds'][0] === stage['conds'][1]) {
       if (stage['conds'][0] === 'touch') {
-        return { baselineTextTouch };
+        return <div>{ baselineTextTouch }</div>;
       } else {
         return <div>{baselineText}</div>;
       }
