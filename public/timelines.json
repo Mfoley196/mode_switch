@@ -7097,9 +7097,6 @@
       "startPos": 0
     },
     {
-      "stage": "survey"
-    },
-    {
       "stage": "done"
     }
   ],
@@ -7125,9 +7122,6 @@
       ],
       "block": "1",
       "startPos": 0
-    },
-    {
-      "stage": "survey"
     },
     {
       "stage": "done"
