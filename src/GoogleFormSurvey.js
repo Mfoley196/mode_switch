@@ -9,7 +9,7 @@ const GoogleFormSurvey = (props) => {
   const [hasLoaded, setHasLoaded] = useState();
   const [loadCount, setLoadCount] = useState(0);
 
-  const SURVEY_PAGES = 1;
+  const SURVEY_PAGES = 7;
 
   if (typeof pNo !== 'undefined') {
     src = `${src}&entry.676507866=${pNo}`;

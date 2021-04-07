@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import createS3Uploader from './createS3Uploader';
 import { saveAs } from 'file-saver';
 import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 import JSZip from 'jszip';
 
 const ExpDone = (props) => {
@@ -56,16 +57,18 @@ const ExpDone = (props) => {
   }
 
   return (
-    <div>
-      <p>You have finished the experiment!</p>
+    <Container fluid>
+      <div>
+        <p>You have finished the experiment!</p>
 
-      <FileDownloadText />
+        <FileDownloadText />
 
-      <p>
-        To receive your remuneration, please email mjfoley@uwaterloo.ca or
-        message the experimenters to say you have finished the experiment.
-      </p>
-    </div>
+        <p>
+          To receive your remuneration, please email mjfoley@uwaterloo.ca or
+          message the experimenters to say you have finished the experiment.
+        </p>
+      </div>
+    </Container>
   );
 };
 

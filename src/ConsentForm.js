@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import Container from 'react-bootstrap/Container';
 import ConsentMarkdown from './consent_letter.md';
 
 const ConsentForm = (props) => {
@@ -72,30 +73,32 @@ const ConsentForm = (props) => {
   }
 
   return (
-    <div>
-      <ReactMarkdown source={markdown} />
-      
-      <Form>
-        {questions.map((question) => {
-          return (
-            <div key={question.label}>
-              <Form.Check
-                id={question.label}
-                type="checkbox"
-                label={question.label}
-                required={question.required}
-                onChange={handleChange}
-              />
-              <p></p>
-            </div>
-          );
-        })}
+    <Container fluid>
+      <div>
+        <ReactMarkdown source={markdown} />
 
-        <Button onClick={handleClick} variant="outline-success">
-          I Agree
-        </Button>
-      </Form>
-    </div>
+        <Form>
+          {questions.map((question) => {
+            return (
+              <div key={question.label}>
+                <Form.Check
+                  id={question.label}
+                  type="checkbox"
+                  label={question.label}
+                  required={question.required}
+                  onChange={handleChange}
+                />
+                <p></p>
+              </div>
+            );
+          })}
+
+          <Button onClick={handleClick} variant="outline-success">
+            I Agree
+          </Button>
+        </Form>
+      </div>
+    </Container>
   );
 };
 

@@ -219,7 +219,7 @@ function initCircles(numCircs, radius, path, stage) {
   let step = (2 * Math.PI) / numCircs;
 
   for (let i = 0; i < numCircs; i++) {
-    let x = Math.round(1024 / 2 + largeRad * Math.cos(angle));
+    let x = Math.round(window.innerWidth / 2 + largeRad * Math.cos(angle));
     let y = Math.round(800 / 2 + largeRad * Math.sin(angle));
     let fill = '#FFFF00';
     let mode = stage['conds'][1];
@@ -245,9 +245,9 @@ function initCircles(numCircs, radius, path, stage) {
 
   let center = {
     id: numCircs,
-    x: 1024 / 2,
+    x:  window.innerWidth / 2,
     y: 800 / 2,
-    oldx: 1024 / 2,
+    oldx:  window.innerWidth / 2,
     oldy: 800 / 2,
     r: radius,
     fill: '#FFFF00',

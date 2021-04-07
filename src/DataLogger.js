@@ -2,7 +2,7 @@ import React from 'react';
 import createS3Uploader from './createS3Uploader';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-
+import Container from 'react-bootstrap/Container';
 
 const DataLogger = (props) => {
   const { uploadWorked, onSubmit, ...rest } = props;
@@ -38,13 +38,15 @@ const DataLogger = (props) => {
   }
 
   return (
-    <div>
-      <UploadStatusText />
+    <Container fluid>
+      <div>
+        <UploadStatusText />
 
-      <Button onClick={handleClick} variant="outline-success">
-        Continue
-      </Button>
-    </div>
+        <Button onClick={handleClick} variant="outline-success">
+          Continue
+        </Button>
+      </div>
+    </Container>
   );
 };
 

@@ -188,7 +188,7 @@ const InstructionsPage = (props) => {
   function InstructionText() {
     if (stage['conds'][0] === stage['conds'][1]) {
       if (stage['conds'][0] === 'touch') {
-        return <div>{ baselineTextTouch }</div>;
+        return <div>{baselineTextTouch}</div>;
       } else {
         return <div>{baselineText}</div>;
       }
@@ -204,33 +204,35 @@ const InstructionsPage = (props) => {
   }
 
   return (
-    <div>
-      <InstructionText />
-      {connectionInst}
+    <Container fluid>
+      <div>
+        <InstructionText />
+        {connectionInst}
 
-      <Button
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-        variant="outline-secondary"
-        size="sm"
-      >
-        Device Connection Guide
-      </Button>
-      <Collapse in={open}>
-        <div id="example-collapse-text" className="bg-light">
-          {connectionGuide}
-          <p></p>
-        </div>
-      </Collapse>
+        <Button
+          onClick={() => setOpen(!open)}
+          aria-controls="example-collapse-text"
+          aria-expanded={open}
+          variant="outline-secondary"
+          size="sm"
+        >
+          Device Connection Guide
+        </Button>
+        <Collapse in={open}>
+          <div id="example-collapse-text" className="bg-light">
+            {connectionGuide}
+            <p></p>
+          </div>
+        </Collapse>
 
-      <p></p>
-      <p>{'Press "Begin" when you are ready to begin the task.'}</p>
+        <p></p>
+        <p>{'Press "Begin" when you are ready to begin the task.'}</p>
 
-      <Button onClick={handleClick} variant="outline-success">
-        Begin
-      </Button>
-    </div>
+        <Button onClick={handleClick} variant="outline-success">
+          Begin
+        </Button>
+      </div>
+    </Container>
   );
 };
 

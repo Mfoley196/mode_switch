@@ -208,7 +208,7 @@ const Canvas = (props) => {
     // console.log(e.pointerType + ' down');
     // console.log(targetId);
 
-    appendToEventList([Date.now(), e.pointerType + '_down']);
+    appendToEventList([Date.now(), 'down', e.pointerType ]);
     for (let i = 0; i < circles.length; i++) {
       if (
         circleHitTest(
@@ -232,7 +232,7 @@ const Canvas = (props) => {
           }),
         );
         //circles[i].dragOn = true
-        appendToEventList([Date.now(), 'hit_token_' + i]);
+        appendToEventList([Date.now(), 'hit_token', i]);
       }
     }
   };
@@ -242,7 +242,7 @@ const Canvas = (props) => {
     // console.log('MOUSE down from mouse handler');
     // console.log(targetId);
 
-    appendToEventList([Date.now(), 'mouse_down']);
+    appendToEventList([Date.now(), 'down', 'mouse']);
     for (let i = 0; i < circles.length; i++) {
       console.log(circles[i].id);
       if (
@@ -267,7 +267,7 @@ const Canvas = (props) => {
         );
         //circles[i].dragOn = true
         //console.log('Hit ' + i);
-        appendToEventList([Date.now(), 'hit_token_' + i]);
+        appendToEventList([Date.now(), 'hit_token', i]);
       }
     }
   };
@@ -275,7 +275,7 @@ const Canvas = (props) => {
   const pointerUpHandler = (e) => {
     e.preventDefault();
     //console.log(e.pointerType + ' up');
-    appendToEventList([Date.now(), e.pointerType + '_up']);
+    appendToEventList([Date.now(),'up', e.pointerType]);
     //console.log(eventList);
 
     for (let i = 0; i < circles.length; i++) {
@@ -289,7 +289,7 @@ const Canvas = (props) => {
             };
           }),
         );
-        appendToEventList([Date.now(), 'release_' + i]);
+        appendToEventList([Date.now(), 'release', i]);
       }
 
       if (
@@ -303,7 +303,7 @@ const Canvas = (props) => {
           circles[i].r * 0.6,
         )
       ) {
-        appendToEventList([Date.now(), 'hit_target_' + targetId]);
+        appendToEventList([Date.now(), 'hit_target', targetId]);
 
         activateCenter();
       } else {
@@ -351,7 +351,7 @@ const Canvas = (props) => {
       onMouseDown={mouseDownHandler}
       onMouseUp={pointerUpHandler}
       onPointerUp={pointerUpHandler}
-      width="1024px"
+      width= {window.innerWidth}
       height="800px"
       {...rest}
     />
