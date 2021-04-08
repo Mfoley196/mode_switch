@@ -3,7 +3,7 @@ import Canvas from './Canvas';
 import createS3Uploader from './createS3Uploader';
 import DataLogger from './DataLogger';
 
-const NUM_OF_CIRCS = 5;
+const NUM_OF_CIRCS = 7;
 
 const TaskController = (props) => {
   const {
