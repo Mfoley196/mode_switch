@@ -244,7 +244,7 @@ const Canvas = (props) => {
 
     appendToEventList([Date.now(), 'down', 'mouse']);
     for (let i = 0; i < circles.length; i++) {
-      console.log(circles[i].id);
+      //console.log(circles[i].id);
       if (
         circleHitTest(
           e.clientX,

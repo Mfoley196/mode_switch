@@ -7115,9 +7115,9 @@
       ]
     },
     {
-      "stage": "baseline",
+      "stage": "task",
       "conds": [
-        "mouse",
+        "pen",
         "mouse"
       ],
       "block": "1",
