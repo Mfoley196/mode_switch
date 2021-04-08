@@ -96,7 +96,6 @@ timelines['desktop'] = [
     "conds": ["mouse", "mouse"],
     "block" : "1",
     "startPos" : 0},
-    {"stage" : "survey"},
     {"stage" : "done"}
 ]
 
@@ -115,7 +114,6 @@ timelines['allconds'] = [
     "conds": ["pen", "touch"],
     "block" : "1",
     "startPos" : 0},
-    {"stage" : "survey"},
     {"stage" : "done"}
 ]
 
@@ -134,7 +132,12 @@ timelines['touchpen'] = [
     "conds": ["pen", "touch"],
     "block" : "2",
     "startPos" : 0},
-    {"stage" : "survey"},
+    {"stage" : "instruction",
+    "conds": ["pen", "touch"]},
+    {"stage": "task",
+    "conds": ["pen", "touch"],
+    "block" : "3",
+    "startPos" : 0},
     {"stage" : "done"}
 ]
 
@@ -147,7 +150,6 @@ timelines['speed'] = [
     "conds": ["touch", "touch"],
     "block" : "1",
     "startPos" : 0},
-    {"stage" : "survey"},
     {"stage" : "done"}
 ]
 
@@ -160,7 +162,30 @@ timelines['speed2'] = [
     "conds": ["mouse", "mouse"],
     "block" : "1",
     "startPos" : 0},
-    {"stage" : "survey"},
+    {"stage" : "done"}
+]
+
+timelines['3base'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["pen", "pen"]},
+    {"stage": "baseline",
+    "conds": ["pen", "pen"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "instruction",
+    "conds": ["pen", "pen"]},
+    {"stage": "baseline",
+    "conds": ["pen", "pen"],
+    "block" : "2",
+    "startPos" : 0},
+    {"stage" : "instruction",
+    "conds": ["pen", "pen"]},
+    {"stage": "baseline",
+    "conds": ["pen", "pen"],
+    "block" : "3",
+    "startPos" : 0},
     {"stage" : "done"}
 ]
 
