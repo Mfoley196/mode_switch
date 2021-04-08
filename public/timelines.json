@@ -7067,7 +7067,20 @@
       "startPos": 0
     },
     {
-      "stage": "survey"
+      "stage": "instruction",
+      "conds": [
+        "pen",
+        "touch"
+      ]
+    },
+    {
+      "stage": "task",
+      "conds": [
+        "pen",
+        "touch"
+      ],
+      "block": "3",
+      "startPos": 0
     },
     {
       "stage": "done"
