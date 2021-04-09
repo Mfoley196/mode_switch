@@ -98,13 +98,17 @@ const TaskController = (props) => {
       uploadLog[0].block +
       '.txt';
 
+    let isMounted = true;
+
     // let blah = { foo: 'bar' };
     upload(fileName, uploadLog)
       .then(function (response) {
         console.log('file upload worked');
         console.log(response);
 
-        setUploadStatus(true);
+        if (isMounted) {
+          setUploadStatus(true);
+        }
       })
       .catch((error) => {
         console.log('error');
@@ -120,6 +124,8 @@ const TaskController = (props) => {
         //setUploading(true);
         setUploadStatus(false);
       });
+
+      return () => {isMounted = false}
   }
 
   function advanceTrial(pathIndex, currMode, eventList) {

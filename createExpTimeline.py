@@ -63,7 +63,7 @@ for p in range(len(cond_matrix)):
         for j in range(NUM_OF_BLOCKS):
             tl.append({"stage": "task,", 
                 "conds": [conds[0], conds[1]], 
-                "block": str(j),
+                "block": j,
                 "startPos": randint(0, NUM_OF_CIRCS)})
 
         tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
@@ -77,8 +77,9 @@ for p in range(len(cond_matrix)):
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
 
-        tl.append({"stage" :"survey"})
-        tl.append({"stage" :"done"})
+    
+    tl.append({"stage" :"survey"})
+    tl.append({"stage" :"done"})
     timelines[p+1] = tl
 
 timelines['desktop'] = [
@@ -89,19 +90,19 @@ timelines['desktop'] = [
     {"stage": "baseline",
     "conds": ["mouse", "mouse"],
     "block" : "1",
-    "startPos" : 0},
+    "startPos" : 6},
     {"stage" : "instruction",
     "conds": ["trackpad", "trackpad"]},
     {"stage": "baseline",
     "conds": ["trackpad", "trackpad"],
     "block" : "1",
-    "startPos" : 0},
+    "startPos" : 5},
     {"stage" : "instruction",
     "conds": ["mouse", "trackpad"]},
     {"stage": "task",
     "conds": ["mouse", "trackpad"],
     "block" : "1",
-    "startPos" : 0},
+    "startPos" : 4},
     {"stage" : "done"}
 ]
 
@@ -131,19 +132,19 @@ timelines['touchpen'] = [
     {"stage": "task",
     "conds": ["touch", "pen"],
     "block" : "1",
-    "startPos" : 0},
+    "startPos" : 3},
     {"stage" : "instruction",
     "conds": ["pen", "touch"]},
     {"stage": "task",
     "conds": ["pen", "touch"],
     "block" : "2",
-    "startPos" : 0},
+    "startPos" : 6},
     {"stage" : "instruction",
     "conds": ["pen", "touch"]},
     {"stage": "task",
     "conds": ["pen", "touch"],
     "block" : "3",
-    "startPos" : 0},
+    "startPos" : 2},
     {"stage" : "done"}
 ]
 
@@ -167,7 +168,7 @@ timelines['speed2'] = [
     {"stage": "baseline",
     "conds": ["mouse", "mouse"],
     "block" : "1",
-    "startPos" : 0},
+    "startPos" : 6},
     {"stage" : "done"}
 ]
 

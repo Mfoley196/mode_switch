@@ -36,16 +36,24 @@ const ConsentForm = (props) => {
   const [markdown, setMarkdown] = useState('');
 
   useEffect(() => {
+    let isCanceled = false;
+
     fetch(ConsentMarkdown)
       .then(function (response) {
         return response.text();
       })
       .then(function (data) {
-        setMarkdown(data);
+        if (!isCanceled) {
+          setMarkdown(data);
+        }
       })
       .catch((error) => {
         console.log("couldn't load consent form!");
       });
+
+    return () => {
+      isCanceled = true;
+    };
   }, []);
 
   const handleChange = (event) => {
