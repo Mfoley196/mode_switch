@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import useCanvas from './useCanvas';
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  // console.log(fill);
   let rad = targetOn ? radius * 1.2 : radius;
   ctx.strokeStyle = targetOn ? '#00EE00' : fill;
   ctx.lineWidth = 5;
@@ -33,7 +32,7 @@ const Canvas = (props) => {
     stage,
     eventList,
     setEventList,
-    missCount, 
+    missCount,
     setMissCount,
     ...rest
   } = props;
@@ -58,9 +57,7 @@ const Canvas = (props) => {
   const TRACK_DRAG_COLOR = '#990099';
   const TRACK_HIT_COLOR = '#FF99FF';
 
-  //const TOKEN_COLOR = '#FF0000';
   const TARGET_COLOR = '#00EE00';
-  //const HOVER_COLOR = '#00BB00';
 
   const interval = 300;
 
@@ -76,7 +73,6 @@ const Canvas = (props) => {
   }
 
   const appendToEventList = (event) => {
-    //let eListCopy = eventList.slice();
     setEventList((prevList) => [...prevList, event]);
   };
 
@@ -102,11 +98,9 @@ const Canvas = (props) => {
       ctx.fillStyle = '#000000';
     } else {
       ctx.fillStyle = '#EE0000';
-      //requestAnimationFrame(animate);
     }
 
     ctx.fillRect(0, 0, window.innerWidth, window.innerHeight);
-    //drawCircle(ctx, mouseX, mouseY, 15, "#FFFFFF");
 
     ctx.font = '40px Arial';
 
@@ -205,10 +199,8 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
-    // console.log(e.pointerType + ' down');
-    // console.log(targetId);
 
-    appendToEventList([Date.now(), 'down', e.pointerType ]);
+    appendToEventList([Date.now(), 'down', e.pointerType]);
     for (let i = 0; i < circles.length; i++) {
       if (
         circleHitTest(
@@ -231,7 +223,6 @@ const Canvas = (props) => {
             };
           }),
         );
-        //circles[i].dragOn = true
         appendToEventList([Date.now(), 'hit_token', i]);
       }
     }
@@ -239,12 +230,9 @@ const Canvas = (props) => {
 
   const mouseDownHandler = (e) => {
     e.preventDefault();
-    // console.log('MOUSE down from mouse handler');
-    // console.log(targetId);
 
     appendToEventList([Date.now(), 'down', 'mouse']);
     for (let i = 0; i < circles.length; i++) {
-      //console.log(circles[i].id);
       if (
         circleHitTest(
           e.clientX,
@@ -265,8 +253,6 @@ const Canvas = (props) => {
             };
           }),
         );
-        //circles[i].dragOn = true
-        //console.log('Hit ' + i);
         appendToEventList([Date.now(), 'hit_token', i]);
       }
     }
@@ -274,12 +260,9 @@ const Canvas = (props) => {
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
-    //console.log(e.pointerType + ' up');
-    appendToEventList([Date.now(),'up', e.pointerType]);
-    //console.log(eventList);
+    appendToEventList([Date.now(), 'up', e.pointerType]);
 
     for (let i = 0; i < circles.length; i++) {
-      //console.log(i + " " + circles[i].dragOn)
       if (circles[i].dragOn) {
         setCircles(
           circles.map((circle) => {
@@ -335,7 +318,6 @@ const Canvas = (props) => {
         )
       ) {
         appendToEventList([Date.now(), 'hit_center']);
-        //console.log('hit center!');
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
@@ -351,7 +333,7 @@ const Canvas = (props) => {
       onMouseDown={mouseDownHandler}
       onMouseUp={pointerUpHandler}
       onPointerUp={pointerUpHandler}
-      width= {window.innerWidth}
+      width={window.innerWidth}
       height="800px"
       {...rest}
     />

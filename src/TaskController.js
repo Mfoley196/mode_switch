@@ -17,9 +17,7 @@ const TaskController = (props) => {
     fileUploadError,
     setUploadError,
   } = props;
-  const [path, setPath] = React.useState(
-    generatePath(NUM_OF_CIRCS, stage['startPos']),
-  );
+  const [path] = React.useState(generatePath(NUM_OF_CIRCS, stage['startPos']));
 
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
@@ -36,12 +34,6 @@ const TaskController = (props) => {
     'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
     'nextpc-modeswitch1',
   );
-
-  // let upload = createS3Uploader(
-  //   'ca-central-1',
-  //   'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cb',
-  //   'nextpc-modeswitch1',
-  // );
 
   function createTrialLog(currMode, eventList) {
     let logObj = {
@@ -103,6 +95,7 @@ const TaskController = (props) => {
     // let blah = { foo: 'bar' };
     upload(fileName, uploadLog)
       .then(function (response) {
+        // eslint-disable-next-line no-console
         console.log('file upload worked');
         console.log(response);
 
@@ -111,8 +104,8 @@ const TaskController = (props) => {
         }
       })
       .catch((error) => {
-        console.log('error');
-        console.log(error);
+        // eslint-disable-next-line no-console
+        console.error('error', error);
 
         //if error, yeet into local storage w. filename key
         if (!fileUploadError) {
@@ -121,7 +114,6 @@ const TaskController = (props) => {
 
         localStorage.setItem(fileName, JSON.stringify(uploadLog));
 
-        //setUploading(true);
         setUploadStatus(false);
       });
 
@@ -132,7 +124,7 @@ const TaskController = (props) => {
     if (pathIndex + 1 >= path.length) {
       addToBlockLog(currMode, eventList);
       setUploading(true);
-      
+
       let temp = JSON.parse(JSON.stringify(blockLog));
       let tempLog = createTrialLog(currMode, eventList);
       uploadToBucket([...temp, tempLog]);
@@ -140,7 +132,6 @@ const TaskController = (props) => {
       setCurrIndex(0);
       setBlockLog([]);
       setMissCount(0);
-      //dispatch({ type: 'next' });
     } else {
       let circlesCopy = JSON.parse(JSON.stringify(circles));
 
@@ -172,7 +163,6 @@ const TaskController = (props) => {
   }
 
   function activateCenter() {
-    //let circlesCopy = JSON.parse(JSON.stringify(circles));
     let circlesCopy = circles.slice();
 
     for (let i = 0; i < circlesCopy.length; i++) {
@@ -251,9 +241,9 @@ function initCircles(numCircs, radius, path, stage) {
 
   let center = {
     id: numCircs,
-    x:  window.innerWidth / 2,
+    x: window.innerWidth / 2,
     y: 800 / 2,
-    oldx:  window.innerWidth / 2,
+    oldx: window.innerWidth / 2,
     oldy: 800 / 2,
     r: radius,
     fill: '#FFFF00',
@@ -267,7 +257,6 @@ function initCircles(numCircs, radius, path, stage) {
 
   circs.push(center);
 
-  //console.log(circs);
   return circs;
 }
 
@@ -280,7 +269,6 @@ function generatePath(numCircs, startPos) {
     path.push([target % numCircs, (target + step) % numCircs]);
     target += step;
   }
-  //console.log(path);
 
   return path;
 }

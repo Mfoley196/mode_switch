@@ -86,33 +86,37 @@ const InstructionsPage = (props) => {
         app, then &quot;Bluetooth&quot;. Make sure &quot;Bluetooth&quot; is
         turned on.
       </p>
-
-      <Container fluid>
-        <Row className="justify-content-md-center">
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/bluetooth_location.png'}
-              width="400px"
-            />
-          </Col>
-        </Row>
-      </Container>
+      <p>
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/bluetooth_location.png'}
+                width="400px"
+                alt="Bluetooth setting location on ipadOS"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </p>
 
       <p>
         In the &quot;Bluetooth&quot; screen, you can view the devices&apos;
         connection status.
       </p>
-      <Container fluid>
-        <Row className="justify-content-md-center">
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/device_status.png'}
-              width="400px"
-            />
-          </Col>
-        </Row>
-      </Container>
-
+      <p>
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/device_status.png'}
+                width="400px"
+                alt="Checking connected bluetooth devices on ipadOS"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </p>
       <p>
         <b>To reconnect the pen</b>, plug it into the charging port on the
         bottom of the iPad.
@@ -123,6 +127,7 @@ const InstructionsPage = (props) => {
             <img
               src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
               width="200px"
+              alt="Charging an Apple pen."
             />
           </Col>
         </Row>
@@ -132,46 +137,54 @@ const InstructionsPage = (props) => {
         are turned on. Check that their power switches are turned on (switches
         are circled in red)
       </p>
-
-      <Container fluid>
-        <Row className="justify-content-md-center">
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'}
-              width="200px"
-            />
-          </Col>
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/trackpad_switch.jpeg'}
-              width="200px"
-            />
-          </Col>
-        </Row>
-      </Container>
-
+      <p>
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'}
+                width="200px"
+                alt="Turning on an Apple mouse"
+              />
+            </Col>
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/trackpad_switch.jpeg'}
+                width="200px"
+                alt="Turning on an Apple trackpad"
+              />
+            </Col>
+          </Row>
+        </Container>
+      </p>
       <p>
         Once the mouse or trackpad is on, you can reconnect them by tapping on
         the device name in the &quot;Bluetooth&quot; screen. (one image of
         unconnected mouse. draw circle to show where you tap) tap Magic Mouse
         (next image, with connected mouse)
       </p>
-      <Container fluid>
-        <Row className="justify-content-md-center">
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/mouse_not_connected.png'}
-              width="400px"
-            />
-          </Col>
-          <Col>
-            <img
-              src={process.env.PUBLIC_URL + '/devices/mouse_connected.png'}
-              width="400px"
-            />
-          </Col>
-        </Row>
-      </Container>
+      <p>
+        <Container fluid>
+          <Row className="justify-content-md-center">
+            <Col>
+              <img
+                src={
+                  process.env.PUBLIC_URL + '/devices/mouse_not_connected.png'
+                }
+                width="400px"
+                alt="Not connected mouse on ipadOS."
+              />
+            </Col>
+            <Col>
+              <img
+                src={process.env.PUBLIC_URL + '/devices/mouse_connected.png'}
+                width="400px"
+                alt="Connected mouse on ipadOS."
+              />
+            </Col>
+          </Row>
+        </Container>
+      </p>
     </div>
   );
 
