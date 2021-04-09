@@ -5,6 +5,10 @@ conditions = {0: "pen,mouse", 1: "pen,touch",
 2: "pen,trackpad", 3: "mouse,touch",
 4: "mouse,trackpad", 5: "touch,trackpad"}
 
+# conditions = {0: "mouse,trackpad", 1:"mouse,trackpad", 
+# 2: "mouse,trackpad", 3: "mouse,trackpad",
+# 4: "mouse,trackpad", 5: "touch,trackpad"}
+
 def create_latin_square(n: int, start_el: int=1):
     row = [i for i in range(0, n)]
     row = row[start_el-1:] + row[:start_el-1]
@@ -61,7 +65,7 @@ for p in range(len(cond_matrix)):
         tl.append({"stage": "instruction", "conds": [conds[0], conds[1]]})
 
         for j in range(NUM_OF_BLOCKS):
-            tl.append({"stage": "task,", 
+            tl.append({"stage": "task", 
                 "conds": [conds[0], conds[1]], 
                 "block": j,
                 "startPos": randint(0, NUM_OF_CIRCS)})
