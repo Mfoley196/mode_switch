@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import style from './Canvas.module.css';
 import useCanvas from './useCanvas';
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
@@ -326,6 +327,7 @@ const Canvas = (props) => {
 
   return (
     <canvas
+      className={style.canvas}
       ref={canvasRef}
       onPointerMove={pointerHandler}
       onMouseMove={pointerHandler}
