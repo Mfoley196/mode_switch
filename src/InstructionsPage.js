@@ -91,6 +91,7 @@ const InstructionsPage = (props) => {
               <img
                 src={process.env.PUBLIC_URL + '/devices/bluetooth_location.png'}
                 width="400px"
+                alt="Bluetooth setting location on ipadOS"
               />
             </Col>
           </Row>
@@ -108,6 +109,7 @@ const InstructionsPage = (props) => {
               <img
                 src={process.env.PUBLIC_URL + '/devices/device_status.png'}
                 width="400px"
+                alt="Checking connected bluetooth devices on ipadOS"
               />
             </Col>
           </Row>
@@ -123,6 +125,7 @@ const InstructionsPage = (props) => {
             <img
               src={process.env.PUBLIC_URL + '/devices/pencil_docked.jpeg'}
               width="200px"
+              alt="Charging an Apple pen."
             />
           </Col>
         </Row>
@@ -139,12 +142,14 @@ const InstructionsPage = (props) => {
               <img
                 src={process.env.PUBLIC_URL + '/devices/mouse_switch.jpeg'}
                 width="200px"
+                alt="Turning on an Apple mouse"
               />
             </Col>
             <Col>
               <img
                 src={process.env.PUBLIC_URL + '/devices/trackpad_switch.jpeg'}
                 width="200px"
+                alt="Turning on an Apple trackpad"
               />
             </Col>
           </Row>
@@ -165,12 +170,14 @@ const InstructionsPage = (props) => {
                   process.env.PUBLIC_URL + '/devices/mouse_not_connected.png'
                 }
                 width="400px"
+                alt="Not connected mouse on ipadOS."
               />
             </Col>
             <Col>
               <img
                 src={process.env.PUBLIC_URL + '/devices/mouse_connected.png'}
                 width="400px"
+                alt="Connected mouse on ipadOS."
               />
             </Col>
           </Row>
