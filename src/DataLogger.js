@@ -1,11 +1,9 @@
 import React from 'react';
-import createS3Uploader from './createS3Uploader';
 import Button from 'react-bootstrap/Button';
-import Spinner from 'react-bootstrap/Spinner';
 import Container from 'react-bootstrap/Container';
 
 const DataLogger = (props) => {
-  const { uploadWorked, onSubmit, ...rest } = props;
+  const { uploadWorked, onSubmit } = props;
 
   const successText = (
     <div>

@@ -6,7 +6,7 @@ import Container from 'react-bootstrap/Container';
 import ConsentMarkdown from './consent_letter.md';
 
 const ConsentForm = (props) => {
-  const { onSubmit, ...rest } = props;
+  const { onSubmit } = props;
 
   let questions = [
     {
@@ -44,7 +44,8 @@ const ConsentForm = (props) => {
         setMarkdown(data);
       })
       .catch((error) => {
-        console.log("couldn't load consent form!");
+        // eslint-disable-next-line no-console
+        console.error("couldn't load consent form!");
       });
   }, []);
 
@@ -64,6 +65,7 @@ const ConsentForm = (props) => {
   }
 
   function handleClick() {
+    // eslint-disable-next-line no-console
     console.log(questionsChecked);
     if (!requiredFieldNotFilled()) {
       onSubmit();

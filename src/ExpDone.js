@@ -1,7 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import createS3Uploader from './createS3Uploader';
-import { saveAs } from 'file-saver';
-import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import JSZip from 'jszip';
 
@@ -22,14 +19,16 @@ const ExpDone = (props) => {
     }
 
     zip.generateAsync({ type: 'blob' }).then(function (content) {
-      //saveAs(content, 'example.zip');
       setZipFile(content);
       setURL(window.URL.createObjectURL(content));
     });
-  }, []);
+  }, [pNo]);
 
+  // eslint-disable-next-line no-unused-vars
   function handleClick() {
+    // eslint-disable-next-line no-console
     console.log(zipFile);
+    // eslint-disable-next-line no-console
     console.log(url);
   }
 

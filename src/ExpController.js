@@ -40,7 +40,6 @@ function ExpController() {
       })
       .then(function (data) {
         // Dispatching if the component is gone will trigger a React warning.
-        //console.log(data);
         if (!isCanceled) {
           dispatch({ type: 'dataReceived', data });
         }
@@ -74,7 +73,7 @@ function ExpController() {
         }),
       );
     }
-  }, [timelineIndex]);
+  }, [timelineIndex, participantNumber, timeline]);
 
   function beginOrResume(participantId) {
     if (resumeFlag) {
