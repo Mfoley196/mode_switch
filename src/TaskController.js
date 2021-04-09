@@ -35,12 +35,6 @@ const TaskController = (props) => {
     'nextpc-modeswitch1',
   );
 
-  // let upload = createS3Uploader(
-  //   'ca-central-1',
-  //   'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cb',
-  //   'nextpc-modeswitch1',
-  // );
-
   function createTrialLog(currMode, eventList) {
     let logObj = {
       pNo: pNo,
@@ -96,7 +90,6 @@ const TaskController = (props) => {
       uploadLog[0].block +
       '.txt';
 
-    // let blah = { foo: 'bar' };
     upload(fileName, uploadLog)
       .then(function (response) {
         // eslint-disable-next-line no-console
@@ -114,7 +107,6 @@ const TaskController = (props) => {
 
         localStorage.setItem(fileName, JSON.stringify(uploadLog));
 
-        //setUploading(true);
         setUploadStatus(false);
       });
   }
@@ -131,7 +123,6 @@ const TaskController = (props) => {
       setCurrIndex(0);
       setBlockLog([]);
       setMissCount(0);
-      //dispatch({ type: 'next' });
     } else {
       let circlesCopy = JSON.parse(JSON.stringify(circles));
 
@@ -163,7 +154,6 @@ const TaskController = (props) => {
   }
 
   function activateCenter() {
-    //let circlesCopy = JSON.parse(JSON.stringify(circles));
     let circlesCopy = circles.slice();
 
     for (let i = 0; i < circlesCopy.length; i++) {
@@ -258,7 +248,6 @@ function initCircles(numCircs, radius, path, stage) {
 
   circs.push(center);
 
-  //console.log(circs);
   return circs;
 }
 
@@ -271,7 +260,6 @@ function generatePath(numCircs, startPos) {
     path.push([target % numCircs, (target + step) % numCircs]);
     target += step;
   }
-  //console.log(path);
 
   return path;
 }
