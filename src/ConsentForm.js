@@ -82,10 +82,11 @@ const ConsentForm = (props) => {
     }
   }
 
+//<ReactMarkdown source={markdown} />
   return (
     <Container fluid>
       <div>
-        <ReactMarkdown source={markdown} />
+        
 
         <Form>
           {questions.map((question) => {

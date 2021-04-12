@@ -4,6 +4,7 @@ import createS3Uploader from './createS3Uploader';
 import DataLogger from './DataLogger';
 
 const NUM_OF_CIRCS = 7;
+const CANVAS_Y = 800;
 
 const TaskController = (props) => {
   const {
@@ -21,8 +22,9 @@ const TaskController = (props) => {
 
   const [currPathIndex, setCurrIndex] = React.useState(0);
   const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
+  const [tokenId, setTokenId] = React.useState(path[currPathIndex][0]);
   const [circles, setCircles] = React.useState(
-    initCircles(NUM_OF_CIRCS, 20, path, stage),
+    initCircles(NUM_OF_CIRCS, 26, path, stage),
   );
   const [eventList, setEventList] = React.useState([]);
   const [uploading, setUploading] = React.useState(false);
@@ -117,7 +119,9 @@ const TaskController = (props) => {
         setUploadStatus(false);
       });
 
-      return () => {isMounted = false}
+    return () => {
+      isMounted = false;
+    };
   }
 
   function advanceTrial(pathIndex, currMode, eventList) {
@@ -158,6 +162,7 @@ const TaskController = (props) => {
 
       setMissCount(0);
       setCurrIndex(pathIndex + 1);
+      setTokenId(path[pathIndex + 1][0]);
       setTargetId(path[pathIndex + 1][1]);
     }
   }
@@ -187,6 +192,7 @@ const TaskController = (props) => {
         path={path}
         currPathIndex={currPathIndex}
         targetId={targetId}
+        tokenId={tokenId}
         advanceTrial={advanceTrial}
         activateCenter={activateCenter}
         stage={stage}
@@ -194,6 +200,7 @@ const TaskController = (props) => {
         setEventList={setEventList}
         missCount={missCount}
         setMissCount={setMissCount}
+        canvasY={CANVAS_Y}
       />
     )) ||
     (uploading && (
@@ -216,7 +223,7 @@ function initCircles(numCircs, radius, path, stage) {
 
   for (let i = 0; i < numCircs; i++) {
     let x = Math.round(window.innerWidth / 2 + largeRad * Math.cos(angle));
-    let y = Math.round(800 / 2 + largeRad * Math.sin(angle));
+    let y = Math.round(CANVAS_Y / 2 + largeRad * Math.sin(angle));
     let fill = '#FFFF00';
     let mode = stage['conds'][1];
 
@@ -242,9 +249,9 @@ function initCircles(numCircs, radius, path, stage) {
   let center = {
     id: numCircs,
     x: window.innerWidth / 2,
-    y: 800 / 2,
+    y: CANVAS_Y / 2,
     oldx: window.innerWidth / 2,
-    oldy: 800 / 2,
+    oldy: CANVAS_Y / 2,
     r: radius,
     fill: '#FFFF00',
     dragOn: false,
