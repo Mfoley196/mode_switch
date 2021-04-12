@@ -237,7 +237,13 @@ const Canvas = (props) => {
   const pointerHandler = (e) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
-    appendToEventList([Date.now(), 'x:' + e.clientX + ',y:' + e.clientY]);
+    appendToEventList([
+      Date.now(),
+      'move',
+      'x:' + e.clientX + ',y:' + e.clientY,
+      'pressure:' + e.pressure,
+      'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+    ]);
   };
 
   const pointerDownHandler = (e) => {
@@ -269,7 +275,14 @@ const Canvas = (props) => {
             };
           }),
         );
-        appendToEventList([Date.now(), 'hit_token', i]);
+        appendToEventList([
+          Date.now(),
+          'hit_token',
+          i,
+          'x:' + e.clientX + ',y:' + e.clientY,
+          'pressure:' + e.pressure,
+          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+        ]);
       }
     }
   };
@@ -299,7 +312,14 @@ const Canvas = (props) => {
             };
           }),
         );
-        appendToEventList([Date.now(), 'hit_token', i]);
+        appendToEventList([
+          Date.now(),
+          'hit_token',
+          i,
+          'x:' + e.clientX + ',y:' + e.clientY,
+          'pressure:' + e.pressure,
+          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+        ]);
       }
     }
   };
@@ -332,7 +352,14 @@ const Canvas = (props) => {
           circles[i].r * tolerance,
         )
       ) {
-        appendToEventList([Date.now(), 'hit_target', targetId]);
+        appendToEventList([
+          Date.now(),
+          'hit_target',
+          targetId,
+          'x:' + e.clientX + ',y:' + e.clientY,
+          'pressure:' + e.pressure,
+          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+        ]);
 
         activateCenter();
       } else {
@@ -363,7 +390,13 @@ const Canvas = (props) => {
           circles[i].r,
         )
       ) {
-        appendToEventList([Date.now(), 'hit_center']);
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          'x:' + e.clientX + ',y:' + e.clientY,
+          'pressure:' + e.pressure,
+          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+        ]);
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
