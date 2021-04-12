@@ -242,7 +242,9 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
-    console.log(e);
+    console.log(e.pressure);
+    console.log(e.tiltX);
+    console.log(e.tiltY);
 
     appendToEventList([Date.now(), 'down', e.pointerType]);
     for (let i = 0; i < circles.length; i++) {
