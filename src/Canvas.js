@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import style from './Canvas.module.css';
-import useCanvas from './useCanvas';
+import useCanvas from './hooks/useCanvas';
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   let rad = targetOn ? radius * 1.1 : radius;

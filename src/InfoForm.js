@@ -80,12 +80,22 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
     evt.preventDefault();
     if ('currentStage' in localStorage) {
       //console.log(localStorage.getItem('currentStage'));
-      let state = JSON.parse(localStorage.getItem('currentStage'))['participantNo'];
-      console.log(state);
+      let state = JSON.parse(localStorage.getItem('currentStage'));
+
+      if (state.participantId === inputValue) {
+        onSubmit(inputValue);
+      } else {
+        alert(
+          'This participant ID does not match the saved ID. Please try enter ' +
+          'the correct participant ID, or hit the "Restart" button to delete ' +
+          'all experiment progress.',
+        );
+      }
 
       //setResumeFlag(true);
+    } else {
+      onSubmit(inputValue);
     }
-    onSubmit(inputValue);
   };
 
   function InfoText() {
