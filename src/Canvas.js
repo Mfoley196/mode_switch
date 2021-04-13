@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './Canvas.module.css';
 import useCanvas from './hooks/useCanvas';
+import usePreventTouchDefault from './hooks/usePreventTouchDefault';
 
 const preventedEvents = [
   'pointermove',
@@ -9,8 +10,6 @@ const preventedEvents = [
   'mousemove',
   'mousedown',
 ];
-
-import usePreventTouchDefault from './hooks/usePreventTouchDefault';
 
 const Canvas = (props) => {
   const {
