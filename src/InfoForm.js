@@ -87,8 +87,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       } else {
         alert(
           'This participant ID does not match the saved ID. Please try enter ' +
-          'the correct participant ID, or hit the "Restart" button to delete ' +
-          'all experiment progress.',
+            'the correct participant ID, or hit the "Restart" button to delete ' +
+            'all experiment progress.',
         );
       }
 
@@ -107,8 +107,15 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   }
 
   function reset() {
-    localStorage.removeItem('currentStage');
-    setResumeFlag(false);
+    if (
+      window.confirm(
+        'WARNING: You are deleting all experiment progress.' +
+          ' Are you sure you want to do this?',
+      )
+    ) {
+      localStorage.removeItem('currentStage');
+      setResumeFlag(false);
+    }
   }
 
   return (
