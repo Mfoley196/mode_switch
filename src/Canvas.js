@@ -53,7 +53,7 @@ const Canvas = (props) => {
   const TARGET_COLOR = '#00EE00';
 
   const interval = 300;
-  const tolerance = 0.3;
+  const tolerance = 0.2;
 
   useEffect(() => {
     if (errorFlag) {
@@ -270,6 +270,30 @@ const Canvas = (props) => {
           'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
       }
+
+      if (
+        circles[i].isTarget &&
+        circles[i].isCenter &&
+        (e.pointerType === circles[i].mode ||
+          (e.pointerType === 'mouse' && circles[i].mode === 'trackpad')) &&
+        circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+        )
+      ) {
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          'x:' + e.clientX + ',y:' + e.clientY,
+          'pressure:' + e.pressure,
+          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+        ]);
+
+        advanceTrial(currPathIndex, circles[i].mode, eventList);
+      }
     }
   };
 
@@ -306,6 +330,29 @@ const Canvas = (props) => {
           'pressure:' + e.pressure,
           'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
+      }
+
+      if (
+        circles[i].isTarget &&
+        circles[i].isCenter &&
+        (circles[i].mode === 'mouse' || circles[i].mode === 'trackpad') &&
+        circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+        )
+      ) {
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          'x:' + e.clientX + ',y:' + e.clientY,
+          'pressure:' + e.pressure,
+          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+        ]);
+
+        advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
     }
   };
@@ -352,6 +399,7 @@ const Canvas = (props) => {
         if (
           circles[i].isTarget &&
           !circles[i].isCenter &&
+          circles[tokenId].dragOn &&
           !circleHitTest(
             e.clientX,
             e.clientY,
@@ -360,31 +408,10 @@ const Canvas = (props) => {
             circles[i].r * tolerance,
           )
         ) {
+          console.log(circles[i])
           setErrorFlag(true);
           setMissCount(missCount + 1);
         }
-      }
-
-      if (
-        circles[i].isTarget &&
-        circles[i].isCenter &&
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'hit_center',
-          'x:' + e.clientX + ',y:' + e.clientY,
-          'pressure:' + e.pressure,
-          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
-        ]);
-
-        advanceTrial(currPathIndex, circles[i].mode, eventList);
       }
     }
   };
