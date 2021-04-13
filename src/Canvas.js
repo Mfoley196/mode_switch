@@ -3,7 +3,7 @@ import style from './Canvas.module.css';
 import useCanvas from './useCanvas';
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  let rad = targetOn ? radius * 1.2 : radius;
+  let rad = targetOn ? radius * 1.1 : radius;
   //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
   ctx.strokeStyle = fill;
   ctx.lineWidth = 5;
@@ -64,7 +64,7 @@ const Canvas = (props) => {
   const TARGET_COLOR = '#00EE00';
 
   const interval = 300;
-  const tolerance = 0.35;
+  const tolerance = 0.3;
 
   useEffect(() => {
     if (errorFlag) {
@@ -342,8 +342,8 @@ const Canvas = (props) => {
         circles[i].isTarget &&
         !circles[i].isCenter &&
         circleHitTest(
-          e.clientX,
-          e.clientY,
+          circles[tokenId].x,
+          circles[tokenId].y,
           circles[i].x,
           circles[i].y,
           circles[i].r * tolerance,
