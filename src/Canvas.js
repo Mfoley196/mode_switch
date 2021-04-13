@@ -2,25 +2,15 @@ import React, { useEffect } from 'react';
 import style from './Canvas.module.css';
 import useCanvas from './hooks/useCanvas';
 
-function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  let rad = targetOn ? radius * 1.1 : radius;
-  //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
-  ctx.strokeStyle = fill;
-  ctx.lineWidth = 5;
+const preventedEvents = [
+  'pointermove',
+  'pointerdown',
+  'pointerup',
+  'mousemove',
+  'mousedown',
+];
 
-  if (!targetOn || isCenter) {
-    ctx.fillStyle = fill;
-  }
-
-  ctx.beginPath();
-  ctx.ellipse(x, y, rad, rad, 0, 0, 2 * Math.PI);
-
-  if (!targetOn || isCenter) {
-    ctx.fill();
-  }
-
-  ctx.stroke();
-}
+import usePreventTouchDefault from './hooks/usePreventTouchDefault';
 
 const Canvas = (props) => {
   const {
@@ -401,21 +391,43 @@ const Canvas = (props) => {
   };
 
   return (
-    <canvas
-      className={style.canvas}
-      ref={canvasRef}
-      onPointerMove={pointerHandler}
-      onMouseMove={pointerHandler}
-      onPointerDown={pointerDownHandler}
-      onMouseDown={mouseDownHandler}
-      onMouseUp={pointerUpHandler}
-      onPointerUp={pointerUpHandler}
-      width={window.innerWidth}
-      height={canvasY.toString() + 'px'}
-      {...rest}
-    />
+    <div ref={usePreventTouchDefault(true)}>
+      <canvas
+        className={style.canvas}
+        ref={canvasRef}
+        onPointerMove={pointerHandler}
+        onMouseMove={pointerHandler}
+        onPointerDown={pointerDownHandler}
+        onMouseDown={mouseDownHandler}
+        onMouseUp={pointerUpHandler}
+        onPointerUp={pointerUpHandler}
+        width={window.innerWidth}
+        height={canvasY.toString() + 'px'}
+        {...rest}
+      />
+    </div>
   );
 };
+
+function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
+  let rad = targetOn ? radius * 1.1 : radius;
+  //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
+  ctx.strokeStyle = fill;
+  ctx.lineWidth = 5;
+
+  if (!targetOn || isCenter) {
+    ctx.fillStyle = fill;
+  }
+
+  ctx.beginPath();
+  ctx.ellipse(x, y, rad, rad, 0, 0, 2 * Math.PI);
+
+  if (!targetOn || isCenter) {
+    ctx.fill();
+  }
+
+  ctx.stroke();
+}
 
 function circleHitTest(pX, pY, cX, cY, radius) {
   // calculate distance from pX, pY  to centre of circle
