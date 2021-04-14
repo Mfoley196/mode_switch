@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
+import Spinner from 'react-bootstrap/Spinner';
 
 const DataLogger = (props) => {
   const { uploadWorked, onSubmit } = props;
@@ -23,13 +24,22 @@ const DataLogger = (props) => {
     </div>
   );
 
+  const inProgress = (
+    <div>
+      <Spinner animation="border" />
+      <p></p>
+    </div>
+  );
+
   function handleClick() {
     onSubmit();
   }
 
   function UploadStatusText() {
-    if (uploadWorked) {
+    if (uploadWorked === 'true') {
       return <div>{successText}</div>;
+    } else if (uploadWorked === 'not_complete') {
+      return <div>{inProgress}</div>;
     } else {
       return <div>{failureText}</div>;
     }

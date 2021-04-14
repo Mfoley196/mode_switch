@@ -28,7 +28,7 @@ const TaskController = (props) => {
   );
   const [eventList, setEventList] = React.useState([]);
   const [uploading, setUploading] = React.useState(false);
-  const [uploadWorked, setUploadStatus] = React.useState(true);
+  const [uploadWorked, setUploadStatus] = React.useState('not_complete');
   const [missCount, setMissCount] = React.useState(0);
 
   let upload = createS3Uploader(
@@ -102,7 +102,7 @@ const TaskController = (props) => {
         console.log(response);
 
         if (isMounted) {
-          setUploadStatus(true);
+          setUploadStatus('true');
         }
       })
       .catch((error) => {
@@ -116,7 +116,7 @@ const TaskController = (props) => {
 
         localStorage.setItem(fileName, JSON.stringify(uploadLog));
 
-        setUploadStatus(false);
+        setUploadStatus('false');
       });
 
     return () => {
