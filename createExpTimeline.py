@@ -39,7 +39,7 @@ for i in range(len(square)):
 #instructions6, training6, cond6
 
 timelines = {}
-NUM_OF_BLOCKS = 2
+NUM_OF_BLOCKS = 4
 NUM_OF_CIRCS = 5
 
 for p in range(len(cond_matrix)):
@@ -67,7 +67,7 @@ for p in range(len(cond_matrix)):
         for j in range(NUM_OF_BLOCKS):
             tl.append({"stage": "task", 
                 "conds": [conds[0], conds[1]], 
-                "block": j,
+                "block": j+1,
                 "startPos": randint(0, NUM_OF_CIRCS)})
 
         tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
