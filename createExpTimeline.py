@@ -40,7 +40,7 @@ for i in range(len(square)):
 
 timelines = {}
 NUM_OF_BLOCKS = 4
-NUM_OF_CIRCS = 5
+NUM_OF_CIRCS = 7
 
 for p in range(len(cond_matrix)):
     tl = []
