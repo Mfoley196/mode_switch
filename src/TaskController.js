@@ -10,6 +10,8 @@ const TaskController = (props) => {
   const {
     dispatch,
     stage,
+    timeline,
+    timelineIndex,
     pNo,
     expLog,
     setExpLog,
@@ -45,14 +47,7 @@ const TaskController = (props) => {
 
   // useEffect(() => {
   //   setPath(generatePath(NUM_OF_CIRCS, stage['startPos']));
-  //   setCircles(
-  //     initCircles(
-  //       NUM_OF_CIRCS,
-  //       30,
-  //       generatePath(NUM_OF_CIRCS, stage['startPos']),
-  //       stage,
-  //     ),
-  //   );
+
   // }, [stage]);
 
   function createTrialLog(currMode, eventList) {
@@ -227,6 +222,16 @@ const TaskController = (props) => {
         uploadWorked={uploadWorked}
         onSubmit={() => {
           setUploading(false);
+          let newPath = generatePath(
+            NUM_OF_CIRCS,
+            timeline[timelineIndex + 1]['startPos'],
+          );
+          setPath(newPath);
+          setCircles(
+            initCircles(NUM_OF_CIRCS, 30, newPath, timeline[timelineIndex + 1]),
+          );
+          setTokenId(newPath[0][0]);
+          setTargetId(newPath[0][1]);
           dispatch({ type: 'next' });
         }}
       />

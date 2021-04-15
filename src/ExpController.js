@@ -76,6 +76,8 @@ function ExpController() {
   }, [timelineIndex, participantNumber, timeline]);
 
   function beginOrResume(participantId) {
+    console.log(timeline);
+    console.log(timelineIndex);
     if (resumeFlag) {
       dispatch({ type: 'start', participantId });
       let tl = resumeState.timelineIndex;
@@ -110,6 +112,8 @@ function ExpController() {
         <TaskController
           dispatch={dispatch}
           stage={stage}
+          timeline={timeline}
+          timelineIndex={timelineIndex}
           pNo={participantNumber}
           expLog={expLog}
           setExpLog={setExpLog}
