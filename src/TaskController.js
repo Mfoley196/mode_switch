@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Canvas from './Canvas';
 import createS3Uploader from './createS3Uploader';
 import DataLogger from './DataLogger';
@@ -18,24 +18,42 @@ const TaskController = (props) => {
     fileUploadError,
     setUploadError,
   } = props;
-  const [path] = React.useState(generatePath(NUM_OF_CIRCS, stage['startPos']));
-
-  const [currPathIndex, setCurrIndex] = React.useState(0);
-  const [targetId, setTargetId] = React.useState(path[currPathIndex][1]);
-  const [tokenId, setTokenId] = React.useState(path[currPathIndex][0]);
-  const [circles, setCircles] = React.useState(
-    initCircles(NUM_OF_CIRCS, 26, path, stage),
+  const [path, setPath] = useState(
+    generatePath(NUM_OF_CIRCS, stage['startPos']),
   );
-  const [eventList, setEventList] = React.useState([]);
-  const [uploading, setUploading] = React.useState(false);
-  const [uploadWorked, setUploadStatus] = React.useState('not_complete');
-  const [missCount, setMissCount] = React.useState(0);
+
+  const [currPathIndex, setCurrIndex] = useState(0);
+  const [targetId, setTargetId] = useState(path[currPathIndex][1]);
+  const [tokenId, setTokenId] = useState(path[currPathIndex][0]);
+  const [circles, setCircles] = useState(
+    initCircles(NUM_OF_CIRCS, 30, path, stage),
+  );
+  const [eventList, setEventList] = useState([]);
+  const [uploading, setUploading] = useState(false);
+  const [uploadWorked, setUploadStatus] = useState('not_complete');
+  const [missCount, setMissCount] = useState(0);
 
   let upload = createS3Uploader(
     'ca-central-1',
     'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
     'nextpc-modeswitch1',
   );
+
+  //**TO ASK - circles + path don't update properly when going between blocks
+  // w/o switching between components/not re-rendering component
+  //BUT - cannot update these without getting the next stage
+
+  // useEffect(() => {
+  //   setPath(generatePath(NUM_OF_CIRCS, stage['startPos']));
+  //   setCircles(
+  //     initCircles(
+  //       NUM_OF_CIRCS,
+  //       30,
+  //       generatePath(NUM_OF_CIRCS, stage['startPos']),
+  //       stage,
+  //     ),
+  //   );
+  // }, [stage]);
 
   function createTrialLog(currMode, eventList) {
     let logObj = {
@@ -99,6 +117,7 @@ const TaskController = (props) => {
       .then(function (response) {
         // eslint-disable-next-line no-console
         console.log('file upload worked');
+        // eslint-disable-next-line no-console
         console.log(response);
 
         if (isMounted) {

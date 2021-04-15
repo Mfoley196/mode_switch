@@ -73,8 +73,6 @@ const ConsentForm = (props) => {
   }
 
   function handleClick() {
-    // eslint-disable-next-line no-console
-    console.log(questionsChecked);
     if (!requiredFieldNotFilled()) {
       onSubmit();
     } else {

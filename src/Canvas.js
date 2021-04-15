@@ -408,7 +408,6 @@ const Canvas = (props) => {
             circles[i].r * tolerance,
           )
         ) {
-          console.log(circles[i])
           setErrorFlag(true);
           setMissCount(missCount + 1);
         }
@@ -417,7 +416,7 @@ const Canvas = (props) => {
   };
 
   return (
-    <div ref={usePreventTouchDefault(true)}>
+    <div ref={usePreventTouchDefault(true, preventedEvents)}>
       <canvas
         className={style.canvas}
         ref={canvasRef}
