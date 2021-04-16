@@ -30,7 +30,7 @@ const TRACK_HIT_COLOR = '#FF99FF';
 const TARGET_COLOR = '#00EE00';
 
 const interval = 300;
-const tolerance = 0.2;
+const tolerance = 0.15;
 
 const Canvas = (props) => {
   const {
