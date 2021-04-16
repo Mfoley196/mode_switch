@@ -1,15 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './Canvas.module.css';
 import useCanvas from './hooks/useCanvas';
-import usePreventTouchDefault from './hooks/usePreventTouchDefault';
-
-const preventedEvents = [
-  'pointermove',
-  'pointerdown',
-  'pointerup',
-  'mousemove',
-  'mousedown',
-];
+import usePreventDefault from './hooks/usePreventDefault';
 
 const PEN_COLOR = '#FFFF00';
 const PEN_DRAG_COLOR = '#999900';
@@ -26,8 +18,6 @@ const TOUCH_HIT_COLOR = '#ff8c66';
 const TRACK_COLOR = '#FF00FF';
 const TRACK_DRAG_COLOR = '#990099';
 const TRACK_HIT_COLOR = '#FF99FF';
-
-const TARGET_COLOR = '#00EE00';
 
 const interval = 300;
 const tolerance = 0.2;
@@ -360,19 +350,8 @@ const Canvas = (props) => {
   const pointerUpHandler = (e) => {
     e.preventDefault();
     appendToEventList([Date.now(), 'up', e.pointerType]);
-    console.log("token " + tokenId);
-    console.log("target " + targetId);
 
     for (let i = 0; i < circles.length; i++) {
-      console.log(i + " " +
-        circleHitTest(
-          circles[tokenId].x,
-          circles[tokenId].y,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r * tolerance,
-        ),
-      );
       if (circles[i].dragOn) {
         setCircles(
           circles.map((circle) => {
@@ -427,7 +406,7 @@ const Canvas = (props) => {
   };
 
   return (
-    <div ref={usePreventTouchDefault(true, preventedEvents)}>
+    <div ref={usePreventDefault()}>
       <canvas
         className={style.canvas}
         ref={canvasRef}
