@@ -1,15 +1,7 @@
 import React, { useEffect } from 'react';
 import style from './Canvas.module.css';
 import useCanvas from './hooks/useCanvas';
-import usePreventTouchDefault from './hooks/usePreventTouchDefault';
-
-const preventedEvents = [
-  'pointermove',
-  'pointerdown',
-  'pointerup',
-  'mousemove',
-  'mousedown',
-];
+import usePreventDefault from './hooks/usePreventDefault';
 
 const PEN_COLOR = '#FFFF00';
 const PEN_DRAG_COLOR = '#999900';
@@ -414,7 +406,7 @@ const Canvas = (props) => {
   };
 
   return (
-    <div ref={usePreventTouchDefault(true, preventedEvents)}>
+    <div ref={usePreventDefault()}>
       <canvas
         className={style.canvas}
         ref={canvasRef}
