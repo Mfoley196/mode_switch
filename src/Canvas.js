@@ -27,8 +27,6 @@ const TRACK_COLOR = '#FF00FF';
 const TRACK_DRAG_COLOR = '#990099';
 const TRACK_HIT_COLOR = '#FF99FF';
 
-const TARGET_COLOR = '#00EE00';
-
 const interval = 300;
 const tolerance = 0.2;
 
@@ -360,19 +358,8 @@ const Canvas = (props) => {
   const pointerUpHandler = (e) => {
     e.preventDefault();
     appendToEventList([Date.now(), 'up', e.pointerType]);
-    console.log("token " + tokenId);
-    console.log("target " + targetId);
 
     for (let i = 0; i < circles.length; i++) {
-      console.log(i + " " +
-        circleHitTest(
-          circles[tokenId].x,
-          circles[tokenId].y,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r * tolerance,
-        ),
-      );
       if (circles[i].dragOn) {
         setCircles(
           circles.map((circle) => {
