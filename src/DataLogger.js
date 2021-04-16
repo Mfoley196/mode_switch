@@ -8,25 +8,37 @@ const DataLogger = (props) => {
 
   const successText = (
     <div>
-      <p>Your data was successfully uploaded! </p>
+      <p>Your log was successfully uploaded! </p>
       <p></p>
       <p>Press &quot;Continue&quot; to continue the experiment.</p>
+      <p></p>
+      <Button onClick={handleClick} variant="outline-success">
+        Continue
+      </Button>
     </div>
   );
 
   const failureText = (
     <div>
       <p>
-        Your data did not upload properly. Don&apos;t worry! Once the experiment
+        Your log did not upload properly. Don&apos;t worry! Once the experiment
         is over, you will download and email your data to the experimenters.
       </p>
       <p>Press &quot;Continue&quot; to continue the experiment.</p>
+      <p></p>
+      <Button onClick={handleClick} variant="outline-success">
+        Continue
+      </Button>
     </div>
   );
 
   const inProgress = (
     <div>
+      <p></p>
+      <p></p>
       <Spinner animation="border" />
+      <p></p>
+      Uploading experiment log...
       <p></p>
     </div>
   );
@@ -35,7 +47,7 @@ const DataLogger = (props) => {
     onSubmit();
   }
 
-  function UploadStatusText() {
+  function UploadStatus() {
     if (uploadWorked === 'true') {
       return <div>{successText}</div>;
     } else if (uploadWorked === 'not_complete') {
@@ -48,11 +60,7 @@ const DataLogger = (props) => {
   return (
     <Container fluid>
       <div>
-        <UploadStatusText />
-
-        <Button onClick={handleClick} variant="outline-success">
-          Continue
-        </Button>
+        <UploadStatus />
       </div>
     </Container>
   );

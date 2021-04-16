@@ -41,15 +41,6 @@ const TaskController = (props) => {
     'nextpc-modeswitch1',
   );
 
-  //**TO ASK - circles + path don't update properly when going between blocks
-  // w/o switching between components/not re-rendering component
-  //BUT - cannot update these without getting the next stage
-
-  // useEffect(() => {
-  //   setPath(generatePath(NUM_OF_CIRCS, stage['startPos']));
-
-  // }, [stage]);
-
   function createTrialLog(currMode, eventList) {
     let logObj = {
       pNo: pNo,
