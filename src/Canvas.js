@@ -20,7 +20,7 @@ const TRACK_DRAG_COLOR = '#990099';
 const TRACK_HIT_COLOR = '#FF99FF';
 
 const interval = 300;
-const tolerance = 0.15;
+const tolerance = 0.25;
 
 const Canvas = (props) => {
   const {
@@ -216,19 +216,39 @@ const Canvas = (props) => {
   const pointerHandler = (e) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
+   
     appendToEventList([
       Date.now(),
-      'move',
+      'move', e.pointerType,
       'x:' + e.clientX + ',y:' + e.clientY,
-      'pressure:' + e.pressure,
+      'pressure:' + e.pressure.toFixed(5),
       'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
     ]);
   };
 
+  const mouseHandler = (e) => {
+    setMouseX(e.clientX);
+    setMouseY(e.clientY);
+
+    appendToEventList([
+      Date.now(),
+      'move', 'mouse',
+      'x:' + e.clientX + ',y:' + e.clientY,
+    ]);
+
+  }
+
   const pointerDownHandler = (e) => {
     e.preventDefault();
 
-    appendToEventList([Date.now(), 'down', e.pointerType]);
+    appendToEventList([
+      Date.now(),
+      'down',
+      e.pointerType,
+      'x:' + e.clientX + ',y:' + e.clientY,
+      'pressure:' + e.pressure.toFixed(5),
+      'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+    ]);
     for (let i = 0; i < circles.length; i++) {
       if (
         circleHitTest(
@@ -256,8 +276,6 @@ const Canvas = (props) => {
           'hit_token',
           i,
           'x:' + e.clientX + ',y:' + e.clientY,
-          'pressure:' + e.pressure,
-          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
       }
 
@@ -278,8 +296,6 @@ const Canvas = (props) => {
           Date.now(),
           'hit_center',
           'x:' + e.clientX + ',y:' + e.clientY,
-          'pressure:' + e.pressure,
-          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
@@ -290,7 +306,12 @@ const Canvas = (props) => {
   const mouseDownHandler = (e) => {
     e.preventDefault();
 
-    appendToEventList([Date.now(), 'down', 'mouse']);
+    appendToEventList([
+      Date.now(),
+      'down',
+      'mouse',
+      'x:' + e.clientX + ',y:' + e.clientY,
+    ]);
     for (let i = 0; i < circles.length; i++) {
       if (
         circleHitTest(
@@ -317,8 +338,6 @@ const Canvas = (props) => {
           'hit_token',
           i,
           'x:' + e.clientX + ',y:' + e.clientY,
-          'pressure:' + e.pressure,
-          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
       }
 
@@ -338,8 +357,6 @@ const Canvas = (props) => {
           Date.now(),
           'hit_center',
           'x:' + e.clientX + ',y:' + e.clientY,
-          'pressure:' + e.pressure,
-          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
 
         advanceTrial(currPathIndex, circles[i].mode, eventList);
@@ -349,7 +366,14 @@ const Canvas = (props) => {
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
-    appendToEventList([Date.now(), 'up', e.pointerType]);
+    appendToEventList([
+      Date.now(),
+      'up',
+      e.pointerType,
+      'x:' + e.clientX + ',y:' + e.clientY,
+      'pressure:' + e.pressure.toFixed(5),
+      'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+    ]);
 
     for (let i = 0; i < circles.length; i++) {
       if (circles[i].dragOn) {
@@ -380,8 +404,6 @@ const Canvas = (props) => {
           'hit_target',
           targetId,
           'x:' + e.clientX + ',y:' + e.clientY,
-          'pressure:' + e.pressure,
-          'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
         ]);
 
         activateCenter();
@@ -411,7 +433,7 @@ const Canvas = (props) => {
         className={style.canvas}
         ref={canvasRef}
         onPointerMove={pointerHandler}
-        onMouseMove={pointerHandler}
+        onMouseMove={mouseHandler}
         onPointerDown={pointerDownHandler}
         onMouseDown={mouseDownHandler}
         onMouseUp={pointerUpHandler}
@@ -425,10 +447,16 @@ const Canvas = (props) => {
 };
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  let rad = targetOn ? radius * 1.1 : radius;
+  let rad = targetOn ? radius * 1.3 : radius;
   //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
   ctx.strokeStyle = fill;
   ctx.lineWidth = 5;
+
+  if (targetOn) {
+    ctx.setLineDash([10, 10]);
+  } else {
+    ctx.setLineDash([]);
+  }
 
   if (!targetOn || isCenter) {
     ctx.fillStyle = fill;
