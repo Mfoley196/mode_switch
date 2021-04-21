@@ -8,7 +8,7 @@ const DataLogger = (props) => {
 
   const successText = (
     <div>
-      <p>Your log was successfully uploaded! </p>
+      <p>Your experiment log was successfully uploaded! </p>
       <p></p>
       <p>Press &quot;Continue&quot; to continue the experiment.</p>
       <p></p>
@@ -21,8 +21,9 @@ const DataLogger = (props) => {
   const failureText = (
     <div>
       <p>
-        Your log did not upload properly. Don&apos;t worry! Once the experiment
-        is over, you will download and email your data to the experimenters.
+        Your experiment log did not upload properly. Don&apos;t worry! Once the
+        experiment is over, you will download and email your experiment data to
+        the experimenters.
       </p>
       <p>Press &quot;Continue&quot; to continue the experiment.</p>
       <p></p>

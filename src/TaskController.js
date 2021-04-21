@@ -28,7 +28,7 @@ const TaskController = (props) => {
   const [targetId, setTargetId] = useState(path[currPathIndex][1]);
   const [tokenId, setTokenId] = useState(path[currPathIndex][0]);
   const [circles, setCircles] = useState(
-    initCircles(NUM_OF_CIRCS, 30, path, stage),
+    initCircles(NUM_OF_CIRCS, 45, path, stage),
   );
   const [eventList, setEventList] = useState([]);
   const [uploading, setUploading] = useState(false);
@@ -220,7 +220,7 @@ const TaskController = (props) => {
           );
           setPath(newPath);
           setCircles(
-            initCircles(NUM_OF_CIRCS, 30, newPath, timeline[timelineIndex + 1]),
+            initCircles(NUM_OF_CIRCS, 45, newPath, timeline[timelineIndex + 1]),
           );
           setTokenId(newPath[0][0]);
           setTargetId(newPath[0][1]);

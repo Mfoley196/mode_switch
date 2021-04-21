@@ -250,66 +250,59 @@ const Canvas = (props) => {
       'pressure:' + e.pressure.toFixed(5),
       'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
     ]);
-    for (let i = 0; i < circles.length; i++) {
-      if (
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        ) &&
-        (e.pointerType === circles[i].mode ||
-          (e.pointerType === 'mouse' && circles[i].mode === 'trackpad')) &&
-        !circles[i].isTarget &&
-        circles[i].isToken
-      ) {
-        // console.log(e.clientX);
-        // console.log(circles[i].x);
-        // console.log(e.clientY);
-        // console.log(circles[i].y);
-        setXDiff(e.clientX - circles[i].x);
-        setYDiff(e.clientY - circles[i].y);
 
-        setCircles(
-          circles.map((circle) => {
-            return {
-              ...circle,
-              dragOn: circle.id === i,
-            };
-          }),
-        );
-        appendToEventList([
-          Date.now(),
-          'hit_token',
-          i,
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-      } else if (
-        !circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[tokenId].x,
-          circles[tokenId].y,
-          circles[tokenId].r,
-        ) &&
-        !circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[circles.length - 1].x,
-          circles[circles.length - 1].y,
-          circles[circles.length - 1].r,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'miss',
-          e.pointerType,
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-        setErrorFlag(true);
-        setMissCount(missCount + 1);
-      }
+    if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      (e.pointerType === circles[tokenId].mode ||
+        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad'))
+    ) {
+      setXDiff(e.clientX - circles[tokenId].x);
+      setYDiff(e.clientY - circles[tokenId].y);
+
+      setCircles(
+        circles.map((circle) => {
+          return {
+            ...circle,
+            dragOn: circle.id === tokenId,
+          };
+        }),
+      );
+      appendToEventList([
+        Date.now(),
+        'hit_token',
+        tokenId,
+        'x:' + e.clientX + ',y:' + e.clientY,
+      ]);
+    } else if (
+      !circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      !circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      )
+    ) {
+      appendToEventList([
+        Date.now(),
+        'miss',
+        e.pointerType,
+        'x:' + e.clientX + ',y:' + e.clientY,
+      ]);
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
     }
   };
 
@@ -322,42 +315,125 @@ const Canvas = (props) => {
       'mouse',
       'x:' + e.clientX + ',y:' + e.clientY,
     ]);
-    for (let i = 0; i < circles.length; i++) {
+
+    if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      (circles[tokenId].mode === 'mouse' ||
+        circles[tokenId].mode === 'trackpad')
+    ) {
+      setXDiff(e.clientX - circles[tokenId].x);
+      setYDiff(e.clientY - circles[tokenId].y);
+      setCircles(
+        circles.map((circle) => {
+          return {
+            ...circle,
+            dragOn: circle.id === tokenId,
+          };
+        }),
+      );
+      appendToEventList([
+        Date.now(),
+        'hit_token',
+        tokenId,
+        'x:' + e.clientX + ',y:' + e.clientY,
+      ]);
+    } else if (
+      !circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      !circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      )
+    ) {
+      appendToEventList([
+        Date.now(),
+        'miss',
+        'mouse',
+        'x:' + e.clientX + ',y:' + e.clientY,
+      ]);
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
+    }
+  };
+
+  const pointerUpHandler = (e) => {
+    e.preventDefault();
+    setXDiff(0);
+    setYDiff(0);
+
+    appendToEventList([
+      Date.now(),
+      'up',
+      e.pointerType,
+      'x:' + e.clientX + ',y:' + e.clientY,
+    ]);
+
+    setCircles(
+      circles.map((circle) => {
+        return {
+          ...circle,
+          dragOn: false,
+        };
+      }),
+    );
+    appendToEventList([Date.now(), 'release', tokenId]);
+
+    if (
+      circleHitTest(
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[targetId].x,
+        circles[targetId].y,
+        circles[targetId].r * tolerance,
+      )
+    ) {
+      appendToEventList([
+        Date.now(),
+        'hit_target',
+        targetId,
+        'x:' + e.clientX + ',y:' + e.clientY,
+      ]);
+
+      activateCenter();
+    } else if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      )
+    ) {
+      appendToEventList([
+        Date.now(),
+        'hit_center',
+        'x:' + e.clientX + ',y:' + e.clientY,
+      ]);
+
+      advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
+    } else {
       if (
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        ) &&
-        (circles[i].mode === 'mouse' || circles[i].mode === 'trackpad') &&
-        !circles[i].isTarget &&
-        circles[i].isToken
-      ) {
-        setXDiff(e.clientX - circles[i].x);
-        setYDiff(e.clientY - circles[i].y);
-        setCircles(
-          circles.map((circle) => {
-            return {
-              ...circle,
-              dragOn: circle.id === i,
-            };
-          }),
-        );
-        appendToEventList([
-          Date.now(),
-          'hit_token',
-          i,
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-      } else if (
+        circles[tokenId].dragOn &&
         !circleHitTest(
           e.clientX,
           e.clientY,
-          circles[tokenId].x,
-          circles[tokenId].y,
-          circles[tokenId].r,
+          circles[targetId].x,
+          circles[targetId].y,
+          circles[targetId].r * tolerance,
         ) &&
         !circleHitTest(
           e.clientX,
@@ -367,113 +443,24 @@ const Canvas = (props) => {
           circles[circles.length - 1].r,
         )
       ) {
-        appendToEventList([
-          Date.now(),
-          'miss',
-          'mouse',
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
+        if (typeof e.pointerType !== 'undefined') {
+          appendToEventList([
+            Date.now(),
+            'miss',
+            e.pointerType,
+            'x:' + e.clientX + ',y:' + e.clientY,
+          ]);
+        } else {
+          appendToEventList([
+            Date.now(),
+            'miss',
+            'mouse',
+            'x:' + e.clientX + ',y:' + e.clientY,
+          ]);
+        }
+
         setErrorFlag(true);
         setMissCount(missCount + 1);
-      }
-    }
-  };
-
-  const pointerUpHandler = (e) => {
-    e.preventDefault();
-    setXDiff(0);
-    setYDiff(0);
-    appendToEventList([
-      Date.now(),
-      'up',
-      e.pointerType,
-      'x:' + e.clientX + ',y:' + e.clientY,
-      'pressure:' + e.pressure.toFixed(5),
-      'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
-    ]);
-
-    for (let i = 0; i < circles.length; i++) {
-      if (circles[i].dragOn) {
-        setCircles(
-          circles.map((circle) => {
-            return {
-              ...circle,
-              dragOn: false,
-            };
-          }),
-        );
-        appendToEventList([Date.now(), 'release', i]);
-      }
-
-      if (
-        circles[i].isTarget &&
-        !circles[i].isCenter &&
-        circleHitTest(
-          circles[tokenId].x,
-          circles[tokenId].y,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r * tolerance,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'hit_target',
-          targetId,
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-
-        activateCenter();
-      } else if (
-        circles[i].isTarget &&
-        circles[i].isCenter &&
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'hit_center',
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-
-        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
-      } else {
-        if (
-          circles[i].isTarget &&
-          !circles[i].isCenter &&
-          circles[tokenId].dragOn &&
-          !circleHitTest(
-            e.clientX,
-            e.clientY,
-            circles[i].x,
-            circles[i].y,
-            circles[i].r * tolerance,
-          )
-        ) {
-          if (typeof e.pointerType !== 'undefined') {
-            appendToEventList([
-              Date.now(),
-              'miss',
-              e.pointerType,
-              'x:' + e.clientX + ',y:' + e.clientY,
-            ]);
-          } else {
-            appendToEventList([
-              Date.now(),
-              'miss',
-              'mouse',
-              'x:' + e.clientX + ',y:' + e.clientY,
-            ]);
-          }
-
-          setErrorFlag(true);
-          setMissCount(missCount + 1);
-        }
       }
     }
   };
@@ -501,7 +488,7 @@ function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   let rad = targetOn && !isCenter ? radius * 1.3 : radius;
   //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
   ctx.strokeStyle = fill;
-  ctx.lineWidth = 5;
+  ctx.lineWidth = 2;
 
   if (targetOn && !isCenter) {
     ctx.setLineDash([10, 10]);
