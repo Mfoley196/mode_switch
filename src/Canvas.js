@@ -43,7 +43,7 @@ const Canvas = (props) => {
 
   const [mouseX, setMouseX] = React.useState(0);
   const [mouseY, setMouseY] = React.useState(0);
-  const [errorFlag, setErrorFlag] = React.useState(0);
+  const [errorFlag, setErrorFlag] = React.useState(false);
 
   useEffect(() => {
     if (errorFlag) {
@@ -279,26 +279,6 @@ const Canvas = (props) => {
           'x:' + e.clientX + ',y:' + e.clientY,
         ]);
       } else if (
-        circles[i].isTarget &&
-        circles[i].isCenter &&
-        (e.pointerType === circles[i].mode ||
-          (e.pointerType === 'mouse' && circles[i].mode === 'trackpad')) &&
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'hit_center',
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-
-        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
-      } else if (
         !circleHitTest(
           e.clientX,
           e.clientY,
@@ -363,25 +343,6 @@ const Canvas = (props) => {
           'x:' + e.clientX + ',y:' + e.clientY,
         ]);
       } else if (
-        circles[i].isTarget &&
-        circles[i].isCenter &&
-        (circles[i].mode === 'mouse' || circles[i].mode === 'trackpad') &&
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'hit_center',
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-
-        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
-      } else if (
         !circleHitTest(
           e.clientX,
           e.clientY,
@@ -405,29 +366,6 @@ const Canvas = (props) => {
         ]);
         setErrorFlag(true);
         setMissCount(missCount + 1);
-      }
-
-      if (
-        circles[i].isTarget &&
-        circles[i].isCenter &&
-        (circles[i].mode === 'mouse' || circles[i].mode === 'trackpad') &&
-        circleHitTest(
-          e.clientX,
-          e.clientY,
-          circles[i].x,
-          circles[i].y,
-          circles[i].r,
-        )
-      ) {
-        appendToEventList([
-          Date.now(),
-          'hit_center',
-          'x:' + e.clientX + ',y:' + e.clientY,
-        ]);
-
-        console.log(missCount);
-
-        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
       }
     }
   };
@@ -475,6 +413,24 @@ const Canvas = (props) => {
         ]);
 
         activateCenter();
+      } else if (
+        circles[i].isTarget &&
+        circles[i].isCenter &&
+        circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+        )
+      ) {
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          'x:' + e.clientX + ',y:' + e.clientY,
+        ]);
+
+        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
       } else {
         if (
           circles[i].isTarget &&
