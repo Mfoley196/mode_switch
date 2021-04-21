@@ -216,10 +216,11 @@ const Canvas = (props) => {
   const pointerHandler = (e) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
-   
+
     appendToEventList([
       Date.now(),
-      'move', e.pointerType,
+      'move',
+      e.pointerType,
       'x:' + e.clientX + ',y:' + e.clientY,
       'pressure:' + e.pressure.toFixed(5),
       'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
@@ -232,11 +233,11 @@ const Canvas = (props) => {
 
     appendToEventList([
       Date.now(),
-      'move', 'mouse',
+      'move',
+      'mouse',
       'x:' + e.clientX + ',y:' + e.clientY,
     ]);
-
-  }
+  };
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
@@ -277,9 +278,7 @@ const Canvas = (props) => {
           i,
           'x:' + e.clientX + ',y:' + e.clientY,
         ]);
-      }
-
-      if (
+      } else if (
         circles[i].isTarget &&
         circles[i].isCenter &&
         (e.pointerType === circles[i].mode ||
@@ -298,7 +297,31 @@ const Canvas = (props) => {
           'x:' + e.clientX + ',y:' + e.clientY,
         ]);
 
-        advanceTrial(currPathIndex, circles[i].mode, eventList);
+        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
+      } else if (
+        !circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[tokenId].x,
+          circles[tokenId].y,
+          circles[tokenId].r,
+        ) &&
+        !circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[circles.length - 1].x,
+          circles[circles.length - 1].y,
+          circles[circles.length - 1].r,
+        )
+      ) {
+        appendToEventList([
+          Date.now(),
+          'miss',
+          e.pointerType,
+          'x:' + e.clientX + ',y:' + e.clientY,
+        ]);
+        setErrorFlag(true);
+        setMissCount(missCount + 1);
       }
     }
   };
@@ -339,6 +362,49 @@ const Canvas = (props) => {
           i,
           'x:' + e.clientX + ',y:' + e.clientY,
         ]);
+      } else if (
+        circles[i].isTarget &&
+        circles[i].isCenter &&
+        (circles[i].mode === 'mouse' || circles[i].mode === 'trackpad') &&
+        circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[i].x,
+          circles[i].y,
+          circles[i].r,
+        )
+      ) {
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          'x:' + e.clientX + ',y:' + e.clientY,
+        ]);
+
+        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
+      } else if (
+        !circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[tokenId].x,
+          circles[tokenId].y,
+          circles[tokenId].r,
+        ) &&
+        !circleHitTest(
+          e.clientX,
+          e.clientY,
+          circles[circles.length - 1].x,
+          circles[circles.length - 1].y,
+          circles[circles.length - 1].r,
+        )
+      ) {
+        appendToEventList([
+          Date.now(),
+          'miss',
+          'mouse',
+          'x:' + e.clientX + ',y:' + e.clientY,
+        ]);
+        setErrorFlag(true);
+        setMissCount(missCount + 1);
       }
 
       if (
@@ -359,7 +425,9 @@ const Canvas = (props) => {
           'x:' + e.clientX + ',y:' + e.clientY,
         ]);
 
-        advanceTrial(currPathIndex, circles[i].mode, eventList);
+        console.log(missCount);
+
+        advanceTrial(currPathIndex, circles[i].mode, eventList, missCount);
       }
     }
   };
@@ -420,6 +488,22 @@ const Canvas = (props) => {
             circles[i].r * tolerance,
           )
         ) {
+          if (typeof e.pointerType !== 'undefined') {
+            appendToEventList([
+              Date.now(),
+              'miss',
+              e.pointerType,
+              'x:' + e.clientX + ',y:' + e.clientY,
+            ]);
+          } else {
+            appendToEventList([
+              Date.now(),
+              'miss',
+              'mouse',
+              'x:' + e.clientX + ',y:' + e.clientY,
+            ]);
+          }
+
           setErrorFlag(true);
           setMissCount(missCount + 1);
         }
@@ -447,12 +531,12 @@ const Canvas = (props) => {
 };
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  let rad = targetOn ? radius * 1.3 : radius;
+  let rad = targetOn && !isCenter ? radius * 1.3 : radius;
   //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
   ctx.strokeStyle = fill;
   ctx.lineWidth = 5;
 
-  if (targetOn) {
+  if (targetOn && !isCenter) {
     ctx.setLineDash([10, 10]);
   } else {
     ctx.setLineDash([]);
@@ -470,6 +554,14 @@ function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   }
 
   ctx.stroke();
+
+  if (isCenter) {
+    ctx.setLineDash([7, 7]);
+    ctx.beginPath();
+    ctx.ellipse(x, y, rad * 1.3, rad * 1.3, 0, 0, 2 * Math.PI);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
 }
 
 function circleHitTest(pX, pY, cX, cY, radius) {

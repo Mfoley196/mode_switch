@@ -41,7 +41,7 @@ const TaskController = (props) => {
     'nextpc-modeswitch1',
   );
 
-  function createTrialLog(currMode, eventList) {
+  function createTrialLog(currMode, eventList, missC) {
     let logObj = {
       pNo: pNo,
       condition: stage['conds'][0] + ',' + stage['conds'][1],
@@ -52,18 +52,19 @@ const TaskController = (props) => {
       trialNo: currPathIndex,
       targetId: path[currPathIndex][1],
       tokenId: path[currPathIndex][0],
-      rawLog: eventList,
       screenWidth: window.screen.width,
       screenHeight: window.screen.height,
       scale: window.devicePixelRatio,
+      missCount: missC,
+      rawLog: eventList,
       //error/not error
     };
 
     return logObj;
   }
 
-  function addToBlockLog(currMode, eventList) {
-    let newLog = createTrialLog(currMode, eventList);
+  function addToBlockLog(currMode, eventList, missC) {
+    let newLog = createTrialLog(currMode, eventList, missC);
     setBlockLog((prevLog) => [...prevLog, newLog]);
 
     let keyName =
@@ -129,9 +130,9 @@ const TaskController = (props) => {
     };
   }
 
-  function advanceTrial(pathIndex, currMode, eventList) {
+  function advanceTrial(pathIndex, currMode, eventList, missC) {
     if (pathIndex + 1 >= path.length) {
-      addToBlockLog(currMode, eventList);
+      addToBlockLog(currMode, eventList, missC);
       setUploading(true);
 
       let temp = JSON.parse(JSON.stringify(blockLog));
@@ -163,7 +164,7 @@ const TaskController = (props) => {
 
       setCircles(circlesCopy);
 
-      addToBlockLog(currMode, eventList);
+      addToBlockLog(currMode, eventList, missC);
 
       setMissCount(0);
       setCurrIndex(pathIndex + 1);
