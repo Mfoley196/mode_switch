@@ -43,6 +43,8 @@ const Canvas = (props) => {
 
   const [mouseX, setMouseX] = React.useState(0);
   const [mouseY, setMouseY] = React.useState(0);
+  const [xDiff, setXDiff] = React.useState(0);
+  const [yDiff, setYDiff] = React.useState(0);
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   useEffect(() => {
@@ -70,6 +72,36 @@ const Canvas = (props) => {
         return MOUSE_COLOR;
       case 'trackpad':
         return TRACK_COLOR;
+      default:
+        return 'white';
+    }
+  }
+
+  function getDragColor(input) {
+    switch (input) {
+      case 'pen':
+        return PEN_DRAG_COLOR;
+      case 'touch':
+        return TOUCH_DRAG_COLOR;
+      case 'mouse':
+        return MOUSE_DRAG_COLOR;
+      case 'trackpad':
+        return TRACK_DRAG_COLOR;
+      default:
+        return 'white';
+    }
+  }
+
+  function getHitColor(input) {
+    switch (input) {
+      case 'pen':
+        return PEN_HIT_COLOR;
+      case 'touch':
+        return TOUCH_HIT_COLOR;
+      case 'mouse':
+        return MOUSE_HIT_COLOR;
+      case 'trackpad':
+        return TRACK_HIT_COLOR;
       default:
         return 'white';
     }
@@ -112,8 +144,8 @@ const Canvas = (props) => {
     for (let i = 0; i < circles.length; i++) {
       if (circles[i].dragOn) {
         //if a circle is being dragged
-        circles[i].x = mouseX;
-        circles[i].y = mouseY;
+        circles[i].x = mouseX - xDiff;
+        circles[i].y = mouseY - yDiff;
 
         //if the dragged circle is on the target
         if (
@@ -125,26 +157,10 @@ const Canvas = (props) => {
             circles[i].r * tolerance,
           )
         ) {
-          if (circles[i].mode === 'pen') {
-            circles[i].fill = PEN_HIT_COLOR;
-          } else if (circles[i].mode === 'mouse') {
-            circles[i].fill = MOUSE_HIT_COLOR;
-          } else if (circles[i].mode === 'trackpad') {
-            circles[i].fill = TRACK_HIT_COLOR;
-          } else {
-            circles[i].fill = TOUCH_HIT_COLOR;
-          }
+          circles[i].fill = getHitColor(circles[i].mode);
         } else {
           //if circle is being dragged
-          if (circles[i].mode === 'pen') {
-            circles[i].fill = PEN_DRAG_COLOR;
-          } else if (circles[i].mode === 'mouse') {
-            circles[i].fill = MOUSE_DRAG_COLOR;
-          } else if (circles[i].mode === 'trackpad') {
-            circles[i].fill = TRACK_DRAG_COLOR;
-          } else {
-            circles[i].fill = TOUCH_DRAG_COLOR;
-          }
+          circles[i].fill = getDragColor(circles[i].mode);
         }
       } else if (circles[i].isTarget) {
         //target color
@@ -158,15 +174,7 @@ const Canvas = (props) => {
             circles[tokenId].r * tolerance,
           )
         ) {
-          if (circles[i].mode === 'pen') {
-            circles[i].fill = PEN_HIT_COLOR;
-          } else if (circles[i].mode === 'mouse') {
-            circles[i].fill = MOUSE_HIT_COLOR;
-          } else if (circles[i].mode === 'trackpad') {
-            circles[i].fill = TRACK_HIT_COLOR;
-          } else {
-            circles[i].fill = TOUCH_HIT_COLOR;
-          }
+          circles[i].fill = getHitColor(circles[i].mode);
         } else if (
           circleHitTest(
             mouseX,
@@ -178,15 +186,7 @@ const Canvas = (props) => {
           circles[i].isCenter &&
           circles[i].isTarget
         ) {
-          if (circles[i].mode === 'pen') {
-            circles[i].fill = PEN_DRAG_COLOR;
-          } else if (circles[i].mode === 'mouse') {
-            circles[i].fill = MOUSE_DRAG_COLOR;
-          } else if (circles[i].mode === 'trackpad') {
-            circles[i].fill = TRACK_DRAG_COLOR;
-          } else {
-            circles[i].fill = TOUCH_DRAG_COLOR;
-          }
+          circles[i].fill = getDragColor(circles[i].mode);
         } else {
           //otherwise, set to default color
           circles[i].fill = getFillColor(circles[i].mode);
@@ -264,6 +264,13 @@ const Canvas = (props) => {
         !circles[i].isTarget &&
         circles[i].isToken
       ) {
+        // console.log(e.clientX);
+        // console.log(circles[i].x);
+        // console.log(e.clientY);
+        // console.log(circles[i].y);
+        setXDiff(e.clientX - circles[i].x);
+        setYDiff(e.clientY - circles[i].y);
+
         setCircles(
           circles.map((circle) => {
             return {
@@ -328,6 +335,8 @@ const Canvas = (props) => {
         !circles[i].isTarget &&
         circles[i].isToken
       ) {
+        setXDiff(e.clientX - circles[i].x);
+        setYDiff(e.clientY - circles[i].y);
         setCircles(
           circles.map((circle) => {
             return {
@@ -372,6 +381,8 @@ const Canvas = (props) => {
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
+    setXDiff(0);
+    setYDiff(0);
     appendToEventList([
       Date.now(),
       'up',
@@ -512,7 +523,7 @@ function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   ctx.stroke();
 
   if (isCenter) {
-    ctx.setLineDash([7, 7]);
+    ctx.setLineDash([10, 10]);
     ctx.beginPath();
     ctx.ellipse(x, y, rad * 1.3, rad * 1.3, 0, 0, 2 * Math.PI);
     ctx.stroke();
