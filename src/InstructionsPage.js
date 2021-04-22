@@ -235,6 +235,8 @@ const InstructionsPage = (props) => {
         </Collapse>
 
         <p></p>
+        <p>You are free to take a break at this point.</p>
+        <p></p>
         <p>{'Press "Begin" when you are ready to begin the task.'}</p>
 
         <Button onClick={handleClick} variant="outline-success">

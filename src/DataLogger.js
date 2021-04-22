@@ -39,7 +39,8 @@ const DataLogger = (props) => {
       <p></p>
       <Spinner animation="border" />
       <p></p>
-      Uploading experiment log...
+      Uploading log of your input events recorded in this experiment task
+      webpage. This could take 5 to 30 seconds depending on your connection.
       <p></p>
     </div>
   );

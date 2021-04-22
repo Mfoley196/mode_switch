@@ -241,6 +241,10 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
+    console.log(e)
+    console.log(e.pointerType)
+    console.log(e.clientX);
+    console.log(e.clientY);
 
     appendToEventList([
       Date.now(),
@@ -264,6 +268,10 @@ const Canvas = (props) => {
     ) {
       setXDiff(e.clientX - circles[tokenId].x);
       setYDiff(e.clientY - circles[tokenId].y);
+      setMouseX(e.clientX);
+      setMouseY(e.clientY);
+      // setMouseX(e.clientX - (e.clientX - circles[tokenId].x));
+      // setMouseY(e.clientY - (e.clientY - circles[tokenId].y));
 
       setCircles(
         circles.map((circle) => {
@@ -329,6 +337,9 @@ const Canvas = (props) => {
     ) {
       setXDiff(e.clientX - circles[tokenId].x);
       setYDiff(e.clientY - circles[tokenId].y);
+      setMouseX(e.clientX);
+      setMouseY(e.clientY);
+
       setCircles(
         circles.map((circle) => {
           return {
@@ -374,6 +385,7 @@ const Canvas = (props) => {
     e.preventDefault();
     setXDiff(0);
     setYDiff(0);
+
 
     appendToEventList([
       Date.now(),
