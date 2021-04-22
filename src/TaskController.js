@@ -139,6 +139,8 @@ const TaskController = (props) => {
       let tempLog = createTrialLog(currMode, eventList);
       uploadToBucket([...temp, tempLog]);
 
+      setEventList([]);
+      setMissCount(0);
       setCurrIndex(0);
       setBlockLog([]);
       setMissCount(0);
@@ -166,6 +168,7 @@ const TaskController = (props) => {
 
       addToBlockLog(currMode, eventList, missC);
 
+      setEventList([]);
       setMissCount(0);
       setCurrIndex(pathIndex + 1);
       setTokenId(path[pathIndex + 1][0]);

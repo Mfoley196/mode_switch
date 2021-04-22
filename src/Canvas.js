@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useCallback } from 'react';
 import style from './Canvas.module.css';
 import useCanvas from './hooks/useCanvas';
 import usePreventDefault from './hooks/usePreventDefault';
+import _ from 'lodash';
 
 const PEN_COLOR = '#FFFF00';
 const PEN_DRAG_COLOR = '#999900';
@@ -46,6 +47,11 @@ const Canvas = (props) => {
   const [xDiff, setXDiff] = React.useState(0);
   const [yDiff, setYDiff] = React.useState(0);
   const [errorFlag, setErrorFlag] = React.useState(false);
+
+  const throttledAppend = useCallback(
+    _.throttle((log) => appendToEventList(log), 1000),
+    [],
+  );
 
   useEffect(() => {
     if (errorFlag) {
@@ -217,42 +223,73 @@ const Canvas = (props) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
 
-    appendToEventList([
+    throttledAppend([
       Date.now(),
       'move',
+      'null',
       e.pointerType,
-      'x:' + e.clientX + ',y:' + e.clientY,
-      'pressure:' + e.pressure.toFixed(5),
-      'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+      e.clientX,
+      e.clientY,
+      e.pressure.toFixed(2),
+      e.tiltX,
+      e.tiltY,
     ]);
+
+    // appendToEventList([
+    //   Date.now(),
+    //   'move',
+    //   'null',
+    //   e.pointerType,
+    //   e.clientX,
+    //   e.clientY,
+    //   e.pressure.toFixed(2),
+    //   e.tiltX,
+    //   e.tiltY,
+    // ]);
   };
 
   const mouseHandler = (e) => {
     setMouseX(e.clientX);
     setMouseY(e.clientY);
 
-    appendToEventList([
+    throttledAppend([
       Date.now(),
       'move',
+      'null',
       'mouse',
-      'x:' + e.clientX + ',y:' + e.clientY,
+      e.clientX,
+      e.clientY,
+      0,
+      0,
+      0,
     ]);
+
+    // appendToEventList([
+    //   Date.now(),
+    //   'move',
+    //   'null',
+    //   'mouse',
+    //   e.clientX,
+    //   e.clientY,
+    //   e.pressure.toFixed(2),
+    //   e.tiltX,
+    //   e.tiltY,
+    // ]);
   };
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
-    console.log(e)
-    console.log(e.pointerType)
-    console.log(e.clientX);
-    console.log(e.clientY);
 
     appendToEventList([
       Date.now(),
       'down',
+      'null',
       e.pointerType,
-      'x:' + e.clientX + ',y:' + e.clientY,
-      'pressure:' + e.pressure.toFixed(5),
-      'tiltX:' + e.tiltX + ',tiltY:' + e.tiltY,
+      e.clientX,
+      e.clientY,
+      e.pressure.toFixed(2),
+      e.tiltX,
+      e.tiltY,
     ]);
 
     if (
@@ -281,11 +318,17 @@ const Canvas = (props) => {
           };
         }),
       );
+
       appendToEventList([
         Date.now(),
-        'hit_token',
+        'token',
         tokenId,
-        'x:' + e.clientX + ',y:' + e.clientY,
+        e.pointerType,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
       ]);
     } else if (
       !circleHitTest(
@@ -306,8 +349,13 @@ const Canvas = (props) => {
       appendToEventList([
         Date.now(),
         'miss',
+        'null',
         e.pointerType,
-        'x:' + e.clientX + ',y:' + e.clientY,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
       ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
@@ -320,8 +368,13 @@ const Canvas = (props) => {
     appendToEventList([
       Date.now(),
       'down',
+      'null',
       'mouse',
-      'x:' + e.clientX + ',y:' + e.clientY,
+      e.clientX,
+      e.clientY,
+      0,
+      0,
+      0,
     ]);
 
     if (
@@ -350,9 +403,14 @@ const Canvas = (props) => {
       );
       appendToEventList([
         Date.now(),
-        'hit_token',
+        'token',
         tokenId,
-        'x:' + e.clientX + ',y:' + e.clientY,
+        'mouse',
+        e.clientX,
+        e.clientY,
+        0,
+        0,
+        0,
       ]);
     } else if (
       !circleHitTest(
@@ -373,8 +431,13 @@ const Canvas = (props) => {
       appendToEventList([
         Date.now(),
         'miss',
+        'null',
         'mouse',
-        'x:' + e.clientX + ',y:' + e.clientY,
+        e.clientX,
+        e.clientY,
+        0,
+        0,
+        0,
       ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
@@ -386,13 +449,59 @@ const Canvas = (props) => {
     setXDiff(0);
     setYDiff(0);
 
+    if (typeof e.pointerType !== 'undefined') {
+      appendToEventList([
+        Date.now(),
+        'up',
+        'null',
+        e.pointerType,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
+      ]);
+    } else {
+      appendToEventList([
+        Date.now(),
+        'up',
+        'null',
+        'mouse',
+        e.clientX,
+        e.clientY,
+        0.0,
+        0,
+        0,
+      ]);
+    }
 
-    appendToEventList([
-      Date.now(),
-      'up',
-      e.pointerType,
-      'x:' + e.clientX + ',y:' + e.clientY,
-    ]);
+    if (circles[tokenId].dragOn) {
+      if (typeof e.pointerType !== 'undefined') {
+        appendToEventList([
+          Date.now(),
+          'release',
+          tokenId,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'release',
+          tokenId,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+    }
 
     setCircles(
       circles.map((circle) => {
@@ -402,7 +511,6 @@ const Canvas = (props) => {
         };
       }),
     );
-    appendToEventList([Date.now(), 'release', tokenId]);
 
     if (
       circleHitTest(
@@ -413,12 +521,31 @@ const Canvas = (props) => {
         circles[targetId].r * tolerance,
       )
     ) {
-      appendToEventList([
-        Date.now(),
-        'hit_target',
-        targetId,
-        'x:' + e.clientX + ',y:' + e.clientY,
-      ]);
+      if (typeof e.pointerType !== 'undefined') {
+        appendToEventList([
+          Date.now(),
+          'hit_target',
+          targetId,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'hit_target',
+          targetId,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
 
       activateCenter();
     } else if (
@@ -430,11 +557,31 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       )
     ) {
-      appendToEventList([
-        Date.now(),
-        'hit_center',
-        'x:' + e.clientX + ',y:' + e.clientY,
-      ]);
+      if (typeof e.pointerType !== 'undefined') {
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          circles.length - 1,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'hit_center',
+          circles.length - 1,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
 
       advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
     } else {
@@ -459,15 +606,25 @@ const Canvas = (props) => {
           appendToEventList([
             Date.now(),
             'miss',
+            'null',
             e.pointerType,
-            'x:' + e.clientX + ',y:' + e.clientY,
+            e.clientX,
+            e.clientY,
+            e.pressure.toFixed(2),
+            e.tiltX,
+            e.tiltY,
           ]);
         } else {
           appendToEventList([
             Date.now(),
             'miss',
-            'mouse',
-            'x:' + e.clientX + ',y:' + e.clientY,
+            'null',
+            e.pointerType,
+            e.clientX,
+            e.clientY,
+            0.0,
+            0,
+            0,
           ]);
         }
 
