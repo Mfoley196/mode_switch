@@ -472,8 +472,8 @@ const Canvas = (props) => {
         circles[tokenId].r,
       ) &&
       !(
-        e.pointerType === circles[tokenId].mode ||
-        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
+        circles[tokenId].mode === 'trackpad' ||
+        circles[tokenId].mode === 'mouse'
       )
     ) {
       appendToEventList([
@@ -568,9 +568,10 @@ const Canvas = (props) => {
         circles[targetId].y,
         circles[targetId].r * tolerance,
       ) &&
-      (circles[circles.length - 1].mode === e.pointerType ||
-        circles[circles.length - 1].mode === 'mouse' ||
-        circles[circles.length - 1].mode === 'trackpad') &&
+      (circles[targetId].mode === e.pointerType ||
+        (typeof e.pointerType === 'undefined' &&
+          (circles[targetId].mode === 'mouse' ||
+            circles[targetId].mode === 'trackpad'))) &&
       circles[targetId].isTarget
     ) {
       //if you hit the target
@@ -603,6 +604,7 @@ const Canvas = (props) => {
 
       activateCenter();
     } else if (
+      //if you hit the center target with the right mode
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -611,13 +613,12 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       ) &&
       (circles[circles.length - 1].mode === e.pointerType ||
-        circles[circles.length - 1].mode === 'mouse' ||
-        circles[circles.length - 1].mode === 'trackpad') &&
+        (typeof e.pointerType === 'undefined' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad'))) &&
       circles[circles.length - 1].isTarget &&
       !circles[circles.length - 1].mouseFirstTarget
     ) {
-      //if you hit the center
-
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -646,6 +647,54 @@ const Canvas = (props) => {
 
       advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
     } else if (
+      //if you hit the center target with the right mode
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      ) &&
+      !(
+        circles[circles.length - 1].mode === e.pointerType ||
+        (typeof e.pointerType === 'undefined' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad'))
+      ) &&
+      circles[circles.length - 1].isTarget &&
+      !circles[circles.length - 1].mouseFirstTarget
+    ) {
+      if (typeof e.pointerType !== 'undefined') {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          circles.length - 1,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          circles.length - 1,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
+    } else if (
+      //if you hit the center target with the right mode
+      //when the first mode is mouse or trackpad
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -654,11 +703,13 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       ) &&
       (circles[circles.length - 1].mode === e.pointerType ||
-        circles[circles.length - 1].mode === 'mouse' ||
-        circles[circles.length - 1].mode === 'trackpad') &&
+        (typeof e.pointerType === 'undefined' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad'))) &&
       circles[circles.length - 1].mouseFirstTarget &&
       circles[circles.length - 1].isTarget
     ) {
+      //clear the center target, set up the token and targets
       setCircles(
         circles.map((circle) => {
           return {
@@ -671,6 +722,54 @@ const Canvas = (props) => {
         }),
       );
     } else if (
+      //if you hit the center target with the **wrong** mode
+      //when the first mode is mouse or trackpad
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      ) &&
+      !(
+        circles[circles.length - 1].mode === e.pointerType ||
+        (typeof e.pointerType === 'undefined' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad'))
+      ) &&
+      circles[circles.length - 1].mouseFirstTarget &&
+      circles[circles.length - 1].isTarget
+    ) {
+      if (typeof e.pointerType !== 'undefined') {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          circles.length - 1,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          circles.length - 1,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
+    } else if (
+      //if you drop the token in the center, but the center isn't active
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -680,7 +779,6 @@ const Canvas = (props) => {
       ) &&
       !circles[circles.length - 1].isTarget
     ) {
-      //if you drop the token in the center, but the center isn't active
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
