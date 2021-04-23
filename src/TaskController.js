@@ -134,6 +134,7 @@ const TaskController = (props) => {
   }
 
   function advanceTrial(pathIndex, currMode, eventList, missC) {
+    console.log(eventList);
     if (pathIndex + 1 >= path.length) {
       addToBlockLog(currMode, eventList, missC);
       setUploading(true);

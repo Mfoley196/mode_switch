@@ -52,7 +52,7 @@ const Canvas = (props) => {
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   const throttledAppend = useCallback(
-    _.throttle((log) => appendToEventList(log), 10),
+    _.throttle((log) => appendToEventList(log), 500),
     [],
   );
 
@@ -119,6 +119,7 @@ const Canvas = (props) => {
   const draw = (ctx) => {
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
+    //Background is red when an error occurs
     if (!errorFlag) {
       ctx.fillStyle = '#000000';
     } else {
@@ -153,10 +154,11 @@ const Canvas = (props) => {
     //draw targets
     for (let i = 0; i < circles.length; i++) {
       if (circles[i].dragOn) {
-        //if a circle is being dragged
+        //if the circle is being dragged
         circles[i].x = mouseX - xDiff;
         circles[i].y = mouseY - yDiff;
 
+        //Code to keep the dragged token on screen (within the 'bound' parameter)
         if (circles[i].x <= bound) {
           circles[i].x = bound;
         }
@@ -173,7 +175,6 @@ const Canvas = (props) => {
           circles[i].y = canvasY - bound;
         }
 
-        //if the dragged circle is on the target
         if (
           circleHitTest(
             circles[targetId].x,
@@ -183,14 +184,14 @@ const Canvas = (props) => {
             circles[i].r * tolerance,
           )
         ) {
+          //if the dragged circle is on the target
           circles[i].fill = getHitColor(circles[i].mode);
         } else {
           //if circle is being dragged
           circles[i].fill = getDragColor(circles[i].mode);
         }
       } else if (circles[i].isTarget) {
-        //target color
-        //if token is docked on target & target is not center
+        //Coloring the target
         if (
           circleHitTest(
             circles[i].x,
@@ -200,6 +201,7 @@ const Canvas = (props) => {
             circles[tokenId].r * tolerance,
           )
         ) {
+          //if token is docked on target
           circles[i].fill = getHitColor(circles[i].mode);
         } else if (
           circleHitTest(
@@ -212,18 +214,24 @@ const Canvas = (props) => {
           circles[i].isCenter &&
           circles[i].isTarget
         ) {
+          //If mouse is on the center while it is the target
+          //Set the center target to the "drag" color when hit
           circles[i].fill = getDragColor(circles[i].mode);
         } else {
           //otherwise, set to default color
           circles[i].fill = getFillColor(circles[i].mode);
         }
       } else if (circles[i].isToken) {
+        //set token to default color
         circles[i].fill = getFillColor(circles[i].mode);
       } else {
+        //set token to "off" color
         circles[i].fill = '#333333';
       }
 
       if (circles[i].isVisible) {
+        //only draw the circle if it is visible
+        //(this only really applies to the center target)
         drawCircle(
           ctx,
           circles[i].x,
@@ -303,8 +311,6 @@ const Canvas = (props) => {
       setYDiff(e.clientY - circles[tokenId].y);
       setMouseX(e.clientX);
       setMouseY(e.clientY);
-      // setMouseX(e.clientX - (e.clientX - circles[tokenId].x));
-      // setMouseY(e.clientY - (e.clientY - circles[tokenId].y));
 
       setCircles(
         circles.map((circle) => {
@@ -573,12 +579,12 @@ const Canvas = (props) => {
         circles[targetId].r * tolerance,
       ) &&
       (circles[targetId].mode === e.pointerType ||
+        circles[targetId].mode === 'trackpad' ||
         (typeof e.pointerType === 'undefined' &&
           (circles[targetId].mode === 'mouse' ||
             circles[targetId].mode === 'trackpad'))) &&
       circles[targetId].isTarget
     ) {
-
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -616,6 +622,7 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       ) &&
       (circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'trackpad' ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))) &&
@@ -623,6 +630,7 @@ const Canvas = (props) => {
       !circles[circles.length - 1].mouseFirstTarget
     ) {
       if (typeof e.pointerType !== 'undefined') {
+        console.log(e);
         appendToEventList([
           Date.now(),
           'hit_center',
@@ -635,6 +643,7 @@ const Canvas = (props) => {
           e.tiltY,
         ]);
       } else {
+        console.log(e);
         appendToEventList([
           Date.now(),
           'hit_center',
@@ -660,6 +669,7 @@ const Canvas = (props) => {
       ) &&
       !(
         circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'trackpad' ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))
@@ -707,6 +717,7 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       ) &&
       (circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'trackpad' ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))) &&
@@ -737,6 +748,7 @@ const Canvas = (props) => {
       ) &&
       !(
         circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'trackpad' ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))
@@ -886,7 +898,7 @@ const Canvas = (props) => {
 
 //function for drawing a circle
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  //Give target circles a larger radius 
+  //Give target circles a larger radius
   let rad = targetOn && !isCenter ? radius * 1.5 : radius;
   ctx.strokeStyle = fill;
   ctx.lineWidth = 2;
@@ -947,5 +959,3 @@ function capitalize(s) {
 }
 
 export default Canvas;
-
-//prevent default
