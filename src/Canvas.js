@@ -523,7 +523,9 @@ const Canvas = (props) => {
       ]);
     }
 
+    //if the token was being dragged
     if (circles[tokenId].dragOn) {
+      //add to event log
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -551,6 +553,7 @@ const Canvas = (props) => {
       }
     }
 
+    //set drag flag to false for all circles
     setCircles(
       circles.map((circle) => {
         return {
@@ -561,6 +564,7 @@ const Canvas = (props) => {
     );
 
     if (
+      //if you hit the target
       circleHitTest(
         circles[tokenId].x,
         circles[tokenId].y,
@@ -574,7 +578,6 @@ const Canvas = (props) => {
             circles[targetId].mode === 'trackpad'))) &&
       circles[targetId].isTarget
     ) {
-      //if you hit the target
 
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
@@ -604,7 +607,7 @@ const Canvas = (props) => {
 
       activateCenter();
     } else if (
-      //if you hit the center target with the right mode
+      //if you hit the center target with the right mode after docking
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -647,7 +650,7 @@ const Canvas = (props) => {
 
       advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
     } else if (
-      //if you hit the center target with the right mode
+      //if you hit the center target with the wrong mode after docking
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -664,6 +667,7 @@ const Canvas = (props) => {
       circles[circles.length - 1].isTarget &&
       !circles[circles.length - 1].mouseFirstTarget
     ) {
+      //add error to event log, show error, increment missCount
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -740,6 +744,7 @@ const Canvas = (props) => {
       circles[circles.length - 1].mouseFirstTarget &&
       circles[circles.length - 1].isTarget
     ) {
+      //add error to event log, show error, increment missCount
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -779,6 +784,7 @@ const Canvas = (props) => {
       ) &&
       !circles[circles.length - 1].isTarget
     ) {
+      //add error to event log, show error, increment missCount
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -826,6 +832,7 @@ const Canvas = (props) => {
           circles[circles.length - 1].r,
         )
       ) {
+        //add error to event log, show error, increment missCount
         if (typeof e.pointerType !== 'undefined') {
           appendToEventList([
             Date.now(),
@@ -877,18 +884,21 @@ const Canvas = (props) => {
   );
 };
 
+//function for drawing a circle
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
+  //Give target circles a larger radius 
   let rad = targetOn && !isCenter ? radius * 1.5 : radius;
-  //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
   ctx.strokeStyle = fill;
   ctx.lineWidth = 2;
 
+  //If circle is target, but _not_ the center, it has a dashed line
   if (targetOn && !isCenter) {
     ctx.setLineDash([10, 10]);
   } else {
     ctx.setLineDash([]);
   }
 
+  //Non-target circles have solid fill
   if (!targetOn || isCenter) {
     ctx.fillStyle = fill;
   }
@@ -896,12 +906,14 @@ function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   ctx.beginPath();
   ctx.ellipse(x, y, rad, rad, 0, 0, 2 * Math.PI);
 
+  //Non-target circles have solid fill
   if (!targetOn || isCenter) {
     ctx.fill();
   }
 
   ctx.stroke();
 
+  //Draw an extra circle with dashed lines around the center target
   if (isCenter) {
     ctx.setLineDash([10, 10]);
     ctx.beginPath();
