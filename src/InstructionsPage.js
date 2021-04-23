@@ -6,7 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const InstructionsPage = (props) => {
-  const { dispatch, stage } = props;
+  const { dispatch, stage, setTaskIndex, taskIndex } = props;
   const [open, setOpen] = useState(false);
 
   const modeSwitchText = (
@@ -191,6 +191,7 @@ const InstructionsPage = (props) => {
   function handleClick(e) {
     //console.log(stage);
     e.preventDefault();
+    setTaskIndex(taskIndex + 1);
     dispatch({ type: 'next' });
   }
 

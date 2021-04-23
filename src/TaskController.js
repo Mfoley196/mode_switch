@@ -19,6 +19,9 @@ const TaskController = (props) => {
     setBlockLog,
     fileUploadError,
     setUploadError,
+    taskIndex,
+    setTaskIndex,
+    numOfTasks,
   } = props;
   const [path, setPath] = useState(
     generatePath(NUM_OF_CIRCS, stage['startPos']),
@@ -210,6 +213,8 @@ const TaskController = (props) => {
         missCount={missCount}
         setMissCount={setMissCount}
         canvasY={CANVAS_Y}
+        numOfTasks={numOfTasks}
+        taskIndex={taskIndex}
       />
     )) ||
     (uploading && (

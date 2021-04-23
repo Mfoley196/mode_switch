@@ -25,6 +25,8 @@ function ExpController() {
   const [resumeFlag, setResumeFlag] = useState(false);
   const [resumeState, setResumeState] = useState({});
   const [fileUploadError, setUploadError] = useState(false);
+  const [numOfTasks, setNumOfTasks] = useState(0);
+  const [taskIndex, setTaskIndex] = useState(0);
 
   useEffect(() => {
     let isCanceled = false;
@@ -56,7 +58,6 @@ function ExpController() {
 
   useEffect(() => {
     if ('currentStage' in localStorage) {
-      //console.log(localStorage.getItem('currentStage'));
       setResumeState(JSON.parse(localStorage.getItem('currentStage')));
       setResumeFlag(true);
     }
@@ -70,20 +71,23 @@ function ExpController() {
           participantId: participantNumber,
           stage: timeline[timelineIndex],
           timelineIndex: timelineIndex,
+          taskIndex: taskIndex,
         }),
       );
     }
-  }, [timelineIndex, participantNumber, timeline]);
+  }, [timelineIndex, participantNumber, timeline, taskIndex]);
 
   function beginOrResume(participantId) {
     if (resumeFlag) {
-      dispatch({ type: 'start', participantId });
+      dispatch({ type: 'start', participantId, setNumOfTasks });
       let tl = resumeState.timelineIndex;
       let pID = participantId;
       let st = resumeState.stage;
+      setTaskIndex(resumeState.taskIndex);
       dispatch({ type: 'goToIndex', tl, pID, st });
     } else {
-      dispatch({ type: 'start', participantId });
+      dispatch({ type: 'start', participantId, setNumOfTasks });
+      setTaskIndex(0);
     }
   }
 
@@ -119,11 +123,19 @@ function ExpController() {
           setBlockLog={setBlockLog}
           fileUploadError={fileUploadError}
           setUploadError={setUploadError}
+          taskIndex={taskIndex}
+          setTaskIndex={setTaskIndex}
+          numOfTasks={numOfTasks}
         />
       </div>
     )) ||
     (stage['stage'] === 'instruction' && (
-      <InstructionsPage dispatch={dispatch} stage={stage} />
+      <InstructionsPage
+        dispatch={dispatch}
+        stage={stage}
+        setTaskIndex={setTaskIndex}
+        taskIndex={taskIndex}
+      />
     )) ||
     (stage['stage'] === 'error' && (
       <ErrorPage pNo={participantNumber} blockLog={blockLog} error={error} />
@@ -147,7 +159,11 @@ function reducer(state, action) {
         if (state.data == null) {
           throw new Error(`Data has not been received yet`);
         }
-        let timeline = makeTimeline(state.data, action.participantId);
+        let timeline = makeTimeline(
+          state.data,
+          action.participantId,
+          action.setNumOfTasks,
+        );
         return {
           ...state,
           // Start at 1 since 0 should already be done (it is required to get
@@ -189,8 +205,24 @@ function reducer(state, action) {
   }
 }
 
-function makeTimeline(data, participantId) {
+function makeTimeline(data, participantId, setNumOfTasks) {
   if (participantId in data) {
+    let tempNum = 0;
+    for (let i = 0; i < data[participantId].length; i++) {
+      if (
+        data[participantId][i]['stage'] === 'baseline' ||
+        data[participantId][i]['stage'] === 'task'
+      ) {
+        if (
+          i > 0 &&
+          data[participantId][i]['stage'] !==
+            data[participantId][i - 1]['stage']
+        ) {
+          tempNum++;
+        }
+      }
+    }
+    setNumOfTasks(tempNum);
     return data[participantId];
   } else {
     throw new Error(

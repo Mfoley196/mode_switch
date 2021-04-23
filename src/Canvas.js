@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useCallback } from 'react';
+import React, { useEffect, useCallback } from 'react';
 import style from './Canvas.module.css';
 import useCanvas from './hooks/useCanvas';
 import usePreventDefault from './hooks/usePreventDefault';
@@ -21,7 +21,7 @@ const TRACK_DRAG_COLOR = '#990099';
 const TRACK_HIT_COLOR = '#FF99FF';
 
 const interval = 300;
-const tolerance = 0.25;
+const tolerance = 0.45;
 
 const Canvas = (props) => {
   const {
@@ -39,6 +39,8 @@ const Canvas = (props) => {
     missCount,
     setMissCount,
     canvasY,
+    numOfTasks,
+    taskIndex,
     ...rest
   } = props;
 
@@ -49,7 +51,7 @@ const Canvas = (props) => {
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   const throttledAppend = useCallback(
-    _.throttle((log) => appendToEventList(log), 1000),
+    _.throttle((log) => appendToEventList(log), 100),
     [],
   );
 
@@ -143,8 +145,9 @@ const Canvas = (props) => {
     }
 
     ctx.fillStyle = 'white';
-    ctx.fillText('Block: ' + stage['block'], 10, 80);
-    ctx.fillText(currPathIndex + 1 + '/' + path.length, 10, 120);
+    ctx.fillText('Task: ' + taskIndex + '/' + numOfTasks, 10, 80);
+    ctx.fillText('Block: ' + stage['block'], 10, 120);
+    ctx.fillText('Trial: ' + (currPathIndex + 1) + '/' + path.length, 10, 160);
 
     //draw targets
     for (let i = 0; i < circles.length; i++) {
@@ -519,7 +522,11 @@ const Canvas = (props) => {
         circles[targetId].x,
         circles[targetId].y,
         circles[targetId].r * tolerance,
-      )
+      ) &&
+      (circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'mouse' ||
+        circles[circles.length - 1].mode === 'trackpad') &&
+      circles[targetId].isTarget
     ) {
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
@@ -555,7 +562,11 @@ const Canvas = (props) => {
         circles[circles.length - 1].x,
         circles[circles.length - 1].y,
         circles[circles.length - 1].r,
-      )
+      ) &&
+      (circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'mouse' ||
+        circles[circles.length - 1].mode === 'trackpad') &&
+      circles[circles.length - 1].isTarget
     ) {
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
@@ -654,7 +665,7 @@ const Canvas = (props) => {
 };
 
 function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
-  let rad = targetOn && !isCenter ? radius * 1.3 : radius;
+  let rad = targetOn && !isCenter ? radius * 1.5 : radius;
   //ctx.strokeStyle = targetOn && !isCenter ? '#00EE00' : fill;
   ctx.strokeStyle = fill;
   ctx.lineWidth = 2;
@@ -681,7 +692,7 @@ function drawCircle(ctx, x, y, radius, fill, targetOn, isCenter) {
   if (isCenter) {
     ctx.setLineDash([10, 10]);
     ctx.beginPath();
-    ctx.ellipse(x, y, rad * 1.3, rad * 1.3, 0, 0, 2 * Math.PI);
+    ctx.ellipse(x, y, rad * 1.15, rad * 1.15, 0, 0, 2 * Math.PI);
     ctx.stroke();
     ctx.setLineDash([]);
   }
