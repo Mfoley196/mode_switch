@@ -8,9 +8,9 @@ const PEN_COLOR = '#FFFF00';
 const PEN_DRAG_COLOR = '#999900';
 const PEN_HIT_COLOR = '#FFFF99';
 
-const MOUSE_COLOR = '#00FFFF';
-const MOUSE_DRAG_COLOR = '#009999';
-const MOUSE_HIT_COLOR = '#99FFFF';
+const MOUSE_COLOR = '#00CCCC';
+const MOUSE_DRAG_COLOR = '#006666';
+const MOUSE_HIT_COLOR = '#66FFFF';
 
 const TOUCH_COLOR = '#FF4000';
 const TOUCH_DRAG_COLOR = '#992600';
@@ -22,6 +22,7 @@ const TRACK_HIT_COLOR = '#FF99FF';
 
 const interval = 300;
 const tolerance = 0.48;
+const bound = 25;
 
 const Canvas = (props) => {
   const {
@@ -155,6 +156,22 @@ const Canvas = (props) => {
         //if a circle is being dragged
         circles[i].x = mouseX - xDiff;
         circles[i].y = mouseY - yDiff;
+
+        if (circles[i].x <= bound) {
+          circles[i].x = bound;
+        }
+
+        if (circles[i].x >= window.innerWidth - bound) {
+          circles[i].x = window.innerWidth - bound;
+        }
+
+        if (circles[i].y <= bound) {
+          circles[i].y = bound;
+        }
+
+        if (circles[i].y >= canvasY - bound) {
+          circles[i].y = canvasY - bound;
+        }
 
         //if the dragged circle is on the target
         if (
