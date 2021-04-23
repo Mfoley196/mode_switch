@@ -21,7 +21,7 @@ const TRACK_DRAG_COLOR = '#990099';
 const TRACK_HIT_COLOR = '#FF99FF';
 
 const interval = 300;
-const tolerance = 0.45;
+const tolerance = 0.48;
 
 const Canvas = (props) => {
   const {
@@ -351,7 +351,33 @@ const Canvas = (props) => {
     ) {
       appendToEventList([
         Date.now(),
-        'miss',
+        'miss_down',
+        'null',
+        e.pointerType,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
+      ]);
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
+    } else if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      !(
+        e.pointerType === circles[tokenId].mode ||
+        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
+      )
+    ) {
+      appendToEventList([
+        Date.now(),
+        'miss_wrong_mode',
         'null',
         e.pointerType,
         e.clientX,
@@ -433,7 +459,7 @@ const Canvas = (props) => {
     ) {
       appendToEventList([
         Date.now(),
-        'miss',
+        'miss_down',
         'null',
         'mouse',
         e.clientX,
@@ -528,6 +554,8 @@ const Canvas = (props) => {
         circles[circles.length - 1].mode === 'trackpad') &&
       circles[targetId].isTarget
     ) {
+      //if you hit the target
+
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -568,6 +596,8 @@ const Canvas = (props) => {
         circles[circles.length - 1].mode === 'trackpad') &&
       circles[circles.length - 1].isTarget
     ) {
+      //if you hit the center
+
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),
@@ -595,6 +625,45 @@ const Canvas = (props) => {
       }
 
       advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
+    } else if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      ) &&
+      !circles[circles.length - 1].isTarget
+    ) {
+      //if you drop the token in the center, but the center isn't active
+      if (typeof e.pointerType !== 'undefined') {
+        appendToEventList([
+          Date.now(),
+          'miss_up',
+          'null',
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'miss_up',
+          'null',
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
     } else {
       if (
         circles[tokenId].dragOn &&
@@ -616,7 +685,7 @@ const Canvas = (props) => {
         if (typeof e.pointerType !== 'undefined') {
           appendToEventList([
             Date.now(),
-            'miss',
+            'miss_up',
             'null',
             e.pointerType,
             e.clientX,
@@ -628,7 +697,7 @@ const Canvas = (props) => {
         } else {
           appendToEventList([
             Date.now(),
-            'miss',
+            'miss_up',
             'null',
             e.pointerType,
             e.clientX,
