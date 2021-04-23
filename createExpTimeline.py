@@ -174,7 +174,8 @@ timelines['speed2'] = [
 
 timelines['test1'] = timelines[1]
 timelines['test2'] = timelines[2]
-
+timelines['test3'] = timelines[3]
+timelines['test4'] = timelines[4]
 #['info','instruction,mouse,trackpad', 'task,trackpad,mouse', 'instruction,mouse,mouse', 'baseline,mouse,mouse', 'done']
 #timelines['allconds'] = ['info', 'instruction,mouse,trackpad', 'task,mouse,trackpad', 'instruction,pen,touch', 'task,pen,touch', 'done']
 
