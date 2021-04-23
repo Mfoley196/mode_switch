@@ -245,11 +245,16 @@ function initCircles(numCircs, radius, path, stage) {
   let largeRad = 500 / 2;
   let step = (2 * Math.PI) / numCircs;
 
+  let mouseFirst =
+    stage['conds'][0] === 'mouse' || stage['conds'][0] === 'trackpad'
+      ? true
+      : false;
+
   for (let i = 0; i < numCircs; i++) {
     let x = Math.round(window.innerWidth / 2 + largeRad * Math.cos(angle));
     let y = Math.round(CANVAS_Y / 2 + largeRad * Math.sin(angle));
     let fill = '#FFFF00';
-    let mode = stage['conds'][1];
+    let mode = stage['conds'][0];
 
     let circle = {
       id: i,
@@ -260,11 +265,12 @@ function initCircles(numCircs, radius, path, stage) {
       r: radius,
       fill: fill,
       dragOn: false,
-      isTarget: path[0][1] === i ? true : false,
-      isToken: path[0][0] === i ? true : false,
+      isTarget: mouseFirst ? false : path[0][1] === i ? true : false,
+      isToken: mouseFirst ? false : path[0][0] === i ? true : false,
       isVisible: true,
       mode: mode,
       isCenter: false,
+      mouseFirstTarget: false,
     };
     circs.push(circle);
     angle += step;
@@ -279,11 +285,12 @@ function initCircles(numCircs, radius, path, stage) {
     r: radius,
     fill: '#FFFF00',
     dragOn: false,
-    isTarget: false,
+    isTarget: mouseFirst,
     isToken: false,
-    isVisible: false,
-    mode: stage['conds'][1],
+    isVisible: mouseFirst,
+    mode: stage['conds'][0],
     isCenter: true,
+    mouseFirstTarget: mouseFirst,
   };
 
   circs.push(center);

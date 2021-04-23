@@ -21,7 +21,7 @@ const TRACK_DRAG_COLOR = '#990099';
 const TRACK_HIT_COLOR = '#FF99FF';
 
 const interval = 300;
-const tolerance = 0.48;
+const tolerance = 0.47;
 const bound = 25;
 
 const Canvas = (props) => {
@@ -52,7 +52,7 @@ const Canvas = (props) => {
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   const throttledAppend = useCallback(
-    _.throttle((log) => appendToEventList(log), 100),
+    _.throttle((log) => appendToEventList(log), 10),
     [],
   );
 
@@ -254,18 +254,6 @@ const Canvas = (props) => {
       e.tiltX,
       e.tiltY,
     ]);
-
-    // appendToEventList([
-    //   Date.now(),
-    //   'move',
-    //   'null',
-    //   e.pointerType,
-    //   e.clientX,
-    //   e.clientY,
-    //   e.pressure.toFixed(2),
-    //   e.tiltX,
-    //   e.tiltY,
-    // ]);
   };
 
   const mouseHandler = (e) => {
@@ -283,18 +271,6 @@ const Canvas = (props) => {
       0,
       0,
     ]);
-
-    // appendToEventList([
-    //   Date.now(),
-    //   'move',
-    //   'null',
-    //   'mouse',
-    //   e.clientX,
-    //   e.clientY,
-    //   e.pressure.toFixed(2),
-    //   e.tiltX,
-    //   e.tiltY,
-    // ]);
   };
 
   const pointerDownHandler = (e) => {
@@ -611,7 +587,8 @@ const Canvas = (props) => {
       (circles[circles.length - 1].mode === e.pointerType ||
         circles[circles.length - 1].mode === 'mouse' ||
         circles[circles.length - 1].mode === 'trackpad') &&
-      circles[circles.length - 1].isTarget
+      circles[circles.length - 1].isTarget &&
+      !circles[circles.length - 1].mouseFirstTarget
     ) {
       //if you hit the center
 
@@ -642,6 +619,31 @@ const Canvas = (props) => {
       }
 
       advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
+    } else if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      ) &&
+      (circles[circles.length - 1].mode === e.pointerType ||
+        circles[circles.length - 1].mode === 'mouse' ||
+        circles[circles.length - 1].mode === 'trackpad') &&
+      circles[circles.length - 1].mouseFirstTarget &&
+      circles[circles.length - 1].isTarget
+    ) {
+      setCircles(
+        circles.map((circle) => {
+          return {
+            ...circle,
+            isToken: circle.id === tokenId,
+            isTarget: circle.id === targetId,
+            mouseFirstTarget: false,
+            isVisible: circle.id !== circles.length - 1,
+          };
+        }),
+      );
     } else if (
       circleHitTest(
         e.clientX,
@@ -682,6 +684,7 @@ const Canvas = (props) => {
       setErrorFlag(true);
       setMissCount(missCount + 1);
     } else {
+      //if you don't hit the target or the center
       if (
         circles[tokenId].dragOn &&
         !circleHitTest(

@@ -9,6 +9,10 @@ const InstructionsPage = (props) => {
   const { dispatch, stage, setTaskIndex, taskIndex } = props;
   const [open, setOpen] = useState(false);
 
+  const condStyle = {
+    backgroundColor: 'black',
+  };
+
   const modeSwitchText = (
     <div>
       <p>
@@ -72,9 +76,10 @@ const InstructionsPage = (props) => {
   const connectionInst = (
     <div>
       <p>
-        You can check if a device is connected to the iPad by clicking on
-        &quot;Settings&quot;, then &quot;Bluetooth&quot;. Click &quot;Device
-        Connection Guide&quot; for more detailed instructions.
+        You can check if <span style={condStyle}>a device</span> is
+        connected to the iPad by clicking on &quot;Settings&quot;, then
+        &quot;Bluetooth&quot;. Click &quot;Device Connection Guide&quot; for
+        more detailed instructions.
       </p>
     </div>
   );
