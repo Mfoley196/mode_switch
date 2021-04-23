@@ -463,6 +463,32 @@ const Canvas = (props) => {
       ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
+    } else if (
+      circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      !(
+        e.pointerType === circles[tokenId].mode ||
+        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
+      )
+    ) {
+      appendToEventList([
+        Date.now(),
+        'miss_wrong_mode',
+        'null',
+        e.pointerType,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
+      ]);
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
     }
   };
 
