@@ -52,7 +52,7 @@ const Canvas = (props) => {
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   const throttledAppend = useCallback(
-    _.throttle((log) => appendToEventList(log), 500),
+    _.throttle((log) => appendToEventList(log), 25),
     [],
   );
 
@@ -297,6 +297,7 @@ const Canvas = (props) => {
     ]);
 
     if (
+      //If the user clicks on the token, with the correct mode
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -307,11 +308,14 @@ const Canvas = (props) => {
       (e.pointerType === circles[tokenId].mode ||
         (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad'))
     ) {
+      //If calculate the offset from the pointer to the center of the token
       setXDiff(e.clientX - circles[tokenId].x);
       setYDiff(e.clientY - circles[tokenId].y);
+      //set mouseX and mouseY state variables
       setMouseX(e.clientX);
       setMouseY(e.clientY);
 
+      //The token is draggable
       setCircles(
         circles.map((circle) => {
           return {
@@ -333,6 +337,7 @@ const Canvas = (props) => {
         e.tiltY,
       ]);
     } else if (
+      //if the user does not click on the token or the center target
       !circleHitTest(
         e.clientX,
         e.clientY,
@@ -348,6 +353,7 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       )
     ) {
+      //Error is added to eventList, screen flashes, increment miss count
       appendToEventList([
         Date.now(),
         'miss_down',
@@ -362,6 +368,7 @@ const Canvas = (props) => {
       setErrorFlag(true);
       setMissCount(missCount + 1);
     } else if (
+      //If the user hits the target with the wrong mode
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -503,6 +510,16 @@ const Canvas = (props) => {
     setXDiff(0);
     setYDiff(0);
 
+    //I need to make a copy of the eventList state variable, because it doesn't
+    //update quickly enough to have pointerUp events properly added to eventList
+    //when advanceTrial() executes.
+    //
+    //To make sure these events are properly logged, all pointerUp events _also_
+    //get added to listCopy, which is sent to advanceTrial() if it is called.
+    //
+    //...I blame React.
+    let listCopy = JSON.parse(JSON.stringify(eventList));
+
     if (typeof e.pointerType !== 'undefined') {
       appendToEventList([
         Date.now(),
@@ -515,8 +532,30 @@ const Canvas = (props) => {
         e.tiltX,
         e.tiltY,
       ]);
+      listCopy.push([
+        Date.now(),
+        'up',
+        'null',
+        e.pointerType,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
+      ]);
     } else {
       appendToEventList([
+        Date.now(),
+        'up',
+        'null',
+        'mouse',
+        e.clientX,
+        e.clientY,
+        0.0,
+        0,
+        0,
+      ]);
+      listCopy.push([
         Date.now(),
         'up',
         'null',
@@ -544,8 +583,30 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
+        listCopy.push([
+          Date.now(),
+          'release',
+          tokenId,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
       } else {
         appendToEventList([
+          Date.now(),
+          'release',
+          tokenId,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+        listCopy.push([
           Date.now(),
           'release',
           tokenId,
@@ -597,8 +658,30 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
+        listCopy.push([
+          Date.now(),
+          'hit_target',
+          targetId,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
       } else {
         appendToEventList([
+          Date.now(),
+          'hit_target',
+          targetId,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+        listCopy.push([
           Date.now(),
           'hit_target',
           targetId,
@@ -630,7 +713,6 @@ const Canvas = (props) => {
       !circles[circles.length - 1].mouseFirstTarget
     ) {
       if (typeof e.pointerType !== 'undefined') {
-        console.log(e);
         appendToEventList([
           Date.now(),
           'hit_center',
@@ -642,9 +724,30 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
+        listCopy.push([
+          Date.now(),
+          'hit_center',
+          circles.length - 1,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
       } else {
-        console.log(e);
         appendToEventList([
+          Date.now(),
+          'hit_center',
+          circles.length - 1,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+        listCopy.push([
           Date.now(),
           'hit_center',
           circles.length - 1,
@@ -657,7 +760,7 @@ const Canvas = (props) => {
         ]);
       }
 
-      advanceTrial(currPathIndex, circles[tokenId].mode, eventList, missCount);
+      advanceTrial(currPathIndex, circles[tokenId].mode, listCopy, missCount);
     } else if (
       //if you hit the center target with the wrong mode after docking
       circleHitTest(

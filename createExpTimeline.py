@@ -54,11 +54,13 @@ for p in range(len(cond_matrix)):
         tl.append({"stage" : "instruction", "conds": [conds[0], conds[0]]})
         tl.append({"stage" : "baseline", 
             "conds": [conds[0], conds[0]],
+            "for": [conds[0], conds[1]],
             "block": "1",
             "startPos": randint(0, NUM_OF_CIRCS)})
         tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
         tl.append({"stage" : "baseline", 
             "conds": [conds[1], conds[1]],
+            "for": [conds[0], conds[1]],
             "block": "1",
             "startPos": randint(0, NUM_OF_CIRCS)})
 
@@ -73,11 +75,13 @@ for p in range(len(cond_matrix)):
         tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
         tl.append({"stage" : "baseline", 
             "conds": [conds[1], conds[1]],
+            "for": [conds[0], conds[1]],
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
         tl.append({"stage" : "instruction", "conds": [conds[0], conds[0]]})
         tl.append({"stage" : "baseline", 
             "conds": [conds[0], conds[0]],
+            "for": [conds[0], conds[1]],
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
 

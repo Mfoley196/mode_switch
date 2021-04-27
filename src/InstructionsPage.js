@@ -76,8 +76,8 @@ const InstructionsPage = (props) => {
   const connectionInst = (
     <div>
       <p>
-        You can check if <span style={condStyle}>a device</span> is
-        connected to the iPad by clicking on &quot;Settings&quot;, then
+        You can check if <span style={condStyle}>a device</span> is connected to
+        the iPad by clicking on &quot;Settings&quot;, then
         &quot;Bluetooth&quot;. Click &quot;Device Connection Guide&quot; for
         more detailed instructions.
       </p>

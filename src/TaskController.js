@@ -70,16 +70,35 @@ const TaskController = (props) => {
     let newLog = createTrialLog(currMode, eventList, missC);
     setBlockLog((prevLog) => [...prevLog, newLog]);
 
-    let keyName =
-      newLog.pNo +
-      '_' +
-      newLog.taskType +
-      '_' +
-      stage['conds'][0] +
-      '-' +
-      stage['conds'][1] +
-      '_B' +
-      newLog.block;
+    let keyName = '';
+
+    if (newLog.taskType === 'baseline') {
+      keyName =
+        newLog.pNo +
+        '_' +
+        newLog.taskType +
+        '_' +
+        stage['conds'][0] +
+        '-' +
+        stage['conds'][1] +
+        '_' +
+        stage['for'][0] +
+        '-' +
+        stage['for'][1] +
+        '_B' +
+        newLog.block;
+    } else {
+      keyName =
+        newLog.pNo +
+        '_' +
+        newLog.taskType +
+        '_' +
+        stage['conds'][0] +
+        '-' +
+        stage['conds'][1] +
+        '_B' +
+        newLog.block;
+    }
 
     setExpLog({
       ...expLog,
@@ -88,21 +107,40 @@ const TaskController = (props) => {
   }
 
   function uploadToBucket(uploadLog) {
-    let fileName =
-      uploadLog[0].pNo +
-      '_' +
-      uploadLog[0].taskType +
-      '_' +
-      stage['conds'][0] +
-      '-' +
-      stage['conds'][1] +
-      '_B' +
-      uploadLog[0].block +
-      '.txt';
+    let fileName = '';
+
+    if (uploadLog[0].taskType === 'baseline') {
+      fileName =
+        uploadLog[0].pNo +
+        '_' +
+        uploadLog[0].taskType +
+        '_' +
+        stage['conds'][0] +
+        '-' +
+        stage['conds'][1] +
+        '_' +
+        stage['for'][0] +
+        '-' +
+        stage['for'][1] +
+        '_B' +
+        uploadLog[0].block +
+        '.txt';
+    } else {
+      fileName =
+        uploadLog[0].pNo +
+        '_' +
+        uploadLog[0].taskType +
+        '_' +
+        stage['conds'][0] +
+        '-' +
+        stage['conds'][1] +
+        '_B' +
+        uploadLog[0].block +
+        '.txt';
+    }
 
     let isMounted = true;
 
-    // let blah = { foo: 'bar' };
     upload(fileName, uploadLog)
       .then(function (response) {
         // eslint-disable-next-line no-console
