@@ -9,20 +9,47 @@ const InstructionsPage = (props) => {
   const { dispatch, stage, setTaskIndex, taskIndex } = props;
   const [open, setOpen] = useState(false);
 
+  const PEN_COLOR = '#FFFF00';
+  const MOUSE_COLOR = '#00CCCC';
+  const TOUCH_COLOR = '#FF4000';
+  const TRACK_COLOR = '#FF00FF';
+
+  function getFillColor(input) {
+    switch (input) {
+      case 'pen':
+        return PEN_COLOR;
+      case 'touch':
+        return TOUCH_COLOR;
+      case 'mouse':
+        return MOUSE_COLOR;
+      case 'trackpad':
+        return TRACK_COLOR;
+      default:
+        return 'white';
+    }
+  }
+
   const condStyle = {
     backgroundColor: 'black',
+    color: getFillColor(stage['conds'][0]),
+  };
+
+  const condStyle1 = {
+    backgroundColor: 'black',
+    color: getFillColor(stage['conds'][1]),
   };
 
   const modeSwitchText = (
     <div>
       <p>
-        You will be switching between the <b>{stage['conds'][0]}</b> and the{' '}
-        <b>{stage['conds'][1]}</b>.
+        You will be switching between the{' '}
+        <span style={condStyle}>{stage['conds'][0]}</span> and the{' '}
+        <span style={condStyle1}>{stage['conds'][1]}</span>.
       </p>
       <p>
-        Please make sure the <b>{stage['conds'][0]}</b> and the{' '}
-        <b>{stage['conds'][1]}</b> are connected to the iPad before pressing
-        &quot;Begin&quot;.
+        Please make sure the <span style={condStyle}>{stage['conds'][0]}</span>{' '}
+        and the <span style={condStyle1}>{stage['conds'][1]}</span> are connected to the iPad before
+        pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -30,11 +57,11 @@ const InstructionsPage = (props) => {
   const modeSwitchTextTouch1 = (
     <div>
       <p>
-        You will be switching between <b>touch</b> and the{' '}
-        <b>{stage['conds'][1]}</b>.
+        You will be switching between <span style={condStyle}>touch</span> and the{' '}
+        <span style={condStyle1}>{stage['conds'][1]}</span>.
       </p>
       <p>
-        Please make sure the <b>{stage['conds'][1]}</b> is connected to the iPad
+        Please make sure the <span style={condStyle1}>{stage['conds'][1]}</span> is connected to the iPad
         before pressing &quot;Begin&quot;.
       </p>
     </div>
@@ -43,12 +70,12 @@ const InstructionsPage = (props) => {
   const modeSwitchTextTouch2 = (
     <div>
       <p>
-        You will be switching between the <b>{stage['conds'][0]}</b> and{' '}
-        <b>touch</b>.
+        You will be switching between the{' '}
+        <span style={condStyle}>{stage['conds'][0]}</span> and <span style={condStyle1}>touch</span>.
       </p>
       <p>
-        Please make sure the <b>{stage['conds'][0]}</b> is connected to the iPad
-        before pressing &quot;Begin&quot;.
+        Please make sure the <span style={condStyle}>{stage['conds'][0]}</span>{' '}
+        is connected to the iPad before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -56,11 +83,12 @@ const InstructionsPage = (props) => {
   const baselineText = (
     <div>
       <p>
-        You will be using the <b>{stage['conds'][0]}</b>.
+        You will be using the <span style={condStyle}>{stage['conds'][0]}</span>
+        .
       </p>
       <p>
-        Please make sure the <b>{stage['conds'][0]}</b> is connected to the iPad
-        before pressing &quot;Begin&quot;.
+        Please make sure the <span style={condStyle}>{stage['conds'][0]}</span>{' '}
+        is connected to the iPad before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -68,7 +96,7 @@ const InstructionsPage = (props) => {
   const baselineTextTouch = (
     <div>
       <p>
-        You will be using <b>touch</b>.
+        You will be using <span style={condStyle}>touch</span>.
       </p>
     </div>
   );
@@ -76,10 +104,9 @@ const InstructionsPage = (props) => {
   const connectionInst = (
     <div>
       <p>
-        You can check if <span style={condStyle}>a device</span> is connected to
-        the iPad by clicking on &quot;Settings&quot;, then
-        &quot;Bluetooth&quot;. Click &quot;Device Connection Guide&quot; for
-        more detailed instructions.
+        You can check if a device is connected to the iPad by clicking on
+        &quot;Settings&quot;, then &quot;Bluetooth&quot;. Click &quot;Device
+        Connection Guide&quot; for more detailed instructions.
       </p>
     </div>
   );
