@@ -24,6 +24,12 @@ const interval = 300;
 const tolerance = 0.47;
 const bound = 25;
 
+let mouseX = 0;
+let mouseY = 0;
+
+let xDiff = 0;
+let yDiff = 0;
+
 const Canvas = (props) => {
   const {
     circles,
@@ -45,10 +51,10 @@ const Canvas = (props) => {
     ...rest
   } = props;
 
-  const [mouseX, setMouseX] = React.useState(0);
-  const [mouseY, setMouseY] = React.useState(0);
-  const [xDiff, setXDiff] = React.useState(0);
-  const [yDiff, setYDiff] = React.useState(0);
+  //const [mouseX, setMouseX] = React.useState(0);
+  //const [mouseY, setMouseY] = React.useState(0);
+  //const [xDiff, setXDiff] = React.useState(0);
+  //const [yDiff, setYDiff] = React.useState(0);
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   const throttledAppend = useCallback(
@@ -248,8 +254,10 @@ const Canvas = (props) => {
   const canvasRef = useCanvas(draw);
 
   const pointerHandler = (e) => {
-    setMouseX(e.clientX);
-    setMouseY(e.clientY);
+    // setMouseX(e.clientX);
+    // setMouseY(e.clientY);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
     throttledAppend([
       Date.now(),
@@ -265,8 +273,10 @@ const Canvas = (props) => {
   };
 
   const mouseHandler = (e) => {
-    setMouseX(e.clientX);
-    setMouseY(e.clientY);
+    // setMouseX(e.clientX);
+    // setMouseY(e.clientY);
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 
     throttledAppend([
       Date.now(),
@@ -283,6 +293,7 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
+    console.log('pointer event')
 
     appendToEventList([
       Date.now(),
@@ -308,12 +319,18 @@ const Canvas = (props) => {
       (e.pointerType === circles[tokenId].mode ||
         (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad'))
     ) {
-      //If calculate the offset from the pointer to the center of the token
-      setXDiff(e.clientX - circles[tokenId].x);
-      setYDiff(e.clientY - circles[tokenId].y);
+      //Calculate the offset from the pointer to the center of the token
+      // setXDiff(e.clientX - circles[tokenId].x);
+      // setYDiff(e.clientY - circles[tokenId].y);
+      xDiff = e.clientX - circles[tokenId].x;
+      yDiff = e.clientY - circles[tokenId].y;
       //set mouseX and mouseY state variables
-      setMouseX(e.clientX);
-      setMouseY(e.clientY);
+      // setMouseX(e.clientX);
+      // setMouseY(e.clientY);
+      console.log(mouseX);
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      console.log(mouseX);
 
       //The token is draggable
       setCircles(
@@ -399,6 +416,7 @@ const Canvas = (props) => {
 
   const mouseDownHandler = (e) => {
     e.preventDefault();
+    console.log('mouse event');
 
     appendToEventList([
       Date.now(),
@@ -423,10 +441,16 @@ const Canvas = (props) => {
       (circles[tokenId].mode === 'mouse' ||
         circles[tokenId].mode === 'trackpad')
     ) {
-      setXDiff(e.clientX - circles[tokenId].x);
-      setYDiff(e.clientY - circles[tokenId].y);
-      setMouseX(e.clientX);
-      setMouseY(e.clientY);
+      // setXDiff(e.clientX - circles[tokenId].x);
+      // setYDiff(e.clientY - circles[tokenId].y);
+      xDiff = e.clientX - circles[tokenId].x;
+      yDiff = e.clientY - circles[tokenId].y;
+      // setMouseX(e.clientX);
+      // setMouseY(e.clientY);
+      console.log(mouseX);
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      console.log(mouseX);
 
       setCircles(
         circles.map((circle) => {
@@ -507,18 +531,10 @@ const Canvas = (props) => {
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
-    setXDiff(0);
-    setYDiff(0);
-
-    //I need to make a copy of the eventList state variable, because it doesn't
-    //update quickly enough to have pointerUp events properly added to eventList
-    //when advanceTrial() executes.
-    //
-    //To make sure these events are properly logged, all pointerUp events _also_
-    //get added to listCopy, which is sent to advanceTrial() if it is called.
-    //
-    //...I blame React.
-    let listCopy = JSON.parse(JSON.stringify(eventList));
+    // setXDiff(0);
+    // setYDiff(0);
+    xDiff = 0;
+    yDiff = 0;
 
     if (typeof e.pointerType !== 'undefined') {
       appendToEventList([
@@ -532,17 +548,17 @@ const Canvas = (props) => {
         e.tiltX,
         e.tiltY,
       ]);
-      listCopy.push([
-        Date.now(),
-        'up',
-        'null',
-        e.pointerType,
-        e.clientX,
-        e.clientY,
-        e.pressure.toFixed(2),
-        e.tiltX,
-        e.tiltY,
-      ]);
+      // listCopy.push([
+      //   Date.now(),
+      //   'up',
+      //   'null',
+      //   e.pointerType,
+      //   e.clientX,
+      //   e.clientY,
+      //   e.pressure.toFixed(2),
+      //   e.tiltX,
+      //   e.tiltY,
+      // ]);
     } else {
       appendToEventList([
         Date.now(),
@@ -555,17 +571,17 @@ const Canvas = (props) => {
         0,
         0,
       ]);
-      listCopy.push([
-        Date.now(),
-        'up',
-        'null',
-        'mouse',
-        e.clientX,
-        e.clientY,
-        0.0,
-        0,
-        0,
-      ]);
+      // listCopy.push([
+      //   Date.now(),
+      //   'up',
+      //   'null',
+      //   'mouse',
+      //   e.clientX,
+      //   e.clientY,
+      //   0.0,
+      //   0,
+      //   0,
+      // ]);
     }
 
     //if the token was being dragged
@@ -583,17 +599,17 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
-        listCopy.push([
-          Date.now(),
-          'release',
-          tokenId,
-          e.pointerType,
-          e.clientX,
-          e.clientY,
-          e.pressure.toFixed(2),
-          e.tiltX,
-          e.tiltY,
-        ]);
+        // listCopy.push([
+        //   Date.now(),
+        //   'release',
+        //   tokenId,
+        //   e.pointerType,
+        //   e.clientX,
+        //   e.clientY,
+        //   e.pressure.toFixed(2),
+        //   e.tiltX,
+        //   e.tiltY,
+        // ]);
       } else {
         appendToEventList([
           Date.now(),
@@ -606,17 +622,17 @@ const Canvas = (props) => {
           0,
           0,
         ]);
-        listCopy.push([
-          Date.now(),
-          'release',
-          tokenId,
-          'mouse',
-          e.clientX,
-          e.clientY,
-          0.0,
-          0,
-          0,
-        ]);
+        // listCopy.push([
+        //   Date.now(),
+        //   'release',
+        //   tokenId,
+        //   'mouse',
+        //   e.clientX,
+        //   e.clientY,
+        //   0.0,
+        //   0,
+        //   0,
+        // ]);
       }
     }
 
@@ -658,17 +674,17 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
-        listCopy.push([
-          Date.now(),
-          'hit_target',
-          targetId,
-          e.pointerType,
-          e.clientX,
-          e.clientY,
-          e.pressure.toFixed(2),
-          e.tiltX,
-          e.tiltY,
-        ]);
+        // listCopy.push([
+        //   Date.now(),
+        //   'hit_target',
+        //   targetId,
+        //   e.pointerType,
+        //   e.clientX,
+        //   e.clientY,
+        //   e.pressure.toFixed(2),
+        //   e.tiltX,
+        //   e.tiltY,
+        // ]);
       } else {
         appendToEventList([
           Date.now(),
@@ -681,17 +697,17 @@ const Canvas = (props) => {
           0,
           0,
         ]);
-        listCopy.push([
-          Date.now(),
-          'hit_target',
-          targetId,
-          'mouse',
-          e.clientX,
-          e.clientY,
-          0.0,
-          0,
-          0,
-        ]);
+        // listCopy.push([
+        //   Date.now(),
+        //   'hit_target',
+        //   targetId,
+        //   'mouse',
+        //   e.clientX,
+        //   e.clientY,
+        //   0.0,
+        //   0,
+        //   0,
+        // ]);
       }
 
       activateCenter();
@@ -712,6 +728,15 @@ const Canvas = (props) => {
       circles[circles.length - 1].isTarget &&
       !circles[circles.length - 1].mouseFirstTarget
     ) {
+      //I need to make a copy of the eventList state variable, because it doesn't
+      //update quickly enough to have pointerUp events properly added to eventList
+      //when advanceTrial() executes.
+      //
+      //To make sure these events are properly logged, all pointerUp events _also_
+      //get added to listCopy, which is sent to advanceTrial() if it is called.
+      //
+      //...I blame React.
+      let listCopy = JSON.parse(JSON.stringify(eventList));
       if (typeof e.pointerType !== 'undefined') {
         appendToEventList([
           Date.now(),

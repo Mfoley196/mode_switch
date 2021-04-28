@@ -155,7 +155,20 @@ timelines['touchmouse'] = [
     {"stage" : "instruction",
     "conds": ["touch", "mouse"]},
     {"stage": "task",
-    "conds": ["touch", "mouse"],
+    "conds": ["touch", "trackpad"],
+    "block" : "1",
+    "startPos" : 3},
+    {"stage" : "survey"},
+    {"stage" : "done"}
+]
+
+timelines['penmouse'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["pen", "mouse"]},
+    {"stage": "task",
+    "conds": ["pen", "trackpad"],
     "block" : "1",
     "startPos" : 3},
     {"stage" : "survey"},
