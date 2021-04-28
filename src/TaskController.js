@@ -172,7 +172,7 @@ const TaskController = (props) => {
   }
 
   function advanceTrial(pathIndex, currMode, eventList, missC) {
-    console.log(eventList);
+    //console.log(eventList);
     if (pathIndex + 1 >= path.length) {
       addToBlockLog(currMode, eventList, missC);
       setUploading(true);
@@ -261,16 +261,24 @@ const TaskController = (props) => {
         uploadWorked={uploadWorked}
         onSubmit={() => {
           setUploading(false);
-          let newPath = generatePath(
-            NUM_OF_CIRCS,
-            timeline[timelineIndex + 1]['startPos'],
-          );
-          setPath(newPath);
-          setCircles(
-            initCircles(NUM_OF_CIRCS, 45, newPath, timeline[timelineIndex + 1]),
-          );
-          setTokenId(newPath[0][0]);
-          setTargetId(newPath[0][1]);
+
+          if (timeline[timelineIndex + 1]['stage'] !== 'survey') {
+            let newPath = generatePath(
+              NUM_OF_CIRCS,
+              timeline[timelineIndex + 1]['startPos'],
+            );
+            setPath(newPath);
+            setCircles(
+              initCircles(
+                NUM_OF_CIRCS,
+                45,
+                newPath,
+                timeline[timelineIndex + 1],
+              ),
+            );
+            setTokenId(newPath[0][0]);
+            setTargetId(newPath[0][1]);
+          }
           dispatch({ type: 'next' });
         }}
       />

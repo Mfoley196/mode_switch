@@ -103,10 +103,7 @@ timelines['desktop'] = [
     "conds": ["mouse", "trackpad"],
     "block" : "2",
     "startPos" : 5},
-    {"stage": "task",
-    "conds": ["mouse", "trackpad"],
-    "block" : "3",
-    "startPos" : 4},
+    {"stage": "survey"},
     {"stage" : "done"}
 ]
 
@@ -152,6 +149,19 @@ timelines['touchpen'] = [
     {"stage" : "done"}
 ]
 
+timelines['touchmouse'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["touch", "mouse"]},
+    {"stage": "task",
+    "conds": ["touch", "mouse"],
+    "block" : "1",
+    "startPos" : 3},
+    {"stage" : "survey"},
+    {"stage" : "done"}
+]
+
 timelines['speed'] = [
     {"stage" : "info"},
     {"stage" : "consent"},
@@ -159,8 +169,24 @@ timelines['speed'] = [
     "conds": ["touch", "touch"]},
     {"stage": "baseline",
     "conds": ["touch", "touch"],
+    "for":  ["touch", "mouse"],
     "block" : "1",
     "startPos" : 0},
+    {"stage" : "survey"},
+    {"stage" : "done"}
+]
+
+timelines['surveyTest'] = [
+    {"stage" : "info"},
+    {"stage" : "consent"},
+    {"stage" : "instruction",
+    "conds": ["mouse", "mouse"]},
+    {"stage": "baseline",
+    "conds": ["mouse", "mouse"],
+    "for": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 0},
+    {"stage" : "survey"},
     {"stage" : "done"}
 ]
 
@@ -171,8 +197,10 @@ timelines['speed2'] = [
     "conds": ["mouse", "mouse"]},
     {"stage": "baseline",
     "conds": ["mouse", "mouse"],
+    "for": ["mouse", "mouse"],
     "block" : "1",
     "startPos" : 6},
+    {"stage" : "survey"},
     {"stage" : "done"}
 ]
 
