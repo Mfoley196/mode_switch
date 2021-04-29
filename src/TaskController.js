@@ -20,7 +20,6 @@ const TaskController = (props) => {
     fileUploadError,
     setUploadError,
     taskIndex,
-    setTaskIndex,
     numOfTasks,
   } = props;
   const [path, setPath] = useState(

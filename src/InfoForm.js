@@ -12,11 +12,91 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
 
+  const PEN_COLOR = '#FFFF00';
+  const MOUSE_COLOR = '#00CCCC';
+  const TOUCH_COLOR = '#FF4000';
+  const TRACK_COLOR = '#FF00FF';
+
+  function getFillColor(input) {
+    switch (input) {
+      case 'pen':
+        return PEN_COLOR;
+      case 'touch':
+        return TOUCH_COLOR;
+      case 'mouse':
+        return MOUSE_COLOR;
+      case 'trackpad':
+        return TRACK_COLOR;
+      default:
+        return 'white';
+    }
+  }
+
   const defaultText = (
     <div>
       <p>In this experiment, you will...</p>
 
-      <p>See the task in action by clicking the Task Demo button</p>
+      <p>
+        <span
+          style={{ backgroundColor: 'black', color: getFillColor('touch') }}
+        >
+          Touch
+        </span>{' '}
+        targets look like this:
+      </p>
+      
+      <img
+        src={process.env.PUBLIC_URL + '/token/touch_token.PNG'}
+        width="100px"
+        alt="touch token."
+      />
+      <p></p>
+
+
+      <p>
+        <span style={{ backgroundColor: 'black', color: getFillColor('pen') }}>
+          Pen
+        </span>{' '}
+        targets look like this:
+      </p>
+      <img
+        src={process.env.PUBLIC_URL + '/token/pen_token.PNG'}
+        width="100px"
+        alt="pen token."
+      />
+      <p></p>
+
+      <p>
+        <span
+          style={{ backgroundColor: 'black', color: getFillColor('mouse') }}
+        >
+          Mouse
+        </span>{' '}
+        targets look like this:
+      </p>
+      <img
+        src={process.env.PUBLIC_URL + '/token/mouse_token.PNG'}
+        width="100px"
+        alt="pen token."
+      />
+      <p></p>
+
+      <p>
+        <span
+          style={{ backgroundColor: 'black', color: getFillColor('trackpad') }}
+        >
+          Trackpad
+        </span>{' '}
+        targets look like this:
+      </p>
+      <img
+        src={process.env.PUBLIC_URL + '/token/trackpad_token.PNG'}
+        width="100px"
+        alt="pen token."
+      />
+      <p></p>
+
+      <p>See the task in action by clicking on &quot;Task Demo&quot;:</p>
 
       <Button
         onClick={() => setOpen(!open)}
@@ -36,11 +116,14 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       <p></p>
 
       <p>
-        If you donk up, the screen will briefly flash red. Move the token to the
-        docking target properly after that pls.
+        If you do not successfully put the token in the target, or if you
+        attempt to hit a token with the wrong device, the screen will briefly
+        flash red.
       </p>
 
-      <p>See what an error looks like by clicking the Error Demo button</p>
+      <p>After the screen flashes red, you can continue the task.</p>
+
+      <p>See what an error looks like by clicking &quot;Error Demo&quot;:</p>
       <Button
         onClick={() => setOpen2(!open2)}
         aria-controls="example-error-text"
@@ -57,9 +140,10 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         </div>
       </Collapse>
 
+      <p></p>
       <p>
         {
-          'Please enter your participant number, and hit "Submit" to begin the experiment: '
+          'Please enter the participant ID provided to you, and hit "Submit" to begin the experiment: '
         }
       </p>
     </div>
@@ -71,7 +155,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       <p>You may have accidentally refreshed the web page.</p>
       <p>
         To resume the experiment from where you left off, enter your participant
-        number below!{' '}
+        ID below!{' '}
       </p>
     </div>
   );
@@ -86,7 +170,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         onSubmit(inputValue);
       } else {
         alert(
-          'This participant ID does not match the saved ID. Please try enter ' +
+          'This participant ID does not match the saved ID. Please enter ' +
             'the correct participant ID, or hit the "Restart" button to delete ' +
             'all experiment progress.',
         );
@@ -124,7 +208,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         <InfoText />
 
         <Form inline onSubmit={handleSubmit}>
-          <Form.Label className="my-1 mr-2">Participant Number:</Form.Label>
+          <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
           <Form.Control
             type="text"
             value={inputValue}

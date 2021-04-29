@@ -25,7 +25,7 @@ const DataLogger = (props) => {
         experiment is over, you will download and email your experiment data to
         the experimenters.
       </p>
-      <p>Press &quot;Continue&quot; to continue the experiment.</p>
+      <p>When you are ready, press &quot;Continue&quot; to continue the experiment.</p>
       <p></p>
       <Button onClick={handleClick} variant="outline-success">
         Continue

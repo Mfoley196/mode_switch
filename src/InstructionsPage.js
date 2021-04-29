@@ -48,8 +48,8 @@ const InstructionsPage = (props) => {
       </p>
       <p>
         Please make sure the <span style={condStyle}>{stage['conds'][0]}</span>{' '}
-        and the <span style={condStyle1}>{stage['conds'][1]}</span> are connected to the iPad before
-        pressing &quot;Begin&quot;.
+        and the <span style={condStyle1}>{stage['conds'][1]}</span> are
+        connected to the iPad before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -57,12 +57,12 @@ const InstructionsPage = (props) => {
   const modeSwitchTextTouch1 = (
     <div>
       <p>
-        You will be switching between <span style={condStyle}>touch</span> and the{' '}
-        <span style={condStyle1}>{stage['conds'][1]}</span>.
+        You will be switching between <span style={condStyle}>touch</span> and
+        the <span style={condStyle1}>{stage['conds'][1]}</span>.
       </p>
       <p>
-        Please make sure the <span style={condStyle1}>{stage['conds'][1]}</span> is connected to the iPad
-        before pressing &quot;Begin&quot;.
+        Please make sure the <span style={condStyle1}>{stage['conds'][1]}</span>{' '}
+        is connected to the iPad before pressing &quot;Begin&quot;.
       </p>
     </div>
   );
@@ -71,7 +71,8 @@ const InstructionsPage = (props) => {
     <div>
       <p>
         You will be switching between the{' '}
-        <span style={condStyle}>{stage['conds'][0]}</span> and <span style={condStyle1}>touch</span>.
+        <span style={condStyle}>{stage['conds'][0]}</span> and{' '}
+        <span style={condStyle1}>touch</span>.
       </p>
       <p>
         Please make sure the <span style={condStyle}>{stage['conds'][0]}</span>{' '}
