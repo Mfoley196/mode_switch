@@ -42,9 +42,9 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         >
           Touch
         </span>{' '}
-        targets look like this:
+         targets look like this:
       </p>
-      
+
       <img
         src={process.env.PUBLIC_URL + '/token/touch_token.PNG'}
         width="100px"
@@ -52,12 +52,11 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       />
       <p></p>
 
-
       <p>
         <span style={{ backgroundColor: 'black', color: getFillColor('pen') }}>
           Pen
         </span>{' '}
-        targets look like this:
+         targets look like this:
       </p>
       <img
         src={process.env.PUBLIC_URL + '/token/pen_token.PNG'}
@@ -72,7 +71,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         >
           Mouse
         </span>{' '}
-        targets look like this:
+         targets look like this:
+        
       </p>
       <img
         src={process.env.PUBLIC_URL + '/token/mouse_token.PNG'}
@@ -87,7 +87,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         >
           Trackpad
         </span>{' '}
-        targets look like this:
+         targets look like this:
       </p>
       <img
         src={process.env.PUBLIC_URL + '/token/trackpad_token.PNG'}

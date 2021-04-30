@@ -47,6 +47,10 @@ const TaskController = (props) => {
     let logObj = {
       pNo: pNo,
       condition: stage['conds'][0] + ',' + stage['conds'][1],
+      for:
+        stage['stage'] === 'baseline'
+          ? stage['for'][0] + ',' + stage['for'][1]
+          : 'N/A',
       currMode: currMode,
       taskType: stage['stage'],
       block: stage['block'],

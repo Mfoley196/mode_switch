@@ -293,7 +293,6 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
-    console.log('pointer event')
 
     appendToEventList([
       Date.now(),
@@ -327,11 +326,8 @@ const Canvas = (props) => {
       //set mouseX and mouseY state variables
       // setMouseX(e.clientX);
       // setMouseY(e.clientY);
-      console.log(mouseX);
       mouseX = e.clientX;
       mouseY = e.clientY;
-      console.log(mouseX);
-
       //The token is draggable
       setCircles(
         circles.map((circle) => {
@@ -416,7 +412,6 @@ const Canvas = (props) => {
 
   const mouseDownHandler = (e) => {
     e.preventDefault();
-    console.log('mouse event');
 
     appendToEventList([
       Date.now(),
@@ -447,10 +442,8 @@ const Canvas = (props) => {
       yDiff = e.clientY - circles[tokenId].y;
       // setMouseX(e.clientX);
       // setMouseY(e.clientY);
-      console.log(mouseX);
       mouseX = e.clientX;
       mouseY = e.clientY;
-      console.log(mouseX);
 
       setCircles(
         circles.map((circle) => {
@@ -548,17 +541,6 @@ const Canvas = (props) => {
         e.tiltX,
         e.tiltY,
       ]);
-      // listCopy.push([
-      //   Date.now(),
-      //   'up',
-      //   'null',
-      //   e.pointerType,
-      //   e.clientX,
-      //   e.clientY,
-      //   e.pressure.toFixed(2),
-      //   e.tiltX,
-      //   e.tiltY,
-      // ]);
     } else {
       appendToEventList([
         Date.now(),
@@ -571,17 +553,6 @@ const Canvas = (props) => {
         0,
         0,
       ]);
-      // listCopy.push([
-      //   Date.now(),
-      //   'up',
-      //   'null',
-      //   'mouse',
-      //   e.clientX,
-      //   e.clientY,
-      //   0.0,
-      //   0,
-      //   0,
-      // ]);
     }
 
     //if the token was being dragged
@@ -599,17 +570,6 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
-        // listCopy.push([
-        //   Date.now(),
-        //   'release',
-        //   tokenId,
-        //   e.pointerType,
-        //   e.clientX,
-        //   e.clientY,
-        //   e.pressure.toFixed(2),
-        //   e.tiltX,
-        //   e.tiltY,
-        // ]);
       } else {
         appendToEventList([
           Date.now(),
@@ -622,17 +582,6 @@ const Canvas = (props) => {
           0,
           0,
         ]);
-        // listCopy.push([
-        //   Date.now(),
-        //   'release',
-        //   tokenId,
-        //   'mouse',
-        //   e.clientX,
-        //   e.clientY,
-        //   0.0,
-        //   0,
-        //   0,
-        // ]);
       }
     }
 
