@@ -262,6 +262,8 @@ const TaskController = (props) => {
     (uploading && (
       <DataLogger
         uploadWorked={uploadWorked}
+        taskIndex={taskIndex}
+        numOfTasks={numOfTasks}
         onSubmit={() => {
           setUploading(false);
 
@@ -269,7 +271,7 @@ const TaskController = (props) => {
             let newPath = generatePath(
               NUM_OF_CIRCS,
               timeline[timelineIndex + 1]['startPos'],
-              timeline[timelineIndex + 1]['stage']
+              timeline[timelineIndex + 1]['stage'],
             );
             setPath(newPath);
             setCircles(

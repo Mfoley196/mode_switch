@@ -27,6 +27,7 @@ function ExpController() {
   const [fileUploadError, setUploadError] = useState(false);
   const [numOfTasks, setNumOfTasks] = useState(0);
   const [taskIndex, setTaskIndex] = useState(0);
+  const [firstInstruction, setFirstInst] = useState(false);
 
   useEffect(() => {
     let isCanceled = false;
@@ -135,6 +136,7 @@ function ExpController() {
         stage={stage}
         setTaskIndex={setTaskIndex}
         taskIndex={taskIndex}
+        numOfTasks={numOfTasks}
       />
     )) ||
     (stage['stage'] === 'error' && (

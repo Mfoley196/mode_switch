@@ -6,8 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const InstructionsPage = (props) => {
-  const { dispatch, stage, setTaskIndex, taskIndex } = props;
+  const { dispatch, stage, setTaskIndex, taskIndex, numOfTasks } = props;
   const [open, setOpen] = useState(false);
+
+  const completion = Math.round((taskIndex / numOfTasks) * 100);
 
   const PEN_COLOR = '#FFFF00';
   const MOUSE_COLOR = '#00CCCC';
@@ -268,6 +270,8 @@ const InstructionsPage = (props) => {
           </div>
         </Collapse>
 
+        <p></p>
+        <p>You have completed {completion}% of the experiment.</p>
         <p></p>
         <p>You are free to take a break at this point.</p>
         <p></p>

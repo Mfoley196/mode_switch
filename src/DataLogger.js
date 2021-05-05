@@ -4,13 +4,21 @@ import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
 const DataLogger = (props) => {
-  const { uploadWorked, onSubmit } = props;
+  const { uploadWorked, taskIndex, numOfTasks, onSubmit } = props;
+  const completion = Math.round((taskIndex / numOfTasks) * 100);
 
   const successText = (
     <div>
       <p>Your experiment log was successfully uploaded! </p>
       <p></p>
-      <p>Press &quot;Continue&quot; to continue the experiment.</p>
+      <p>You have completed {completion}% of the experiment.</p>
+      <p></p>
+      <p>You are free to take a break at this point.</p>
+      <p></p>
+      <p>
+        When you are ready, press &quot;Continue&quot; to continue the
+        experiment.
+      </p>
       <p></p>
       <Button onClick={handleClick} variant="outline-success">
         Continue
@@ -25,7 +33,14 @@ const DataLogger = (props) => {
         experiment is over, you will download and email your experiment data to
         the experimenters.
       </p>
-      <p>When you are ready, press &quot;Continue&quot; to continue the experiment.</p>
+      <p>You have completed {completion}% of the experiment.</p>
+      <p></p>
+      <p>You are free to take a break at this point.</p>
+      <p></p>
+      <p>
+        When you are ready, press &quot;Continue&quot; to continue the
+        experiment.
+      </p>
       <p></p>
       <Button onClick={handleClick} variant="outline-success">
         Continue
