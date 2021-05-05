@@ -23,7 +23,7 @@ const TaskController = (props) => {
     numOfTasks,
   } = props;
   const [path, setPath] = useState(
-    generatePath(NUM_OF_CIRCS, stage['startPos']),
+    generatePath(NUM_OF_CIRCS, stage['startPos'], stage['stage']),
   );
 
   const [currPathIndex, setCurrIndex] = useState(0);
@@ -269,6 +269,7 @@ const TaskController = (props) => {
             let newPath = generatePath(
               NUM_OF_CIRCS,
               timeline[timelineIndex + 1]['startPos'],
+              timeline[timelineIndex + 1]['stage']
             );
             setPath(newPath);
             setCircles(
@@ -348,12 +349,13 @@ function initCircles(numCircs, radius, path, stage) {
   return circs;
 }
 
-function generatePath(numCircs, startPos) {
+function generatePath(numCircs, startPos, task) {
   let step = Math.floor(numCircs / 2);
   let target = startPos;
   let path = [];
+  let pathLength = task === 'baseline' ? numCircs : numCircs * 2;
 
-  for (let i = 0; i < numCircs * 2; i++) {
+  for (let i = 0; i < pathLength; i++) {
     path.push([target % numCircs, (target + step) % numCircs]);
     target += step;
   }

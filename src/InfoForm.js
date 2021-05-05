@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Collapse from 'react-bootstrap/Collapse';
 import errorVid from './error_demo.mp4';
 
@@ -36,65 +38,89 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
     <div>
       <p>In this experiment, you will...</p>
 
-      <p>
-        <span
-          style={{ backgroundColor: 'black', color: getFillColor('touch') }}
-        >
-          Touch
-        </span>{' '}
-         targets look like this:
-      </p>
+      <Container fluid>
+        <Row>
+          <Col>
+            <p>
+              <span
+                style={{
+                  backgroundColor: 'black',
+                  color: getFillColor('touch'),
+                }}
+              >
+                Touch
+              </span>{' '}
+              targets look like this:
+            </p>
 
-      <img
-        src={process.env.PUBLIC_URL + '/token/touch_token.PNG'}
-        width="100px"
-        alt="touch token."
-      />
-      <p></p>
+            <img
+              src={process.env.PUBLIC_URL + '/token/touch_token.PNG'}
+              width="100px"
+              alt="touch token."
+            />
+            <p></p>
+          </Col>
 
-      <p>
-        <span style={{ backgroundColor: 'black', color: getFillColor('pen') }}>
-          Pen
-        </span>{' '}
-         targets look like this:
-      </p>
-      <img
-        src={process.env.PUBLIC_URL + '/token/pen_token.PNG'}
-        width="100px"
-        alt="pen token."
-      />
-      <p></p>
+          <Col>
+            <p>
+              <span
+                style={{ backgroundColor: 'black', color: getFillColor('pen') }}
+              >
+                Pen
+              </span>{' '}
+              targets look like this:
+            </p>
+            <img
+              src={process.env.PUBLIC_URL + '/token/pen_token.PNG'}
+              width="100px"
+              alt="pen token."
+            />
+            <p></p>
+          </Col>
+        </Row>
 
-      <p>
-        <span
-          style={{ backgroundColor: 'black', color: getFillColor('mouse') }}
-        >
-          Mouse
-        </span>{' '}
-         targets look like this:
-        
-      </p>
-      <img
-        src={process.env.PUBLIC_URL + '/token/mouse_token.PNG'}
-        width="100px"
-        alt="pen token."
-      />
-      <p></p>
+        <Row>
+          <Col>
+            <p>
+              <span
+                style={{
+                  backgroundColor: 'black',
+                  color: getFillColor('mouse'),
+                }}
+              >
+                Mouse
+              </span>{' '}
+              targets look like this:
+            </p>
+            <img
+              src={process.env.PUBLIC_URL + '/token/mouse_token.PNG'}
+              width="100px"
+              alt="pen token."
+            />
+            <p></p>
+          </Col>
 
-      <p>
-        <span
-          style={{ backgroundColor: 'black', color: getFillColor('trackpad') }}
-        >
-          Trackpad
-        </span>{' '}
-         targets look like this:
-      </p>
-      <img
-        src={process.env.PUBLIC_URL + '/token/trackpad_token.PNG'}
-        width="100px"
-        alt="pen token."
-      />
-      <p></p>
+          <Col>
+            <p>
+              <span
+                style={{
+                  backgroundColor: 'black',
+                  color: getFillColor('trackpad'),
+                }}
+              >
+                Trackpad
+              </span>{' '}
+              targets look like this:
+            </p>
+            <img
+              src={process.env.PUBLIC_URL + '/token/trackpad_token.PNG'}
+              width="100px"
+              alt="pen token."
+            />
+            <p></p>
+          </Col>
+        </Row>
+      </Container>
 
       <p>See the task in action by clicking on &quot;Task Demo&quot;:</p>
 

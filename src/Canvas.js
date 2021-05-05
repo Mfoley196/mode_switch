@@ -153,8 +153,13 @@ const Canvas = (props) => {
     }
 
     ctx.fillStyle = 'white';
-    ctx.fillText('Task: ' + taskIndex + '/' + numOfTasks, 10, 80);
+    ctx.fillText(
+      'Progress: ' + Math.round((taskIndex / numOfTasks) * 100) + '%',
+      10,
+      80,
+    );
     ctx.fillText('Block: ' + stage['block'], 10, 120);
+
     ctx.fillText('Trial: ' + (currPathIndex + 1) + '/' + path.length, 10, 160);
 
     //draw targets

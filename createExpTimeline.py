@@ -1,9 +1,9 @@
 import json
 from random import shuffle, randint
 
-conditions = {0: "pen,mouse", 1: "pen,touch", 
-2: "pen,trackpad", 3: "mouse,touch",
-4: "mouse,trackpad", 5: "touch,trackpad"}
+conditions = {0: "mouse,pen", 1: "pen,touch", 
+2: "trackpad,pen", 3: "mouse,touch",
+4: "mouse,trackpad", 5: "trackpad,touch"}
 
 # conditions = {0: "mouse,trackpad", 1:"mouse,trackpad", 
 # 2: "mouse,trackpad", 3: "mouse,trackpad",
@@ -30,13 +30,7 @@ for i in range(len(square)):
         l.append(conditions[square[i][j]])
     cond_matrix.append(l)
 
-#intro, instructions1, 
-#training1, cond1, 
-#instructions2, training2, cond2, 
-#instructions3, training3, cond3, 
-#instructions4, training4, cond4 
-#instructions5, training5, cond5,
-#instructions6, training6, cond6
+print_matrix(cond_matrix)
 
 timelines = {}
 NUM_OF_BLOCKS = 4
@@ -168,7 +162,7 @@ timelines['penmouse'] = [
     {"stage" : "instruction",
     "conds": ["pen", "mouse"]},
     {"stage": "task",
-    "conds": ["pen", "trackpad"],
+    "conds": ["pen", "mouse"],
     "block" : "1",
     "startPos" : 3},
     {"stage" : "survey"},
