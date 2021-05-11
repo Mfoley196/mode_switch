@@ -48,16 +48,24 @@ const Canvas = (props) => {
     canvasY,
     numOfTasks,
     taskIndex,
+    timeline,
+    timelineIndex,
     ...rest
   } = props;
 
-  //const [mouseX, setMouseX] = React.useState(0);
-  //const [mouseY, setMouseY] = React.useState(0);
-  //const [xDiff, setXDiff] = React.useState(0);
-  //const [yDiff, setYDiff] = React.useState(0);
   const [errorFlag, setErrorFlag] = React.useState(false);
 
   const totalBlocks = stage['stage'] === 'baseline' ? 2 : 4;
+
+  let blockNum = stage['block'];
+
+  if (stage['stage'] === 'baseline') {
+    if (timeline[timelineIndex - 2]['stage'] === 'baseline') {
+      blockNum = 2;
+    } else {
+      blockNum = 1;
+    }
+  }
 
   const throttledAppend = useCallback(
     _.throttle((log) => appendToEventList(log), 25),
@@ -160,7 +168,7 @@ const Canvas = (props) => {
       10,
       80,
     );
-    ctx.fillText('Block: ' + stage['block'] + '/' + totalBlocks, 10, 120);
+    ctx.fillText('Block: ' + blockNum + '/' + totalBlocks, 10, 120);
 
     ctx.fillText('Trial: ' + (currPathIndex + 1) + '/' + path.length, 10, 160);
 

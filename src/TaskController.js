@@ -128,7 +128,8 @@ const TaskController = (props) => {
         stage['for'][1] +
         '_B' +
         uploadLog[0].block +
-        '_' + new Date().toISOString() +
+        '_' +
+        new Date().toISOString() +
         '.txt';
     } else {
       fileName =
@@ -141,7 +142,8 @@ const TaskController = (props) => {
         stage['conds'][1] +
         '_B' +
         uploadLog[0].block +
-        '_' + new Date().toISOString() +
+        '_' +
+        new Date().toISOString() +
         '.txt';
     }
 
@@ -260,6 +262,8 @@ const TaskController = (props) => {
         canvasY={CANVAS_Y}
         numOfTasks={numOfTasks}
         taskIndex={taskIndex}
+        timeline={timeline}
+        timelineIndex={timelineIndex}
       />
     )) ||
     (uploading && (

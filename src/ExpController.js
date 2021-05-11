@@ -18,7 +18,7 @@ const DEFAULT_STATE = {
 const surveySources = {
   mousepen: '1FAIpQLScegUJbcWcXTHmQbs-zpSnvBEchzA3lsMXrymLFQl-GLVRx0Q',
   mousetouch: '1FAIpQLSf3XsgE9CntwycdnK8X2spHbMaBMxDISGWf_f9nbOsdHdTs6g',
-  mousetrackpad: '1FAIpQLSdaoSSXSxNoMJx4ELI-LxO51pQmSg5UTHx_ZW7lDX22RRZJkw',
+  trackpadmouse: '1FAIpQLSdaoSSXSxNoMJx4ELI-LxO51pQmSg5UTHx_ZW7lDX22RRZJkw',
   pentouch: '1FAIpQLSefgu1ibbNW1doN3IXpxXPUwoUTs0k-zCo7kN_RHyQpd632Ug',
   trackpadpen: '1FAIpQLSeACyRwN_JYiaPtNneRDQhpDntQA-cl6VEnw2vb9LVAScyfEg',
   trackpadtouch: '1FAIpQLSexUo29SwFHMFlnV2Jiwexm-8ih7zl9-9AQj-3d9cxROPagvQ',
@@ -28,7 +28,7 @@ const surveySources = {
 const surveyPrefills = {
   mousepen: 'entry.34462903',
   mousetouch: 'entry.34462903',
-  mousetrackpad: 'entry.34462903',
+  trackpadmouse: 'entry.34462903',
   pentouch: 'entry.34462903',
   trackpadpen: 'entry.34462903',
   trackpadtouch: 'entry.34462903',
