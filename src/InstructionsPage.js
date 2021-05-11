@@ -251,9 +251,22 @@ const InstructionsPage = (props) => {
   return (
     <Container fluid>
       <div>
+        <p></p>
+        <p>You have completed <b>{completion}%</b> of the experiment.</p>
+        <p></p>
+        <p>You are free to take a break and rest at this point.</p>
+        <p></p>
         <InstructionText />
+        <img
+          src={process.env.PUBLIC_URL + '/layout.PNG'}
+          width="400px"
+          alt="Not connected mouse on ipadOS."
+        />
+        <p></p>
+        Make sure the devices are arranged in
+        the same way as the above picture.
+        <p></p>
         {connectionInst}
-
         <Button
           onClick={() => setOpen(!open)}
           aria-controls="example-collapse-text"
@@ -269,14 +282,8 @@ const InstructionsPage = (props) => {
             <p></p>
           </div>
         </Collapse>
-
-        <p></p>
-        <p>You have completed {completion}% of the experiment.</p>
-        <p></p>
-        <p>You are free to take a break at this point.</p>
         <p></p>
         <p>{'Press "Begin" when you are ready to begin the task.'}</p>
-
         <Button onClick={handleClick} variant="outline-success">
           Begin
         </Button>

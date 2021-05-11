@@ -56,7 +56,7 @@ const ExpDone = (props) => {
   }
 
   return (
-    <Container fluid>
+    <Container>
       <div>
         <p>You have finished the experiment!</p>
 
