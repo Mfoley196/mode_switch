@@ -57,6 +57,8 @@ const Canvas = (props) => {
   //const [yDiff, setYDiff] = React.useState(0);
   const [errorFlag, setErrorFlag] = React.useState(false);
 
+  const totalBlocks = stage['stage'] === 'baseline' ? 2 : 4;
+
   const throttledAppend = useCallback(
     _.throttle((log) => appendToEventList(log), 25),
     [],
@@ -158,7 +160,7 @@ const Canvas = (props) => {
       10,
       80,
     );
-    ctx.fillText('Block: ' + stage['block'], 10, 120);
+    ctx.fillText('Block: ' + stage['block'] + '/' + totalBlocks, 10, 120);
 
     ctx.fillText('Trial: ' + (currPathIndex + 1) + '/' + path.length, 10, 160);
 
@@ -441,12 +443,8 @@ const Canvas = (props) => {
       (circles[tokenId].mode === 'mouse' ||
         circles[tokenId].mode === 'trackpad')
     ) {
-      // setXDiff(e.clientX - circles[tokenId].x);
-      // setYDiff(e.clientY - circles[tokenId].y);
       xDiff = e.clientX - circles[tokenId].x;
       yDiff = e.clientY - circles[tokenId].y;
-      // setMouseX(e.clientX);
-      // setMouseY(e.clientY);
       mouseX = e.clientX;
       mouseY = e.clientY;
 
@@ -529,8 +527,6 @@ const Canvas = (props) => {
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
-    // setXDiff(0);
-    // setYDiff(0);
     xDiff = 0;
     yDiff = 0;
 
@@ -628,17 +624,6 @@ const Canvas = (props) => {
           e.tiltX,
           e.tiltY,
         ]);
-        // listCopy.push([
-        //   Date.now(),
-        //   'hit_target',
-        //   targetId,
-        //   e.pointerType,
-        //   e.clientX,
-        //   e.clientY,
-        //   e.pressure.toFixed(2),
-        //   e.tiltX,
-        //   e.tiltY,
-        // ]);
       } else {
         appendToEventList([
           Date.now(),
@@ -651,22 +636,11 @@ const Canvas = (props) => {
           0,
           0,
         ]);
-        // listCopy.push([
-        //   Date.now(),
-        //   'hit_target',
-        //   targetId,
-        //   'mouse',
-        //   e.clientX,
-        //   e.clientY,
-        //   0.0,
-        //   0,
-        //   0,
-        // ]);
       }
 
       activateCenter();
     } else if (
-      //if you hit the center target with the right mode after docking
+      //if you hit the center target with the right mode after the docking task
       circleHitTest(
         e.clientX,
         e.clientY,

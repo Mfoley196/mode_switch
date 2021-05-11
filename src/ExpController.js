@@ -15,6 +15,26 @@ const DEFAULT_STATE = {
   error: null,
 };
 
+const surveySources = {
+  mousepen: '1FAIpQLScegUJbcWcXTHmQbs-zpSnvBEchzA3lsMXrymLFQl-GLVRx0Q',
+  mousetouch: '1FAIpQLSf3XsgE9CntwycdnK8X2spHbMaBMxDISGWf_f9nbOsdHdTs6g',
+  mousetrackpad: '1FAIpQLSdaoSSXSxNoMJx4ELI-LxO51pQmSg5UTHx_ZW7lDX22RRZJkw',
+  pentouch: '1FAIpQLSefgu1ibbNW1doN3IXpxXPUwoUTs0k-zCo7kN_RHyQpd632Ug',
+  trackpadpen: '1FAIpQLSeACyRwN_JYiaPtNneRDQhpDntQA-cl6VEnw2vb9LVAScyfEg',
+  trackpadtouch: '1FAIpQLSexUo29SwFHMFlnV2Jiwexm-8ih7zl9-9AQj-3d9cxROPagvQ',
+  end: '1FAIpQLSdLcq9uL8zUYX0l-Fjm90VyHbsX3MnO0TO3yA2hPXMJIKWajQ',
+};
+
+const surveyPrefills = {
+  mousepen: 'entry.34462903',
+  mousetouch: 'entry.34462903',
+  mousetrackpad: 'entry.34462903',
+  pentouch: 'entry.34462903',
+  trackpadpen: 'entry.34462903',
+  trackpadtouch: 'entry.34462903',
+  end: 'entry.36882092',
+};
+
 function ExpController() {
   const [
     { stage, participantNumber, timelineIndex, timeline, error },
@@ -143,7 +163,12 @@ function ExpController() {
       <ErrorPage pNo={participantNumber} blockLog={blockLog} error={error} />
     )) ||
     (stage['stage'] === 'survey' && (
-      <GoogleFormSurvey pNo={participantNumber} dispatch={dispatch} />
+      <GoogleFormSurvey
+        pNo={participantNumber}
+        dispatch={dispatch}
+        prefillParticipant={surveyPrefills[stage['conds']]}
+        formId={surveySources[stage['conds']]}
+      />
     )) ||
     (stage['stage'] === 'done' && (
       <ExpDone fileUploadError={fileUploadError} pNo={participantNumber} />

@@ -66,6 +66,8 @@ for p in range(len(cond_matrix)):
                 "block": j+1,
                 "startPos": randint(0, NUM_OF_CIRCS)})
 
+        tl.append({"stage" :"survey", "conds": conds[0] + conds[1]})
+
         tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
         tl.append({"stage" : "baseline", 
             "conds": [conds[1], conds[1]],
@@ -79,8 +81,9 @@ for p in range(len(cond_matrix)):
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
 
+
     
-    tl.append({"stage" :"survey"})
+    tl.append({"stage" :"survey", "conds": 'end'})
     tl.append({"stage" :"done"})
     timelines[p+1] = tl
 
@@ -90,14 +93,16 @@ timelines['desktop'] = [
     {"stage" : "instruction",
     "conds": ["mouse", "trackpad"]},
     {"stage": "task",
-    "conds": ["mouse", "trackpad"],
+    "conds": ["trackpad", 'mouse'],
     "block" : "1",
     "startPos" : 6},
+    {"stage": "survey", "conds": "mousetrackpad"},
     {"stage": "task",
     "conds": ["mouse", "trackpad"],
     "block" : "2",
     "startPos" : 5},
-    {"stage": "survey"},
+    {"stage": "survey", "conds": "trackpadpen"},
+    {"stage": "survey", "conds": "end"},
     {"stage" : "done"}
 ]
 
@@ -110,12 +115,14 @@ timelines['allconds'] = [
     "conds": ["mouse", "trackpad"],
     "block" : "1",
     "startPos" : 0},
+    {"stage": "survey", "conds": "mousetrackpad"},
     {"stage" : "instruction",
     "conds": ["pen", "touch"]},
     {"stage": "task",
     "conds": ["pen", "touch"],
     "block" : "1",
     "startPos" : 0},
+    {"stage": "survey", "conds": "pentouch"},
     {"stage" : "done"}
 ]
 

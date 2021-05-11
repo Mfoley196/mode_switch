@@ -187,6 +187,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   );
 
   const handleSubmit = (evt) => {
+    console.log(evt)
     evt.preventDefault();
     if ('currentStage' in localStorage) {
       //console.log(localStorage.getItem('currentStage'));

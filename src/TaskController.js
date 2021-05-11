@@ -20,6 +20,7 @@ const TaskController = (props) => {
     fileUploadError,
     setUploadError,
     taskIndex,
+    setTaskIndex,
     numOfTasks,
   } = props;
   const [path, setPath] = useState(
@@ -127,6 +128,7 @@ const TaskController = (props) => {
         stage['for'][1] +
         '_B' +
         uploadLog[0].block +
+        '_' + new Date().toISOString() +
         '.txt';
     } else {
       fileName =
@@ -139,6 +141,7 @@ const TaskController = (props) => {
         stage['conds'][1] +
         '_B' +
         uploadLog[0].block +
+        '_' + new Date().toISOString() +
         '.txt';
     }
 
@@ -285,6 +288,7 @@ const TaskController = (props) => {
             setTokenId(newPath[0][0]);
             setTargetId(newPath[0][1]);
           }
+          setTaskIndex(taskIndex + 1);
           dispatch({ type: 'next' });
         }}
       />
