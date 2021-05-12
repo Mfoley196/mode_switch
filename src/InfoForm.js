@@ -1,36 +1,33 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import errorVid from './errorVid_comp.mp4';
-import taskVid from './taskVid_comp.mp4';
+
+const MODALITIES = {
+  touch: {
+    url: process.env.PUBLIC_URL + '/token/touch_token.PNG',
+    color: '#FF4000',
+  },
+  pen: {
+    url: process.env.PUBLIC_URL + '/token/pen_token.PNG',
+    color: '#FFFF00',
+  },
+  mouse: {
+    url: process.env.PUBLIC_URL + '/token/mouse_token.PNG',
+    color: '#00CCCC',
+  },
+  trackpad: {
+    url: process.env.PUBLIC_URL + '/token/trackpad_token.PNG',
+    color: '#FF00FF',
+  },
+};
 
 const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
   const [inputValue, setInputValue] = React.useState('');
-
-  const PEN_COLOR = '#FFFF00';
-  const MOUSE_COLOR = '#00CCCC';
-  const TOUCH_COLOR = '#FF4000';
-  const TRACK_COLOR = '#FF00FF';
-
-  function getFillColor(input) {
-    switch (input) {
-      case 'pen':
-        return PEN_COLOR;
-      case 'touch':
-        return TOUCH_COLOR;
-      case 'mouse':
-        return MOUSE_COLOR;
-      case 'trackpad':
-        return TRACK_COLOR;
-      default:
-        return 'white';
-    }
-  }
 
   const defaultText = (
     <div>
@@ -39,85 +36,25 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
       <Container fluid>
         <Row>
-          <Col>
-            <p>
-              <span
-                style={{
-                  backgroundColor: 'black',
-                  color: getFillColor('touch'),
-                }}
-              >
-                Touch
-              </span>{' '}
-              targets look like this:
-            </p>
+          {Object.entries(MODALITIES).map(([id, { url, color }]) => (
+            <Col key={id}>
+              <p>
+                <span
+                  style={{
+                    backgroundColor: 'black',
+                    color,
+                    textTransform: 'capitalize',
+                  }}
+                >
+                  {id}
+                </span>{' '}
+                targets look like this:
+              </p>
 
-            <img
-              src={process.env.PUBLIC_URL + '/token/touch_token.PNG'}
-              width="100px"
-              alt="touch token."
-            />
-            <p></p>
-          </Col>
-
-          <Col>
-            <p>
-              <span
-                style={{ backgroundColor: 'black', color: getFillColor('pen') }}
-              >
-                Pen
-              </span>{' '}
-              targets look like this:
-            </p>
-            <img
-              src={process.env.PUBLIC_URL + '/token/pen_token.PNG'}
-              width="100px"
-              alt="pen token."
-            />
-            <p></p>
-          </Col>
-        </Row>
-
-        <Row>
-          <Col>
-            <p>
-              <span
-                style={{
-                  backgroundColor: 'black',
-                  color: getFillColor('mouse'),
-                }}
-              >
-                Mouse
-              </span>{' '}
-              targets look like this:
-            </p>
-            <img
-              src={process.env.PUBLIC_URL + '/token/mouse_token.PNG'}
-              width="100px"
-              alt="pen token."
-            />
-            <p></p>
-          </Col>
-
-          <Col>
-            <p>
-              <span
-                style={{
-                  backgroundColor: 'black',
-                  color: getFillColor('trackpad'),
-                }}
-              >
-                Trackpad
-              </span>{' '}
-              targets look like this:
-            </p>
-            <img
-              src={process.env.PUBLIC_URL + '/token/trackpad_token.PNG'}
-              width="100px"
-              alt="pen token."
-            />
-            <p></p>
-          </Col>
+              <img src={url} width="100px" alt="touch token." />
+              <p></p>
+            </Col>
+          ))}
         </Row>
       </Container>
 
@@ -126,7 +63,10 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       <p>See the task in action in the video below:</p>
 
       <video width="640" controls loop muted>
-        <source src={taskVid} type="video/mp4"></source>
+        <source
+          src={process.env.PUBLIC_URL + '/videos/taskVid_comp.mp4'}
+          type="video/mp4"
+        ></source>
       </video>
       <p></p>
 
@@ -141,16 +81,18 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       <p>See what an error looks like in the video below:</p>
 
       <video width="640" controls loop muted>
-        <source src={errorVid} type="video/mp4"></source>
+        <source
+          src={process.env.PUBLIC_URL + '/videos/errorVid_comp.mp4'}
+          type="video/mp4"
+        ></source>
       </video>
 
       <hr />
 
       <p></p>
       <p>
-        {
-          'Please enter the participant ID provided to you, and hit "Submit" to begin the experiment: '
-        }
+        Please enter the participant ID provided to you, and hit
+        &quot;Submit&quot; to begin the experiment:
       </p>
     </div>
   );
@@ -207,29 +149,36 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
   return (
     <div className="ml-4">
-    <Container fluid>
-      <div>
-        <InfoText />
-
-        <Form inline onSubmit={handleSubmit}>
-          <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
-          <Form.Control
-            type="text"
-            value={inputValue}
-            onChange={(event) => setInputValue(event.target.value)}
-            className="my-1 mr-2"
-          />
+      <Container fluid>
+        <div>
+          <InfoText />
+          <Form inline onSubmit={handleSubmit}>
+            <p>
+              <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
+              <Form.Control
+                type="text"
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+                className="my-1 mr-2"
+              />
+            </p>
+            <p>
+              <Button
+                className="my-1 mr-2"
+                type="submit"
+                variant="outline-success"
+              >
+                Submit
+              </Button>
+            </p>
+          </Form>
           <p></p>
-          <Button className="my-1 mr-2" type="submit" variant="outline-success">
-            Submit
-          </Button>
-        </Form>
-        <p></p>
-        <p></p>
-        <p></p>
-        <button onClick={reset}>Restart</button>
-      </div>
-    </Container>
+          <p></p>
+          <p>
+            <button onClick={reset}>Restart</button>
+          </p>
+        </div>
+      </Container>
     </div>
   );
 };
