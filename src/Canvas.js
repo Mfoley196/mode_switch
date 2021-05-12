@@ -953,7 +953,7 @@ const Canvas = (props) => {
         onMouseUp={pointerUpHandler}
         onPointerUp={pointerUpHandler}
         width={window.innerWidth}
-        height={canvasY.toString() + 'px'}
+        height={window.innerHeight}
         {...rest}
       />
     </div>

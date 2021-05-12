@@ -37,6 +37,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
   const defaultText = (
     <div>
+    <p></p>
       <p>In this experiment, you will...</p>
 
       <Container fluid>
