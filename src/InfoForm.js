@@ -71,13 +71,16 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
           {resumeFlag ? <ResumeText /> : <DefaultText />}
           <Form inline onSubmit={handleSubmit}>
             <p>
-              <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
-              <Form.Control
-                type="text"
-                value={inputValue}
-                onChange={(event) => setInputValue(event.target.value)}
-                className="my-1 mr-2"
-              />
+              <Form.Label className="my-1 mr-2">
+                Participant ID:
+                <Form.Control
+                  style={{ marginLeft: '0.5em' }}
+                  type="text"
+                  value={inputValue}
+                  onChange={(event) => setInputValue(event.target.value)}
+                  className="my-1 mr-2"
+                />
+              </Form.Label>
             </p>
             <p>
               <Button
