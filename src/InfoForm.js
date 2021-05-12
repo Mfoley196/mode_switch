@@ -169,7 +169,7 @@ function DefaultText() {
       <p></p>
       <p>
         Please enter the participant ID provided to you, and hit
-        &quot;Submit&quot; to begin the experiment:
+        &ldquo;Submit&rdquo; to begin the experiment:
       </p>
     </div>
   );
