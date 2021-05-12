@@ -226,6 +226,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
           </Button>
         </Form>
         <p></p>
+        <p></p>
+        <p></p>
         <button onClick={reset}>Restart</button>
       </div>
     </Container>

@@ -8,7 +8,7 @@ const DataLogger = (props) => {
   const completion = Math.round((taskIndex / numOfTasks) * 100);
 
   const successText = (
-    <div>
+    <div className="text-center">
       <p>Your experiment log was successfully uploaded! </p>
       <p></p>
       <p>
@@ -29,7 +29,7 @@ const DataLogger = (props) => {
   );
 
   const failureText = (
-    <div>
+    <div className="text-center">
       <p>
         Your experiment log did not upload properly. Don&apos;t worry! Once the
         experiment is over, you will download and email your experiment data to
@@ -51,7 +51,7 @@ const DataLogger = (props) => {
   );
 
   const inProgress = (
-    <div>
+    <div className="text-center">
       <p></p>
       <p></p>
       <Spinner animation="border" />

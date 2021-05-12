@@ -35,7 +35,7 @@ const ExpDone = (props) => {
   function FileDownloadText() {
     if (fileUploadError) {
       return (
-        <div>
+        <div className="text-center">
           <p>
             {' '}
             One of more of your logs failed to upload. Please click the
@@ -57,7 +57,7 @@ const ExpDone = (props) => {
 
   return (
     <Container>
-      <div>
+      <div className="text-center">
         <p>You have finished the experiment!</p>
 
         <FileDownloadText />
