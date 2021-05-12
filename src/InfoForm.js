@@ -33,7 +33,77 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
   const [inputValue, setInputValue] = React.useState('');
 
-  const defaultText = (
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    if ('currentStage' in localStorage) {
+      let state = JSON.parse(localStorage.getItem('currentStage'));
+
+      if (state.participantId === inputValue) {
+        onSubmit(inputValue);
+      } else {
+        alert(
+          'This participant ID does not match the saved ID. Please enter ' +
+            'the correct participant ID, or hit the "Restart" button to delete ' +
+            'all experiment progress.',
+        );
+      }
+    } else {
+      onSubmit(inputValue);
+    }
+  };
+
+  function reset() {
+    if (
+      window.confirm(
+        'WARNING: You are deleting all experiment progress.' +
+          ' Are you sure you want to do this?',
+      )
+    ) {
+      localStorage.removeItem('currentStage');
+      setResumeFlag(false);
+    }
+  }
+
+  return (
+    <div className="ml-4">
+      <Container fluid>
+        <div>
+          {resumeFlag ? <ResumeText /> : <DefaultText />}
+          <Form inline onSubmit={handleSubmit}>
+            <p>
+              <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
+              <Form.Control
+                type="text"
+                value={inputValue}
+                onChange={(event) => setInputValue(event.target.value)}
+                className="my-1 mr-2"
+              />
+            </p>
+            <p>
+              <Button
+                className="my-1 mr-2"
+                type="submit"
+                variant="outline-success"
+              >
+                Submit
+              </Button>
+            </p>
+          </Form>
+          <p></p>
+          <p></p>
+          <p>
+            <button onClick={reset}>Restart</button>
+          </p>
+        </div>
+      </Container>
+    </div>
+  );
+};
+
+InfoForm.propTypes = { onSubmit: PropTypes.func.isRequired };
+
+function DefaultText() {
+  return (
     <div>
       <p></p>
       <p>In this experiment, you will...</p>
@@ -100,8 +170,10 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       </p>
     </div>
   );
+}
 
-  const resumeText = (
+function ResumeText() {
+  return (
     <div>
       <p></p>
       <p>You may have accidentally refreshed the web page.</p>
@@ -111,82 +183,6 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
       </p>
     </div>
   );
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    if ('currentStage' in localStorage) {
-      let state = JSON.parse(localStorage.getItem('currentStage'));
-
-      if (state.participantId === inputValue) {
-        onSubmit(inputValue);
-      } else {
-        alert(
-          'This participant ID does not match the saved ID. Please enter ' +
-            'the correct participant ID, or hit the "Restart" button to delete ' +
-            'all experiment progress.',
-        );
-      }
-    } else {
-      onSubmit(inputValue);
-    }
-  };
-
-  function InfoText() {
-    if (resumeFlag) {
-      return <div>{resumeText}</div>;
-    } else {
-      return <div>{defaultText}</div>;
-    }
-  }
-
-  function reset() {
-    if (
-      window.confirm(
-        'WARNING: You are deleting all experiment progress.' +
-          ' Are you sure you want to do this?',
-      )
-    ) {
-      localStorage.removeItem('currentStage');
-      setResumeFlag(false);
-    }
-  }
-
-  return (
-    <div className="ml-4">
-      <Container fluid>
-        <div>
-          <InfoText />
-          <Form inline onSubmit={handleSubmit}>
-            <p>
-              <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
-              <Form.Control
-                type="text"
-                value={inputValue}
-                onChange={(event) => setInputValue(event.target.value)}
-                className="my-1 mr-2"
-              />
-            </p>
-            <p>
-              <Button
-                className="my-1 mr-2"
-                type="submit"
-                variant="outline-success"
-              >
-                Submit
-              </Button>
-            </p>
-          </Form>
-          <p></p>
-          <p></p>
-          <p>
-            <button onClick={reset}>Restart</button>
-          </p>
-        </div>
-      </Container>
-    </div>
-  );
-};
-
-InfoForm.propTypes = { onSubmit: PropTypes.func.isRequired };
+}
 
 export default InfoForm;
