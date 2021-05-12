@@ -6,7 +6,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Collapse from 'react-bootstrap/Collapse';
-import errorVid from './error_demo.mp4';
+import errorVid from './errorVid_comp.mp4';
+import taskVid from './taskVid_comp.mp4';
 
 const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
@@ -122,23 +123,13 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         </Row>
       </Container>
 
-      <p>See the task in action by clicking on &quot;Task Demo&quot;:</p>
+      <hr />
 
-      <Button
-        onClick={() => setOpen(!open)}
-        aria-controls="example-error-text"
-        aria-expanded={open2}
-        variant="outline-secondary"
-      >
-        Task Demo
-      </Button>
-      <Collapse in={open}>
-        <div id="example-error-text">
-          <video width="480" controls loop muted>
-            <source src={errorVid} type="video/mp4"></source>
-          </video>
-        </div>
-      </Collapse>
+      <p>See the task in action in the video below:</p>
+
+      <video width="640" controls loop muted>
+        <source src={taskVid} type="video/mp4"></source>
+      </video>
       <p></p>
 
       <p>
@@ -149,22 +140,13 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
       <p>After the screen flashes red, you can continue the task.</p>
 
-      <p>See what an error looks like by clicking &quot;Error Demo&quot;:</p>
-      <Button
-        onClick={() => setOpen2(!open2)}
-        aria-controls="example-error-text"
-        aria-expanded={open2}
-        variant="outline-secondary"
-      >
-        Error Demo
-      </Button>
-      <Collapse in={open2}>
-        <div id="example-error-text">
-          <video width="480" controls loop muted>
-            <source src={errorVid} type="video/mp4"></source>
-          </video>
-        </div>
-      </Collapse>
+      <p>See what an error looks like in the video below:</p>
+
+      <video width="640" controls loop muted>
+        <source src={errorVid} type="video/mp4"></source>
+      </video>
+
+      <hr />
 
       <p></p>
       <p>
@@ -187,10 +169,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   );
 
   const handleSubmit = (evt) => {
-    console.log(evt)
     evt.preventDefault();
     if ('currentStage' in localStorage) {
-      //console.log(localStorage.getItem('currentStage'));
       let state = JSON.parse(localStorage.getItem('currentStage'));
 
       if (state.participantId === inputValue) {
@@ -202,8 +182,6 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
             'all experiment progress.',
         );
       }
-
-      //setResumeFlag(true);
     } else {
       onSubmit(inputValue);
     }

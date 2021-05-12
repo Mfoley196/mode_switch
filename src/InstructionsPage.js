@@ -252,9 +252,12 @@ const InstructionsPage = (props) => {
     <Container fluid>
       <div>
         <p></p>
-        <p>You have completed <b>{completion}%</b> of the experiment.</p>
+        <p>
+          You have completed <b>{completion}%</b> of the experiment.
+        </p>
         <p></p>
         <p>You are free to take a break and rest at this point.</p>
+        <hr />
         <p></p>
         <InstructionText />
         <img
@@ -263,8 +266,7 @@ const InstructionsPage = (props) => {
           alt="Not connected mouse on ipadOS."
         />
         <p></p>
-        Make sure the devices are arranged in
-        the same way as the above picture.
+        Make sure the devices are arranged in the same way as the above picture.
         <p></p>
         {connectionInst}
         <Button
@@ -283,6 +285,7 @@ const InstructionsPage = (props) => {
           </div>
         </Collapse>
         <p></p>
+        <hr />
         <p>{'Press "Begin" when you are ready to begin the task.'}</p>
         <Button onClick={handleClick} variant="outline-success">
           Begin

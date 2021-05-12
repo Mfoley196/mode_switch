@@ -11,7 +11,9 @@ const DataLogger = (props) => {
     <div>
       <p>Your experiment log was successfully uploaded! </p>
       <p></p>
-      <p>You have completed <b>{completion}%</b> of the experiment.</p>
+      <p>
+        You have completed <b>{completion}%</b> of the experiment.
+      </p>
       <p></p>
       <p>You are free to take a break and rest at this point.</p>
       <p></p>
