@@ -5,15 +5,12 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Collapse from 'react-bootstrap/Collapse';
 import errorVid from './errorVid_comp.mp4';
 import taskVid from './taskVid_comp.mp4';
 
 const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
   const [inputValue, setInputValue] = React.useState('');
-  const [open, setOpen] = useState(false);
-  const [open2, setOpen2] = useState(false);
 
   const PEN_COLOR = '#FFFF00';
   const MOUSE_COLOR = '#00CCCC';
@@ -36,7 +33,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   }
 
   const defaultText = (
-    <div className="ml-4">
+    <div>
       <p></p>
       <p>In this experiment, you will...</p>
 
@@ -159,7 +156,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   );
 
   const resumeText = (
-    <div className="ml-4">
+    <div>
       <p></p>
       <p>You may have accidentally refreshed the web page.</p>
       <p>
@@ -209,6 +206,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   }
 
   return (
+    <div className="ml-4">
     <Container fluid>
       <div>
         <InfoText />
@@ -232,6 +230,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         <button onClick={reset}>Restart</button>
       </div>
     </Container>
+    </div>
   );
 };
 

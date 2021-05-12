@@ -81,8 +81,8 @@ const ConsentForm = (props) => {
   }
 
   return (
-    <Container fluid>
-      <div>
+    <div className="ml-4">
+      <Container fluid>
         <ReactMarkdown source={markdown} />
 
         <Form>
@@ -105,8 +105,8 @@ const ConsentForm = (props) => {
             I Agree
           </Button>
         </Form>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 
