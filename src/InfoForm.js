@@ -6,24 +6,28 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-const MODALITIES = {
-  touch: {
+const MODALITIES = [
+  {
+    id: 'touch',
     url: process.env.PUBLIC_URL + '/token/touch_token.PNG',
     color: '#FF4000',
   },
-  pen: {
+  {
+    id: 'pen',
     url: process.env.PUBLIC_URL + '/token/pen_token.PNG',
     color: '#FFFF00',
   },
-  mouse: {
+  {
+    id: 'mouse',
     url: process.env.PUBLIC_URL + '/token/mouse_token.PNG',
     color: '#00CCCC',
   },
-  trackpad: {
+  {
+    id: 'trackpad',
     url: process.env.PUBLIC_URL + '/token/trackpad_token.PNG',
     color: '#FF00FF',
   },
-};
+];
 
 const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
@@ -36,7 +40,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
       <Container fluid>
         <Row>
-          {Object.entries(MODALITIES).map(([id, { url, color }]) => (
+          {MODALITIES.map(({ id, url, color }) => (
             <Col key={id}>
               <p>
                 <span
@@ -51,7 +55,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
                 targets look like this:
               </p>
 
-              <img src={url} width="100px" alt="touch token." />
+              <img src={url} width="100px" alt={`${id} token`} />
               <p></p>
             </Col>
           ))}
