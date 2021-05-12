@@ -152,6 +152,8 @@ const InstructionsPage = (props) => {
           </Row>
         </Container>
       </p>
+
+      <p></p>
       <p>
         <b>To reconnect the pen</b>, plug it into the charging port on the
         bottom of the iPad.
@@ -169,8 +171,7 @@ const InstructionsPage = (props) => {
       </Container>
       <p>
         <b>To reconnect the mouse or trackpad</b>, first make sure the devices
-        are turned on. Check that their power switches are turned on (switches
-        are circled in red)
+        are turned on. Check that their power switches are turned on.
       </p>
       <p>
         <Container fluid>
@@ -194,9 +195,7 @@ const InstructionsPage = (props) => {
       </p>
       <p>
         Once the mouse or trackpad is on, you can reconnect them by tapping on
-        the device name in the &quot;Bluetooth&quot; screen. (one image of
-        unconnected mouse. draw circle to show where you tap) tap Magic Mouse
-        (next image, with connected mouse)
+        the device name in the &quot;Bluetooth&quot; screen.
       </p>
       <p>
         <Container fluid>
@@ -220,6 +219,9 @@ const InstructionsPage = (props) => {
           </Row>
         </Container>
       </p>
+      <p></p>
+      <p></p>
+      <p></p>
     </div>
   );
 
@@ -249,8 +251,8 @@ const InstructionsPage = (props) => {
   }
 
   return (
-    <Container fluid>
-      <div>
+    <div className="ml-4">
+      <Container fluid>
         <p></p>
         <p>
           You have completed <b>{completion}%</b> of the experiment.
@@ -266,7 +268,7 @@ const InstructionsPage = (props) => {
           alt="Not connected mouse on ipadOS."
         />
         <p></p>
-        Make sure the devices are arranged in the same way as the above picture.
+        Please make sure the devices are arranged in the same way as the above picture.
         <p></p>
         {connectionInst}
         <Button
@@ -290,8 +292,8 @@ const InstructionsPage = (props) => {
         <Button onClick={handleClick} variant="outline-success">
           Begin
         </Button>
-      </div>
-    </Container>
+      </Container>
+    </div>
   );
 };
 

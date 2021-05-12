@@ -36,8 +36,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   }
 
   const defaultText = (
-    <div>
-    <p></p>
+    <div className="ml-4">
+      <p></p>
       <p>In this experiment, you will...</p>
 
       <Container fluid>
@@ -159,7 +159,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   );
 
   const resumeText = (
-    <div>
+    <div className="ml-4">
       <p></p>
       <p>You may have accidentally refreshed the web page.</p>
       <p>
