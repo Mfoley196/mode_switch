@@ -490,8 +490,15 @@ const Canvas = (props) => {
       ) &&
       !(
         e.pointerType === circles[tokenId].mode ||
-        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
+        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad') ||
+        (typeof e.pointerType === 'undefined' &&
+          (circles[tokenId].mode === 'trackpad' ||
+            circles[tokenId].mode === 'mouse'))
       )
+      // !(
+      //   e.pointerType === circles[tokenId].mode ||
+      //   (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
+      // )
     ) {
       if (
         typeof e.pointerType !== 'undefined' ||
@@ -773,7 +780,7 @@ const Canvas = (props) => {
       activateCenter();
     } else if (
       //if you hit the center target with the right mode after the docking task
-      //Just... don't look too hard at this condition. 
+      //Just... don't look too hard at this condition.
       //Abandon all hope, ye who enter here
       circleHitTest(
         e.clientX,

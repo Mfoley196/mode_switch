@@ -33,7 +33,19 @@ const TaskController = (props) => {
   const [circles, setCircles] = useState(
     initCircles(NUM_OF_CIRCS, 45, path, stage),
   );
-  const [eventList, setEventList] = useState([]);
+  const [eventList, setEventList] = useState([
+    [
+      Date.now(),
+      'trial_start',
+      'null',
+      'null',
+      'null',
+      'null',
+      'null',
+      'null',
+      'null',
+    ],
+  ]);
   const [uploading, setUploading] = useState(false);
   const [uploadWorked, setUploadStatus] = useState('not_complete');
   const [missCount, setMissCount] = useState(0);
@@ -43,6 +55,10 @@ const TaskController = (props) => {
     'ca-central-1:297440ee-2e98-4761-9bfe-3e4a60448cbb',
     'nextpc-modeswitch1',
   );
+
+  const appendToEventList = (event) => {
+    setEventList((prevList) => [...prevList, event]);
+  };
 
   function createTrialLog(currMode, eventList, missC) {
     let logObj = {
@@ -219,6 +235,18 @@ const TaskController = (props) => {
       addToBlockLog(currMode, eventList, missC);
 
       setEventList([]);
+      appendToEventList([
+        Date.now(),
+        'trial_start',
+        'null',
+        'null',
+        'null',
+        'null',
+        'null',
+        'null',
+        'null',
+      ]);
+
       setMissCount(0);
       setCurrIndex(pathIndex + 1);
       setTokenId(path[pathIndex + 1][0]);

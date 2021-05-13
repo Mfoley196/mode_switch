@@ -165,7 +165,7 @@ function DefaultText() {
 
       <p>See the task in action in the video below:</p>
 
-      <video width="640" controls loop muted>
+      <video controls loop muted>
         <source
           src={process.env.PUBLIC_URL + '/videos/taskVid.mp4'}
           type="video/mp4"
@@ -183,7 +183,7 @@ function DefaultText() {
 
       <p>See what an error looks like in the video below:</p>
 
-      <video width="640" controls loop muted>
+      <video controls loop muted>
         <source
           src={process.env.PUBLIC_URL + '/videos/errorVid.mp4'}
           type="video/mp4"
