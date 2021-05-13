@@ -68,7 +68,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
       <video width="640" controls loop muted>
         <source
-          src={process.env.PUBLIC_URL + '/videos/taskVid_comp.mp4'}
+          src={process.env.PUBLIC_URL + '/videos/taskVid.mp4'}
           type="video/mp4"
         ></source>
       </video>
@@ -86,7 +86,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
       <video width="640" controls loop muted>
         <source
-          src={process.env.PUBLIC_URL + '/videos/errorVid_comp.mp4'}
+          src={process.env.PUBLIC_URL + '/videos/errorVid.mp4'}
           type="video/mp4"
         ></source>
       </video>
