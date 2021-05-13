@@ -309,17 +309,44 @@ const Canvas = (props) => {
   const pointerDownHandler = (e) => {
     e.preventDefault();
 
-    appendToEventList([
-      Date.now(),
-      'down',
-      'null',
-      e.pointerType,
-      e.clientX,
-      e.clientY,
-      e.pressure.toFixed(2),
-      e.tiltX,
-      e.tiltY,
-    ]);
+    // const a = typeof e.pointerType === 'undefined';
+    // const b =
+    //   circles[tokenId].mode === 'trackpad' || circles[tokenId].mode === 'mouse';
+    // console.log(a && b);
+    // console.log(
+    //   typeof e.pointerType === 'undefined' &&
+    //     (circles[tokenId].mode === 'trackpad' ||
+    //       circles[tokenId].mode === 'mouse'),
+    // );
+
+    if (
+      typeof e.pointerType !== 'undefined' ||
+      typeof e.pressure !== 'undefined'
+    ) {
+      appendToEventList([
+        Date.now(),
+        'down',
+        'null',
+        e.pointerType,
+        e.clientX,
+        e.clientY,
+        e.pressure.toFixed(2),
+        e.tiltX,
+        e.tiltY,
+      ]);
+    } else {
+      appendToEventList([
+        Date.now(),
+        'down',
+        'null',
+        'mouse',
+        e.clientX,
+        e.clientY,
+        0.0,
+        0,
+        0,
+      ]);
+    }
 
     if (
       //If the user clicks on the token, with the correct mode
@@ -331,16 +358,15 @@ const Canvas = (props) => {
         circles[tokenId].r,
       ) &&
       (e.pointerType === circles[tokenId].mode ||
-        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad'))
+        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad') ||
+        (typeof e.pointerType === 'undefined' &&
+          (circles[tokenId].mode === 'trackpad' ||
+            circles[tokenId].mode === 'mouse')))
     ) {
       //Calculate the offset from the pointer to the center of the token
-      // setXDiff(e.clientX - circles[tokenId].x);
-      // setYDiff(e.clientY - circles[tokenId].y);
       xDiff = e.clientX - circles[tokenId].x;
       yDiff = e.clientY - circles[tokenId].y;
       //set mouseX and mouseY state variables
-      // setMouseX(e.clientX);
-      // setMouseY(e.clientY);
       mouseX = e.clientX;
       mouseY = e.clientY;
       //The token is draggable
@@ -353,17 +379,46 @@ const Canvas = (props) => {
         }),
       );
 
-      appendToEventList([
-        Date.now(),
-        'token',
-        tokenId,
-        e.pointerType,
-        e.clientX,
-        e.clientY,
-        e.pressure.toFixed(2),
-        e.tiltX,
-        e.tiltY,
-      ]);
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
+        appendToEventList([
+          Date.now(),
+          'token',
+          tokenId,
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'token',
+          tokenId,
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+
+      // appendToEventList([
+      //   Date.now(),
+      //   'token',
+      //   tokenId,
+      //   e.pointerType,
+      //   e.clientX,
+      //   e.clientY,
+      //   e.pressure.toFixed(2),
+      //   e.tiltX,
+      //   e.tiltY,
+      // ]);
     } else if (
       //if the user does not click on the token or the center target
       !circleHitTest(
@@ -382,17 +437,46 @@ const Canvas = (props) => {
       )
     ) {
       //Error is added to eventList, screen flashes, increment miss count
-      appendToEventList([
-        Date.now(),
-        'miss_down',
-        'null',
-        e.pointerType,
-        e.clientX,
-        e.clientY,
-        e.pressure.toFixed(2),
-        e.tiltX,
-        e.tiltY,
-      ]);
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
+        appendToEventList([
+          Date.now(),
+          'miss_down',
+          'null',
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'miss_down',
+          'null',
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+
+      // appendToEventList([
+      //   Date.now(),
+      //   'miss_down',
+      //   'null',
+      //   e.pointerType,
+      //   e.clientX,
+      //   e.clientY,
+      //   e.pressure.toFixed(2),
+      //   e.tiltX,
+      //   e.tiltY,
+      // ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
     } else if (
@@ -409,136 +493,170 @@ const Canvas = (props) => {
         (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
       )
     ) {
-      appendToEventList([
-        Date.now(),
-        'miss_wrong_mode',
-        'null',
-        e.pointerType,
-        e.clientX,
-        e.clientY,
-        e.pressure.toFixed(2),
-        e.tiltX,
-        e.tiltY,
-      ]);
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          'null',
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          'null',
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+
+      // appendToEventList([
+      //   Date.now(),
+      //   'miss_wrong_mode',
+      //   'null',
+      //   e.pointerType,
+      //   e.clientX,
+      //   e.clientY,
+      //   e.pressure.toFixed(2),
+      //   e.tiltX,
+      //   e.tiltY,
+      // ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
     }
   };
 
-  const mouseDownHandler = (e) => {
-    e.preventDefault();
+  // const mouseDownHandler = (e) => {
+  //   e.preventDefault();
 
-    appendToEventList([
-      Date.now(),
-      'down',
-      'null',
-      'mouse',
-      e.clientX,
-      e.clientY,
-      0,
-      0,
-      0,
-    ]);
+  //   appendToEventList([
+  //     Date.now(),
+  //     'down',
+  //     'null',
+  //     'mouse',
+  //     e.clientX,
+  //     e.clientY,
+  //     0,
+  //     0,
+  //     0,
+  //   ]);
 
-    if (
-      circleHitTest(
-        e.clientX,
-        e.clientY,
-        circles[tokenId].x,
-        circles[tokenId].y,
-        circles[tokenId].r,
-      ) &&
-      (circles[tokenId].mode === 'mouse' ||
-        circles[tokenId].mode === 'trackpad')
-    ) {
-      xDiff = e.clientX - circles[tokenId].x;
-      yDiff = e.clientY - circles[tokenId].y;
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+  //   if (
+  //     circleHitTest(
+  //       e.clientX,
+  //       e.clientY,
+  //       circles[tokenId].x,
+  //       circles[tokenId].y,
+  //       circles[tokenId].r,
+  //     ) &&
+  //     (circles[tokenId].mode === 'mouse' ||
+  //       circles[tokenId].mode === 'trackpad')
+  //   ) {
+  //     xDiff = e.clientX - circles[tokenId].x;
+  //     yDiff = e.clientY - circles[tokenId].y;
+  //     mouseX = e.clientX;
+  //     mouseY = e.clientY;
 
-      setCircles(
-        circles.map((circle) => {
-          return {
-            ...circle,
-            dragOn: circle.id === tokenId,
-          };
-        }),
-      );
-      appendToEventList([
-        Date.now(),
-        'token',
-        tokenId,
-        'mouse',
-        e.clientX,
-        e.clientY,
-        0,
-        0,
-        0,
-      ]);
-    } else if (
-      !circleHitTest(
-        e.clientX,
-        e.clientY,
-        circles[tokenId].x,
-        circles[tokenId].y,
-        circles[tokenId].r,
-      ) &&
-      !circleHitTest(
-        e.clientX,
-        e.clientY,
-        circles[circles.length - 1].x,
-        circles[circles.length - 1].y,
-        circles[circles.length - 1].r,
-      )
-    ) {
-      appendToEventList([
-        Date.now(),
-        'miss_down',
-        'null',
-        'mouse',
-        e.clientX,
-        e.clientY,
-        0,
-        0,
-        0,
-      ]);
-      setErrorFlag(true);
-      setMissCount(missCount + 1);
-    } else if (
-      circleHitTest(
-        e.clientX,
-        e.clientY,
-        circles[tokenId].x,
-        circles[tokenId].y,
-        circles[tokenId].r,
-      ) &&
-      !(
-        circles[tokenId].mode === 'trackpad' ||
-        circles[tokenId].mode === 'mouse'
-      )
-    ) {
-      appendToEventList([
-        Date.now(),
-        'miss_wrong_mode',
-        'null',
-        e.pointerType,
-        e.clientX,
-        e.clientY,
-        e.pressure.toFixed(2),
-        e.tiltX,
-        e.tiltY,
-      ]);
-      setErrorFlag(true);
-      setMissCount(missCount + 1);
-    }
-  };
+  //     setCircles(
+  //       circles.map((circle) => {
+  //         return {
+  //           ...circle,
+  //           dragOn: circle.id === tokenId,
+  //         };
+  //       }),
+  //     );
+  //     appendToEventList([
+  //       Date.now(),
+  //       'token',
+  //       tokenId,
+  //       'mouse',
+  //       e.clientX,
+  //       e.clientY,
+  //       0,
+  //       0,
+  //       0,
+  //     ]);
+  //   } else if (
+  //     !circleHitTest(
+  //       e.clientX,
+  //       e.clientY,
+  //       circles[tokenId].x,
+  //       circles[tokenId].y,
+  //       circles[tokenId].r,
+  //     ) &&
+  //     !circleHitTest(
+  //       e.clientX,
+  //       e.clientY,
+  //       circles[circles.length - 1].x,
+  //       circles[circles.length - 1].y,
+  //       circles[circles.length - 1].r,
+  //     )
+  //   ) {
+  //     appendToEventList([
+  //       Date.now(),
+  //       'miss_down',
+  //       'null',
+  //       'mouse',
+  //       e.clientX,
+  //       e.clientY,
+  //       0,
+  //       0,
+  //       0,
+  //     ]);
+  //     setErrorFlag(true);
+  //     setMissCount(missCount + 1);
+  //   } else if (
+  //     circleHitTest(
+  //       e.clientX,
+  //       e.clientY,
+  //       circles[tokenId].x,
+  //       circles[tokenId].y,
+  //       circles[tokenId].r,
+  //     ) &&
+  //     !(
+  //       circles[tokenId].mode === 'trackpad' ||
+  //       circles[tokenId].mode === 'mouse'
+  //     )
+  //   ) {
+  //     appendToEventList([
+  //       Date.now(),
+  //       'miss_wrong_mode',
+  //       'null',
+  //       e.pointerType,
+  //       e.clientX,
+  //       e.clientY,
+  //       0,
+  //       0,
+  //       0,
+  //     ]);
+  //     setErrorFlag(true);
+  //     setMissCount(missCount + 1);
+  //   }
+  // };
 
   const pointerUpHandler = (e) => {
     e.preventDefault();
     xDiff = 0;
     yDiff = 0;
 
-    if (typeof e.pointerType !== 'undefined') {
+    console.log(e.pointerType);
+
+    if (
+      typeof e.pointerType !== 'undefined' ||
+      typeof e.pressure !== 'undefined'
+    ) {
       appendToEventList([
         Date.now(),
         'up',
@@ -567,7 +685,10 @@ const Canvas = (props) => {
     //if the token was being dragged
     if (circles[tokenId].dragOn) {
       //add to event log
-      if (typeof e.pointerType !== 'undefined') {
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
         appendToEventList([
           Date.now(),
           'release',
@@ -620,7 +741,10 @@ const Canvas = (props) => {
             circles[targetId].mode === 'trackpad'))) &&
       circles[targetId].isTarget
     ) {
-      if (typeof e.pointerType !== 'undefined') {
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
         appendToEventList([
           Date.now(),
           'hit_target',
@@ -649,6 +773,8 @@ const Canvas = (props) => {
       activateCenter();
     } else if (
       //if you hit the center target with the right mode after the docking task
+      //Just... don't look too hard at this condition. 
+      //Abandon all hope, ye who enter here
       circleHitTest(
         e.clientX,
         e.clientY,
@@ -657,13 +783,27 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       ) &&
       (circles[circles.length - 1].mode === e.pointerType ||
-        circles[circles.length - 1].mode === 'trackpad' ||
+        (e.pointerType === 'mouse' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad')) ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))) &&
       circles[circles.length - 1].isTarget &&
       !circles[circles.length - 1].mouseFirstTarget
     ) {
+      // console.log('here');
+      // console.log(
+      //   (e.pointerType === 'mouse' &&
+      //     (circles[circles.length - 1].mode === 'mouse' ||
+      //       circles[circles.length - 1].mode === 'trackpad'))
+      // );
+      // console.log(
+      //   typeof e.pointerType === 'undefined' &&
+      //     (circles[circles.length - 1].mode === 'mouse' ||
+      //       circles[circles.length - 1].mode === 'trackpad'),
+      // );
+
       //I need to make a copy of the eventList state variable, because it doesn't
       //update quickly enough to have pointerUp events properly added to eventList
       //when advanceTrial() executes.
@@ -673,7 +813,10 @@ const Canvas = (props) => {
       //
       //...I blame React.
       let listCopy = JSON.parse(JSON.stringify(eventList));
-      if (typeof e.pointerType !== 'undefined') {
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
         appendToEventList([
           Date.now(),
           'hit_center',
@@ -742,7 +885,10 @@ const Canvas = (props) => {
       !circles[circles.length - 1].mouseFirstTarget
     ) {
       //add error to event log, show error, increment missCount
-      if (typeof e.pointerType !== 'undefined') {
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
         appendToEventList([
           Date.now(),
           'miss_wrong_mode',
@@ -821,7 +967,10 @@ const Canvas = (props) => {
       circles[circles.length - 1].isTarget
     ) {
       //add error to event log, show error, increment missCount
-      if (typeof e.pointerType !== 'undefined') {
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
         appendToEventList([
           Date.now(),
           'miss_wrong_mode',
@@ -861,7 +1010,10 @@ const Canvas = (props) => {
       !circles[circles.length - 1].isTarget
     ) {
       //add error to event log, show error, increment missCount
-      if (typeof e.pointerType !== 'undefined') {
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
         appendToEventList([
           Date.now(),
           'miss_up',
@@ -909,7 +1061,10 @@ const Canvas = (props) => {
         )
       ) {
         //add error to event log, show error, increment missCount
-        if (typeof e.pointerType !== 'undefined') {
+        if (
+          typeof e.pointerType !== 'undefined' ||
+          typeof e.pressure !== 'undefined'
+        ) {
           appendToEventList([
             Date.now(),
             'miss_up',
@@ -949,7 +1104,7 @@ const Canvas = (props) => {
         onPointerMove={pointerHandler}
         onMouseMove={mouseHandler}
         onPointerDown={pointerDownHandler}
-        onMouseDown={mouseDownHandler}
+        onMouseDown={pointerDownHandler}
         onMouseUp={pointerUpHandler}
         onPointerUp={pointerUpHandler}
         width={window.innerWidth}
