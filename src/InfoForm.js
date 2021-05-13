@@ -29,9 +29,27 @@ const MODALITIES = [
   },
 ];
 
+function preload(url) {
+  return new Promise((resolve, reject) => {
+    let image = new Image();
+    image.addEventListener('load', () => {
+      resolve(image);
+    });
+    image.addEventListener('error', reject);
+    image.src = url;
+    return image;
+  });
+}
+
 const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
   // We could leave the input uncontrolled, but it is easier this way.
   const [inputValue, setInputValue] = React.useState('');
+
+  React.useEffect(() => {
+    MODALITIES.forEach((img) => {
+      img.elm = preload(img.url);
+    });
+  }, []);
 
   const defaultText = (
     <div>
@@ -40,7 +58,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
 
       <Container fluid>
         <Row>
-          {MODALITIES.map(({ id, url, color }) => (
+          {MODALITIES.map(({ id, url, color, elm }) => (
             <Col key={id}>
               <p>
                 <span
@@ -157,24 +175,21 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         <div>
           <InfoText />
           <Form inline onSubmit={handleSubmit}>
-            <p>
-              <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
-              <Form.Control
-                type="text"
-                value={inputValue}
-                onChange={(event) => setInputValue(event.target.value)}
-                className="my-1 mr-2"
-              />
-            </p>
-            <p>
-              <Button
-                className="my-1 mr-2"
-                type="submit"
-                variant="outline-success"
-              >
-                Submit
-              </Button>
-            </p>
+            <Form.Label className="my-1 mr-2">Participant ID:</Form.Label>
+            <Form.Control
+              type="text"
+              value={inputValue}
+              onChange={(event) => setInputValue(event.target.value)}
+              className="my-1 mr-2"
+            />
+            <p></p>
+            <Button
+              className="my-1 mr-2"
+              type="submit"
+              variant="outline-success"
+            >
+              Submit
+            </Button>
           </Form>
           <p></p>
           <p></p>
