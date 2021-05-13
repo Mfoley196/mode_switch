@@ -48,6 +48,7 @@ function ExpController() {
   const [numOfTasks, setNumOfTasks] = useState(0);
   const [taskIndex, setTaskIndex] = useState(0);
   const [firstInstruction, setFirstInst] = useState(false);
+  const [participantIds, setParticipantIds] = useState([]);
 
   useEffect(() => {
     let isCanceled = false;
@@ -65,6 +66,7 @@ function ExpController() {
         // Dispatching if the component is gone will trigger a React warning.
         if (!isCanceled) {
           dispatch({ type: 'dataReceived', data });
+          setParticipantIds(Object.keys(data));
         }
       })
       .catch((error) => {
@@ -128,6 +130,7 @@ function ExpController() {
         onSubmit={beginOrResume}
         resumeFlag={resumeFlag}
         setResumeFlag={setResumeFlag}
+        participantIds={participantIds}
       />
     )) ||
     ((stage['stage'] === 'task' || stage['stage'] === 'baseline') && (

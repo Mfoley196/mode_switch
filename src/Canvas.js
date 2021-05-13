@@ -876,7 +876,9 @@ const Canvas = (props) => {
       ) &&
       !(
         circles[circles.length - 1].mode === e.pointerType ||
-        circles[circles.length - 1].mode === 'trackpad' ||
+        (e.pointerType === 'mouse' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad')) ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))
@@ -927,7 +929,9 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       ) &&
       (circles[circles.length - 1].mode === e.pointerType ||
-        circles[circles.length - 1].mode === 'trackpad' ||
+        (e.pointerType === 'mouse' &&
+          (circles[circles.length - 1].mode === 'mouse' ||
+            circles[circles.length - 1].mode === 'trackpad')) ||
         (typeof e.pointerType === 'undefined' &&
           (circles[circles.length - 1].mode === 'mouse' ||
             circles[circles.length - 1].mode === 'trackpad'))) &&

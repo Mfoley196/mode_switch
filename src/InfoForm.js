@@ -41,10 +41,9 @@ function preload(url) {
   });
 }
 
-const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
+const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
   // We could leave the input uncontrolled, but it is easier this way.
   const [inputValue, setInputValue] = React.useState('');
-
   React.useEffect(() => {
     MODALITIES.forEach((img) => {
       img.elm = preload(img.url);
@@ -66,7 +65,16 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag }) => {
         );
       }
     } else {
-      onSubmit(inputValue);
+      console.log(inputValue);
+      console.log(participantIds);
+      if (participantIds.indexOf(inputValue > -1)) {
+        onSubmit(inputValue);
+      } else {
+        alert(
+          'This is not a valid participant ID. ' +
+            'Please make sure you typed in your provided participant ID correctly.',
+        );
+      }
     }
   };
 
