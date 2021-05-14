@@ -54,6 +54,8 @@ const Canvas = (props) => {
   } = props;
 
   const [errorFlag, setErrorFlag] = React.useState(false);
+  const [mx, setMouseX] = React.useState(0);
+  const [my, setMouseY] = React.useState(0);
 
   const totalBlocks = stage['stage'] === 'baseline' ? 2 : 4;
 
@@ -269,8 +271,8 @@ const Canvas = (props) => {
   const canvasRef = useCanvas(draw);
 
   const pointerHandler = (e) => {
-    // setMouseX(e.clientX);
-    // setMouseY(e.clientY);
+    setMouseX(e.clientX);
+    setMouseY(e.clientY);
     mouseX = e.clientX;
     mouseY = e.clientY;
 
@@ -288,8 +290,9 @@ const Canvas = (props) => {
   };
 
   const mouseHandler = (e) => {
-    // setMouseX(e.clientX);
-    // setMouseY(e.clientY);
+    setMouseX(e.clientX);
+    setMouseY(e.clientY);
+
     mouseX = e.clientX;
     mouseY = e.clientY;
 
@@ -308,16 +311,6 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
-
-    // const a = typeof e.pointerType === 'undefined';
-    // const b =
-    //   circles[tokenId].mode === 'trackpad' || circles[tokenId].mode === 'mouse';
-    // console.log(a && b);
-    // console.log(
-    //   typeof e.pointerType === 'undefined' &&
-    //     (circles[tokenId].mode === 'trackpad' ||
-    //       circles[tokenId].mode === 'mouse'),
-    // );
 
     if (
       typeof e.pointerType !== 'undefined' ||
@@ -407,18 +400,62 @@ const Canvas = (props) => {
           0,
         ]);
       }
-
-      // appendToEventList([
-      //   Date.now(),
-      //   'token',
-      //   tokenId,
-      //   e.pointerType,
-      //   e.clientX,
-      //   e.clientY,
-      //   e.pressure.toFixed(2),
-      //   e.tiltX,
-      //   e.tiltY,
-      // ]);
+    } else if (
+      //if the user does not click on the token or the center target
+      //with the wrong mode
+      !circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[tokenId].x,
+        circles[tokenId].y,
+        circles[tokenId].r,
+      ) &&
+      !circleHitTest(
+        e.clientX,
+        e.clientY,
+        circles[circles.length - 1].x,
+        circles[circles.length - 1].y,
+        circles[circles.length - 1].r,
+      ) &&
+      !(
+        e.pointerType === circles[tokenId].mode ||
+        (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad') ||
+        (typeof e.pointerType === 'undefined' &&
+          (circles[tokenId].mode === 'trackpad' ||
+            circles[tokenId].mode === 'mouse'))
+      )
+    ) {
+      //console.log('pdown, wrong mode, not target');
+      if (
+        typeof e.pointerType !== 'undefined' ||
+        typeof e.pressure !== 'undefined'
+      ) {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          'null',
+          e.pointerType,
+          e.clientX,
+          e.clientY,
+          e.pressure.toFixed(2),
+          e.tiltX,
+          e.tiltY,
+        ]);
+      } else {
+        appendToEventList([
+          Date.now(),
+          'miss_wrong_mode',
+          'null',
+          'mouse',
+          e.clientX,
+          e.clientY,
+          0.0,
+          0,
+          0,
+        ]);
+      }
+      setErrorFlag(true);
+      setMissCount(missCount + 1);
     } else if (
       //if the user does not click on the token or the center target
       !circleHitTest(
@@ -436,6 +473,7 @@ const Canvas = (props) => {
         circles[circles.length - 1].r,
       )
     ) {
+      //console.log('pdown, not target');
       //Error is added to eventList, screen flashes, increment miss count
       if (
         typeof e.pointerType !== 'undefined' ||
@@ -466,17 +504,6 @@ const Canvas = (props) => {
         ]);
       }
 
-      // appendToEventList([
-      //   Date.now(),
-      //   'miss_down',
-      //   'null',
-      //   e.pointerType,
-      //   e.clientX,
-      //   e.clientY,
-      //   e.pressure.toFixed(2),
-      //   e.tiltX,
-      //   e.tiltY,
-      // ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
     } else if (
@@ -500,6 +527,7 @@ const Canvas = (props) => {
       //   (e.pointerType === 'mouse' && circles[tokenId].mode === 'trackpad')
       // )
     ) {
+      //console.log('pdown, wrong mode');
       if (
         typeof e.pointerType !== 'undefined' ||
         typeof e.pressure !== 'undefined'
@@ -528,18 +556,6 @@ const Canvas = (props) => {
           0,
         ]);
       }
-
-      // appendToEventList([
-      //   Date.now(),
-      //   'miss_wrong_mode',
-      //   'null',
-      //   e.pointerType,
-      //   e.clientX,
-      //   e.clientY,
-      //   e.pressure.toFixed(2),
-      //   e.tiltX,
-      //   e.tiltY,
-      // ]);
       setErrorFlag(true);
       setMissCount(missCount + 1);
     }
@@ -657,8 +673,6 @@ const Canvas = (props) => {
     e.preventDefault();
     xDiff = 0;
     yDiff = 0;
-
-    console.log(e.pointerType);
 
     if (
       typeof e.pointerType !== 'undefined' ||
@@ -799,18 +813,6 @@ const Canvas = (props) => {
       circles[circles.length - 1].isTarget &&
       !circles[circles.length - 1].mouseFirstTarget
     ) {
-      // console.log('here');
-      // console.log(
-      //   (e.pointerType === 'mouse' &&
-      //     (circles[circles.length - 1].mode === 'mouse' ||
-      //       circles[circles.length - 1].mode === 'trackpad'))
-      // );
-      // console.log(
-      //   typeof e.pointerType === 'undefined' &&
-      //     (circles[circles.length - 1].mode === 'mouse' ||
-      //       circles[circles.length - 1].mode === 'trackpad'),
-      // );
-
       //I need to make a copy of the eventList state variable, because it doesn't
       //update quickly enough to have pointerUp events properly added to eventList
       //when advanceTrial() executes.
@@ -893,6 +895,7 @@ const Canvas = (props) => {
       circles[circles.length - 1].isTarget &&
       !circles[circles.length - 1].mouseFirstTarget
     ) {
+      //console.log('pup, wrong mode');
       //add error to event log, show error, increment missCount
       if (
         typeof e.pointerType !== 'undefined' ||
@@ -978,6 +981,7 @@ const Canvas = (props) => {
       circles[circles.length - 1].isTarget
     ) {
       //add error to event log, show error, increment missCount
+      //console.log('pup, wrong mode, first target');
       if (
         typeof e.pointerType !== 'undefined' ||
         typeof e.pressure !== 'undefined'
@@ -1020,6 +1024,7 @@ const Canvas = (props) => {
       ) &&
       !circles[circles.length - 1].isTarget
     ) {
+      //console.log('pup, wrong mode, on center');
       //add error to event log, show error, increment missCount
       if (
         typeof e.pointerType !== 'undefined' ||
@@ -1027,7 +1032,7 @@ const Canvas = (props) => {
       ) {
         appendToEventList([
           Date.now(),
-          'miss_up',
+          'miss_center_not_on',
           'null',
           e.pointerType,
           e.clientX,
@@ -1039,7 +1044,7 @@ const Canvas = (props) => {
       } else {
         appendToEventList([
           Date.now(),
-          'miss_up',
+          'miss_center_not_on',
           'null',
           e.pointerType,
           e.clientX,
@@ -1071,6 +1076,7 @@ const Canvas = (props) => {
           circles[circles.length - 1].r,
         )
       ) {
+        //console.log('pup, wrong placement');
         //add error to event log, show error, increment missCount
         if (
           typeof e.pointerType !== 'undefined' ||
@@ -1119,7 +1125,7 @@ const Canvas = (props) => {
         onMouseUp={pointerUpHandler}
         onPointerUp={pointerUpHandler}
         width={window.innerWidth}
-        height={window.innerHeight}
+        height={window.innerHeight - 10 + 'px'}
         {...rest}
       />
     </div>

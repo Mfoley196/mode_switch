@@ -6,17 +6,7 @@ const GoogleFormSurvey = (props) => {
   let src = `https://docs.google.com/forms/d/e/${formId}/viewform?embedded=true`;
   src = `${src}&${prefillParticipant}=${pNo}`;
 
-  // let src =
-  //   'https://docs.google.com/forms/d/e/1FAIpQLScD4yafH6kjpfTjvYFZx6SyOA9iUW0-aM72L17eo0mT1QkHfA/viewform?embedded=true';
-
   const [hasLoaded, setHasLoaded] = useState();
-  const [loadCount, setLoadCount] = useState(0);
-
-  const SURVEY_PAGES = 1;
-
-  // if (typeof pNo !== 'undefined') {
-  //   src = `${src}&entry.676507866=${pNo}`;
-  // }
 
   function handleLoad() {
     if (hasLoaded) {
@@ -24,16 +14,6 @@ const GoogleFormSurvey = (props) => {
     } else {
       setHasLoaded(true);
     }
-    // if (hasLoaded) {
-    //   setLoadCount(loadCount + 1);
-
-    //   if (loadCount + 1 > SURVEY_PAGES) {
-    //     dispatch({ type: 'next' });
-    //   }
-    // } else {
-    //   setLoadCount(loadCount + 1);
-    //   setHasLoaded(true);
-    // }
   }
 
   return (

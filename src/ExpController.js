@@ -47,7 +47,7 @@ function ExpController() {
   const [fileUploadError, setUploadError] = useState(false);
   const [numOfTasks, setNumOfTasks] = useState(0);
   const [taskIndex, setTaskIndex] = useState(0);
-  const [firstInstruction, setFirstInst] = useState(false);
+  //const [firstInstruction, setFirstInst] = useState(false);
   const [participantIds, setParticipantIds] = useState([]);
 
   useEffect(() => {

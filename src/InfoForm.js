@@ -65,8 +65,6 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
         );
       }
     } else {
-      console.log(inputValue);
-      console.log(participantIds);
       if (participantIds.indexOf(inputValue > -1)) {
         onSubmit(inputValue);
       } else {

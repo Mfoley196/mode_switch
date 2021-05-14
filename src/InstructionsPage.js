@@ -268,7 +268,8 @@ const InstructionsPage = (props) => {
           alt="Not connected mouse on ipadOS."
         />
         <p></p>
-        Please make sure the devices are arranged in the same way as the above picture.
+        Please make sure the devices are arranged in the same way as the above
+        picture.
         <p></p>
         {connectionInst}
         <Button

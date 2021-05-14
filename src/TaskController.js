@@ -234,6 +234,9 @@ const TaskController = (props) => {
 
       addToBlockLog(currMode, eventList, missC);
 
+      // console.log(eventList);
+      // console.log(missCount);
+
       setEventList([]);
       appendToEventList([
         Date.now(),
