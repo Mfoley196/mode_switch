@@ -59,6 +59,7 @@ const ExpDone = (props) => {
     <Container>
       <div className="text-center">
         <p></p>
+        <p></p>
         <p>You have finished the experiment!</p>
 
         <FileDownloadText />

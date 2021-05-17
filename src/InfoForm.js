@@ -51,6 +51,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
   }, []);
 
   const handleSubmit = (evt) => {
+    console.log(inputValue);
+    console.log(participantIds);
     evt.preventDefault();
     if ('currentStage' in localStorage) {
       let state = JSON.parse(localStorage.getItem('currentStage'));
@@ -66,7 +68,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
       }
     } else {
       if (participantIds.indexOf(inputValue > -1)) {
-        onSubmit(inputValue);
+        //onSubmit(inputValue);
       } else {
         alert(
           'This is not a valid participant ID. ' +
@@ -91,6 +93,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
   return (
     <div className="ml-4">
       <Container fluid>
+        <p></p>
         <div>
           {resumeFlag ? <ResumeText /> : <DefaultText />}
           <Form inline onSubmit={handleSubmit}>
@@ -133,8 +136,27 @@ function DefaultText() {
   return (
     <div>
       <p></p>
-      <p>In this experiment, you will...</p>
-
+      <p>
+        In this experiment, you will performing a simple drag and drop task,
+        where you drag a circular token to a target area, while switching
+        between four input devices:{' '}
+      </p>
+      <ul>
+        {MODALITIES.map(({ id, color }) => (
+          <li key={id}>
+            <span
+              style={{
+                backgroundColor: 'black',
+                color,
+                textTransform: 'capitalize',
+              }}
+            >
+              {id}
+            </span>{' '}
+          </li>
+        ))}
+      </ul>
+      <p>Tokens are color coded to show which device you should use:</p>
       <Container fluid>
         <Row>
           {MODALITIES.map(({ id, url, color, elm }) => (
@@ -149,7 +171,7 @@ function DefaultText() {
                 >
                   {id}
                 </span>{' '}
-                targets look like this:
+                tokens look like this:
               </p>
 
               <img src={url} width="100px" alt={`${id} token`} />
@@ -158,11 +180,13 @@ function DefaultText() {
           ))}
         </Row>
       </Container>
-
       <hr />
-
+      <p></p>
+      <b>Task:</b>
+      <p></p>
+      Get token with device, drag it to the target area, with dashed lines.
+      Targets are arranged in a circle
       <p>See the task in action in the video below:</p>
-
       <video controls loop muted>
         <source
           src={process.env.PUBLIC_URL + '/videos/taskVid.mp4'}
@@ -170,26 +194,35 @@ function DefaultText() {
         ></source>
       </video>
       <p></p>
-
       <p>
         If you do not successfully put the token in the target, or if you
         attempt to hit a token with the wrong device, the screen will briefly
         flash red.
       </p>
-
       <p>After the screen flashes red, you can continue the task.</p>
-
       <p>See what an error looks like in the video below:</p>
-
       <video controls loop muted>
         <source
           src={process.env.PUBLIC_URL + '/videos/errorVid.mp4'}
           type="video/mp4"
         ></source>
       </video>
-
       <hr />
-
+      <p></p>
+      <b>Experiment Structure:</b>
+      <p></p>
+      <p>
+        You will complete 6 pairs of device switches, with four blocks for each
+        pair. Before and after the switching task, you will perform two baseline
+        blocks with the devices used for the switching task.
+      </p>
+      <p>For the Pen & Touch task, you would complete these blocks:</p>
+      <p>Pen1 Touch1 PenTouch1 PenTouch2 PenTouch3 PenTouch4 Touch2 Pen2</p>
+      <p></p>
+      <p>
+        you can view your overall progress before and after completing a block.
+      </p>
+      <hr />
       <p></p>
       <p>
         Please enter the participant ID provided to you, and hit
