@@ -51,8 +51,6 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
   }, []);
 
   const handleSubmit = (evt) => {
-    console.log(inputValue);
-    console.log(participantIds);
     evt.preventDefault();
     if ('currentStage' in localStorage) {
       let state = JSON.parse(localStorage.getItem('currentStage'));
@@ -67,8 +65,8 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
         );
       }
     } else {
-      if (participantIds.indexOf(inputValue > -1)) {
-        //onSubmit(inputValue);
+      if (participantIds.indexOf(inputValue) > -1) {
+        onSubmit(inputValue);
       } else {
         alert(
           'This is not a valid participant ID. ' +
@@ -136,6 +134,9 @@ function DefaultText() {
   return (
     <div>
       <p></p>
+      <p></p>
+      <h1>Mode Switching Experiment</h1>
+      <p></p>
       <p>
         In this experiment, you will performing a simple drag and drop task,
         where you drag a circular token to a target area, while switching
@@ -182,7 +183,7 @@ function DefaultText() {
       </Container>
       <hr />
       <p></p>
-      <b>Task:</b>
+      <h2>Task:</h2>
       <p></p>
       <p>
         Get token with device, drag it to the target area, with dashed lines.
@@ -212,7 +213,7 @@ function DefaultText() {
       </video>
       <hr />
       <p></p>
-      <b>Experiment Structure:</b>
+      <h3>Experiment Structure:</h3>
       <p></p>
       <p>
         You will complete 6 pairs of device switches, with four blocks for each
