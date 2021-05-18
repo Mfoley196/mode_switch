@@ -6,10 +6,10 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 const InstructionsPage = (props) => {
-  const { dispatch, stage, setTaskIndex, taskIndex, numOfTasks } = props;
+  const { dispatch, stage, timelineIndex, numOfTasks } = props;
   const [open, setOpen] = useState(false);
 
-  const completion = Math.round((taskIndex / numOfTasks) * 100);
+  const completion = Math.round((timelineIndex / numOfTasks) * 100);
 
   const PEN_COLOR = '#FFFF00';
   const MOUSE_COLOR = '#00CCCC';
@@ -228,7 +228,7 @@ const InstructionsPage = (props) => {
   function handleClick(e) {
     //console.log(stage);
     e.preventDefault();
-    setTaskIndex(taskIndex + 1);
+    //setTaskIndex(taskIndex + 1);
     dispatch({ type: 'next' });
   }
 

@@ -47,7 +47,6 @@ const Canvas = (props) => {
     setMissCount,
     canvasY,
     numOfTasks,
-    taskIndex,
     timeline,
     timelineIndex,
     ...rest
@@ -166,7 +165,7 @@ const Canvas = (props) => {
 
     ctx.fillStyle = 'white';
     ctx.fillText(
-      'Progress: ' + Math.round((taskIndex / numOfTasks) * 100) + '%',
+      'Progress: ' + Math.round((timelineIndex / numOfTasks) * 100) + '%',
       10,
       80,
     );
@@ -311,6 +310,11 @@ const Canvas = (props) => {
 
   const pointerDownHandler = (e) => {
     e.preventDefault();
+
+    // if (e.clientX < 100 && e.clientY > window.innerHeight - 110) {
+    //   console.log('skip!')
+    //   advanceTrial(currPathIndex, circles[tokenId].mode, [], missCount);
+    // }
 
     if (
       typeof e.pointerType !== 'undefined' ||

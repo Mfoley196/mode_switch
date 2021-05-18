@@ -4,8 +4,8 @@ import Container from 'react-bootstrap/Container';
 import Spinner from 'react-bootstrap/Spinner';
 
 const DataLogger = (props) => {
-  const { uploadWorked, taskIndex, numOfTasks, onSubmit } = props;
-  const completion = Math.round((taskIndex / numOfTasks) * 100);
+  const { uploadWorked, timelineIndex, numOfTasks, onSubmit } = props;
+  const completion = Math.round((timelineIndex / numOfTasks) * 100);
 
   const successText = (
     <div className="text-center">

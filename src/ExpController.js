@@ -37,7 +37,7 @@ const surveyPrefills = {
 
 function ExpController() {
   const [
-    { stage, participantNumber, timelineIndex, timeline, error },
+    { stage, participantNumber, timelineIndex, timeline, error, taskIndex },
     dispatch,
   ] = useReducer(reducer, DEFAULT_STATE);
   const [expLog, setExpLog] = useState({});
@@ -46,7 +46,7 @@ function ExpController() {
   const [resumeState, setResumeState] = useState({});
   const [fileUploadError, setUploadError] = useState(false);
   const [numOfTasks, setNumOfTasks] = useState(0);
-  const [taskIndex, setTaskIndex] = useState(0);
+  //const [taskIndex, setTaskIndex] = useState(0);
   //const [firstInstruction, setFirstInst] = useState(false);
   const [participantIds, setParticipantIds] = useState([]);
 
@@ -106,11 +106,11 @@ function ExpController() {
       let tl = resumeState.timelineIndex;
       let pID = participantId;
       let st = resumeState.stage;
-      setTaskIndex(resumeState.taskIndex);
+      //setTaskIndex(resumeState.taskIndex);
       dispatch({ type: 'goToIndex', tl, pID, st });
     } else {
       dispatch({ type: 'start', participantId, setNumOfTasks });
-      setTaskIndex(0);
+      //setTaskIndex(0);
     }
   }
 
@@ -147,8 +147,6 @@ function ExpController() {
           setBlockLog={setBlockLog}
           fileUploadError={fileUploadError}
           setUploadError={setUploadError}
-          taskIndex={taskIndex}
-          setTaskIndex={setTaskIndex}
           numOfTasks={numOfTasks}
         />
       </div>
@@ -157,8 +155,7 @@ function ExpController() {
       <InstructionsPage
         dispatch={dispatch}
         stage={stage}
-        setTaskIndex={setTaskIndex}
-        taskIndex={taskIndex}
+        timelineIndex={timelineIndex}
         numOfTasks={numOfTasks}
       />
     )) ||

@@ -19,8 +19,6 @@ const TaskController = (props) => {
     setBlockLog,
     fileUploadError,
     setUploadError,
-    taskIndex,
-    setTaskIndex,
     numOfTasks,
   } = props;
   const [path, setPath] = useState(
@@ -292,7 +290,6 @@ const TaskController = (props) => {
         setMissCount={setMissCount}
         canvasY={CANVAS_Y}
         numOfTasks={numOfTasks}
-        taskIndex={taskIndex}
         timeline={timeline}
         timelineIndex={timelineIndex}
       />
@@ -300,7 +297,7 @@ const TaskController = (props) => {
     (uploading && (
       <DataLogger
         uploadWorked={uploadWorked}
-        taskIndex={taskIndex}
+        timelineIndex={timelineIndex}
         numOfTasks={numOfTasks}
         onSubmit={() => {
           setUploading(false);
@@ -323,7 +320,6 @@ const TaskController = (props) => {
             setTokenId(newPath[0][0]);
             setTargetId(newPath[0][1]);
           }
-          setTaskIndex(taskIndex + 1);
           dispatch({ type: 'next' });
         }}
       />
