@@ -219,6 +219,17 @@ timelines['speed2'] = [
     {"stage" : "done"}
 ]
 
+timelines['training'] = [
+    {"stage" : "info"},
+    {"stage" : "instruction",
+    "conds": ["pen", "touch"]},
+    {"stage": "task",
+    "conds": ["pen", "touch"],
+    "block" : "1",
+    "startPos" : 2},
+    {"stage" : "done"}
+]
+
 timelines['test1'] = timelines[1]
 timelines['test2'] = timelines[2]
 timelines['test3'] = timelines[3]

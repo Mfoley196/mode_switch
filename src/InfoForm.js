@@ -210,7 +210,7 @@ function DefaultText() {
       <h4>Errors:</h4>
       <p></p>
       <p>
-        If you do not successfully put the token in the target, or if you
+        If you do not successfully put the token on the target, or if you
         attempt to hit a token with the wrong device (for example, if you try to
         move a touch token with the pen), the screen will briefly flash red.
       </p>
@@ -229,16 +229,18 @@ function DefaultText() {
       <p>
         You will complete 6 pairs of device switches, with four blocks for each
         pair. Before and after the switching task, you will perform two baseline
-        blocks with the devices used for the switching task.
+        blocks with the devices used for the switching task. There are 14 trials
+        in a device switching block, and 7 trials in a baseline block.
       </p>
       <p>
         As an example, for the Pen & Touch task, you would complete the
         following blocks:
       </p>
       <p>
-        &emsp;Pen Baseline - Block 1; Touch Baseline - Block 1; Pen & Touch -
-        Block 1; Pen & Touch - Block 2; Pen & Touch - Block 3; Pen & Touch -
-        Block 4; Touch Baseline - Block 2; Pen Baseline - Block 2
+        &emsp;Pen Baseline - <b>Block 1</b>; Touch Baseline - <b>Block 1</b>;
+        Pen & Touch -<b>Block 1</b>; Pen & Touch - <b>Block 2</b>; Pen & Touch -{' '}
+        <b>Block 3</b>; Pen & Touch -<b>Block 4</b>; Touch Baseline -{' '}
+        <b>Block 2</b>; Pen Baseline - <b>Block 2</b>;
       </p>
       <p></p>
       <p>
