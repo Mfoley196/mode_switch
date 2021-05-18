@@ -251,7 +251,7 @@ const InstructionsPage = (props) => {
   }
 
   return (
-    <div className="ml-4">
+    <div className="ml-4" style={{ fontSize: 'larger' }}>
       <Container fluid>
         <p></p>
         <p>

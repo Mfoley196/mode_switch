@@ -96,7 +96,7 @@ const InfoForm = ({ onSubmit, resumeFlag, setResumeFlag, participantIds }) => {
           {resumeFlag ? <ResumeText /> : <DefaultText />}
           <Form inline onSubmit={handleSubmit}>
             <p>
-              <Form.Label className="my-1 mr-2">
+              <Form.Label className="my-1 mr-2" style={{ fontSize: 'larger' }}>
                 Participant ID:
                 <Form.Control
                   style={{ marginLeft: '0.5em' }}

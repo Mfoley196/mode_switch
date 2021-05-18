@@ -57,7 +57,7 @@ const ExpDone = (props) => {
 
   return (
     <Container>
-      <div className="text-center">
+      <div className="text-center" style={{ fontSize: 'larger' }}>
         <p></p>
         <p></p>
         <p>You have finished the experiment!</p>

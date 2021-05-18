@@ -81,9 +81,11 @@ const ConsentForm = (props) => {
   }
 
   return (
-    <div className="ml-4">
+    <div className="ml-4" style={{ fontSize: 'larger' }}>
       <Container fluid>
         <ReactMarkdown source={markdown} />
+
+        <hr />
 
         <Form>
           {questions.map((question) => {

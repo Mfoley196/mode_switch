@@ -78,7 +78,7 @@ const DataLogger = (props) => {
 
   return (
     <Container>
-      <div>
+      <div style={{ fontSize: 'larger' }}>
         <UploadStatus />
       </div>
     </Container>
