@@ -43,18 +43,19 @@ for p in range(len(cond_matrix)):
     for i in range(len(cond_matrix[p])):
         #tl.append("instruction," + cond_matrix[p][i])
         conds = cond_matrix[p][i].split(',')
-        shuffle(conds)
+        baselineOrd = list(conds)
+        shuffle(baselineOrd)
 
-        tl.append({"stage" : "instruction", "conds": [conds[0], conds[0]]})
+        tl.append({"stage" : "instruction", "conds": [baselineOrd[0], baselineOrd[0]]})
         tl.append({"stage" : "baseline", 
-            "conds": [conds[0], conds[0]],
-            "for": [conds[0], conds[1]],
+            "conds": [baselineOrd[0], baselineOrd[0]],
+            "for": [baselineOrd[0], baselineOrd[1]],
             "block": "1",
             "startPos": randint(0, NUM_OF_CIRCS)})
-        tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
+        tl.append({"stage": "instruction", "conds": [baselineOrd[1],  baselineOrd[1]]})
         tl.append({"stage" : "baseline", 
-            "conds": [conds[1], conds[1]],
-            "for": [conds[0], conds[1]],
+            "conds": [baselineOrd[1], baselineOrd[1]],
+            "for": [baselineOrd[0], baselineOrd[1]],
             "block": "1",
             "startPos": randint(0, NUM_OF_CIRCS)})
 
@@ -68,16 +69,16 @@ for p in range(len(cond_matrix)):
 
         tl.append({"stage" :"survey", "conds": conds[0] + conds[1]})
 
-        tl.append({"stage": "instruction", "conds": [conds[1],  conds[1]]})
+        tl.append({"stage": "instruction", "conds": [baselineOrd[1],  baselineOrd[1]]})
         tl.append({"stage" : "baseline", 
-            "conds": [conds[1], conds[1]],
-            "for": [conds[0], conds[1]],
+            "conds": [baselineOrd[1], baselineOrd[1]],
+            "for": [baselineOrd[0], baselineOrd[1]],
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
-        tl.append({"stage" : "instruction", "conds": [conds[0], conds[0]]})
+        tl.append({"stage" : "instruction", "conds": [baselineOrd[0], baselineOrd[0]]})
         tl.append({"stage" : "baseline", 
-            "conds": [conds[0], conds[0]],
-            "for": [conds[0], conds[1]],
+            "conds": [baselineOrd[0], baselineOrd[0]],
+            "for": [baselineOrd[0], baselineOrd[1]],
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
 

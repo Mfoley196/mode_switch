@@ -184,8 +184,11 @@ function DefaultText() {
       <p></p>
       <b>Task:</b>
       <p></p>
-      Get token with device, drag it to the target area, with dashed lines.
-      Targets are arranged in a circle
+      <p>
+        Get token with device, drag it to the target area, with dashed lines.
+        You can tell when the token is entirely within the target area when the
+        token changes color. Targets are arranged in a circle.
+      </p>
       <p>See the task in action in the video below:</p>
       <video controls loop muted>
         <source
@@ -196,8 +199,8 @@ function DefaultText() {
       <p></p>
       <p>
         If you do not successfully put the token in the target, or if you
-        attempt to hit a token with the wrong device, the screen will briefly
-        flash red.
+        attempt to hit a token with the wrong device (for example, if you try to
+        move a touch token with the pen), the screen will briefly flash red.
       </p>
       <p>After the screen flashes red, you can continue the task.</p>
       <p>See what an error looks like in the video below:</p>
@@ -216,8 +219,15 @@ function DefaultText() {
         pair. Before and after the switching task, you will perform two baseline
         blocks with the devices used for the switching task.
       </p>
-      <p>For the Pen & Touch task, you would complete these blocks:</p>
-      <p>Pen1 Touch1 PenTouch1 PenTouch2 PenTouch3 PenTouch4 Touch2 Pen2</p>
+      <p>
+        As an example, for the Pen & Touch task, you would complete the
+        following blocks:
+      </p>
+      <p>
+        &emsp;Pen Baseline - Block 1; Touch Baseline - Block 1; Pen & Touch -
+        Block 1; Pen & Touch - Block 2; Pen & Touch - Block 3; Pen & Touch -
+        Block 4; Touch Baseline - Block 2; Pen Baseline - Block 2
+      </p>
       <p></p>
       <p>
         you can view your overall progress before and after completing a block.
