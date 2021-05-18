@@ -132,7 +132,7 @@ InfoForm.propTypes = { onSubmit: PropTypes.func.isRequired };
 
 function DefaultText() {
   return (
-    <div>
+    <div style={{ fontSize: 'larger' }}>
       <p></p>
       <p></p>
       <h1>Mode Switching Experiment</h1>
@@ -140,7 +140,7 @@ function DefaultText() {
       <p>
         In this experiment, you will performing a simple drag and drop task,
         where you drag a circular token to a target area, while switching
-        between four input devices:{' '}
+        between the following four input devices:{' '}
       </p>
       <ul>
         {MODALITIES.map(({ id, color }) => (
@@ -186,10 +186,18 @@ function DefaultText() {
       <h2>Task:</h2>
       <p></p>
       <p>
-        Get token with device, drag it to the target area, with dashed lines.
-        You can tell when the token is entirely within the target area when the
-        token changes color. Targets are arranged in a circle.
+        To drag the token, tap on it with the correct device (as indicated by
+        the token color). Then, drag the token to the circular target area. This
+        target area has dashed lines, and is the same color as the token. You
+        can tell when the token is correctly in the target area when the token
+        changes color. Lift the device to release the token.
       </p>
+      <p>
+        After dragging the token to the target, the center target will be
+        enabled, with the same color as the token. Simply tap the center target
+        with the same device you used to drag the token to complete the trial!
+      </p>
+      <p></p>
       <p>See the task in action in the video below:</p>
       <video controls loop muted>
         <source
@@ -197,6 +205,9 @@ function DefaultText() {
           type="video/mp4"
         ></source>
       </video>
+      <p></p>
+      <p></p>
+      <h4>Errors:</h4>
       <p></p>
       <p>
         If you do not successfully put the token in the target, or if you
@@ -231,7 +242,8 @@ function DefaultText() {
       </p>
       <p></p>
       <p>
-        you can view your overall progress before and after completing a block.
+        You can view your overall progress in the experiment before and after
+        completing a block.
       </p>
       <hr />
       <p></p>
@@ -245,7 +257,7 @@ function DefaultText() {
 
 function ResumeText() {
   return (
-    <div>
+    <div style={{ fontSize: 'larger' }}>
       <p></p>
       <p>You may have accidentally refreshed the web page.</p>
       <p>
