@@ -61,7 +61,11 @@ const Canvas = (props) => {
   let blockNum = stage['block'];
 
   if (stage['stage'] === 'baseline') {
-    if (timeline[timelineIndex - 2]['stage'] === 'baseline') {
+    if (
+      timeline[timelineIndex - 2]['stage'] === 'baseline' &&
+      JSON.stringify(stage['for']) ===
+        JSON.stringify(timeline[timelineIndex - 2]['for'])
+    ) {
       blockNum = 2;
     } else {
       blockNum = 1;

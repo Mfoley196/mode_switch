@@ -228,9 +228,10 @@ function DefaultText() {
       <p></p>
       <p>
         You will complete 6 pairs of device switches, with four blocks for each
-        pair. Before and after the switching task, you will perform two baseline
-        blocks with the devices used for the switching task. There are 14 trials
-        in a device switching block, and 7 trials in a baseline block.
+        pair. Before and after the switching task, you will perform two
+        &quot;baseline&quot; blocks with the devices used for the switching
+        task. There are 14 trials in a device switching block, and 7 trials in a
+        &quot;baseline&quot; block.
       </p>
       <p>
         As an example, for the Pen & Touch task, you would complete the
@@ -238,8 +239,8 @@ function DefaultText() {
       </p>
       <p>
         &emsp;Pen Baseline - <b>Block 1</b>; Touch Baseline - <b>Block 1</b>;
-        Pen & Touch -<b>Block 1</b>; Pen & Touch - <b>Block 2</b>; Pen & Touch -{' '}
-        <b>Block 3</b>; Pen & Touch -<b>Block 4</b>; Touch Baseline -{' '}
+        Pen & Touch - <b>Block 1</b>; Pen & Touch - <b>Block 2</b>; Pen & Touch
+        - <b>Block 3</b>; Pen & Touch -<b>Block 4</b>; Touch Baseline -{' '}
         <b>Block 2</b>; Pen Baseline - <b>Block 2</b>;
       </p>
       <p></p>
@@ -251,7 +252,7 @@ function DefaultText() {
       <p></p>
       <p>
         Please enter the participant ID provided to you, and hit
-        &ldquo;Submit&rdquo; to begin the experiment:
+        &quot;Submit&quot; to begin the experiment:
       </p>
     </div>
   );
