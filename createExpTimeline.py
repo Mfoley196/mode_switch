@@ -67,8 +67,6 @@ for p in range(len(cond_matrix)):
                 "block": j+1,
                 "startPos": randint(0, NUM_OF_CIRCS)})
 
-        tl.append({"stage" :"survey", "conds": conds[0] + conds[1]})
-
         tl.append({"stage": "instruction", "conds": [baselineOrd[1],  baselineOrd[1]]})
         tl.append({"stage" : "baseline", 
             "conds": [baselineOrd[1], baselineOrd[1]],
@@ -81,6 +79,8 @@ for p in range(len(cond_matrix)):
             "for": [baselineOrd[0], baselineOrd[1]],
             "block": "2",
             "startPos": randint(0, NUM_OF_CIRCS)})
+
+        tl.append({"stage" :"survey", "conds": conds[0] + conds[1]})
 
 
     

@@ -143,7 +143,7 @@ const TaskController = (props) => {
         '_B' +
         uploadLog[0].block +
         '_' +
-        new Date().toISOString() +
+        new Date().toISOString().replace(':', '') +
         '.txt';
     } else {
       fileName =
@@ -157,7 +157,7 @@ const TaskController = (props) => {
         '_B' +
         uploadLog[0].block +
         '_' +
-        new Date().toISOString() +
+        new Date().toISOString().replace(':', '') +
         '.txt';
     }
 
