@@ -40,6 +40,7 @@ for p in range(len(cond_matrix)):
     tl = []
     tl.append({"stage": 'info'})
     tl.append({"stage": 'consent'})
+    tl.append({"stage" :"survey", "conds": 'end'})
     for i in range(len(cond_matrix[p])):
         #tl.append("instruction," + cond_matrix[p][i])
         conds = cond_matrix[p][i].split(',')
@@ -82,9 +83,6 @@ for p in range(len(cond_matrix)):
 
         tl.append({"stage" :"survey", "conds": conds[0] + conds[1]})
 
-
-    
-    tl.append({"stage" :"survey", "conds": 'end'})
     tl.append({"stage" :"done"})
     timelines[p+1] = tl
 
