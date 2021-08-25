@@ -95,7 +95,6 @@ timelines['desktop'] = [
     "conds": ["trackpad", 'mouse'],
     "block" : "1",
     "startPos" : 6},
-    {"stage": "survey", "conds": "trackpadmouse"},
     {"stage": "task",
     "conds": ["mouse", "trackpad"],
     "block" : "2",
@@ -145,7 +144,6 @@ timelines['touchpen'] = [
     "conds": ["pen", "touch"],
     "block" : "3",
     "startPos" : 2},
-    {"stage": "survey", "conds": "end"},
     {"stage" : "done"}
 ]
 
@@ -227,6 +225,82 @@ timelines['training'] = [
     "startPos" : 2},
     {"stage" : "done"}
 ]
+
+timelines['baseline'] = [
+    {"stage" : "info"},
+    {"stage" : "instruction",
+    "conds": ["mouse", "mouse"]},
+    {"stage": "baseline",
+    "conds": ["mouse", "mouse"],
+    "for": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 6},
+    {"stage" : "instruction",
+    "conds": ["pen", "pen"]},
+    {"stage": "baseline",
+    "conds": ["pen", "pen"],
+    "for": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 5},
+    {"stage" : "instruction",
+    "conds": ["touch", "touch"]},
+    {"stage": "baseline",
+    "conds": ["touch", "touch"],
+    "for": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 4},
+    {"stage" : "instruction",
+    "conds": ["trackpad", "trackpad"]},
+    {"stage": "baseline",
+    "conds": ["trackpad", "trackpad"],
+    "for": ["mouse", "mouse"],
+    "block" : "1",
+    "startPos" : 3},
+    {"stage" : "done"}
+]
+
+timelines['conds'] = [
+    {"stage" : "info"},
+    {"stage" : "instruction",
+    "conds": ["touch", "pen"]},
+    {"stage": "task",
+    "conds": ["touch", "pen"],
+    "block" : "1",
+    "startPos" : 3}, 
+    {"stage" : "instruction",
+    "conds": ["touch", "mouse"]},
+    {"stage": "task",
+    "conds": ["touch", "mouse"],
+    "block" : "1",
+    "startPos" : 3}, 
+    {"stage" : "instruction",
+    "conds": ["mouse", "pen"]},
+    {"stage": "task",
+    "conds": ["mouse", "pen"],
+    "block" : "1",
+    "startPos" : 3},   
+    {"stage" : "instruction",
+    "conds": ["mouse", "trackpad"]},
+    {"stage": "task",
+    "conds": ["mouse", "trackpad"],
+    "block" : "1",
+    "startPos" : 3}, 
+    {"stage" : "instruction",
+    "conds": ["trackpad", "pen"]},
+    {"stage": "task",
+    "conds": ["trackpad", "pen"],
+    "block" : "1",
+    "startPos" : 3},
+    {"stage" : "instruction",
+    "conds": ["trackpad", "touch"]},
+    {"stage": "task",
+    "conds": ["trackpad", "touch"],
+    "block" : "1",
+    "startPos" : 3},   
+    {"stage" : "done"}
+
+]
+
 
 timelines['test1'] = timelines[1]
 timelines['test2'] = timelines[2]
