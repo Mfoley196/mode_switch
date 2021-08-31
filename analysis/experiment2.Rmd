@@ -72,7 +72,7 @@ is_outlier <- function(column) {
 ```{r message=FALSE, warning=FALSE}
 # Fetch the trial data.
 data.i <- read_csv(
-  "experiment2_data1.csv",
+  "experiment2_data.csv",
   # I am using col_types to enforce the type of the data, and safely fail
   # if it changes unexpectedly. It isn't really required, but still good
   # practice.
